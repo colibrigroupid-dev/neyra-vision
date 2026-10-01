@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neyra Vision — AI-кинопроизводство · Алматы · Джакарта · Сингапур</title>
+<meta name="description" content="Neyra Vision Studio — продакшн-студия полного цикла: от сценария до готового фильма по технологии NEYRA. Казахстан, Индонезия, Сингапур.">
+<meta property="og:title" content="Neyra Vision — AI-кинопроизводство">
+<meta property="og:description" content="Продакшн-студия полного цикла по технологии NEYRA. Алматы · Джакарта · Сингапур.">
+<meta property="og:image" content="https://neyra.vision/assets/logo-poster.jpg">
+<meta property="og:url" content="https://neyra.vision/">
+<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#05080b; --ink-2:#0b1016; --ink-3:#121a22;
+    --line:#1d2731;
+    --paper:#e9eef1; --mute:#8d99a3;
+    --cyan:#5fd8e6; --cyan-deep:#2aa7b6;
+    --gold:#c9a25e;
+    --disp:"Oswald","Arial Narrow",sans-serif;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  ::selection{background:var(--cyan);color:var(--ink)}
+
+  .en{display:none}
+  body.lang-en .en{display:revert}
+  body.lang-en .ru{display:none}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  .bar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;
+    padding:16px 26px;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  .bar.solid{background:rgba(5,8,11,.84);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom-color:rgba(29,39,49,.7)}
+  .bar .brand{display:flex;align-items:center;gap:12px;font-family:var(--disp);font-weight:600;letter-spacing:.34em;font-size:14px;text-decoration:none}
+  .bar .brand img{width:28px;height:28px}
+  .bar .brand b{color:var(--cyan);font-weight:600}
+  .bar nav{display:flex;gap:26px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  .bar nav a{text-decoration:none}
+  .bar nav a:hover{color:var(--paper)}
+  @media (max-width:860px){.bar nav{display:none}}
+  .langs{display:flex;gap:2px;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:rgba(5,8,11,.5)}
+  .langs button{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--mute);background:none;border:0;padding:6px 13px;cursor:pointer}
+  .langs button.on{color:var(--ink);background:var(--paper)}
+  .langs button:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;height:100svh;min-height:620px;display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;z-index:-2;background:#000}
+  .hero .bg video,.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+  .hero .scrim{position:absolute;inset:0;z-index:-1;
+    background:
+      linear-gradient(180deg,rgba(5,8,11,.55) 0%,rgba(5,8,11,0) 25%),
+      linear-gradient(180deg,rgba(5,8,11,0) 45%,rgba(5,8,11,.88) 82%,var(--ink) 100%)}
+  .hero .inner{width:100%;max-width:1100px;margin:0 auto;padding:0 24px 9vh}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--cyan)}
+  .hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(58px,11vw,150px);line-height:.92;letter-spacing:.06em;margin:16px 0 10px;text-transform:uppercase;
+    background:linear-gradient(180deg,#ffffff 50%,#9fb3bd);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .logline{max-width:36em;font-size:clamp(17px,2.1vw,21px);color:#d3dbe0}
+  .hero .meta{margin-top:26px;font-family:var(--mono);font-size:12.5px;color:var(--mute);letter-spacing:.14em;text-transform:uppercase}
+  .hero .meta span.sep{color:var(--cyan);margin:0 10px}
+  .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:1px;height:56px;overflow:hidden;opacity:.7}
+  .scrollcue::before{content:"";position:absolute;left:0;top:-56px;width:1px;height:56px;background:linear-gradient(180deg,transparent,var(--paper));animation:cue 2.2s ease-in-out infinite}
+  @keyframes cue{to{top:56px}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative;padding:110px 0}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+  .eyebrow::before{content:"";display:inline-block;width:34px;height:1px;background:var(--cyan);vertical-align:middle;margin-right:14px}
+  h2{font-family:var(--disp);font-weight:500;font-size:clamp(32px,4.6vw,52px);line-height:1.05;letter-spacing:.015em;text-wrap:balance;margin-bottom:26px;text-transform:uppercase}
+  p{max-width:60ch}
+  .lead{font-size:clamp(18px,2vw,21px);color:#d3dbe0}
+  .text p+p{margin-top:16px}
+
+  .statement{padding:120px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .statement p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(28px,4.6vw,50px);line-height:1.25;max-width:24em;color:#e4ebef;text-wrap:balance}
+  .statement .src{font-family:var(--mono);font-style:normal;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:26px}
+
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:56px}
+  .fact{padding:40px 22px;text-align:center;position:relative}
+  .fact+.fact::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
+  .fact .n{font-family:var(--disp);font-weight:600;font-size:46px;line-height:1;color:#f2f6f8}
+  .fact .n small{font-size:22px;color:var(--gold)}
+  .fact .l{margin-top:12px;font-family:var(--mono);font-size:11.5px;color:var(--mute);letter-spacing:.16em;text-transform:uppercase;line-height:1.6}
+  @media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(3)::before{display:none}}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  @media (max-width:860px){.cols{grid-template-columns:1fr;gap:40px}}
+
+  /* pipeline */
+  ol.steps{list-style:none;max-width:none;counter-reset:st;margin-top:30px}
+  ol.steps li{display:grid;grid-template-columns:90px 1fr 1.1fr;gap:26px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line);counter-increment:st}
+  ol.steps li:first-child{border-top:1px solid var(--line)}
+  ol.steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--disp);font-size:30px;color:var(--cyan);letter-spacing:.06em}
+  ol.steps b{font-family:var(--disp);font-weight:500;font-size:21px;letter-spacing:.03em;text-transform:uppercase;display:block}
+  ol.steps .sub{color:var(--mute);font-size:15.5px}
+  ol.steps .t{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+  @media (max-width:860px){ol.steps li{grid-template-columns:54px 1fr}ol.steps .sub{grid-column:2}}
+
+  /* projects */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+  @media (max-width:860px){.grid2{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);background:var(--ink-2)}
+  .card .pic{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--ink-3)}
+  .card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .card:hover .pic img{transform:scale(1.03)}
+  .card .pic.typo{display:flex;align-items:center;justify-content:center;background:
+    radial-gradient(70% 90% at 50% 50%, rgba(95,216,230,.12), transparent 70%), var(--ink-3)}
+  .card .pic.typo .big{font-family:var(--disp);font-weight:600;font-size:clamp(40px,6vw,68px);letter-spacing:.12em;text-transform:uppercase;color:#f2f6f8;text-align:center;line-height:1}
+  .card .pic.typo .big small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.3em;color:var(--cyan);margin-top:14px}
+  .card .pic.typo img{width:120px;height:120px;object-fit:contain}
+  .card .body{padding:22px 24px 26px}
+  .card .pname{font-family:var(--disp);font-weight:500;font-size:22px;letter-spacing:.04em;text-transform:uppercase;color:#f2f6f8}
+  .card .ptype{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin:6px 0 10px}
+  .card .pdesc{font-size:15px;color:var(--mute);line-height:1.6}
+  .card .award{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,162,94,.4);padding:5px 10px}
+
+  /* showreel */
+  .vidwrap{position:relative;aspect-ratio:16/9;background:var(--ink-2);border:1px solid var(--line);margin-top:34px}
+  .vidwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .strip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:6px}
+  .strip img{aspect-ratio:16/9;object-fit:cover;width:100%;border:1px solid var(--line);opacity:.85}
+  @media (max-width:860px){.strip{grid-template-columns:repeat(3,1fr)}}
+
+  /* kazakhstan: two paths */
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+  @media (max-width:860px){.paths{grid-template-columns:1fr}}
+  .path{border:1px solid var(--line);background:var(--ink-2);padding:34px 30px 32px}
+  .path.hi{border-color:rgba(201,162,94,.5)}
+  .path .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .path.hi .k{color:var(--cyan)}
+  .path h3{font-family:var(--disp);font-weight:500;font-size:30px;letter-spacing:.03em;text-transform:uppercase;color:#f2f6f8;margin-bottom:12px}
+  .path p{font-size:15.5px;color:#c7d0d6}
+  .path p+p{margin-top:10px;color:var(--mute)}
+  .path .go{display:inline-block;margin-top:24px;font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--paper);padding:14px 26px;text-decoration:none;transition:background .25s,color .25s}
+  .path .go:hover{background:var(--cyan)}
+  .partners{display:flex;align-items:center;gap:34px;margin-top:48px;flex-wrap:wrap}
+  .partners img{height:64px;width:auto;opacity:.9}
+  .partners .x{font-family:var(--mono);color:var(--mute);font-size:14px}
+  .partners .cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);flex-basis:100%}
+
+  /* team */
+  .team{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+  @media (max-width:860px){.team{grid-template-columns:1fr}}
+  .tm{border:1px solid var(--line);background:var(--ink-2);display:grid;grid-template-columns:180px 1fr;gap:0}
+  .tm img{width:180px;height:100%;object-fit:cover;aspect-ratio:1/1}
+  .tm .b{padding:22px 24px}
+  .tm .n{font-family:var(--disp);font-weight:500;font-size:22px;letter-spacing:.04em;text-transform:uppercase;color:#f2f6f8}
+  .tm .r{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:6px 0 10px;line-height:1.7}
+  .tm p{font-size:14.5px;color:var(--mute);line-height:1.6}
+  @media (max-width:560px){.tm{grid-template-columns:1fr}.tm img{width:100%;aspect-ratio:16/9}}
+
+  /* contact */
+  .cta{padding:140px 0;text-align:center;background:radial-gradient(60% 90% at 50% 110%, rgba(95,216,230,.12), transparent 70%)}
+  .cta h2{margin-left:auto;margin-right:auto}
+  .cta p{margin:0 auto}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+  .btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink);background:var(--paper);padding:18px 36px;text-decoration:none;border-radius:1px;transition:background .25s,color .25s}
+  .btn:hover{background:var(--cyan)}
+  .btn.ghost{background:none;color:var(--paper);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--paper);background:none}
+  .cta .links{margin-top:30px;font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  .cta .links a{text-decoration:none}
+  .cta .links a:hover{color:var(--paper)}
+  .cta .links .sep{color:var(--cyan);margin:0 10px}
+
+  footer{border-top:1px solid var(--line);padding:38px 0 52px;font-size:13px;color:var(--mute)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 44px;justify-content:space-between}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--paper)}
+
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+    .rv{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar" id="bar">
+  <a class="brand" href="#top"><img src="/assets/logo-neyra-vision.png" alt=""><span>NEYRA <b>VISION</b></span></a>
+  <nav>
+    <a href="#about"><span class="ru">Студия</span><span class="en">Studio</span></a>
+    <a href="#how"><span class="ru">Метод</span><span class="en">Method</span></a>
+    <a href="#work"><span class="ru">Проекты</span><span class="en">Work</span></a>
+    <a href="#kz"><span class="ru">Казахстан</span><span class="en">Kazakhstan</span></a>
+    <a href="#contact"><span class="ru">Контакт</span><span class="en">Contact</span></a>
+  </nav>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" id="btn-ru" class="on" onclick="setLang('ru')">RU</button>
+    <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="bg">
+    <video autoplay muted loop playsinline poster="/assets/logo-poster.jpg" aria-hidden="true">
+      <source src="/assets/logo-loop.mp4" type="video/mp4" media="(min-width: 900px)">
+      <source src="/assets/logo-loop-540.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="scrim"></div>
+  <div class="inner">
+    <div class="kicker"><span class="ru">AI-кинопроизводство · Алматы · Джакарта · Сингапур</span><span class="en">AI film production · Almaty · Jakarta · Singapore</span></div>
+    <h1>Neyra Vision</h1>
+    <p class="logline"><span class="ru">Продакшн-студия полного цикла. От сценария до готового фильма — по технологии NEYRA, с живыми актёрами и без павильона.</span><span class="en">A full-cycle production studio. From script to finished film — powered by NEYRA technology, with live actors and no soundstage.</span></p>
+    <div class="meta"><span class="ru">Кино · Сериалы · Анимация · Реклама</span><span class="en">Film · Series · Animation · Commercials</span><span class="sep">·</span><span class="ru">AI Film Awards, Канны 2025</span><span class="en">AI Film Awards, Cannes 2025</span></div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"></div>
+</header>
+
+<section class="statement rv">
+  <div class="wrap">
+    <p><span class="ru">Технология удешевила исполнение. Она не удешевила замысел.</span><span class="en">Technology made execution cheap. It did not make the idea cheap.</span></p>
+    <div class="src"><span class="ru">Александр Андреянов · EFM 2026, Алматы</span><span class="en">Alexander Andreyanov · EFM 2026, Almaty</span></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="cols rv">
+      <div class="text">
+        <div class="eyebrow"><span class="ru">Студия</span><span class="en">Studio</span></div>
+        <h2><span class="ru">Кино без павильона, но с актёром</span><span class="en">Film without a soundstage, but with an actor</span></h2>
+        <p class="lead"><span class="ru">Neyra Vision Studio делает фильмы, сериалы, анимацию и рекламу там, где классический продакшн упирается в смету: павильон, декорации, смены, месяцы постпродакшна.</span><span class="en">Neyra Vision Studio makes films, series, animation and commercials where classic production hits the budget wall: the soundstage, sets, shooting days, months of post.</span></p>
+        <p><span class="ru">Актёр остаётся настоящим — его пластика, тайминг, эмоция. Всё, что вокруг актёра стоит денег, строится после съёмки, а не до. Генерация у нас не инструмент «на удачу», а часть управляемого конвейера: канон персонажей и локаций, 3D-мизансцена, версии, аппрув.</span><span class="en">The actor stays real — their movement, timing, emotion. Everything around the actor that costs money is built after the shoot, not before. Generation here is not a lottery but part of a controlled pipeline: character and location canon, 3D staging, versions, approvals.</span></p>
+        <p><span class="ru">Три контура одной команды: <b>Colibri Studio</b> — креатив и подготовка проекта, <b>Neyra Vision</b> — продакшн и дистрибуция, <b>Neyra</b> — технологическая платформа, на которой всё это работает.</span><span class="en">Three circuits of one team: <b>Colibri Studio</b> — creative and project development, <b>Neyra Vision</b> — production and distribution, <b>Neyra</b> — the technology platform it all runs on.</span></p>
+      </div>
+      <div class="card">
+        <div class="pic"><img src="/assets/bro-jakarta.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="ptype"><span class="ru">Партнёрства 2026</span><span class="en">Partnerships 2026</span></div>
+          <div class="pdesc"><span class="ru">Warner Bros. Discovery · ByteDance · KADIN AI Academy (Индонезия) · Taurus Asia Production (Казахстан)</span><span class="en">Warner Bros. Discovery · ByteDance · KADIN AI Academy (Indonesia) · Taurus Asia Production (Kazakhstan)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="facts rv">
+      <div class="fact"><div class="n">2011</div><div class="l"><span class="ru">в Юго-Восточной Азии</span><span class="en">in Southeast Asia since</span></div></div>
+      <div class="fact"><div class="n">3</div><div class="l"><span class="ru">города: Алматы, Джакарта, Сингапур</span><span class="en">cities: Almaty, Jakarta, Singapore</span></div></div>
+      <div class="fact"><div class="n">2<small>×</small></div><div class="l"><span class="ru">AI Film Awards, Канны 2025: лучший документальный + спецприз жюри</span><span class="en">AI Film Awards, Cannes 2025: Best Documentary + Special Jury Prize</span></div></div>
+      <div class="fact"><div class="n">5–120<small>+</small></div><div class="l"><span class="ru">минут: от рекламы до полного метра</span><span class="en">minutes: from a commercial to a feature</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow"><span class="ru">Метод</span><span class="en">Method</span></div>
+      <h2><span class="ru">Одна сцена: от строчки сценария до кадра</span><span class="en">One scene: from a line of script to the frame</span></h2>
+      <p class="lead"><span class="ru">Продакшн и постпродакшн у нас — один блок. Решение о том, как выглядит кадр, принимается до съёмки, а ошибка стоит часы, а не смены.</span><span class="en">For us, production and post are one block. The decision about how the frame looks is made before the shoot, and a mistake costs hours, not shooting days.</span></p>
+    </div>
+    <ol class="steps rv">
+      <li>
+        <div><b><span class="ru">Препродакшн на ИИ</span><span class="en">AI pre-production</span></b><div class="t"><span class="ru">24 кадра разведки — 30 минут</span><span class="en">24 scouting frames — 30 minutes</span></div></div>
+        <div class="sub"><span class="ru">Режиссёр рисует от руки. Мы переводим рисунок в кино-ключ: свет, оптика, фактура, единый грейд. Карты персонажей и локаций — канон, чтобы каждый кадр был из одного фильма.</span><span class="en">The director draws by hand. We translate the sketch into a cinematic key: light, lens, texture, one grade. Character and location maps become the canon so every frame belongs to the same film.</span></div>
+      </li>
+      <li>
+        <div><b><span class="ru">3D-мизансцена</span><span class="en">3D staging</span></b><div class="t"><span class="ru">Сцена 15 с с нуля — 25 минут</span><span class="en">A 15-second scene from scratch — 25 minutes</span></div></div>
+        <div class="sub"><span class="ru">Там, где есть движение камеры и точная география, одной генерацией не обойтись. Комнату, свет, актёра и траекторию камеры собираем в Neyra 3D — агенты по описанию сцены, не моделлер вручную.</span><span class="en">Where there is camera movement and exact geography, a single generation won't do. The room, light, actor and camera path are staged in Neyra 3D — by agents from the scene description, not by a modeller by hand.</span></div>
+      </li>
+      <li>
+        <div><b><span class="ru">Живой актёр + ИИ поверх</span><span class="en">Live actor + AI on top</span></b><div class="t"><span class="ru">Телефон → готовый план — 8 минут</span><span class="en">Phone footage → finished shot — 8 minutes</span></div></div>
+        <div class="sub"><span class="ru">Съёмка на телефон в обычной комнате: режиссёр и актёр, без группы и света. Снятый материал — основа движения, мир вокруг достраивается поверх. Павильон строится после съёмки.</span><span class="en">Shot on a phone in an ordinary room: director and actor, no crew, no lights. The footage is the base for movement; the world is built on top. The soundstage is built after the shoot.</span></div>
+      </li>
+      <li>
+        <div><b><span class="ru">Мастер</span><span class="en">Master</span></b><div class="t"><span class="ru">Сцена под ключ — 13 рабочих дней</span><span class="en">A turnkey scene — 13 working days</span></div></div>
+        <div class="sub"><span class="ru">Генерация → проверка → апскейл → композ → сборка. Каждая правка — новая версия, оригинал не переписывается. На выходе кинотеатральный мастер: 2K/4K, звук, цвет.</span><span class="en">Generate → verify → upscale → composite → assemble. Every note creates a new version; the original is never overwritten. The output is a theatrical master: 2K/4K, sound, colour.</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow"><span class="ru">Проекты</span><span class="en">Work</span></div>
+      <h2><span class="ru">Что уже сделано и что в производстве</span><span class="en">What is done and what is in production</span></h2>
+    </div>
+    <div class="grid2 rv">
+      <div class="card">
+        <div class="pic typo"><div class="big">Nusantara<small><span class="ru">The Story of Gajah Mada</span><span class="en">The Story of Gajah Mada</span></small></div></div>
+        <div class="body">
+          <div class="pname">Nusantara</div>
+          <div class="ptype"><span class="ru">Документальный фильм · Индонезия</span><span class="en">Documentary · Indonesia</span></div>
+          <div class="pdesc"><span class="ru">Команда четыре человека, три месяца, бюджет семь тысяч долларов. Лучший документальный фильм и Спецприз жюри AI Film Awards в Каннах, из 359 работ 19 стран.</span><span class="en">A team of four, three months, a seven-thousand-dollar budget. Best Documentary and Special Jury Prize at the AI Film Awards in Cannes, out of 359 entries from 19 countries.</span></div>
+          <span class="award">AI Film Awards · Cannes 2025</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic"><img src="/assets/baby-sharp-still.jpg" alt="BABY SHARP" loading="lazy"></div>
+        <div class="body">
+          <div class="pname">Baby Sharp</div>
+          <div class="ptype"><span class="ru">Анимационный сериал · реж. Ара Аруш</span><span class="en">Animated series · dir. Ara Arush</span></div>
+          <div class="pdesc"><span class="ru">Сезон 90 минут: десять человек, три месяца. Минута анимации — в сотни раз дешевле студийной, при этом сценарий, режиссура, анимация, монтаж и звук делают люди.</span><span class="en">A 90-minute season: ten people, three months. A minute of animation hundreds of times cheaper than a studio's, while script, direction, animation, editing and sound are still done by people.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic"><img src="/assets/bro-still.jpg" alt="BRO" loading="lazy"></div>
+        <div class="body">
+          <div class="pname">BRO</div>
+          <div class="ptype"><span class="ru">Полнометражный фильм · реж. Ара Аруш · Джакарта</span><span class="en">Feature film · dir. Ara Arush · Jakarta</span></div>
+          <div class="pdesc"><span class="ru">Приключенческая драма: мальчик, боец и петух пересекают Индонезию. Производство Neyra Vision Studio, креативная разработка Colibri Studio.</span><span class="en">An adventure drama: a boy, a fighter and a rooster cross Indonesia. Produced by Neyra Vision Studio, creative development by Colibri Studio.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic typo"><div class="big">Бөрі<small><span class="ru">Казахстан · в производстве</span><span class="en">Kazakhstan · in production</span></small></div></div>
+        <div class="body">
+          <div class="pname">Бөрі</div>
+          <div class="ptype"><span class="ru">Полнометражный фильм · Taurus Asia Production · Алматы</span><span class="en">Feature film · Taurus Asia Production · Almaty</span></div>
+          <div class="pdesc"><span class="ru">Казахский оборотень в современном Алматы. Сценарист и режиссёр Куаныш Стаханов, продюсеры Анара Жунусова и Анна Чакиртова, художник-постановщик Алия Шманова. Neyra Vision — сопроизводство и AI-превиз.</span><span class="en">A Kazakh werewolf in present-day Almaty. Written and directed by Kuanysh Stakhanov, produced by Anara Zhunusova and Anna Chakirtova, production design by Aliya Shmanova. Neyra Vision — co-production and AI previs.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:80px">
+      <div class="eyebrow"><span class="ru">Шоурил 2026</span><span class="en">Showreel 2026</span></div>
+      <h2><span class="ru">Живая съёмка × виртуальный продакшн × ИИ</span><span class="en">Live action × virtual production × AI</span></h2>
+      <p class="lead"><span class="ru">Двенадцать рекламных работ за год в 49 секундах. Первые шесть секунд — наш сет: живые актёры, настоящая декорация, синий хромакей. Где-то актёр настоящий, а мир достроен. Где-то наоборот. Шва не видно.</span><span class="en">Twelve commercial projects in 49 seconds. The first six seconds are our own set: real actors, a real façade, a blue screen behind them. Sometimes the actor is real and the world is built; sometimes it's the other way round. The seam never shows.</span></p>
+      <div class="vidwrap"><iframe src="https://www.youtube-nocookie.com/embed/fwaQU1RbT4w?rel=0" title="Neyra Vision Showreel 2026" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="strip" aria-hidden="true">
+        <img src="/assets/reel/f_1.5.jpg" alt="" loading="lazy"><img src="/assets/reel/f_4.5.jpg" alt="" loading="lazy"><img src="/assets/reel/f_8.jpg" alt="" loading="lazy"><img src="/assets/reel/f_14.jpg" alt="" loading="lazy"><img src="/assets/reel/f_22.jpg" alt="" loading="lazy"><img src="/assets/reel/f_33.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kz" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow"><span class="ru">Казахстан</span><span class="en">Kazakhstan</span></div>
+      <h2><span class="ru">Казахстан строит киноиндустрию заново — и сразу с новыми инструментами</span><span class="en">Kazakhstan is rebuilding its film industry — with new tools from day one</span></h2>
+      <p class="lead"><span class="ru">Мы работаем в Алматы с Taurus Asia Production: совместное производство, AI-превиз и обучение команд. Дальше — два пути.</span><span class="en">We work in Almaty with Taurus Asia Production: co-production, AI previs and team training. From here, there are two paths.</span></p>
+    </div>
+    <div class="paths rv">
+      <div class="path hi">
+        <div class="k"><span class="ru">Хочу разобраться сам</span><span class="en">I want to learn it myself</span></div>
+        <h3><span class="ru">Киносреда</span><span class="en">Kinosreda</span></h3>
+        <p><span class="ru"><b>Кинематографистам,</b> кто развивается в ИИ: режиссёрам, операторам, художникам, монтажёрам.</span><span class="en"><b>For filmmakers</b> growing into AI: directors, cinematographers, production designers, editors.</span></p>
+        <p><span class="ru">Встречаемся живьём в Алматы, разбираем ваши сцены и собираем их руками. Приходите со своим материалом.</span><span class="en">We meet in person in Almaty, take your scenes apart and build them by hand. Bring your own material.</span></p>
+        <a class="go" href="https://t.me/kinosreda_kz" target="_blank" rel="noopener"><span class="ru">Телеграм-канал</span><span class="en">Telegram channel</span></a>
+      </div>
+      <div class="path">
+        <div class="k"><span class="ru">Хочу, чтобы сделали</span><span class="en">I want it made</span></div>
+        <h3><span class="ru">Напишите лично</span><span class="en">Write to me</span></h3>
+        <p><span class="ru"><b>Продюсерам, студиям и партнёрам:</b> свой фильм, сериал, тизер или реклама — либо участие в наших проектах.</span><span class="en"><b>For producers, studios and partners:</b> your film, series, teaser or commercial — or a part in our projects.</span></p>
+        <p><span class="ru">Скажу срок и смету по вашей сцене. Ориентир: тринадцать рабочих дней на сцену под ключ.</span><span class="en">I'll give you a timeline and a budget for your scene. Reference point: thirteen working days for a turnkey scene.</span></p>
+        <a class="go" href="https://t.me/mis_ter_bro" target="_blank" rel="noopener">Telegram · @mis_ter_bro</a>
+      </div>
+    </div>
+    <div class="partners rv">
+      <img src="/assets/logo-neyra-vision.png" alt="Neyra Vision"><span class="x">×</span><img src="/assets/logo-taurus.png" alt="Taurus Asia Production">
+      <div class="cap"><span class="ru">Neyra Vision Studio × Taurus Asia Production · Алматы</span><span class="en">Neyra Vision Studio × Taurus Asia Production · Almaty</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow"><span class="ru">Команда</span><span class="en">Team</span></div>
+      <h2><span class="ru">Кто говорит</span><span class="en">Who's speaking</span></h2>
+    </div>
+    <div class="team rv">
+      <div class="tm">
+        <img src="/assets/team/aleksandr-andreyanov.jpg" alt="Александр Андреянов" loading="lazy">
+        <div class="b">
+          <div class="n"><span class="ru">Александр Андреянов</span><span class="en">Alexander Andreyanov</span></div>
+          <div class="r"><span class="ru">Основатель Neyra Vision · основатель Colibri Studio · сооснователь Neyra · сопродюсер Taurus Asia Production</span><span class="en">Founder, Neyra Vision · founder, Colibri Studio · co-founder, Neyra · co-producer, Taurus Asia Production</span></div>
+          <p><span class="ru">В Юго-Восточной Азии с 2011 года. Продюсер «Nusantara: The Story of Gajah Mada» — AI Film Awards, Канны 2025. Со-архитектор KADIN AI Academy, национальной программы ИИ-грамотности Индонезии. Спикер EFM 2026, Алматы.</span><span class="en">In Southeast Asia since 2011. Producer of "Nusantara: The Story of Gajah Mada" — AI Film Awards, Cannes 2025. Co-architect of KADIN AI Academy, Indonesia's national AI-literacy programme. Speaker at EFM 2026, Almaty.</span></p>
+        </div>
+      </div>
+      <div class="tm">
+        <img src="/assets/team/roman-nebo.jpg" alt="Роман Небо" loading="lazy">
+        <div class="b">
+          <div class="n"><span class="ru">Роман Небо</span><span class="en">Roman Nebo</span></div>
+          <div class="r"><span class="ru">Сооснователь Neyra · CEO Neyra Vision Studio, Джакарта</span><span class="en">Co-founder, Neyra · CEO, Neyra Vision Studio, Jakarta</span></div>
+          <p><span class="ru">Архитектор платформы Neyra. Креативный продюсер «Nusantara: The Story of Gajah Mada» и «Wismilak Warisan», соавтор идеи «Baby Sharp». Со-архитектор KADIN AI Academy.</span><span class="en">Architect of the Neyra platform. Creative producer of "Nusantara: The Story of Gajah Mada" and "Wismilak Warisan", co-author of the "Baby Sharp" idea. Co-architect of KADIN AI Academy.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap rv">
+    <div class="eyebrow" style="justify-content:center"><span class="ru">Контакт</span><span class="en">Contact</span></div>
+    <h2><span class="ru">Расскажите о своей сцене</span><span class="en">Tell us about your scene</span></h2>
+    <p class="lead"><span class="ru">Фильм, сериал, тизер для питчинга или реклама. Ответим сроком и сметой.</span><span class="en">A film, a series, a pitch teaser or a commercial. We'll answer with a timeline and a budget.</span></p>
+    <div class="btns">
+      <a class="btn" href="mailto:alex@neyra.ai">alex@neyra.ai</a>
+      <a class="btn ghost" href="https://t.me/mis_ter_bro" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/alexisnova" target="_blank" rel="noopener">LinkedIn · alexisnova</a><span class="sep">·</span>
+      <a href="https://www.instagram.com/mis_ter_bro" target="_blank" rel="noopener">Instagram · mis_ter_bro</a><span class="sep">·</span>
+      <a href="https://www.youtube.com/@NeyraVision" target="_blank" rel="noopener">YouTube · @NeyraVision</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><span class="ru">Neyra Vision Studio · Алматы · Джакарта · Сингапур</span><span class="en">Neyra Vision Studio · Almaty · Jakarta · Singapore</span></div>
+    <div><a href="https://neyra.ai" target="_blank" rel="noopener">neyra.ai</a> · <a href="https://colibristudio.ai" target="_blank" rel="noopener">colibristudio.ai</a> · <a href="https://neyravision.ai" target="_blank" rel="noopener">neyravision.ai</a></div>
+  </div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.documentElement.lang = l;
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    document.getElementById('btn-ru').classList.toggle('on', l==='ru');
+    try{localStorage.setItem('nv-lang', l)}catch(e){}
+  }
+  (function(){
+    var saved=null; try{saved=localStorage.getItem('nv-lang')}catch(e){}
+    var l = saved || ((navigator.language||'').toLowerCase().indexOf('ru')===0 || (navigator.language||'').toLowerCase().indexOf('kk')===0 ? 'ru' : 'en');
+    if(location.hash==='#en') l='en'; if(location.hash==='#ru') l='ru';
+    setLang(l);
+    var bar=document.getElementById('bar');
+    function onS(){bar.classList.toggle('solid', window.scrollY>40)} onS(); addEventListener('scroll',onS,{passive:true});
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+      document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+    } else { document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')}) }
+  })();
+</script>
+</body>
+</html>
