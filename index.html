@@ -431,6 +431,10 @@
     var l = saved || ((navigator.language||'').toLowerCase().indexOf('ru')===0 || (navigator.language||'').toLowerCase().indexOf('kk')===0 ? 'ru' : 'en');
     if(location.hash==='#en') l='en'; if(location.hash==='#ru') l='ru';
     setLang(l);
+    var vid=document.querySelector('.hero video');
+    function nudge(){if(vid&&vid.paused){var p=vid.play();if(p&&p.catch)p.catch(function(){})}}
+    nudge(); addEventListener('pageshow',nudge); document.addEventListener('visibilitychange',nudge);
+    ['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){addEventListener(ev,nudge,{once:true,passive:true})});
     var bar=document.getElementById('bar');
     function onS(){bar.classList.toggle('solid', window.scrollY>40)} onS(); addEventListener('scroll',onS,{passive:true});
     if('IntersectionObserver' in window){
