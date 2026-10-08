@@ -196,6 +196,26 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--pink) 22%,transpar
 @keyframes roll{50%{opacity:.55}}
 @media (max-width:820px){.lucky{grid-template-columns:1fr}}
 
+.cases{margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,320px));gap:24px}
+.case{position:relative;display:grid;gap:10px;padding-top:6px;min-width:0}
+.case p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.cases{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(250px,1fr);overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}.case{scroll-snap-align:start}}
+
+
+/* Задай вопросик */
+.ask{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.ask-text{display:grid;gap:18px;justify-items:start;min-width:0}
+.ask-ideas button{all:unset;cursor:pointer;font:600 .86rem/1.2 var(--body);padding:10px 14px;border-radius:999px;background:var(--paper);border:1.5px dashed var(--pink);transition:background-color .2s,transform .2s}
+.ask-ideas button:hover{background:color-mix(in srgb,var(--pink) 14%,var(--paper));transform:translateY(-1px)}
+.ask-ideas button:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.ask-form{display:grid;gap:10px;width:100%;max-width:520px}
+.ask-form textarea{font:500 1rem/1.5 var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:18px;padding:14px 16px;resize:vertical;min-height:96px}
+.ask-form textarea:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.ask-form .btn{justify-self:start;border:0;cursor:pointer}
+.ask-video{display:grid;justify-items:center;gap:14px}
+.phone.small{width:min(270px,74vw);justify-self:center}
+@media (max-width:860px){.ask{grid-template-columns:1fr}}
+
 /* Медиакит */
 .kit{background:var(--night);color:var(--night-ink)}
 .kit .muted{color:var(--night-muted)}
@@ -302,6 +322,32 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
   </div>
 </section>
 
+<section id="vopros" style="padding-top:0">
+  <div class="wrap ask">
+    <div class="ask-text">
+      <span class="sticker">отвечаю в видео</span>
+      <h2>задай мне<br>вопросик</h2>
+      <p>Про макияж, стрелки, волосы или жизнь. Самые интересные вопросы забираю в ролики. Имя не нужно, можно анонимно.</p>
+      <div class="chips ask-ideas" role="group" aria-label="Идеи для вопроса">
+        <button type="button">Как не дрожать рукой на стрелке?</button>
+        <button type="button">Сколько времени ты красишься?</button>
+        <button type="button">Как ты красишь пряди?</button>
+        <button type="button">Что сказать тем, кто пишет «зачем ты красишься»?</button>
+      </div>
+      <form class="ask-form" id="askForm">
+        <label for="askText" class="lbl">твой вопрос</label>
+        <textarea id="askText" rows="3" maxlength="300" placeholder="Напиши вопрос…"></textarea>
+        <button class="btn main" type="submit">Отправить в Telegram</button>
+        <p class="ad" id="askNote">Вопрос скопируется, а Telegram откроется. Вставь его в комментарии под постом «вопросы».</p>
+      </form>
+    </div>
+    <div class="ask-video">
+      <div class="phone small"><div class="screen"><iframe src="https://www.tiktok.com/player/v1/7682021354601778453?music_info=0&amp;description=1&amp;rel=0" loading="lazy" allow="fullscreen; encrypted-media" allowfullscreen title="Ответ на вопрос подписчика: ролик TikTok"></iframe></div><span class="sticker">736 тыс. ▷</span></div>
+      <span class="hand">так я отвечаю ↑</span>
+    </div>
+  </div>
+</section>
+
 <section id="moe" style="padding-top:0">
   <div class="wrap" style="position:relative">
     <img class="stk" src="st/palochka.webp" alt="" width="373" height="420" style="width:clamp(64px,14vw,100px);left:clamp(96px,22vw,190px);top:-34px;transform:rotate(14deg)">
@@ -321,8 +367,8 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
         <div class="tx">
         <span class="k">косметичка</span>
         <h3>Чем я крашусь</h3>
-        <p>Подводка, тени, блёстки, уход. Всё, что в роликах, со ссылками, где купить.</p>
-        <a class="btn ghost" href="#kosmetichka">Открыть</a>
+        <p>Подводка, тени, блёстки, уход. Всё, что в роликах, собираю в Telegram со ссылками, где купить.</p>
+        <a class="btn ghost" href="https://t.me/weqikoketka" target="_blank" rel="noopener">Смотреть в Telegram</a>
         </div>
       </div>
       <div class="tile t3">
@@ -391,15 +437,18 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
   </div>
 </section>
 
-<section id="kosmetichka" style="padding-top:0">
-  <div class="wrap">
+<section id="keisy" style="padding-top:0">
+  <div class="wrap" style="position:relative">
     <img class="stk" src="st/podvodka.webp" alt="" width="353" height="420" style="width:clamp(60px,13vw,96px);right:3%;top:-118px;transform:rotate(18deg)">
-    <div class="headrow"><h2>моя косметичка</h2><span class="hand">без рекламы, честно</span></div>
-    <div class="faq" style="max-width:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
-      <div style="border-top:2px solid var(--ink);padding-top:16px;display:grid;gap:6px"><h3>Подводка для стрелок</h3><p style="color:var(--muted)">[допишем: её любимая]</p></div>
-      <div style="border-top:2px solid var(--pink);padding-top:16px;display:grid;gap:6px"><h3>Тени и блёстки</h3><p style="color:var(--muted)">[допишем]</p></div>
-      <div style="border-top:2px solid var(--berry);padding-top:16px;display:grid;gap:6px"><h3>Румяна и губы</h3><p style="color:var(--muted)">[допишем]</p></div>
-      <div style="border-top:2px solid var(--muted);padding-top:16px;display:grid;gap:6px"><h3>Уход перед макияжем</h3><p style="color:var(--muted)">[допишем]</p></div>
+    <div class="headrow"><h2>как это выглядит у меня</h2><span class="hand">примеры для партнёров</span></div>
+    <p style="margin-top:16px;color:var(--muted)">Три формата, которые уже есть в моём TikTok. Жми и смотри прямо здесь.</p>
+    <div class="cases">
+      <article class="case"><span class="tape" aria-hidden="true"></span><div class="player"><iframe src="https://www.tiktok.com/player/v1/7681627757817629973?music_info=1&amp;description=1&amp;rel=0" loading="lazy" allow="fullscreen; encrypted-media" allowfullscreen title="Звук бренда Умскул: ролик TikTok"></iframe></div>
+        <div class="meta"><h3>Звук бренда</h3><span class="num">4 сентября</span></div><p>Умскул, подготовка к ОГЭ и ЕГЭ: ролик под фирменный звук школы с призывом переслать друзьям.</p></article>
+      <article class="case"><span class="tape" aria-hidden="true"></span><div class="player"><iframe src="https://www.tiktok.com/player/v1/7691251229867035924?music_info=1&amp;description=1&amp;rel=0" loading="lazy" allow="fullscreen; encrypted-media" allowfullscreen title="Обзор места: ролик TikTok"></iframe></div>
+        <div class="meta"><h3>Обзор места</h3><span class="num">30 сентября</span></div><p>Пробую на месте и рассказываю честно. Адрес в подписи, «бегите пробовать».</p></article>
+      <article class="case"><span class="tape" aria-hidden="true"></span><div class="player"><iframe src="https://www.tiktok.com/player/v1/7685785257047624980?music_info=1&amp;description=1&amp;rel=0" loading="lazy" allow="fullscreen; encrypted-media" allowfullscreen title="Ролик под трек: ролик TikTok"></iframe></div>
+        <div class="meta"><h3>Ролик под трек</h3><span class="num">▷ 345 тыс.</span></div><p>«Я же женщина» — анджилиша. Трек в моём формате, 15 сентября.</p></article>
     </div>
   </div>
 </section>
@@ -518,6 +567,21 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
     t.classList.add('roll'); let i=0;
     const id=setInterval(()=>{n.textContent=f(Math.floor(Math.random()*1e6)); if(++i>14){clearInterval(id);t.classList.remove('roll');t.classList.add('torn');done=true;
       n.textContent='№ скоро'; c.textContent='Ждать старта в Telegram';}},70);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const f=document.getElementById('askForm'), t=document.getElementById('askText'), note=document.getElementById('askNote');
+  if(!f) return;
+  document.querySelectorAll('.ask-ideas button').forEach(b=>b.addEventListener('click',()=>{t.value=b.textContent;t.focus();}));
+  f.addEventListener('submit',async e=>{
+    e.preventDefault(); const q=t.value.trim();
+    if(!q){note.textContent='Сначала напиши вопрос или выбери идею выше.';t.focus();return;}
+    try{await navigator.clipboard.writeText(q);note.textContent='Вопрос скопирован. Вставь его в комментарии под постом «вопросы».';}
+    catch(_){t.select();note.textContent='Скопируй вопрос и вставь в комментарии под постом «вопросы».';}
+    window.open('https://t.me/weqikoketka','_blank','noopener');
   });
 })();
 </script>
