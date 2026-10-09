@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сказки Великой степи · Neyra Vision</title>
+<meta name="description" content="14 казахских сказок, легенд и историй для анимационного сериала и фильма: синопсисы и первые визуализации.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f3b52">
+<meta property="og:title" content="Сказки Великой степи">
+<meta property="og:description" content="14 историй для анимации · Neyra Vision Studio">
+<meta property="og:image" content="https://neyra.vision/skazki/assets/samruk-1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Montserrat:wght@600&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{
+  --sky:#0f3b52; --sky-2:#1f6f8b; --air:#eaf3f5; --paper:#f7fafa;
+  --ink:#142433; --ink-2:#3d5466;
+  --sun:#f2a516; --felt:#b4401f;
+  --disp:Unbounded,system-ui,sans-serif; --body:"Golos Text",system-ui,sans-serif;
+  --gut:clamp(16px,4vw,56px); --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--sun);color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+img{display:block;width:100%;height:auto}
+h1,h2{font-family:var(--disp);text-wrap:balance;margin:0}
+
+.hero{position:relative;min-height:min(92vh,980px);display:grid;align-items:end;color:#fff;overflow:hidden;background:var(--sky)}
+.hero img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:62% 30%;animation:drift 24s var(--ease) both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,59,82,0) 30%,rgba(15,59,82,.92) 100%),linear-gradient(90deg,rgba(15,59,82,.55) 0%,rgba(15,59,82,0) 60%)}
+.hero .in{position:relative;z-index:1;padding:0 var(--gut) clamp(32px,7vh,80px);max-width:1200px}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,8.5vw,7rem);line-height:.95;letter-spacing:-.035em}
+.hero h1 span{color:var(--sun)}
+.hero p{max-width:44ch;font-size:clamp(1rem,1.6vw,1.2rem);margin:18px 0 26px;color:#e6f1f4}
+.btn{display:inline-block;font:600 15px var(--body);text-decoration:none;padding:14px 22px;border-radius:999px;background:var(--sun);color:var(--ink);transition:transform .2s var(--ease),background .2s}
+.btn:hover{transform:translateY(-2px);background:#ffbb33}
+@keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+
+.lead{padding:clamp(56px,9vw,120px) var(--gut) 24px;max-width:1200px;margin:0 auto;display:grid;gap:28px;grid-template-columns:1fr}
+.lead h2{font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.1;letter-spacing:-.02em;max-width:22ch}
+.lead .cols{display:grid;gap:18px;color:var(--ink-2)}
+.lead .cols p{margin:0}
+.lead b{color:var(--ink)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;padding:0 var(--gut);max-width:1200px;margin:0 auto 24px}
+nav.toc a{font:500 14px var(--body);text-decoration:none;padding:7px 13px;border-radius:999px;background:var(--air);color:var(--sky)}
+nav.toc a:hover{background:var(--sky);color:#fff}
+
+.st{display:grid;gap:22px;padding:clamp(48px,7vw,104px) var(--gut);max-width:1320px;margin:0 auto;border-top:1px solid #d6e3e7}
+.pics{display:grid;gap:10px}
+.pics a{display:block;overflow:hidden;border-radius:10px;background:var(--air)}
+.pics img{aspect-ratio:16/9;object-fit:cover;transition:transform .6s var(--ease)}
+.pics a:hover img{transform:scale(1.03)}
+.num{font:800 clamp(3rem,6vw,5rem)/1 var(--disp);color:var(--sun);margin:0 0 6px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.txt h2{font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.05;letter-spacing:-.025em}
+.txt .kz{font:600 16px Montserrat,var(--body);color:var(--sky-2);margin:10px 0 0}
+.txt .tag{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--felt);margin:14px 0 0}
+.txt .what{font-size:18px;margin:16px 0 18px}
+.syn h3{font:700 15px var(--disp);margin:0 0 12px;color:var(--felt);letter-spacing:.02em}
+.syn p{margin:0 0 14px;color:var(--ink-2)}
+.dl{display:inline-block;font:600 15px var(--body);text-decoration:none;padding:12px 20px;border-radius:999px;border:2px solid var(--sky);color:var(--sky);transition:background .2s,color .2s}
+.dl:hover{background:var(--sky);color:#fff}
+
+@media (min-width:900px){
+  .lead{grid-template-columns:1fr 1.2fr;align-items:start}
+  .lead .cols{grid-template-columns:1fr 1fr;gap:28px}
+  .st{grid-template-columns:1fr 1.25fr;column-gap:64px;row-gap:40px;align-items:start}
+  .pics{grid-column:1/-1;grid-template-columns:1.7fr 1fr;align-items:end;gap:14px}
+  .st.r .pics{grid-template-columns:1fr 1.7fr}
+  .st.r .pics .main{order:2}
+  .syn{padding-top:8px}
+}
+
+.end{background:var(--sky);color:#fff;padding:clamp(64px,10vw,140px) var(--gut);text-align:left}
+.end .in{max-width:1100px;margin:0 auto}
+.end h2{font-size:clamp(2rem,5vw,4rem);line-height:1;letter-spacing:-.03em;max-width:16ch}
+.end p{max-width:52ch;color:#d4e6ec;margin:20px 0 28px}
+.end .row{display:flex;flex-wrap:wrap;gap:12px}
+.end .ghost{background:transparent;border:2px solid #fff;color:#fff}
+.end .ghost:hover{background:#fff;color:var(--sky)}
+footer{background:#0b2c3d;color:#9fbccb;padding:22px var(--gut);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer a{color:#d4e6ec;text-decoration:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="assets/samruk-1.jpg" width="1920" height="1080" alt="Птица Самрук над Древом жизни Байтерек">
+  <div class="in">
+    <h1>Сказки <span>Великой степи</span></h1>
+    <p>14 казахских сказок, легенд и историй — от первого всадника Ботая и золотых коней саков до беркутчи. Синопсисы и первые образы будущего мультфильма.</p>
+    <a class="btn" href="files/skazki-velikoj-stepi.pdf" download>Скачать все 14 историй · PDF</a>
+  </div>
+</header>
+
+<section class="lead">
+  <h2>Светлый мультфильм на казахском, который захочет посмотреть весь мир</h2>
+  <div class="cols">
+    <p><b>Формат.</b> Пилот 3–7 минут, затем сезон из 8–12 серий по 7–11 минут. Полный метр — вторым шагом, когда сериал соберёт зрителя.</p>
+    <p><b>Язык.</b> Оригинал на казахском, дубляж на русский голосами известных артистов.</p>
+    <p><b>Франшиза.</b> У каждой истории — свои герои для игрушек, книг и игры.</p>
+    <p><b>Производство.</b> Технология NEYRA: месяцы вместо лет, бюджет сериала вместо бюджета блокбастера.</p>
+  </div>
+</section>
+<nav class="toc" aria-label="Истории"><a href="#kendebai">Кендебай и конь Керкула</a><a href="#kanbak">Канбак шал</a><a href="#aldar">Алдар Косе</a><a href="#samruk">Самрук и золотое яйцо</a><a href="#zhirenshe">Жиренше и Карашаш</a><a href="#tazsha">Тазша бала</a><a href="#botai">Ботай</a><a href="#asan">Асан Кайгы и земля счастья</a><a href="#ersary">Великан Ерсары и каменные шары</a><a href="#berkut">Беркут и тигр</a><a href="#berel">Берел</a><a href="#shirak">Ширак</a><a href="#korkyt">Коркыт и первая песня</a><a href="#tamgaly">Тамгалы</a></nav>
+
+
+<article class="st l" id="kendebai">
+  <div class="pics">
+    <a class="main" href="assets/kendebai-1.jpg" target="_blank" rel="noopener"><img src="assets/kendebai-1.jpg" width="1920" height="1080" loading="lazy" alt="Кендебай и конь Керкула — кадр 1"></a>
+    <a class="sub" href="assets/kendebai-2.jpg" target="_blank" rel="noopener"><img src="assets/kendebai-2.jpg" width="1920" height="1080" loading="lazy" alt="Кендебай и конь Керкула — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">01</p>
+    <h2>Кендебай и конь Керкула</h2>
+    <p class="kz" lang="kk">Керқұла атты Кендебай</p>
+    <p class="tag">Народная сказка · 6–10 лет · сериал или фильм</p>
+    <p class="what">Волшебная казахская сказка, которую дети проходят в школе. Мальчик, говорящий тулпар и отряд чудо-силачей: готовая команда героев, как «Мстители» в степи.</p>
+    <a class="dl" href="files/kendebai.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Кендебай — самый маленький в ауле, и над ним смеются: у него нет ни коня, ни силы. Однажды он выхаживает больного жеребёнка-замарашку, а тот вырастает в Керкулу — тулпара, который понимает людские слова и скачет быстрее мысли.</p><p>Жадный хан задаёт Кендебаю невыполнимые задания: пригнать кобылиц с далёкого острова, добыть то, чего не видел никто. В пути к мальчику присоединяются чудо-силачи: Таусогар, двигающий горы, Колтаусар, выпивающий целое озеро, и Желаяк, бегущий быстрее ветра.</p><p>Каждый в отряде силён в одном и смешон во всём остальном. Побеждают они не кулаками, а тем, что Кендебай умеет собрать их вместе. В финале хан понимает: настоящий батыр — не тот, кто сильнее, а тот, за кем идут.</p></div>
+</article>
+<article class="st r" id="kanbak">
+  <div class="pics">
+    <a class="main" href="assets/kanbak-1.jpg" target="_blank" rel="noopener"><img src="assets/kanbak-1.jpg" width="1920" height="1080" loading="lazy" alt="Канбак шал — Перекати-поле — кадр 1"></a>
+    <a class="sub" href="assets/kanbak-2.jpg" target="_blank" rel="noopener"><img src="assets/kanbak-2.jpg" width="1920" height="1080" loading="lazy" alt="Канбак шал — Перекати-поле — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">02</p>
+    <h2>Канбак шал — Перекати-поле</h2>
+    <p class="kz" lang="kk">Қаңбақ шал</p>
+    <p class="tag">Народная сказка · 4–9 лет · комедия</p>
+    <p class="what">Старичок такой лёгкий, что его носит ветер, как перекати-поле. Слабый побеждает двух великанов-дэу хитростью. Ни капли жестокости, много смеха.</p>
+    <a class="dl" href="files/kanbak.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Қаңбақ шал такой лёгкий, что, стоит подуть ветру, и он катится по степи вместе с перекати-полем. Жена привязывает его к колышку юрты, но ветер всё равно уносит деда в приключения.</p><p>Однажды его заносит прямо в логово двух великанов — Чёрного и Рыжего дэу. Великаны огромны, хвастливы и не очень умны. Дед притворяется самым страшным богатырём на свете: «съедает» камень (на деле — творог), «выжимает воду из скалы» (на деле — из бурдюка) и ссорит великанов между собой.</p><p>Дэу сбегают, а дед возвращается к жене с их сокровищами. Сериал по 7 минут: каждый новый ветер — новое место степи и новый хвастун, которого надо перехитрить.</p></div>
+</article>
+<article class="st l" id="aldar">
+  <div class="pics">
+    <a class="main" href="assets/aldar-1.jpg" target="_blank" rel="noopener"><img src="assets/aldar-1.jpg" width="1920" height="1080" loading="lazy" alt="Алдар Косе. Степной хитрец — кадр 1"></a>
+    <a class="sub" href="assets/aldar-2.jpg" target="_blank" rel="noopener"><img src="assets/aldar-2.jpg" width="1920" height="1080" loading="lazy" alt="Алдар Косе. Степной хитрец — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">03</p>
+    <h2>Алдар Косе. Степной хитрец</h2>
+    <p class="kz" lang="kk">Алдар Көсе</p>
+    <p class="tag">Народный герой · 6+ · короткие серии 3–5 мин</p>
+    <p class="what">Главный плут казахского фольклора: обводит вокруг пальца жадных баев и самодовольных ханов. Бренд, который знают все. Делаем свой облик и формат коротких серий для YouTube.</p>
+    <a class="dl" href="files/aldar.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Алдар Косе — безбородый весельчак в рваной шубе на тощей лошадёнке. У него нет ни гроша, зато есть язык острее сабли и сердце на стороне бедных.</p><p>Каждая серия — одна проделка. Он продаёт жадному баю «шубу, которая греет без огня», «волшебный котёл, который сам варит», уговаривает скупого хана отдать коня в обмен на «невидимый халат». Жадность каждый раз наказывает сама себя.</p><p>Формат — короткие серии по 3–5 минут, идеальные для YouTube и Shorts на казахском и русском. Из серий потом собирается полный метр «Алдар Косе и Золотой хан».</p></div>
+</article>
+<article class="st r" id="samruk">
+  <div class="pics">
+    <a class="main" href="assets/samruk-1.jpg" target="_blank" rel="noopener"><img src="assets/samruk-1.jpg" width="1920" height="1080" loading="lazy" alt="Самрук и золотое яйцо — кадр 1"></a>
+    <a class="sub" href="assets/samruk-2.jpg" target="_blank" rel="noopener"><img src="assets/samruk-2.jpg" width="1920" height="1080" loading="lazy" alt="Самрук и золотое яйцо — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">04</p>
+    <h2>Самрук и золотое яйцо</h2>
+    <p class="kz" lang="kk">Самұрық</p>
+    <p class="tag">Миф · 5–9 лет · фильм</p>
+    <p class="what">Птица счастья Самрук каждый год кладёт золотое яйцо-солнце на вершину Древа жизни Байтерек, а у корней ждёт дракон Айдахар. Самый сильный образ степи для игрушек и игры.</p>
+    <a class="dl" href="files/samruk.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>На краю мира растёт Байтерек — дерево, чьи корни уходят в подземный мир, а крона касается неба. Каждую весну птица Самрук кладёт на вершину золотое яйцо: из него рождается солнце нового года.</p><p>В этот раз ураган сбрасывает яйцо вниз. Его находит девочка-пастушка Аружан, и из яйца вылупляется смешной неуклюжий птенец Самрука, который пока не умеет летать и светится, когда радуется.</p><p>Чтобы солнце взошло, Аружан должна вернуть птенца на вершину Байтерека — через три мира дерева, мимо дракона Айдахара, который вовсе не злой, а просто давно замёрз без солнца и хочет согреться. Финал: солнце встаёт для всех, и для дракона тоже.</p></div>
+</article>
+<article class="st l" id="zhirenshe">
+  <div class="pics">
+    <a class="main" href="assets/zhirenshe-1.jpg" target="_blank" rel="noopener"><img src="assets/zhirenshe-1.jpg" width="1920" height="1080" loading="lazy" alt="Жиренше и Карашаш. Загадки степи — кадр 1"></a>
+    <a class="sub" href="assets/zhirenshe-2.jpg" target="_blank" rel="noopener"><img src="assets/zhirenshe-2.jpg" width="1920" height="1080" loading="lazy" alt="Жиренше и Карашаш. Загадки степи — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">05</p>
+    <h2>Жиренше и Карашаш. Загадки степи</h2>
+    <p class="kz" lang="kk">Жиренше шешен мен Қарашаш</p>
+    <p class="tag">Фольклор · 7–12 лет · детектив-комедия</p>
+    <p class="what">Самый остроумный советник хана и девушка, которая умнее его. Детектив на загадках: игровая механика готова сама.</p>
+    <a class="dl" href="files/zhirenshe.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Жиренше-шешен — советник хана Жанибека, который на любой вопрос находит ответ. Однажды у переправы он встречает девушку Карашаш, и та задаёт ему загадку, которую он не может разгадать.</p><p>Теперь они расследуют загадки степи вместе: кто украл ханского скакуна, почему замолчал колодец, куда исчезают дети из аула. Злодейка — семиглавая ведьма Жалмауыз кемпир, но в нашей версии она скорее гротескная и смешная, чем страшная: каждая голова спорит с остальными.</p><p>Каждая серия — дело и загадка, которую зритель может разгадать раньше героев. Отсюда прямая дорога к игре-квизу и книжкам-головоломкам.</p></div>
+</article>
+<article class="st r" id="tazsha">
+  <div class="pics">
+    <a class="main" href="assets/tazsha-1.jpg" target="_blank" rel="noopener"><img src="assets/tazsha-1.jpg" width="1920" height="1080" loading="lazy" alt="Тазша бала. Вернуть солнце — кадр 1"></a>
+    <a class="sub" href="assets/tazsha-2.jpg" target="_blank" rel="noopener"><img src="assets/tazsha-2.jpg" width="1920" height="1080" loading="lazy" alt="Тазша бала. Вернуть солнце — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">06</p>
+    <h2>Тазша бала. Вернуть солнце</h2>
+    <p class="kz" lang="kk">Тазша бала</p>
+    <p class="tag">Народная сказка · 6–11 лет · фильм</p>
+    <p class="what">Лысый мальчик-сирота, над которым смеются все, — любимый герой казахских сказок. Ему везёт там, где пасуют богатыри, потому что он добрый и смекалистый.</p>
+    <a class="dl" href="files/tazsha.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Тазша бала — лысый мальчишка-сирота, который пасёт чужих овец. В ауле его не принимают всерьёз: ни рода, ни коня, ни волос на голове.</p><p>Однажды утром солнце не встаёт. Его украл жадный Мыстан, спрятав в мешок, чтобы продавать свет по кусочку. Батыры отправляются в поход и пропадают, а Тазша идёт следом просто потому, что жалеет замёрзших ягнят.</p><p>По дороге он помогает муравью, ворону и старому волку, и каждый потом выручает его. Мальчик возвращает солнце хитростью, а его лысая макушка, которую все высмеивали, в финале сияет как маленькое солнце.</p></div>
+</article>
+<article class="st l" id="botai">
+  <div class="pics">
+    <a class="main" href="assets/botai-1.jpg" target="_blank" rel="noopener"><img src="assets/botai-1.jpg" width="1920" height="1080" loading="lazy" alt="Ботай. Первый всадник — кадр 1"></a>
+    <a class="sub" href="assets/botai-2.jpg" target="_blank" rel="noopener"><img src="assets/botai-2.jpg" width="1920" height="1080" loading="lazy" alt="Ботай. Первый всадник — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">07</p>
+    <h2>Ботай. Первый всадник</h2>
+    <p class="kz" lang="kk">Ботай</p>
+    <p class="tag">История · 5–10 лет · фильм · экспорт</p>
+    <p class="what">5500 лет назад на севере Казахстана, в поселении Ботай, люди одними из первых в мире приручили лошадь. Крючок для всего мира: «Казахстан подарил человечеству всадника».</p>
+    <a class="dl" href="files/botai.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Северная степь, 3500 лет до нашей эры. Люди Ботая охотятся на диких лошадей, и никто даже не думает, что на лошади можно ездить. Мальчик Ерден спасает из ловчей ямы молодую дикую кобылу с белой гривой.</p><p>Он тайно выхаживает её, кормит, учит доверять — и однажды делает то, чего не делал ни один человек: садится ей на спину. Старейшины в ужасе: «Лошадь — это мясо, а не друг».</p><p>Когда степной пожар отрезает стойбище, только Ерден верхом может успеть предупредить соседей. Он скачет быстрее огня — и с этого дня мир меняется: человек и конь становятся одним целым. Финал — титр: «Так началась история всадников».</p></div>
+</article>
+<article class="st r" id="asan">
+  <div class="pics">
+    <a class="main" href="assets/asan-1.jpg" target="_blank" rel="noopener"><img src="assets/asan-1.jpg" width="1920" height="1080" loading="lazy" alt="Асан Кайгы и земля счастья — кадр 1"></a>
+    <a class="sub" href="assets/asan-2.jpg" target="_blank" rel="noopener"><img src="assets/asan-2.jpg" width="1920" height="1080" loading="lazy" alt="Асан Кайгы и земля счастья — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">08</p>
+    <h2>Асан Кайгы и земля счастья</h2>
+    <p class="kz" lang="kk">Асан Қайғы және Жерұйық</p>
+    <p class="tag">Легенда · 7–12 лет · роуд-муви</p>
+    <p class="what">Мудрец Асан Кайгы всю жизнь искал Жерұйық — землю, где все счастливы. Путешествие по всему Казахстану: Жетысу, Сарыарка, Улытау, Баянаул, Мангистау.</p>
+    <a class="dl" href="files/asan.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Старый мудрец Асан Кайгы на своём верблюде отправляется искать Жерұйық — землю, где не бывает ни голода, ни зимы, ни горя. С ним увязывается внучка Айша и упрямый ворчливый верблюд, который умеет говорить, но делает это только тогда, когда с ним не согласны.</p><p>Они проходят цветущее Жетысу, бескрайнюю Сарыарку, священный Улытау, озёра Баянаула и белые каньоны Мангистау. В каждой земле есть чудо, но есть и своя беда, и Айша помогает людям её решить.</p><p>В конце пути Асан понимает: Жерұйық — не место на карте, а люди, которые держатся вместе. Каждая серия — новый край Казахстана; это и сказка, и путеводитель по стране.</p></div>
+</article>
+<article class="st l" id="ersary">
+  <div class="pics">
+    <a class="main" href="assets/ersary-1.jpg" target="_blank" rel="noopener"><img src="assets/ersary-1.jpg" width="1920" height="1080" loading="lazy" alt="Великан Ерсары и каменные шары — кадр 1"></a>
+    <a class="sub" href="assets/ersary-2.jpg" target="_blank" rel="noopener"><img src="assets/ersary-2.jpg" width="1920" height="1080" loading="lazy" alt="Великан Ерсары и каменные шары — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">09</p>
+    <h2>Великан Ерсары и каменные шары</h2>
+    <p class="kz" lang="kk">Ерсары және Торыш шарлары</p>
+    <p class="tag">Легенда Мангистау · 5–9 лет · эко-приключение</p>
+    <p class="what">В долине Торыш лежат сотни каменных шаров размером с человека. Учёные говорят — дно исчезнувшего океана Тетис, легенда — что ими играл великан Ерсары. Плюс звери Красной книги.</p>
+    <a class="dl" href="files/ersary.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Брат и сестра приезжают с дедушкой в Мангистау и находят долину, усыпанную гигантскими каменными шарами. Один шар вдруг катится сам — и будит великана Ерсары, который спал в горе миллионы лет.</p><p>Ерсары помнит время, когда здесь шумел тёплый океан Тетис, плавали гигантские рыбы и аммониты. Он показывает детям этот подводный мир, а они ему — степь, сайгаков, джейранов, архаров и корсаков, которые живут здесь сейчас.</p><p>Вместе они спасают раненого сайгачонка и прогоняют браконьеров. Каждая серия — один редкий зверь из Красной книги Казахстана и одно чудо природы.</p></div>
+</article>
+<article class="st r" id="berkut">
+  <div class="pics">
+    <a class="main" href="assets/berkut-1.jpg" target="_blank" rel="noopener"><img src="assets/berkut-1.jpg" width="1920" height="1080" loading="lazy" alt="Беркут и тигр — кадр 1"></a>
+    <a class="sub" href="assets/berkut-2.jpg" target="_blank" rel="noopener"><img src="assets/berkut-2.jpg" width="1920" height="1080" loading="lazy" alt="Беркут и тигр — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">10</p>
+    <h2>Беркут и тигр</h2>
+    <p class="kz" lang="kk">Бүркіт пен жолбарыс</p>
+    <p class="tag">Оригинал · 7–11 лет · эко-фильм</p>
+    <p class="what">Охота с беркутом — наследие ЮНЕСКО, а туранский тигр, исчезнувший 70 лет назад, возвращается в Казахстан: тигров выпускают в заповеднике Иле-Балхаш. Две живые темы в одной истории.</p>
+    <a class="dl" href="files/berkut.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Айгерим — единственная девочка в семье беркутчи. Дед говорит, что беркут не для девочек, но птица по имени Ақсұңқар слушается только её.</p><p>Однажды беркут приводит её в тугаи у реки Или, где прячется молодой тигр — один из первых, кого вернули в казахскую степь спустя семьдесят лет. За ним охотятся браконьеры.</p><p>Айгерим, беркут и тигр становятся командой: птица видит сверху, тигр чувствует след, а девочка думает за троих. В финале дед сам надевает внучке охотничью перчатку — и тигр уходит в заповедник свободным.</p></div>
+</article>
+<article class="st l" id="berel">
+  <div class="pics">
+    <a class="main" href="assets/berel-1.jpg" target="_blank" rel="noopener"><img src="assets/berel-1.jpg" width="1920" height="1080" loading="lazy" alt="Берел. Кони с золотыми рогами — кадр 1"></a>
+    <a class="sub" href="assets/berel-2.jpg" target="_blank" rel="noopener"><img src="assets/berel-2.jpg" width="1920" height="1080" loading="lazy" alt="Берел. Кони с золотыми рогами — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">11</p>
+    <h2>Берел. Кони с золотыми рогами</h2>
+    <p class="kz" lang="kk">Берел</p>
+    <p class="tag">История саков · 6–10 лет · фильм</p>
+    <p class="what">В Берельских курганах Алтая археологи нашли сакских коней в масках с деревянными рогами, покрытыми золотом. Саки превращали лошадей в небесных существ. Из этого рождается сказка.</p>
+    <a class="dl" href="files/berel.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Алтай, 2400 лет назад. Маленькая сакская девочка Томи — дочь мастера по золоту. Её лучший друг — рыжий жеребёнок, самый медленный в табуне, над которым смеются все конюхи.</p><p>К великому празднику отец делает для лучших скакунов маски с золотыми рогами. Томи тайком надевает такую на своего жеребёнка — и ночью маска оживает: жеребёнок превращается в небесного коня, а саки верят, что такие кони возят души к звёздам.</p><p>Вместе они летят по небу, где звёзды — это золотые звери сакского стиля: барсы, архары, олени, грифоны. К утру Томи должна вернуть пропавшего с неба Небесного Оленя, иначе весна не придёт. Сказка о том, что медленный не значит слабый.</p></div>
+</article>
+<article class="st r" id="shirak">
+  <div class="pics">
+    <a class="main" href="assets/shirak-1.jpg" target="_blank" rel="noopener"><img src="assets/shirak-1.jpg" width="1920" height="1080" loading="lazy" alt="Ширак. Пастух против царя — кадр 1"></a>
+    <a class="sub" href="assets/shirak-2.jpg" target="_blank" rel="noopener"><img src="assets/shirak-2.jpg" width="1920" height="1080" loading="lazy" alt="Ширак. Пастух против царя — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">12</p>
+    <h2>Ширак. Пастух против царя</h2>
+    <p class="kz" lang="kk">Шырақ</p>
+    <p class="tag">Легенда саков · 8+ · фильм</p>
+    <p class="what">По преданию, записанному греческим автором Полиэном, сакский пастух Ширак завёл огромную армию персидского царя Дария в безводную пустыню и спас свой народ. Герой побеждает умом, а не мечом.</p>
+    <a class="dl" href="files/shirak.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>VI век до нашей эры. Армия царя царей Дария идёт на саков: столько воинов, что пыль закрывает солнце. Сакские вожди не знают, что делать. И тогда старый пастух Ширак говорит: «Я поведу их сам».</p><p>Он приходит к Дарию как перебежчик и обещает провести армию короткой тропой. Семь дней он ведёт персов по пустыне, где нет ни воды, ни тени, рассказывая им сказки и прибаутки, — а царь с каждым днём всё больше уважает этого странного старика.</p><p>Когда Дарий понимает, что его перехитрили, Ширак не просит пощады: «Я спас свой народ». В детской версии армия не гибнет — царь, поражённый смелостью пастуха, поворачивает назад и навсегда запоминает: степь нельзя победить. Притча о хитрости, верности и мужестве.</p></div>
+</article>
+<article class="st l" id="korkyt">
+  <div class="pics">
+    <a class="main" href="assets/korkyt-1.jpg" target="_blank" rel="noopener"><img src="assets/korkyt-1.jpg" width="1920" height="1080" loading="lazy" alt="Коркыт и первая песня — кадр 1"></a>
+    <a class="sub" href="assets/korkyt-2.jpg" target="_blank" rel="noopener"><img src="assets/korkyt-2.jpg" width="1920" height="1080" loading="lazy" alt="Коркыт и первая песня — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">13</p>
+    <h2>Коркыт и первая песня</h2>
+    <p class="kz" lang="kk">Қорқыт ата</p>
+    <p class="tag">Легенда · 8+ · музыкальный фильм</p>
+    <p class="what">Легенда о Коркыте, который убегал от смерти по всему свету и создал кобыз — первый инструмент, чья музыка останавливает время. Фестивальная, музыкальная история.</p>
+    <a class="dl" href="files/korkyt.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Юному Коркыту снится сон: смерть придёт за ним в сорок лет. Он седлает чудо-верблюдицу Желмаю и отправляется на край света искать место, где никто не умирает.</p><p>Повсюду он видит одно: люди копают могилу. Горы стареют, реки высыхают, даже звёзды гаснут. Тогда Коркыт возвращается на берег Сырдарьи, вырезает из дерева первый кобыз и начинает играть.</p><p>Пока звучит кобыз, время замирает и смерть не может подойти. Его музыка оживляет степь, и люди понимают: бессмертным делает не бегство, а то, что ты оставил после себя. Фильм-концерт, где музыка — главный герой.</p></div>
+</article>
+<article class="st r" id="tamgaly">
+  <div class="pics">
+    <a class="main" href="assets/tamgaly-1.jpg" target="_blank" rel="noopener"><img src="assets/tamgaly-1.jpg" width="1920" height="1080" loading="lazy" alt="Тамгалы. Солнцеголовые — кадр 1"></a>
+    <a class="sub" href="assets/tamgaly-2.jpg" target="_blank" rel="noopener"><img src="assets/tamgaly-2.jpg" width="1920" height="1080" loading="lazy" alt="Тамгалы. Солнцеголовые — кадр 2"></a>
+  </div>
+  <div class="txt">
+    <p class="num">14</p>
+    <h2>Тамгалы. Солнцеголовые</h2>
+    <p class="kz" lang="kk">Тамғалы</p>
+    <p class="tag">История · 6–10 лет · фильм</p>
+    <p class="what">Петроглифы Тамгалы (наследие ЮНЕСКО) — тысячи рисунков на скалах, среди них загадочные солнцеголовые фигуры. Мир, где ожившие наскальные рисунки — живые персонажи.</p>
+    <a class="dl" href="files/tamgaly.pdf" download>Скачать синопсис · PDF</a>
+  </div>
+  <div class="syn"><h3>Синопсис</h3><p>Мальчик Даурен приезжает со школьной экскурсией в урочище Тамгалы. Ему скучно, и он тайком дорисовывает мелом недостающую фигуру на скале — маленького солнцеголового.</p><p>На закате фигура сходит с камня. Это Кун — солнечный человечек с лучами вместо головы, ростом с ладонь, говорит только рифмами и светится. За ним со скал сходят нарисованные быки, лучники, верблюды и танцующие люди.</p><p>До рассвета Даурен должен вернуть всех на камень, иначе рисунки исчезнут навсегда. Ночное приключение по древнему миру, где каждый рисунок — живое существо, а мальчик впервые понимает, что история — это не скучно.</p></div>
+</article>
+
+<section class="end">
+  <div class="in">
+    <h2>Выберите историю — соберём пилот</h2>
+    <p>Визуализации на этой странице — черновые образы мира, сделанные за один вечер. Для выбранной истории готовим библию сериала, облик героев, смету и пилотную серию.</p>
+    <div class="row">
+      <a class="btn" href="mailto:alex@neyra.ai?subject=%D0%A1%D0%BA%D0%B0%D0%B7%D0%BA%D0%B8%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%B9%20%D1%81%D1%82%D0%B5%D0%BF%D0%B8">Обсудить историю</a>
+      <a class="btn ghost" href="files/skazki-velikoj-stepi.pdf" download>Скачать все истории · PDF</a>
+    </div>
+  </div>
+</section>
+<footer><span>Сказки Великой степи · Neyra Vision Studio · визуализация — технология NEYRA</span><a href="/">neyra.vision</a></footer>
+</body>
+</html>
