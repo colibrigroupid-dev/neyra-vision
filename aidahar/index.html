@@ -3,152 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Айдахар — сага о воине · веб-сериал Ара Аруш</title>
+<title>Айдахар — фильм Ара Аруш · веб-сериал</title>
 <meta name="description" content="Историческая экшн-комедия о казахском воине Айдахаре. Новая серия каждую неделю на YouTube.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#000000">
-<meta property="og:title" content="Айдахар — сага о воине">
+<meta property="og:title" content="Айдахар — фильм Ара Аруш">
 <meta property="og:description" content="Казахский воин, одна роковая ошибка и погоня через весь мир. Новая серия каждую неделю.">
 <meta property="og:image" content="https://aydahar.com/assets/og.jpg">
 <meta property="og:url" content="https://aydahar.com/">
 <link rel="icon" type="image/png" href="assets/favicon-64.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- шрифт заголовка временный: Александр пришлёт стилистику и шрифт названия -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Golos+Text:wght@400;500;600&display=swap">
 <style>
 :root{
-  /* степь на рассвете: земля, кость, пыль, сталь, кровь */
-  --earth:#000; --earth-2:#0d0d0d; --line:#262626;
-  --bone:#ede4d3; --dust:#b3a48c; --steel:#9aa6ad;
-  --blood:#b8432f; --blood-deep:#8a2c1e; --dawn:#d8a35a;
-  --disp:"Forum",Georgia,serif;
+  /* три цвета фильма: чёрный, кремовый, огонь */
+  --black:#000; --black-2:#0b0b0b; --line:#232323;
+  --cream:#f1e9db; --cream-2:#b9b2a6;
+  --fire:#f08a24; --fire-deep:#d0661a;
+  --disp:"Philosopher",Georgia,serif;
   --body:"Golos Text",system-ui,sans-serif;
   --gut:clamp(16px,4vw,48px);
-  --ease:cubic-bezier(0.16,1,0.3,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--earth);color:var(--bone);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
-::selection{background:var(--blood);color:#fff}
-:focus-visible{outline:2px solid var(--dawn);outline-offset:3px}
+body{margin:0;background:var(--black);color:var(--cream);font:400 18px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--fire);color:#000}
+:focus-visible{outline:2px solid var(--fire);outline-offset:3px}
 img,video{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
-h1,h2,h3{font-family:var(--disp);font-weight:400;text-wrap:balance;margin:0}
-.cap{font:600 12px/1.3 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--dawn);margin:0 0 16px}
+h2,h3{font-family:var(--disp);font-weight:700;color:var(--fire);text-transform:uppercase;letter-spacing:.04em;text-wrap:balance;margin:0}
+h2{font-size:clamp(30px,4.4vw,56px);line-height:1.05}
+.cap{font:700 13px/1.3 var(--disp);letter-spacing:.24em;text-transform:uppercase;color:var(--cream-2);margin:0 0 12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+section{padding-block:clamp(64px,9vw,128px)}
 
 /* шапка */
-.top{position:absolute;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px var(--gut)}
-.brand{font:600 15px var(--body);letter-spacing:.06em;text-decoration:none;color:var(--bone);text-shadow:0 1px 8px #000}
-.brand b{color:var(--steel);font-weight:600}
-.top a.go{font:500 14px var(--body);text-decoration:none;color:var(--bone);border:1px solid rgba(237,228,211,.35);padding:8px 16px;border-radius:999px;transition:border-color .2s,background-color .2s}
-.top a.go:hover{border-color:var(--blood);background:rgba(184,67,47,.18)}
+.top{position:absolute;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px var(--gut)}
+.brand{font:600 14px var(--body);letter-spacing:.06em;text-decoration:none;color:var(--cream);text-shadow:0 1px 8px #000}
+.top a.go{font:500 14px var(--body);text-decoration:none;color:var(--cream);background:rgba(0,0,0,.45);border:1px solid rgba(241,233,219,.35);padding:8px 16px;border-radius:999px;transition:border-color .2s,background-color .2s}
+.top a.go:hover{border-color:var(--fire);background:rgba(240,138,36,.2)}
 
-/* первый экран — сабли и название */
-.hero{position:relative;background:#000;overflow:hidden}
-.hero img{width:100%;height:auto;aspect-ratio:1916/821;object-fit:cover}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-top:clamp(96px,14vh,150px);text-align:center}
-.hero h1{font-size:clamp(64px,13vw,190px);line-height:.9;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.45);animation:rise 1.1s var(--ease) both}
-.hero .sub{font:400 clamp(20px,2.6vw,34px)/1.2 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:var(--bone);margin:14px 0 0;opacity:.92;animation:rise 1.1s .15s var(--ease) both}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.scroll{position:absolute;z-index:2;left:50%;bottom:14px;transform:translateX(-50%);font:500 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--dust);text-decoration:none}
+/* первый экран — постер */
+.hero{position:relative;padding:0;background:#000}
+.hero img{width:100%;aspect-ratio:1916/821;object-fit:cover}
+.scroll{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font:700 12px var(--disp);letter-spacing:.24em;text-transform:uppercase;color:var(--cream);text-decoration:none;text-shadow:0 1px 8px #000}
 
-section{padding-block:clamp(72px,11vw,150px)}
-.lede{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,96px);align-items:start}
-.lede h2{font-size:clamp(36px,5vw,64px);line-height:1.02}
-.lede p{margin:0 0 1em;color:var(--dust);max-width:34em}
-.lede p strong{color:var(--bone);font-weight:500}
-.facts{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
-.facts span{font-size:15px;color:var(--dust)}
-.facts b{display:block;font:600 11px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--steel);margin-bottom:2px}
-
-/* серия 1 — плеер */
-.ep1{padding-top:0}
-.ep-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:24px}
-.ep-head h2{font-size:clamp(34px,4.6vw,58px);line-height:1}
-.ep-head p{margin:0;color:var(--dust);max-width:30em;font-size:17px}
-.player{background:#000;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* серия 1 */
+.ep-head{margin-bottom:24px}
+.player{position:relative;background:#000;border-block:1px solid var(--line)}
 .player video{width:100%;aspect-ratio:1280/525;background:#000;max-width:1600px;margin:0 auto}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(0,0,0,.7);color:var(--cream);border:1px solid var(--fire);border-radius:999px;padding:16px 28px 16px 20px;font:700 clamp(15px,1.6vw,19px) var(--disp);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background-color .2s,color .2s}
+.play:hover{background:var(--fire);color:#000}
+.play .tri{width:0;height:0;border-left:16px solid currentColor;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.player.on .play{display:none}
 
-/* серия 2 — синопсис и кадры */
-.ep2 .ep-head{margin-bottom:clamp(28px,4vw,48px)}
-.syn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);margin-bottom:clamp(40px,6vw,72px)}
-.syn p{margin:0;color:var(--dust)}
-.syn p:first-child{font:400 clamp(22px,2.4vw,30px)/1.3 var(--disp);color:var(--bone)}
-.frames{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(8px,1.2vw,16px)}
-.frames figure{margin:0;position:relative}
-.frames figure:nth-child(1){grid-column:1/13}
-.frames figure:nth-child(2){grid-column:1/8}
-.frames figure:nth-child(3){grid-column:8/13;align-self:end}
-.frames figure:nth-child(4){grid-column:1/13}
-.frames img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.frames figcaption{font-size:14px;color:var(--dust);padding-top:10px;max-width:40em}
-.frames figcaption b{color:var(--bone);font-weight:500}
+/* описание фильма */
+.about{padding-top:clamp(40px,6vw,72px)}
+.titry{max-width:900px;margin:0 auto clamp(8px,2vw,24px)}
+.titry video{width:100%;aspect-ratio:1920/787;background:#000}
+.about .lede{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:start;margin-bottom:clamp(32px,5vw,56px)}
+.about p{margin:0 0 1em;color:var(--cream)}
+.about p.soft{color:var(--cream-2)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 36px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.facts span{font-size:15px;color:var(--cream)}
+.facts b{display:block;font:700 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--fire);margin-bottom:2px}
+.stills{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(6px,1vw,12px)}
+.stills figure{margin:0}
+.stills figure:nth-child(1),.stills figure:nth-child(2){grid-column:span 3}
+.stills figure:nth-child(n+3){grid-column:span 3}
+.stills img{width:100%;aspect-ratio:1600/690;object-fit:cover}
+.lede-2{max-width:46em;margin:clamp(32px,5vw,56px) auto 0;text-align:center}
+.lede-2 p{font:400 clamp(20px,2.2vw,26px)/1.45 var(--disp);color:var(--cream)}
+
+/* серия 2 */
+.ep2 .syn{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);margin:24px 0 clamp(32px,5vw,56px)}
+.ep2 .syn p{margin:0;color:var(--cream)}
+.ep2 .syn p.lead{font:700 clamp(22px,2.4vw,30px)/1.3 var(--disp);color:var(--cream)}
+.frames{display:grid;gap:clamp(8px,1.2vw,16px)}
+.frames figure{margin:0}
+.frames img{width:100%;aspect-ratio:21/9;object-fit:cover}
+
+/* команда */
+.people{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap;margin-top:28px}
+.people figure{margin:0;width:clamp(150px,22vw,240px)}
+.people img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1)}
+.people figcaption{padding-top:12px;color:var(--cream-2);font-size:15px}
+.people figcaption b{display:block;color:var(--cream);font:700 22px/1.2 var(--disp)}
+.studio{color:var(--cream-2);margin:28px 0 0;font-size:15px}
 
 /* партнёрам */
-.vault{background:var(--earth-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vault{background:var(--black-2);border-block:1px solid var(--line)}
 .vault .row{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,6vw,96px);align-items:center}
-.vault h2{font-size:clamp(36px,5vw,64px);line-height:1.02;margin-bottom:18px}
-.vault p{color:var(--dust);margin:0;max-width:32em}
-.who{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.who span{font-size:14px;border:1px solid var(--line);padding:6px 14px;border-radius:999px;color:var(--bone)}
+.vault h2{margin-bottom:16px}
+.vault p{color:var(--cream-2);margin:0;max-width:32em}
 form.code{display:flex;flex-direction:column;gap:12px}
-form.code label{font:600 12px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--steel)}
+form.code label{font:700 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--cream-2)}
 form.code .f{display:flex;gap:10px}
-form.code input{flex:1;min-width:0;background:var(--earth);border:1px solid var(--line);color:var(--bone);font:500 18px var(--body);letter-spacing:.12em;padding:15px 18px;border-radius:4px;text-transform:uppercase}
-form.code input:focus{border-color:var(--dawn);outline:none;box-shadow:0 0 0 2px rgba(216,163,90,.35)}
-form.code button{background:var(--blood);color:#fff;border:0;font:600 16px var(--body);padding:0 24px;border-radius:4px;cursor:pointer;transition:background-color .2s}
-form.code button:hover{background:var(--blood-deep)}
-.err{min-height:1.4em;font-size:14px;color:#e07a66;margin:0}
+form.code input{flex:1;min-width:0;background:#000;border:1px solid #3a3a3a;color:var(--cream);font:500 18px var(--body);letter-spacing:.12em;padding:15px 18px;border-radius:4px;text-transform:uppercase}
+form.code input:focus{border-color:var(--fire);outline:none;box-shadow:0 0 0 2px rgba(240,138,36,.35)}
+form.code button{background:var(--fire);color:#000;border:0;font:700 16px var(--disp);letter-spacing:.06em;text-transform:uppercase;padding:0 24px;border-radius:4px;cursor:pointer;transition:background-color .2s}
+form.code button:hover{background:var(--fire-deep)}
+.err{min-height:1.4em;font-size:14px;color:#ff8a6a;margin:0}
 #room{display:none;margin-top:clamp(40px,6vw,72px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
 #room.open{display:block}
-#room h3{font-size:clamp(28px,3.4vw,42px);margin:0 0 18px}
-#room p,#room li{color:var(--dust)}
-#room ul{padding-left:1.1em;margin:0 0 1.2em}
+#room h3{font-size:clamp(26px,3.2vw,40px);margin:0 0 18px}
+#room p,#room li{color:var(--cream-2)}
+#room .big{font:700 clamp(30px,4vw,48px)/1 var(--disp);color:var(--cream);margin:0 0 6px}
+#room table{width:100%;border-collapse:collapse;margin:8px 0 24px;font-variant-numeric:tabular-nums}
+#room td,#room th{text-align:left;padding:12px 0;border-bottom:1px solid var(--line);color:var(--cream-2);font-weight:400}
+#room td:last-child,#room th:last-child{text-align:right;color:var(--cream)}
 #room .t{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px);margin:28px 0}
-#room .t div{border-top:1px solid var(--line);padding-top:14px}
-#room .t b{display:block;font:400 26px/1.1 var(--disp);color:var(--bone);margin-bottom:8px}
+#room .t div{border-top:1px solid var(--line);padding-top:14px;color:var(--cream-2)}
+#room .t b{display:block;font:700 22px/1.15 var(--disp);color:var(--fire);text-transform:uppercase;margin-bottom:8px}
 
 footer{padding:clamp(48px,7vw,88px) 0 40px}
 footer .row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
-footer h2{font-size:clamp(30px,4vw,48px)}
-footer a.tg{display:inline-block;margin-top:16px;background:var(--bone);color:var(--earth);text-decoration:none;font-weight:600;padding:14px 24px;border-radius:999px;transition:background-color .2s}
-footer a.tg:hover{background:var(--dawn)}
-footer small{color:var(--dust);font-size:13px}
+footer a.tg{display:inline-block;margin-top:18px;background:var(--fire);color:#000;text-decoration:none;font:700 16px var(--disp);letter-spacing:.06em;text-transform:uppercase;padding:14px 24px;border-radius:999px;transition:background-color .2s}
+footer a.tg:hover{background:var(--cream)}
+footer small{color:var(--cream-2);font-size:13px}
 
-
-.player{position:relative}
-.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(0,0,0,.72);color:var(--bone);border:1px solid rgba(237,228,211,.4);border-radius:999px;padding:16px 28px 16px 20px;font:600 clamp(15px,1.6vw,19px) var(--body);cursor:pointer;transition:background-color .2s,border-color .2s}
-.play:hover{background:var(--blood);border-color:var(--blood)}
-.play .tri{width:0;height:0;border-left:16px solid currentColor;border-top:10px solid transparent;border-bottom:10px solid transparent}
-.player.on .play{display:none}
-.frames figure:nth-child(n){grid-column:auto}
-.frames{grid-template-columns:repeat(2,minmax(0,1fr))}
-.cgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.2vw,16px)}
-.cgrid figure{margin:0}.cgrid img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.cgrid figcaption{font-size:14px;color:var(--dust);padding-top:10px}
-.people{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap;margin-top:8px}
-.people figure{margin:0;width:clamp(150px,22vw,240px)}
-.people img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(.25)}
-.people figcaption{padding-top:12px;color:var(--dust);font-size:15px}
-.people figcaption b{display:block;color:var(--bone);font:400 24px/1.15 var(--disp)}
-.studio{color:var(--dust);margin:28px 0 0;font-size:15px}
-#room table{width:100%;border-collapse:collapse;margin:8px 0 24px;font-variant-numeric:tabular-nums}
-#room td,#room th{text-align:left;padding:12px 0;border-bottom:1px solid var(--line);color:var(--dust);font-weight:400}
-#room td:last-child,#room th:last-child{text-align:right;color:var(--bone)}
-#room .big{font:400 clamp(30px,4vw,48px)/1 var(--disp);color:var(--bone);margin:0 0 6px}
-.stills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,1vw,12px);margin-top:clamp(8px,1vw,12px)}
-.stills figure{margin:0}.stills img{width:100%;aspect-ratio:1600/690;object-fit:cover}
 @media (max-width:760px){
-  .stills{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cgrid,.frames{grid-template-columns:1fr}
-  .lede,.syn,.vault .row{grid-template-columns:1fr}
-  .frames figure:nth-child(n){grid-column:1/13}
-  .hero img{aspect-ratio:4/3;object-position:50% 50%}
+  .about .lede,.ep2 .syn,.vault .row{grid-template-columns:1fr}
+  .hero img{aspect-ratio:4/3}
+  .stills figure:nth-child(n){grid-column:span 3}
   form.code .f{flex-direction:column}
   form.code button{padding:15px}
+  .lede-2{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -156,22 +138,20 @@ footer small{color:var(--dust);font-size:13px}
 <body>
 
 <header class="top">
-  <a class="brand" href="https://neyra.vision/">Neyra <b>Vision</b></a>
+  <a class="brand" href="https://neyra.vision/">Neyra Vision</a>
   <a class="go" href="#partners">Партнёрам</a>
 </header>
 
-<section class="hero" style="padding:0">
-  <h1 class="vh">Айдахар — сага о воине. Фильм Ара Аруш</h1>
+<section class="hero">
+  <h1 class="vh">Айдахар — фильм Ара Аруш</h1>
   <img src="assets/poster.jpg" width="1916" height="821" alt="Айдахар. Фильм Ара Аруш. Два воина лицом к лицу, между ними щит" fetchpriority="high">
   <a class="scroll" href="#ep1">Смотреть ↓</a>
 </section>
 
-<section class="ep1" id="ep1">
+<section id="ep1" style="padding-bottom:0">
   <div class="wrap ep-head">
-    <div>
-      <p class="cap">Серия 1</p>
-      <h2>С&nbsp;чего началась история</h2>
-    </div>
+    <p class="cap">Серия 1</p>
+    <h2>С&nbsp;чего началась история</h2>
   </div>
   <div class="player" id="player">
     <video id="v" playsinline preload="metadata" poster="assets/ep1-poster.jpg" width="1280" height="525">
@@ -179,7 +159,30 @@ footer small{color:var(--dust);font-size:13px}
     </video>
     <button class="play" id="play" type="button"><span class="tri" aria-hidden="true"></span>Посмотреть первую серию</button>
   </div>
+</section>
+
+<section class="about" id="about">
+  <div class="titry">
+    <video id="titry" muted playsinline preload="auto" poster="assets/titry-poster.jpg" width="1920" height="787" aria-label="Огненные титры: Айдахар, фильм Ара Аруш">
+      <source src="assets/titry.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="cap">О&nbsp;фильме</p>
+        <h2>Одно убийство. Одна бесконечная погоня.</h2>
+      </div>
+      <div>
+        <p>Айдахар&nbsp;— отважный, упрямый и&nbsp;невероятно вспыльчивый казахский воин, который привык сначала действовать, а&nbsp;потом думать. В&nbsp;порыве ярости он убивает ни&nbsp;в&nbsp;чём не&nbsp;повинного сына могущественного хана и&nbsp;вместе с&nbsp;женой бежит из&nbsp;родных степей.</p>
+        <p class="soft">Хан посылает за&nbsp;ними кровников, а&nbsp;потом&nbsp;— родного брата Айдахара, Карабатыра, и&nbsp;трёх своих сыновей. Погоня ведёт беглецов от&nbsp;казахских степей до&nbsp;Китая и&nbsp;Японии.</p>
+        <div class="facts">
+          <span><b>Жанр</b>историческая экшн-комедия</span>
+          <span><b>Серия</b>1,5–2 минуты</span>
+          <span><b>Выход</b>раз в&nbsp;неделю</span>
+        </div>
+      </div>
+    </div>
     <div class="stills">
       <figure><img src="assets/s1-kadr-1.jpg" width="1600" height="690" loading="lazy" alt="Айдахар в ярости, крупный план"></figure>
       <figure><img src="assets/s1-kadr-2.jpg" width="1600" height="690" loading="lazy" alt="Айдахар и враг лицом к лицу, между ними щит"></figure>
@@ -188,52 +191,33 @@ footer small{color:var(--dust);font-size:13px}
       <figure><img src="assets/s1-kadr-5.jpg" width="1600" height="690" loading="lazy" alt="Противник с бородой и шрамом"></figure>
       <figure><img src="assets/s1-kadr-6.jpg" width="1600" height="690" loading="lazy" alt="Глаза за клинком"></figure>
     </div>
-  </div>
-</section>
-
-<section id="saga">
-  <div class="wrap lede">
-    <div>
-      <p class="cap">Синопсис</p>
-      <h2>Одно убийство. Одна бесконечная погоня.</h2>
-    </div>
-    <div>
-      <p><strong>Айдахар</strong>&nbsp;— отважный и&nbsp;невероятно вспыльчивый казахский воин. В&nbsp;порыве ярости он убивает ни&nbsp;в&nbsp;чём не&nbsp;повинного сына могущественного хана и&nbsp;вместе с&nbsp;женой бежит из&nbsp;родных степей.</p>
-      <p>Хан посылает за&nbsp;ними кровников, а&nbsp;потом&nbsp;— родного брата Айдахара, Карабатыра, и&nbsp;трёх своих сыновей. Погоня ведёт беглецов от&nbsp;казахских степей до&nbsp;Китая и&nbsp;Японии, где их&nbsp;ждут самураи, крестоносцы, рыцари и&nbsp;пираты. Никто из&nbsp;них не&nbsp;готов к&nbsp;встрече с&nbsp;казахским воином и&nbsp;его непредсказуемым характером.</p>
-      <div class="facts">
-        <span><b>Жанр</b>историческая экшн-комедия</span>
-        <span><b>Серия</b>1,5–2 минуты</span>
-        <span><b>Выход</b>раз в&nbsp;неделю</span>
-      </div>
+    <div class="lede-2">
+      <p>Китайские воины, японские самураи, европейские рыцари, крестоносцы и&nbsp;пираты привыкли жить по&nbsp;своим законам чести. Никто из&nbsp;них не&nbsp;готов к&nbsp;встрече с&nbsp;казахским воином и&nbsp;его непредсказуемым характером.</p>
     </div>
   </div>
 </section>
 
 <section class="ep2" id="ep2" style="padding-top:0">
   <div class="wrap">
-    <div class="ep-head">
-      <div>
-        <p class="cap">Серия 2 · скоро</p>
-        <h2>Кровь брата</h2>
-      </div>
-    </div>
+    <p class="cap">Серия 2 · скоро</p>
+    <h2>Кровь брата</h2>
     <div class="syn">
-      <p>Айдахар и&nbsp;жена мчатся через степь. За&nbsp;ними&nbsp;— отряд кровников.</p>
+      <p class="lead">Айдахар и&nbsp;жена мчатся через степь. За&nbsp;ними&nbsp;— отряд кровников.</p>
       <p>На&nbsp;полном скаку воины обмениваются стрелами. Айдахар стреляет назад из&nbsp;седла, жена прикрывает его. Первый отряд погибает, спасается один раненый. Он&nbsp;возвращается к&nbsp;хану, и&nbsp;хан посылает в&nbsp;погоню Карабатыра: принести голову собственного брата.</p>
     </div>
     <div class="frames">
-      <figure><img src="assets/01-skachut.jpg" width="1600" height="893" loading="lazy" alt="Айдахар на чёрном коне и его жена на белой лошади скачут по степи на рассвете"></figure>
-      <figure><img src="assets/02-pogonya.jpg" width="1600" height="893" loading="lazy" alt="Восемь всадников в шкурах с саблями и копьями гонятся за двумя фигурами вдали"></figure>
-      <figure><img src="assets/03-strela-iz-pod-konya.jpg" width="1600" height="893" loading="lazy" alt="Айдахар свешивается с коня и стреляет из лука, позади падает лошадь преследователя"></figure>
-      <figure><img src="assets/04-rubka-na-skaku.jpg" width="1600" height="893" loading="lazy" alt="Айдахар на скаку замахивается саблей, у врага рядом из руки вылетает клинок"></figure>
+      <figure><img src="assets/s2-01-skachut.jpg" width="1920" height="814" loading="lazy" alt="Айдахар на чёрном коне и жена на белом скачут, пригнувшись к шеям лошадей"></figure>
+      <figure><img src="assets/s2-02-presledovateli.jpg" width="1920" height="814" loading="lazy" alt="Восемь всадников в шкурах с саблями несутся в пыли"></figure>
+      <figure><img src="assets/s2-03-vystrel.jpg" width="1920" height="814" loading="lazy" alt="Айдахар развернулся в седле и стреляет из лука в погоню"></figure>
+      <figure><img src="assets/s2-04-kon-padaet.jpg" width="1920" height="814" loading="lazy" alt="Конь преследователя переворачивается через голову, всадник летит из седла"></figure>
     </div>
   </div>
 </section>
 
-
-<section class="team" id="team" style="padding-top:0">
+<section id="team" style="padding-top:0">
   <div class="wrap">
     <p class="cap">Команда</p>
+    <h2>Кто делает</h2>
     <div class="people">
       <figure><img src="assets/ara-arush.jpg" width="800" height="800" loading="lazy" alt="Ара Аруш"><figcaption><b>Ара Аруш</b>режиссёр-сценарист</figcaption></figure>
       <figure><img src="assets/aleksandr-andreyanov.jpg" width="900" height="900" loading="lazy" alt="Александр Андрианов"><figcaption><b>Александр Андрианов</b>продюсер</figcaption></figure>
@@ -267,7 +251,7 @@ footer small{color:var(--dust);font-size:13px}
   <div class="wrap row">
     <div>
       <h2>Получить код и&nbsp;обсудить участие</h2>
-      <a class="tg" href="https://t.me/mis_ter_bro" target="_blank" rel="noopener">Написать продюсеру в&nbsp;Telegram</a>
+      <a class="tg" href="https://t.me/mis_ter_bro" target="_blank" rel="noopener">Написать продюсеру</a>
     </div>
     <small>© 2026 Neyra Vision</small>
   </div>
@@ -285,14 +269,19 @@ footer small{color:var(--dust);font-size:13px}
     return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u8(P.iv)},key,u8(P.ct)));
   }
   async function open(code,scroll){
-    var html=await dec(code);
     var room=document.getElementById('room');
-    room.innerHTML=html;room.classList.add('open');
+    room.innerHTML=await dec(code);room.classList.add('open');
     try{localStorage.setItem('aydahar_code',code)}catch(e){}
     if(scroll)room.scrollIntoView({behavior:'smooth',block:'start'});
   }
   var v=document.getElementById('v'),pl=document.getElementById('player');
   document.getElementById('play').addEventListener('click',function(){pl.classList.add('on');v.controls=true;v.play()});
+  // огненные титры играют один раз, когда блок появляется на экране, и замирают на названии
+  var t=document.getElementById('titry');
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){t.play().catch(function(){});io.disconnect()}})},{threshold:.5});
+    io.observe(t);
+  }
   document.getElementById('codeForm').addEventListener('submit',function(e){
     e.preventDefault();
     var c=document.getElementById('code').value.trim().toUpperCase(),err=document.getElementById('err');
