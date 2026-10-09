@@ -50,19 +50,21 @@ section{padding-block:clamp(64px,9vw,128px)}
 .hero img{width:100%;aspect-ratio:1916/821;object-fit:cover}
 .scroll{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font:700 12px var(--disp);letter-spacing:.24em;text-transform:uppercase;color:var(--cream);text-decoration:none;text-shadow:0 1px 8px #000}
 
-/* серия 1 */
-.ep-head{margin-bottom:24px}
-.player{position:relative;background:#000;border-block:1px solid var(--line)}
-.player video{width:100%;aspect-ratio:1280/525;background:#000;max-width:1600px;margin:0 auto}
-.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(0,0,0,.7);color:var(--cream);border:1px solid var(--fire);border-radius:999px;padding:16px 28px 16px 20px;font:700 clamp(15px,1.6vw,19px) var(--disp);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background-color .2s,color .2s}
+/* серия 1 — тизер на всю ширину */
+.ep1{padding-block:clamp(40px,6vw,80px) 0}
+.titry{max-width:min(620px,80vw);margin:0 auto clamp(8px,1.5vw,20px)}
+.titry video{width:100%;aspect-ratio:1920/787;background:#000}
+.player{position:relative;background:#000}
+.player video{width:100%;aspect-ratio:1920/787;background:#000}
+.play{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(0,0,0,.6);color:var(--cream);border:1px solid var(--fire);border-radius:999px;padding:14px 26px 14px 18px;font:700 clamp(14px,1.5vw,18px) var(--disp);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background-color .2s,color .2s}
 .play:hover{background:var(--fire);color:#000}
-.play .tri{width:0;height:0;border-left:16px solid currentColor;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.play .tri{width:0;height:0;border-left:14px solid currentColor;border-top:9px solid transparent;border-bottom:9px solid transparent}
 .player.on .play{display:none}
+.ep-cap{padding-top:clamp(16px,2vw,24px);text-align:center}
+.ep-cap h2 span{color:var(--cream)}
 
 /* описание фильма */
 .about{padding-top:clamp(40px,6vw,72px)}
-.titry{max-width:900px;margin:0 auto clamp(8px,2vw,24px)}
-.titry video{width:100%;aspect-ratio:1920/787;background:#000}
 .about .lede{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:start;margin-bottom:clamp(32px,5vw,56px)}
 .about p{margin:0 0 1em;color:var(--cream)}
 .about p.soft{color:var(--cream-2)}
@@ -148,25 +150,24 @@ footer small{color:var(--cream-2);font-size:13px}
   <a class="scroll" href="#ep1">Смотреть ↓</a>
 </section>
 
-<section id="ep1" style="padding-bottom:0">
-  <div class="wrap ep-head">
-    <p class="cap">Серия 1</p>
-    <h2>С&nbsp;чего началась история</h2>
-  </div>
-  <div class="player" id="player">
-    <video id="v" playsinline preload="metadata" poster="assets/ep1-poster.jpg" width="1280" height="525">
-      <source src="assets/ep1.mp4" type="video/mp4">
-    </video>
-    <button class="play" id="play" type="button"><span class="tri" aria-hidden="true"></span>Посмотреть первую серию</button>
-  </div>
-</section>
-
-<section class="about" id="about">
+<section id="ep1" class="ep1">
   <div class="titry">
     <video id="titry" muted playsinline preload="auto" poster="assets/titry-poster.jpg" width="1920" height="787" aria-label="Огненные титры: Айдахар, фильм Ара Аруш">
       <source src="assets/titry.mp4" type="video/mp4">
     </video>
   </div>
+  <div class="player" id="player">
+    <video id="v" playsinline preload="metadata" poster="assets/teaser-cover.jpg" width="1920" height="787">
+      <source src="assets/teaser.mp4" type="video/mp4">
+    </video>
+    <button class="play" id="play" type="button"><span class="tri" aria-hidden="true"></span>Посмотреть первую серию</button>
+  </div>
+  <div class="wrap ep-cap">
+    <h2>Айдахар <span>· 1 серия</span></h2>
+  </div>
+</section>
+
+<section class="about" id="about">
   <div class="wrap">
     <div class="lede">
       <div>
