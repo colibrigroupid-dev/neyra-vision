@@ -1,192 +1,270 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ер Төстік · варианты стиля · Neyra Vision</title>
-<meta name="description" content="Ер Төстік — казахская сказка для анимационного фильма: тон, герои, сюжет и семь вариантов визуального стиля.">
-<meta name="robots" content="noindex"><meta name="theme-color" content="#0f3b52">
-<meta property="og:title" content="Ер Төстік — семь стилей мультфильма"><meta property="og:image" content="https://neyra.vision/er-tostik/assets/3d-geroj.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Montserrat:wght@600;700&family=Golos+Text:wght@400;500;600&display=swap">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ер Төстік · анимационный фильм · Neyra Vision</title>
+<meta name="description" content="Юный батыр, говорящий конь и путь домой через мир, скрытый под степью. Чтобы вернуться к близким, Төстіку придётся научиться самому трудному — доверять другим.">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#0E1B1D">
+<meta property="og:title" content="Ер Төстік"><meta property="og:description" content="Юный батыр, говорящий конь и путь домой через мир, скрытый под степью. Чтобы вернуться к близким, Төстіку придётся научиться самому трудному — доверять другим."><meta property="og:image" content="https://neyra.vision/er-tostik/img/k-step-1920.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
+<link rel="preload" as="image" href="img/k-step-1920.webp" type="image/webp">
 <style>
-:root{--sky:#0f3b52;--sky-2:#1f6f8b;--air:#eaf3f5;--paper:#f7fafa;--ink:#142433;--ink-2:#3d5466;--sun:#f2a516;--felt:#b4401f;
---disp:Unbounded,system-ui,sans-serif;--kz:Montserrat,system-ui,sans-serif;--body:"Golos Text",system-ui,sans-serif;--gut:clamp(16px,4vw,56px);--ease:cubic-bezier(.16,1,.3,1)}
+:root{--night:#0E1B1D;--teal-deep:#123F43;--teal:#1d5a5e;--glow:#4FD1BE;--earth:#2B1B12;--amber:#E8A03A;--sun:#F7D58A;--gold:#C9A24A;--paper:#F4EAD5;--paper-2:#cfc2a8;
+--disp:Forum,"Cormorant Garamond",Georgia,serif;--body:"Golos Text",system-ui,sans-serif;--hand:Caveat,cursive;--gut:clamp(16px,4vw,56px);--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
-::selection{background:var(--sun);color:var(--ink)}a{color:inherit}:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
-img{display:block;width:100%;height:auto}h1,h2,h3,h4{text-wrap:balance;margin:0}
-.hero{position:relative;min-height:min(92vh,980px);display:grid;align-items:end;color:#fff;overflow:hidden;background:var(--sky)}
-.hero img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:72% 40%;animation:drift 24s var(--ease) both}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,59,82,0) 30%,rgba(15,59,82,.92) 100%),linear-gradient(90deg,rgba(15,59,82,.55),rgba(15,59,82,0) 60%)}
-.hero .in{position:relative;z-index:1;padding:0 var(--gut) clamp(32px,7vh,80px);max-width:1200px}
-.hero h1{font:800 clamp(3.2rem,11vw,9rem)/.9 var(--kz);letter-spacing:-.04em}
-.hero .sub{font:600 clamp(1rem,2vw,1.4rem) var(--disp);color:var(--sun);margin:14px 0 0}
-.hero p.l{max-width:46ch;margin:16px 0 24px;color:#e6f1f4}
-.btn{display:inline-block;font:600 15px var(--body);text-decoration:none;padding:14px 22px;border-radius:999px;background:var(--sun);color:var(--ink);transition:transform .2s var(--ease)}
-.btn:hover{transform:translateY(-2px)}
-@keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
-section{padding:clamp(56px,9vw,128px) var(--gut)}
-.wrap{max-width:1240px;margin:0 auto}
-h2{font:800 clamp(1.8rem,4vw,3.2rem)/1.02 var(--disp);letter-spacing:-.03em;margin-bottom:28px;max-width:20ch}
-.ton{display:grid;gap:28px}.ton .txt p{margin:0 0 14px;color:var(--ink-2);max-width:62ch}.ton .txt p:first-child{font-size:21px;color:var(--ink);font-weight:500}
-.geroi{display:grid;gap:18px;margin-top:40px}
-.g{background:#fff;border-radius:14px;padding:22px 22px 8px;border:1px solid #d6e3e7}
-.g h4{font:700 19px var(--kz);margin-bottom:8px;color:var(--sky)}.g p{color:var(--ink-2);margin:0 0 14px}
-.syu{background:var(--air)}
-ol.beats{list-style:none;padding:0;margin:0;display:grid;gap:4px;counter-reset:b}
-ol.beats li{counter-increment:b;display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:18px 0;border-top:1px solid #c9dadf}
-ol.beats li::before{content:counter(b);grid-row:span 2;font:800 30px/1 var(--disp);color:var(--sun)}
-ol.beats h4{font:700 17px var(--disp)}ol.beats p{margin:0;color:var(--ink-2)}
-
-.smysl{display:grid;gap:26px}.sm h4{font:700 19px var(--disp);margin-bottom:6px}.sm p{margin:0;color:var(--ink-2)}
-@media(min-width:900px){.smysl{grid-template-columns:repeat(3,1fr);gap:40px}}
-ul.miry{margin:32px 0 0;padding-left:20px;color:var(--ink-2)}ul.miry .src{list-style:none;margin-left:-20px;margin-top:14px;font-size:14px}ul.miry li{margin:6px 0}ul.miry b{color:var(--ink)}
-.cmp{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.cmp a{position:relative;display:block;border-radius:10px;overflow:hidden;text-decoration:none}
-.cmp img{aspect-ratio:16/9;object-fit:cover;transition:transform .5s var(--ease)}.cmp a:hover img{transform:scale(1.04)}
-.cmp span{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 8px;color:#fff;font:500 14px var(--body);background:linear-gradient(0deg,rgba(15,59,82,.9),transparent)}
-.cmp b{font:800 16px var(--disp);color:var(--sun);margin-right:6px}
-.stl{padding:clamp(48px,7vw,96px) 0;border-top:1px solid #d6e3e7}
-.sh{display:flex;gap:18px;align-items:center;margin-bottom:22px}
-.let{font:800 clamp(3.4rem,7vw,5.5rem)/1 var(--disp);color:var(--sun);margin:0;letter-spacing:-.04em}
-.sh h3{font:800 clamp(1.6rem,3.4vw,2.6rem)/1.05 var(--disp);letter-spacing:-.025em}.short{margin:6px 0 0;font-weight:600;color:var(--felt);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-.grid{display:grid;gap:10px}
-figure{margin:0}figure a{display:block;border-radius:10px;overflow:hidden;background:var(--air)}
-figure img{aspect-ratio:16/9;object-fit:cover;transition:transform .6s var(--ease)}figure a:hover img{transform:scale(1.03)}
-figcaption{font-size:13px;color:var(--ink-2);margin-top:6px}
-.about{display:grid;gap:18px;margin-top:22px}.ref{font-size:19px;margin:0;max-width:60ch}
-dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px}dt{font:700 13px var(--disp);color:var(--felt);padding-top:3px}dd{margin:0;color:var(--ink-2)}
+body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--amber);color:var(--night)}a{color:inherit}:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
+img{display:block;width:100%;height:auto}h1,h2,h3{font-family:var(--disp);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+section{padding:clamp(72px,11vw,150px) 0}
+h2{font-size:clamp(2.4rem,6vw,5rem);line-height:1;margin-bottom:.4em}
+.kick{font:600 13px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0 0 14px}
+.hand{font:600 clamp(1.3rem,2.2vw,1.7rem)/1.1 var(--hand);color:var(--sun);margin:.2em 0 0}
+.orn{display:block;width:min(420px,70%);margin:48px auto;color:var(--gold);opacity:.8}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px var(--body);text-decoration:none;padding:15px 24px;border-radius:999px;background:var(--amber);color:var(--night);border:0;cursor:pointer;transition:transform .2s var(--ease),background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--sun)}.btn.ghost{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1.5px rgba(244,234,213,.5)}.btn.ghost:hover{background:rgba(244,234,213,.08)}
+/* герой */
+.top{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;background:var(--earth)}
+.top picture,.top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:20% 40%}@media(max-width:700px){.top img{object-position:46% 30%}}
+.top img{animation:drift 30s var(--ease) both}
+.top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,27,29,.15) 0%,rgba(14,27,29,0) 35%,rgba(14,27,29,.6) 70%,var(--night) 100%),linear-gradient(90deg,rgba(43,27,18,.55),rgba(43,27,18,0) 55%)}
+.top .in{position:relative;z-index:1;padding:0 var(--gut) clamp(40px,8vh,96px);max-width:1280px;margin:0 auto;width:100%}
+.status{display:inline-block;font:600 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sun);border:1px solid rgba(247,213,138,.45);border-radius:999px;padding:6px 12px;margin-bottom:18px;background:rgba(14,27,29,.35);backdrop-filter:none}
+.top h1{font-size:clamp(4.2rem,15vw,12rem);line-height:.86;color:var(--paper);text-shadow:0 6px 40px rgba(14,27,29,.45)}
+.top .log{max-width:46ch;font-size:clamp(1.05rem,1.7vw,1.3rem);margin:22px 0 28px;color:var(--paper)}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+@keyframes drift{from{transform:scale(1.07)}to{transform:scale(1)}}
+/* обещание */
+.obs{display:grid;gap:34px}.ob h3{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--amber);line-height:1}.ob p{margin:.5em 0 0;color:var(--paper-2);max-width:36ch}
+/* горизонт */
+.hz{position:relative;height:230vh;background:var(--night)}
+.hz .stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.hz .lay{position:absolute;inset:0}.hz .lay img{width:100%;height:100%;object-fit:cover}
+.hz .up{clip-path:inset(0 0 calc(var(--p,0)*100%) 0);will-change:clip-path}
+.hz .line{position:absolute;left:0;right:0;top:calc((1 - var(--p,0))*100%);height:2px;background:linear-gradient(90deg,transparent,var(--sun),transparent);box-shadow:0 0 24px var(--amber);transform:translateY(-1px)}
+.hz .cap{position:absolute;left:var(--gut);bottom:clamp(28px,6vh,64px);right:var(--gut);max-width:640px}
+.hz .cap h2{font-size:clamp(2.2rem,5vw,4.2rem);text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hz .cap p{margin:0;color:var(--paper);text-shadow:0 2px 16px rgba(0,0,0,.7)}
+.hz .t1,.hz .t2{transition:opacity .4s}.hz .t2{position:absolute;inset:auto 0 0 0;opacity:0}
+.hz[data-half="1"] .t1{opacity:0}.hz[data-half="1"] .t2{opacity:1}
+/* герои */
+.heroes{background:linear-gradient(180deg,var(--night),var(--teal-deep) 50%,var(--night))}
+.hero-card{display:grid;gap:26px;padding:clamp(40px,6vw,80px) 0;border-top:1px solid rgba(201,162,74,.25)}
+.hero-card h3{font-size:clamp(3rem,7vw,6rem);line-height:.9}
+.hero-card dl{margin:24px 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 20px}
+.hero-card dt{font:600 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);padding-top:5px}
+.hero-card dd{margin:0;color:var(--paper)}
+.shot{display:block;border-radius:14px;overflow:hidden;background:var(--teal-deep);position:relative}
+.shot img{transition:transform .7s var(--ease)}.shot:hover img{transform:scale(1.03)}
+.shot::after{content:"⤢";position:absolute;right:12px;top:10px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:rgba(14,27,29,.6);color:var(--paper);font-size:16px;opacity:0;transition:opacity .2s}
+.shot:hover::after,.shot:focus-visible::after{opacity:1}
+.emo{display:grid;gap:12px}.emo-pic{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:633/1344;background:var(--teal-deep);max-width:420px}
+.emo-pic picture{position:absolute;inset:0;opacity:0;transition:opacity .3s var(--ease)}.emo-pic picture.on{opacity:1}.emo-pic img{height:100%;object-fit:cover}
+.emo-btn{display:flex;flex-wrap:wrap;gap:8px}
+.emo-btn button{font:500 14px var(--body);color:var(--paper);background:rgba(244,234,213,.06);border:1px solid rgba(244,234,213,.25);border-radius:999px;padding:8px 14px;cursor:pointer;transition:background .2s,color .2s}
+.emo-btn button[aria-pressed="true"],.emo-btn button:hover{background:var(--amber);color:var(--night);border-color:var(--amber)}
+/* отряд */
+.team .big{margin:0 calc(var(--gut)*-1)}
+.team ul{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:18px}
+.team li{color:var(--paper-2)}.team li b{display:block;font:400 clamp(1.6rem,2.4vw,2rem)/1.1 var(--disp);color:var(--paper)}
+.vls{display:grid;gap:30px;margin-top:36px}.vl h3{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--amber)}.vl p{color:var(--paper-2);margin:.4em 0 0}
+/* мир */
+.world{background:linear-gradient(180deg,var(--night),var(--earth))}
+.worlds{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:22px}
+.worlds li b{display:block;font:400 1.8rem/1 var(--disp);color:var(--sun)}.worlds li span{color:var(--paper-2)}
+.rules{margin:40px 0 0;padding:26px 28px;border:1px solid rgba(79,209,190,.35);border-radius:16px;background:rgba(18,63,67,.35)}
+.rules h3{font:600 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--glow);margin-bottom:10px}
+.rules ol{margin:0;padding-left:20px}.rules li{margin:6px 0}
+/* история */
+.story{background:var(--earth)}.story .txt p{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:58ch}.story .txt p.p1::first-letter{font:400 4.2em/.8 var(--disp);float:left;margin:.06em .1em 0 0;color:var(--amber)}
+/* кадры */
+.mosaic{display:grid;gap:12px;margin-top:30px}
+/* язык */
+.yzs{display:grid;gap:26px;margin-top:30px}.yz h3{font-size:2rem;color:var(--sun)}.yz p{color:var(--paper-2);margin:.3em 0 0}
+.chips{display:flex;margin-top:34px;border-radius:14px;overflow:hidden;height:64px}.chips i{flex:1}
+/* сказка */
+.src{max-width:70ch;color:var(--paper-2)}
+table{width:100%;border-collapse:collapse;margin:28px 0;font-size:15px}
+th{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);text-align:left;padding:10px 12px;border-bottom:1px solid rgba(201,162,74,.4)}
+td{padding:14px 12px;border-bottom:1px solid rgba(244,234,213,.12);vertical-align:top;color:var(--paper-2)}td:nth-child(2){color:var(--paper)}
+.tl{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:10px}
+.tl li{position:relative;padding:14px 16px 14px 104px;border-radius:12px;background:rgba(18,63,67,.45)}
+.tl span{position:absolute;left:16px;top:14px;font:600 13px var(--body);color:var(--glow);font-variant-numeric:tabular-nums}
+.fin{text-align:center;background:radial-gradient(ellipse at 50% 120%,rgba(232,160,58,.25),transparent 60%),var(--night)}
+.fin h2{max-width:16ch;margin:0 auto .4em}.fin p{max-width:52ch;margin:0 auto 28px;color:var(--paper-2)}.fin .row{justify-content:center}
+footer{padding:26px var(--gut);font-size:13px;color:var(--paper-2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(201,162,74,.2)}footer a{text-decoration:none;color:var(--paper)}
 @media(min-width:900px){
- .ton{grid-template-columns:1fr 1.4fr;gap:64px}.geroi{grid-template-columns:repeat(2,1fr)}
- ol.beats{grid-template-columns:1fr 1fr;column-gap:56px}
- .grid{grid-template-columns:2fr 1fr;grid-template-rows:auto auto}.grid .big{grid-row:span 2}
- .about{grid-template-columns:1.2fr 1fr;gap:56px}
+ .obs{grid-template-columns:1.2fr 1fr 1fr;gap:48px}.obs .ob:first-child{padding-top:0}.obs .ob:nth-child(2){padding-top:60px}.obs .ob:nth-child(3){padding-top:120px}
+ .hero-card{grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}.hero-card:nth-child(even) .hc-media{order:2}
+ .team ul{grid-template-columns:repeat(3,1fr);gap:28px 40px}
+ .vls{grid-template-columns:1fr 1fr;gap:56px}
+ .worlds{grid-template-columns:repeat(4,1fr)}
+ .story .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center}
+ .mosaic{grid-template-columns:repeat(6,1fr)}.mosaic .m1{grid-column:span 4}.mosaic .m2{grid-column:span 2}.mosaic .m3{grid-column:span 3}.mosaic .m4{grid-column:span 2}.mosaic .m5{grid-column:span 4}
+ .mosaic .m2 img,.mosaic .m4 img{height:100%;object-fit:cover}
+ .yzs{grid-template-columns:repeat(4,1fr)}
 }
-.end{background:var(--sky);color:#fff}.end h2{color:#fff}.end ol{max-width:60ch;color:#d4e6ec;padding-left:22px}.end li{margin:8px 0}
-.end .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.ghost{background:transparent;border:2px solid #fff;color:#fff}
-footer{background:#0b2c3d;color:#9fbccb;padding:22px var(--gut);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}footer a{color:#d4e6ec;text-decoration:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* лайтбокс */
+dialog.lb{border:0;padding:0;margin:0;width:100vw;height:100svh;max-width:none;max-height:none;background:transparent;color:var(--paper)}
+dialog.lb::backdrop{background:rgb(8 14 15 / .94)}
+.lb .fig{position:absolute;inset:56px 0 84px;display:grid;place-items:center;touch-action:pan-y}
+.lb .fig img{max-width:min(96vw,1920px);max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px;transition:opacity .25s}
+.lb .bar{position:absolute;left:0;right:0;bottom:0;padding:16px var(--gut) 22px;display:flex;gap:16px;align-items:baseline;justify-content:space-between}
+.lb .cap{font-size:15px;color:var(--paper)}.lb .cnt{font:600 13px var(--body);color:var(--paper-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lb button{position:absolute;border:0;cursor:pointer;color:var(--paper);background:rgba(244,234,213,.1);border-radius:50%;width:52px;height:52px;display:grid;place-items:center;transition:background .2s}
+.lb button:hover{background:rgba(244,234,213,.22)}.lb button svg{width:22px;height:22px}
+.lb .x{top:12px;right:12px}.lb .pv{left:12px;top:50%;transform:translateY(-50%)}.lb .nx{right:12px;top:50%;transform:translateY(-50%)}
+@media(max-width:700px){.lb .pv,.lb .nx{top:auto;bottom:70px;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.hz{height:auto}.hz .stage{position:relative;height:auto}.hz .up,.hz .line{display:none}.hz .lay.down{position:relative}}
 </style>
 </head>
 <body>
-<header class="hero">
-  <img src="assets/3d-geroj.jpg" width="1920" height="1080" alt="Ер Төстік и его конь Шалқұйрық в степи">
+<header class="top">
+  <picture><source type="image/avif" srcset="img/k-step-960.avif 960w, img/k-step-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="img/k-step-960.webp 960w, img/k-step-1920.webp 1920w" sizes="100vw"><img class="" src="img/k-step-1920.jpg" width="1916" height="821" alt="Төстік и конь Шалқұйрық в степи на закате, вдали Кенжекей" fetchpriority="high" decoding="async"></picture>
   <div class="in">
-    <h1>Ер Төстік</h1>
-    <p class="sub">Анимационный фильм · семь вариантов стиля</p>
-    <p class="l">Мальчик по имени «Грудинка», говорящий конь, ведьма Жалмауыз, подземный мир и птица Самрук. Одна сказка — семь способов её нарисовать.</p>
-    <a class="btn" href="#stili">Смотреть стили</a>
+    <p class="status">Семейный анимационный фильм по мотивам казахской сказки · проект в разработке</p>
+    <h1 lang="kk">Ер Төстік</h1>
+    <p class="log">Юный батыр, говорящий конь и путь домой через мир, скрытый под степью. Чтобы вернуться к близким, Төстіку придётся научиться самому трудному — доверять другим.</p>
+    <div class="row"><button class="btn" type="button" data-open="0">Смотреть кадры · 14</button><a class="btn ghost" href="#geroi">Герои ↓</a></div>
   </div>
 </header>
 
-<section><div class="wrap ton">
-  <h2>Тон фильма</h2>
-  <div class="txt"><p>Светлое приключение о взрослении: младший в семье, которого никто не ждал, возвращает домой всю семью.</p><p>Сказка старая и очень метафоричная: голодная зима, пропавшие братья, подземный мир, птица, несущая солнце. Мы сохраняем этот глубокий слой для взрослых, но рассказываем его глазами одиннадцатилетнего мальчишки — смело, смешно и с открытым сердцем.</p><p>Юмор держат трое: язвительный конь Шалқұйрық, который всегда прав и никогда не молчит; Кенжекей, которая умнее всех мужчин в сказке; и отряд нелепых силачей, у каждого из которых один дар и сто недостатков.</p><p>Ведьма Жалмауыз — главный злодей, но театральный, а не жуткий: дети должны над ней смеяться и немного её бояться, как над хорошей Бабой-ягой. Никакой крови, никакой мрачной монохромной картинки. Цвет — весна в степи, золото Самрука, бирюза неба.</p><p>Главная мысль: настоящая сила — в тех, кого ты собрал вокруг себя. Семья, друг-конь, друзья с их странными талантами.</p></div>
-</div>
-<div class="wrap geroi"><div class="g"><h4>Ер Төстік</h4><p>Младший, девятый сын старика Ерназара. Имя значит «грудинка»: в голодную зиму мать нашла кусок грудинки старой кобылы, старики его съели — и родился сын. Растёт не по дням, а по часам, стреляет из лука лучше всех, упрям, весел, иногда хвастлив — и учится не быть один.</p></div><div class="g"><h4>Шалқұйрық</h4><p>Конь-тулпар, приданое Кенжекей. Однажды заговорил человеческим голосом — и с тех пор советует, спорит, ворчит и всегда оказывается прав. Даже падает замертво на скачках и встаёт снова. Мудрый наставник и главный комик фильма.</p></div><div class="g"><h4>Кенжекей</h4><p>Младшая из девяти сестёр, невеста Төстіка. Сама ставит условия: коня Шалқұйрық, верблюдицу Құба інген и доспех Ақсырмалы сауыт. С ножом в руке встаёт в дверях и раскрывает обман. Самая находчивая героиня сказки — равный партнёр в приключении.</p></div><div class="g"><h4>Жалмауыз кемпір</h4><p>Ведьма — «ненасытная пасть». Ловит старика Ерназара и выторговывает у него Төстіка, гонится за героем так, что рушатся горы. Смешная, хитрая, театральная.</p></div><div class="g"><h4>Шойынқұлақ</h4><p>«Чугунное ухо» — сын ведьмы и злодей второй половины. Неуязвим, потому что спрятал свою душу далеко-далеко: в ларце внутри красного оленя. Победить его можно только хитростью.</p></div><div class="g"><h4>Отряд силачей</h4><p>Желаяқ — «ветроногий», бегает с гирями на ногах, иначе улетит; Таусоғар переносит горы; Көлтауысар выпивает озеро и держит его за щекой; Саққұлақ слышит, что говорят под землёй; Қырағы видит на сотни вёрст; и безымянный ловкач, который меняет птицам хвосты. Каждый — игрушка и персонаж игры.</p></div><div class="g"><h4>Самұрық и Айдаһар</h4><p>Огромная птица и дракон, который охотится на её птенцов у великого тополя. Төстік спасает птенцов одной стрелой — и Самрук выносит его из подземного мира и дарит перо: сожги его, и птица придёт на помощь.</p></div></div></section>
+<section><div class="wrap">
+  <p class="kick">Обещание фильма</p>
+  <div class="obs"><div class="ob"><h3>Смех</h3><p>Мальчик, который уверен, что справится один, и конь, который в этом сильно сомневается.</p></div><div class="ob"><h3>Масштаб</h3><p>Под знакомой степью открывается целый мир: корни-великаны, светящиеся минералы, змеиный двор и раскалённый железный дворец.</p></div><div class="ob"><h3>Сердце</h3><p>Птенцы, которых нужно спасти ценой дороги домой, и семья, которая ждёт наверху.</p></div></div>
+</div></section>
+
+<section class="hz" aria-label="Мир под степью">
+  <div class="stage">
+    <div class="lay down"><picture><source type="image/avif" srcset="img/k-pod-960.avif 960w, img/k-pod-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="img/k-pod-960.webp 960w, img/k-pod-1920.webp 1920w" sizes="100vw"><img class="" src="img/k-pod-1920.jpg" width="1916" height="821" alt="Прыжок в мир под степью: корни, водопады, бирюзовый свет" loading="lazy" decoding="async"></picture></div>
+    <div class="lay up"><picture><source type="image/avif" srcset="img/06-pogonya-960.avif 960w, img/06-pogonya-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="img/06-pogonya-960.webp 960w, img/06-pogonya-1920.webp 1920w" sizes="100vw"><img class="" src="img/06-pogonya-1920.jpg" width="1920" height="815" alt="Погоня ведьмы по степи" loading="lazy" decoding="async"></picture></div>
+    <div class="line" aria-hidden="true"></div>
+    <div class="cap"><div class="t1"><h2>Степь</h2><p>Дом, ветер, табуны — и ведьма, которая уже знает имя Төстіка.</p></div>
+    <div class="t2"><h2>Под степью</h2><p>Земля проваливается — и открывается мир, откуда никто не возвращался.</p></div></div>
+  </div>
+</section>
+
+<section class="heroes" id="geroi"><div class="wrap">
+  <p class="kick">Герои</p><h2>Трое, без которых не будет пути домой</h2>
+  <article class="hero-card" id="tostik">
+  <div class="hc-media"><div class="emo"><div class="emo-pic"><picture class="on" data-e="0"><source type="image/webp" srcset="img/emo-0-960.webp"><img src="img/emo-0-960.jpg" width="633" height="1344" loading="lazy" alt="Төстік — хвастовство"></picture><picture class="" data-e="1"><source type="image/webp" srcset="img/emo-1-960.webp"><img src="img/emo-1-960.jpg" width="633" height="1344" loading="lazy" alt="Төстік — страх"></picture><picture class="" data-e="2"><source type="image/webp" srcset="img/emo-2-960.webp"><img src="img/emo-2-960.jpg" width="633" height="1344" loading="lazy" alt="Төстік — стыд"></picture><picture class="" data-e="3"><source type="image/webp" srcset="img/emo-3-960.webp"><img src="img/emo-3-960.jpg" width="633" height="1344" loading="lazy" alt="Төстік — принять помощь"></picture><picture class="" data-e="4"><source type="image/webp" srcset="img/emo-4-960.webp"><img src="img/emo-4-960.jpg" width="633" height="1344" loading="lazy" alt="Төстік — тихая радость"></picture></div><div class="emo-btn" role="group" aria-label="Эмоции Төстіка"><button type="button" data-e="0" aria-pressed="true">Хвастовство</button><button type="button" data-e="1" aria-pressed="false">Страх</button><button type="button" data-e="2" aria-pressed="false">Стыд</button><button type="button" data-e="3" aria-pressed="false">Принять помощь</button><button type="button" data-e="4" aria-pressed="false">Тихая радость</button></div></div></div>
+  <div class="hc-txt">
+    <h3 lang="kk">Төстік</h3><p class="hand">Юный батыр, 12–13 лет</p>
+    <dl><dt>Хочет</dt><dd>Доказать, что справится с любой бедой один — и заслужить любовь отца новыми подвигами.</dd><dt>Мешает</dt><dd>Принимает помощь за слабость и не слушает предупреждений.</dd><dt>Поступок</dt><dd>Рискует единственной дорогой домой ради чужих птенцов — ещё не зная, что за это будет.</dd></dl>
+  </div>
+</article><article class="hero-card" id="kon">
+  <div class="hc-media"><a class="shot tall" href="img/01-geroi-1920.jpg" data-i="3" aria-label="Открыть кадр: Герои: Төстік, Шалқұйрық, Кенжекей"><picture><source type="image/avif" srcset="img/01-geroi-960.avif 960w, img/01-geroi-1920.avif 1920w" sizes="(min-width:900px) 55vw, 100vw"><source type="image/webp" srcset="img/01-geroi-960.webp 960w, img/01-geroi-1920.webp 1920w" sizes="(min-width:900px) 55vw, 100vw"><img class="" src="img/01-geroi-1920.jpg" width="1920" height="815" alt="Герои: Төстік, Шалқұйрық, Кенжекей" loading="lazy" decoding="async"></picture></a></div>
+  <div class="hc-txt">
+    <h3 lang="kk">Шалқұйрық</h3><p class="hand">Говорящий конь</p>
+    <dl><dt>Хочет</dt><dd>Снова оказаться в вольной степи, где родился.</dd><dt>Мешает</dt><dd>Знает старые тропы между мирами, но не видит будущего — и иногда ошибается.</dd><dt>Поступок</dt><dd>Язвит на каждом шагу, а в самый тяжёлый момент просто молча стоит рядом.</dd></dl>
+  </div>
+</article><article class="hero-card" id="kenzh">
+  <div class="hc-media"><a class="shot tall" href="img/05-kolodec-1920.jpg" data-i="7" aria-label="Открыть кадр: Кенжекей у колодца Сорқұдық: решение на поверхности"><picture><source type="image/avif" srcset="img/05-kolodec-960.avif 960w, img/05-kolodec-1920.avif 1920w" sizes="(min-width:900px) 55vw, 100vw"><source type="image/webp" srcset="img/05-kolodec-960.webp 960w, img/05-kolodec-1920.webp 1920w" sizes="(min-width:900px) 55vw, 100vw"><img class="" src="img/05-kolodec-1920.jpg" width="1920" height="815" alt="Кенжекей у колодца Сорқұдық: решение на поверхности" loading="lazy" decoding="async"></picture></a></div>
+  <div class="hc-txt">
+    <h3 lang="kk">Кенжекей</h3><p class="hand">Ровесница и союзница</p>
+    <dl><dt>Хочет</dt><dd>Вернуть друга, пропавшего под землёй.</dd><dt>Мешает</dt><dd>Верит только расчётам и теряется, когда расчёт невозможен.</dd><dt>Поступок</dt><dd>Слышит сигнал из старого колодца Сорқұдық и в одиночку готовит Төстіку выход наверх.</dd></dl>
+  </div>
+</article>
+</div></section>
+
+<section class="team"><div class="wrap">
+  <p class="kick">Отряд</p><h2>Шестеро чудаков с невероятными дарами</h2>
+  <div class="big"><a class="shot " href="img/03-sputniki-1920.jpg" data-i="5" aria-label="Открыть кадр: Отряд: Желаяқ, Саққұлақ, Таусоғар, Көлтауысар, Қырағы и ловкач"><picture><source type="image/avif" srcset="img/03-sputniki-960.avif 960w, img/03-sputniki-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="img/03-sputniki-960.webp 960w, img/03-sputniki-1920.webp 1920w" sizes="100vw"><img class="" src="img/03-sputniki-1920.jpg" width="1920" height="815" alt="Отряд: Желаяқ, Саққұлақ, Таусоғар, Көлтауысар, Қырағы и ловкач" loading="lazy" decoding="async"></picture></a></div>
+  <ul><li><b lang="kk">Желаяқ</b> бегает быстрее ветра — носит гири на ногах, чтобы не улететь</li><li><b lang="kk">Саққұлақ</b> слышит, о чём шепчутся под землёй</li><li><b lang="kk">Таусоғар</b> переносит холм на плечах, как мешок</li><li><b lang="kk">Көлтауысар</b> выпивает озеро и держит его за щекой — до нужного момента</li><li><b lang="kk">Қырағы</b> видит на сотни вёрст и всё равно всё замечает последним</li><li><b lang="kk">Ловкач</b> меняет птицам хвосты — просто потому что может</li></ul>
+  <svg class="orn" viewBox="0 0 600 40" aria-hidden="true"><path d="M0 20h230c12 0 18-14 30-14s18 14 30 14 18-14 30-14 18 14 30 14h250M300 20c-10 0-14 10-24 10M300 20c10 0 14 10 24 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="300" cy="20" r="3.5" fill="currentColor"/></svg>
+  <div class="vls"><div class="vl"><h3 lang="kk">Жалмауыз кемпір</h3><p>Ведьма — «ненасытная пасть». Ловит старика Ерназара у колодца и выторговывает самое дорогое. С неё начинается погоня, после которой рушатся горы.</p></div><div class="vl"><h3 lang="kk">Шойынқұлақ</h3><p>Её сын, «чугунное ухо». Чтобы ничего не бояться, вынес свою жизнь из тела и спрятал в железном ларце — и держит врата между мирами. Он то, кем мечтает стать Төстік: неуязвимый и одинокий.</p></div></div>
+  <div style="margin-top:30px"><a class="shot " href="img/04-zlodei-1920.jpg" data-i="6" aria-label="Открыть кадр: Злодеи: ведьма Жалмауыз и её сын Шойынқұлақ"><picture><source type="image/avif" srcset="img/04-zlodei-960.avif 960w, img/04-zlodei-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="img/04-zlodei-960.webp 960w, img/04-zlodei-1920.webp 1920w" sizes="100vw"><img class="" src="img/04-zlodei-1920.jpg" width="1920" height="815" alt="Злодеи: ведьма Жалмауыз и её сын Шойынқұлақ" loading="lazy" decoding="async"></picture></a></div>
+</div></section>
+
+<section class="world"><div class="wrap">
+  <p class="kick">Мир</p><h2>Один мир, три уровня</h2>
+  <a class="shot " href="img/11-karta-1920.jpg" data-i="13" aria-label="Открыть кадр: Карта трёх миров"><picture><source type="image/avif" srcset="img/11-karta-960.avif 960w, img/11-karta-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="img/11-karta-960.webp 960w, img/11-karta-1920.webp 1920w" sizes="100vw"><img class="" src="img/11-karta-1920.jpg" width="1920" height="815" alt="Карта трёх миров" loading="lazy" decoding="async"></picture></a>
+  <ul class="worlds"><li><b>Степь</b><span>Дом. Тёплые землистые тона, ветер, табуны, юрты, старый колодец Сорқұдық.</span></li><li><b>Под степью</b><span>Корни-великаны, бирюзовые минералы, водопады в темноте, двор змеиного Бапы хана.</span></li><li><b>Железные владения</b><span>Жар, жёсткие формы, раскалённый дворец, где проверяют силу и хитрость.</span></li><li><b>Великий тополь</b><span>Гнездо Самұрық — единственная дорога наверх, к солнцу.</span></li></ul>
+  <div class="rules"><h3>Правила мира</h3><ol><li>Звук между мирами проходит только через колодец Сорқұдық.</li><li>Наверх можно подняться только на крыльях Самұрық.</li><li>Железные врата держатся, пока жизнь Шойынқұлақа заперта в ларце.</li></ol></div>
+</div></section>
+
+<section class="story"><div class="wrap">
+  <div><a class="shot " href="img/07-dvorec-1920.jpg" data-i="9" aria-label="Открыть кадр: Железный дворец: команда работает вместе"><picture><source type="image/avif" srcset="img/07-dvorec-960.avif 960w, img/07-dvorec-1920.avif 1920w" sizes="(min-width:900px) 45vw, 100vw"><source type="image/webp" srcset="img/07-dvorec-960.webp 960w, img/07-dvorec-1920.webp 1920w" sizes="(min-width:900px) 45vw, 100vw"><img class="" src="img/07-dvorec-1920.jpg" width="1920" height="815" alt="Железный дворец: команда работает вместе" loading="lazy" decoding="async"></picture></a></div>
+  <div class="txt"><p class="kick">История</p><p class="p1">Төстік — младший сын старика Ерназара, мальчик с необычным рождением и слишком большим самомнением. Он спорит с конём, отмахивается от предупреждений Кенжекей и мечтает о подвиге, после которого отец будет гордиться им по-настоящему.</p><p class="">Подвиг находит его сам: отец попадается ведьме Жалмауыз у колодца, начинается погоня — и земля под копытами Шалқұйрықа проваливается. Мальчик и конь оказываются в мире под степью, откуда никто не возвращался.</p><p class="">Чтобы вернуться домой, Төстіку понадобятся шестеро чудаков с невероятными дарами, благодарность огромной птицы и подруга наверху, которая не перестаёт искать. И придётся сделать то, чего он не умеет: попросить о помощи.</p><p class="hand">Чем всё закончится — расскажем партнёрам лично.</p></div>
+</div></section>
 
 <section><div class="wrap">
-  <h2>О чём эта сказка</h2>
-  <div class="smysl"><div class="sm"><h4>Взросление</h4><p>Самый младший, которого никто не ждал, становится тем, кто собирает семью. Путь через подземный мир — испытание, после которого мальчик возвращается батыром.</p></div><div class="sm"><h4>Сила — в своих</h4><p>Ни один подвиг Төстік не совершает в одиночку: конь, невеста, отряд чудаков, благодарная птица. Сказка про то, что дружба сильнее силы.</p></div><div class="sm"><h4>Хитрость против силы</h4><p>Ведьму обманывают, хана обыгрывают, «бессмертного» злодея побеждают, разгадав его тайну. Ум и находчивость важнее кулаков.</p></div><div class="sm"><h4>Благодарность</h4><p>Төстік спасает птенцов, ничего не прося, — и Самрук спасает его. Добро возвращается.</p></div><div class="sm"><h4>Общая сказка Великой степи</h4><p>Этот сюжет знают кыргызы («Эр Төштүк»), татары, башкиры, алтайцы — значит, у фильма есть зритель по всей Центральной Азии.</p></div></div>
+  <p class="kick">Ключевые сцены</p><h2>Смех, масштаб и сердце — в кадрах</h2>
+  <div class="mosaic">
+    <a class="shot m1" href="img/08-ptency-1920.jpg" data-i="10" aria-label="Открыть кадр: Төстік защищает птенцов, пока путь домой закрывается"><picture><source type="image/avif" srcset="img/08-ptency-960.avif 960w, img/08-ptency-1920.avif 1920w" sizes="(min-width:900px) 66vw, 100vw"><source type="image/webp" srcset="img/08-ptency-960.webp 960w, img/08-ptency-1920.webp 1920w" sizes="(min-width:900px) 66vw, 100vw"><img class="" src="img/08-ptency-1920.jpg" width="1920" height="815" alt="Төстік защищает птенцов, пока путь домой закрывается" loading="lazy" decoding="async"></picture></a><a class="shot m2" href="img/k-samruk-1920.jpg" data-i="2" aria-label="Открыть кадр: Самұрық у гнезда"><picture><source type="image/avif" srcset="img/k-samruk-960.avif 960w, img/k-samruk-1920.avif 1920w" sizes="(min-width:900px) 33vw, 100vw"><source type="image/webp" srcset="img/k-samruk-960.webp 960w, img/k-samruk-1920.webp 1920w" sizes="(min-width:900px) 33vw, 100vw"><img class="" src="img/k-samruk-1920.jpg" width="1916" height="821" alt="Самұрық у гнезда" loading="lazy" decoding="async"></picture></a>
+    <a class="shot m3" href="img/09-polet-1920.jpg" data-i="11" aria-label="Открыть кадр: Самұрық выносит Төстіка к солнцу"><picture><source type="image/avif" srcset="img/09-polet-960.avif 960w, img/09-polet-1920.avif 1920w" sizes="(min-width:900px) 50vw, 100vw"><source type="image/webp" srcset="img/09-polet-960.webp 960w, img/09-polet-1920.webp 1920w" sizes="(min-width:900px) 50vw, 100vw"><img class="" src="img/09-polet-1920.jpg" width="1920" height="815" alt="Самұрық выносит Төстіка к солнцу" loading="lazy" decoding="async"></picture></a><a class="shot m3" href="img/10-dom-1920.jpg" data-i="12" aria-label="Открыть кадр: Возвращение домой"><picture><source type="image/avif" srcset="img/10-dom-960.avif 960w, img/10-dom-1920.avif 1920w" sizes="(min-width:900px) 50vw, 100vw"><source type="image/webp" srcset="img/10-dom-960.webp 960w, img/10-dom-1920.webp 1920w" sizes="(min-width:900px) 50vw, 100vw"><img class="" src="img/10-dom-1920.jpg" width="1920" height="815" alt="Возвращение домой" loading="lazy" decoding="async"></picture></a>
+    <a class="shot m4" href="img/05-kolodec-1920.jpg" data-i="7" aria-label="Открыть кадр: Кенжекей у колодца Сорқұдық: решение на поверхности"><picture><source type="image/avif" srcset="img/05-kolodec-960.avif 960w, img/05-kolodec-1920.avif 1920w" sizes="(min-width:900px) 33vw, 100vw"><source type="image/webp" srcset="img/05-kolodec-960.webp 960w, img/05-kolodec-1920.webp 1920w" sizes="(min-width:900px) 33vw, 100vw"><img class="" src="img/05-kolodec-1920.jpg" width="1920" height="815" alt="Кенжекей у колодца Сорқұдық: решение на поверхности" loading="lazy" decoding="async"></picture></a><a class="shot m5" href="img/06-pogonya-1920.jpg" data-i="8" aria-label="Открыть кадр: Погоня ведьмы: рушатся горы"><picture><source type="image/avif" srcset="img/06-pogonya-960.avif 960w, img/06-pogonya-1920.avif 1920w" sizes="(min-width:900px) 66vw, 100vw"><source type="image/webp" srcset="img/06-pogonya-960.webp 960w, img/06-pogonya-1920.webp 1920w" sizes="(min-width:900px) 66vw, 100vw"><img class="" src="img/06-pogonya-1920.jpg" width="1920" height="815" alt="Погоня ведьмы: рушатся горы" loading="lazy" decoding="async"></picture></a>
+  </div>
+  <div class="row" style="margin-top:22px"><button class="btn ghost" type="button" data-open="0">Все кадры подряд · 14</button></div>
 </div></section>
 
-<section class="syu"><div class="wrap">
-  <h2>Сюжет</h2>
-  <ol class="beats"><li><h4>Голодная зима</h4><p>В лютый джут восемь сыновей старика Ерназара угнали табуны искать корм и пропали. Старики остались одни.</p></li><li><h4>Мальчик-грудинка</h4><p>Мать находит кусок грудинки старой кобылы — и у стариков рождается Төстік. Он растёт за часы и кормит родителей охотой.</p></li><li><h4>Тайна братьев</h4><p>Стрела Төстіка рвёт пряжу старухи-ткачихи, и та насмешничает: где же твои восемь братьев? Мать признаётся, и мальчик уходит их искать с луком и железным посохом.</p></li><li><h4>Братья и табун</h4><p>Төстік находит братьев и хитростью с кобылой-вожаком уводит весь табун домой.</p></li><li><h4>Девять невест</h4><p>Девять братьев — девять сестёр-невест. Младшая, Кенжекей, требует в приданое коня Шалқұйрық, верблюдицу и доспех и предупреждает: никогда не вставайте на ночлег у колодца Сорқұдық.</p></li><li><h4>Ведьма у колодца</h4><p>Ерназар вставал у Сорқұдық — и попался ведьме Жалмауыз. Чтобы спастись, он обещает ей самое дорогое, а Кенжекей с ножом в руке раскрывает обман.</p></li><li><h4>Конь заговорил</h4><p>Шалқұйрық впервые говорит человеческим голосом и учит, как перехитрить ведьму. Погоня так страшна, что рушатся горы, — и конь с мальчиком проваливаются под землю.</p></li><li><h4>Змеиный хан</h4><p>Внизу правит змеиный Бапы хан. Төстік проходит мимо змей-стражей, не дрогнув, и получает задание: привезти дочь Темір хана.</p></li><li><h4>Отряд силачей</h4><p>По дороге к нему пристают шестеро чудаков с невероятными дарами. Вместе они выигрывают борьбу, скачки и бег, чуют отравленное угощение и тушат железный дворец выпитым озером.</p></li><li><h4>Птенцы Самрука</h4><p>У великого тополя Төстік одной стрелой побеждает дракона, который охотился на птенцов птицы Самрук. Птица выносит его к солнцу и дарит перо.</p></li><li><h4>Чугунное ухо</h4><p>Наверху мальчика уже ждёт сын ведьмы Шойынқұлақ, который не может умереть: его душа спрятана. Төстік в плену, Шалқұйрық угнан.</p></li><li><h4>Перо и тайна</h4><p>Конь вырывается и помогает другу, перо зовёт Самрука, а пленница Күңке выдаёт тайну: душа злодея — в ларце внутри красного оленя. Хитрость, одна стрела — и чары разрушены.</p></li><li><h4>Дом</h4><p>Кенжекей всё это время ждала. Шалқұйрық находит дорогу, братья, отец и мать снова вместе.</p></li></ol>
-  <ul class="miry"><li><b>Верхний мир</b> — весенняя степь, аул Ерназара, дом девяти невест, бескрайние табуны</li><li><b>Дорога</b> — зимний джут, колодец Сорқұдық, где ведьма устраивает засаду</li><li><b>Подземный мир</b> — светящиеся пещеры, чёрные, серые и жёлтые змеи-стражи, двор змеиного Бапы хана</li><li><b>Владения Темір хана</b> — железный дворец, скачки и борцовский круг</li><li><b>Великий тополь</b> — родник, гнездо Самрука и дракон у корней</li><li><b>Небо</b> — полёт на Самруке к солнцу</li><li class="src">Пересказ наш, по казахской народной редакции сказки; сверено с кыргызским вариантом «Эр Төштүк».</li></ul>
+<section style="background:var(--teal-deep)"><div class="wrap">
+  <p class="kick">Визуальный язык</p><h2>Объём, живопись и рисованный ветер</h2>
+  <p class="src">Одна система изображения: стилизованное 3D для игры героев, живописные фоны и свет, рисованные пыль и искры в экшене, войлок, кожа и дерево в предметах.</p>
+  <div class="yzs"><div class="yz"><h3>Герои</h3><p>Читаемые силуэты и разные пропорции. Төстік подвижный и чуть угловатый, Шалқұйрық с узнаваемой пластикой, Кенжекей в практичной одежде.</p></div><div class="yz"><h3>Материалы</h3><p>Войлок, кожа, дерево, металл — у каждой вещи понятная функция. Орнамент повторяет конструкцию предмета и ритм движения.</p></div><div class="yz"><h3>Цвет</h3><p>Дом — янтарь и воздух. Подземный мир — бирюза и тени. Железный дворец — жар. Самұрық — золото и простор.</p></div><div class="yz"><h3>Движение</h3><p>В разговоре — взгляд и пауза. В погоне — рисованный ветер, пыль и искры. После шума — тишина.</p></div></div>
+  <div class="chips" aria-label="Цвета миров"><i style="background:#E8A03A"></i><i style="background:#F7D58A"></i><i style="background:#2B1B12"></i><i style="background:#123F43"></i><i style="background:#4FD1BE"></i><i style="background:#C9A24A"></i></div>
 </div></section>
 
-<section id="stili"><div class="wrap">
-  <h2>Семь стилей одним взглядом</h2>
-  <div class="cmp"><a href="#stil-3d"><img src="assets/3d-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>A</b> Степной 3D</span></a><a href="#stil-kiiz"><img src="assets/kiiz-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>B</b> Войлок</span></a><a href="#stil-guash"><img src="assets/guash-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>C</b> Живая гуашь</span></a><a href="#stil-ornament"><img src="assets/ornament-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>D</b> Орнамент</span></a><a href="#stil-anime"><img src="assets/anime-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>E</b> Акварельное аниме</span></a><a href="#stil-teni"><img src="assets/teni-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>F</b> Театр теней</span></a><a href="#stil-komiks"><img src="assets/komiks-geroj.jpg" width="1920" height="1080" loading="lazy" alt=""><span><b>G</b> Комикс-3D</span></a></div>
-  
-<article class="stl" id="stil-3d">
-  <header class="sh">
-    <p class="let">A</p>
-    <div><h3>Степной 3D</h3><p class="short">Большое семейное кино</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/3d-geroj.jpg" target="_blank" rel="noopener"><img src="assets/3d-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Степной 3D — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/3d-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/3d-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Степной 3D — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/3d-samruk.jpg" target="_blank" rel="noopener"><img src="assets/3d-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Степной 3D — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Премиальная стилизованная 3D-анимация: мягкие объёмы, крупные выразительные глаза, тёплый свет, богатые фактуры войлока и дерева. Язык, который понимает весь мир, — как большие студийные мультфильмы для всей семьи.</p>
-    <dl><dt>Сила</dt><dd>Экспорт, игрушки, игра — всё строится сразу из 3D-моделей.</dd><dt>Риск</dt><dd>Самый привычный вид — нужно сильнее держать казахский дизайн, чтобы не стать «одним из».</dd></dl>
-  </div>
-</article>
-<article class="stl" id="stil-kiiz">
-  <header class="sh">
-    <p class="let">B</p>
-    <div><h3>Войлок</h3><p class="short">Кукольная анимация из кийиза</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/kiiz-geroj.jpg" target="_blank" rel="noopener"><img src="assets/kiiz-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Войлок — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/kiiz-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/kiiz-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Войлок — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/kiiz-samruk.jpg" target="_blank" rel="noopener"><img src="assets/kiiz-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Войлок — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Всё будто свалено из войлока и шерсти, как казахский кийиз: кукольная анимация с видимыми волокнами, стежками, деревянными бусинами. Тактильно, тепло, ни на что не похоже — сразу видно, откуда история.</p>
-    <dl><dt>Сила</dt><dd>Самый узнаваемый национальный приём: войлок — материал кочевников. Отличный мерч.</dd><dt>Риск</dt><dd>Динамика погонь мягче, чем в 3D.</dd></dl>
-  </div>
-</article>
-<article class="stl" id="stil-guash">
-  <header class="sh">
-    <p class="let">C</p>
-    <div><h3>Живая гуашь</h3><p class="short">2D-живопись</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/guash-geroj.jpg" target="_blank" rel="noopener"><img src="assets/guash-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Живая гуашь — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/guash-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/guash-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Живая гуашь — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/guash-samruk.jpg" target="_blank" rel="noopener"><img src="assets/guash-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Живая гуашь — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Рисованные персонажи на фоне живописных пейзажей, написанных кистью: видно мазок, бумагу, ветер в траве. Мягко и поэтично, как дорогая европейская авторская анимация.</p>
-    <dl><dt>Сила</dt><dd>Подходит метафоричности сказки: подземный мир и небо становятся настоящей живописью.</dd><dt>Риск</dt><dd>Требует сильного художника-постановщика для единства кадров.</dd></dl>
-  </div>
-</article>
-<article class="stl" id="stil-ornament">
-  <header class="sh">
-    <p class="let">D</p>
-    <div><h3>Орнамент</h3><p class="short">Плоская графика</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/ornament-geroj.jpg" target="_blank" rel="noopener"><img src="assets/ornament-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Орнамент — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/ornament-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/ornament-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Орнамент — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/ornament-samruk.jpg" target="_blank" rel="noopener"><img src="assets/ornament-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Орнамент — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Мир, собранный из казахского орнамента: плоские формы, крупные силуэты, ограниченная палитра — бирюза, золото, красный, кремовый. Каждый кадр — как постер или ковёр.</p>
-    <dl><dt>Сила</dt><dd>Самый дешёвый и быстрый в производстве; идеален для сериала и книг.</dd><dt>Риск</dt><dd>Меньше «киношной» глубины — скорее сериал, чем полный метр.</dd></dl>
-  </div>
-</article>
-<article class="stl" id="stil-anime">
-  <header class="sh">
-    <p class="let">E</p>
-    <div><h3>Акварельное аниме</h3><p class="short">Рисованная классика</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/anime-geroj.jpg" target="_blank" rel="noopener"><img src="assets/anime-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Акварельное аниме — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/anime-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/anime-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Акварельное аниме — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/anime-samruk.jpg" target="_blank" rel="noopener"><img src="assets/anime-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Акварельное аниме — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Рисованная анимация в духе японской классики: чистая линия, огромное небо с облаками, акварельные фоны, живые эмоции на лицах. Приключение и нежность одновременно.</p>
-    <dl><dt>Сила</dt><dd>Сильные эмоции и полёты — Самрук и подземный мир будут сказочными.</dd><dt>Риск</dt><dd>Стиль узнаваемо японский — нужно не потерять казахское лицо.</dd></dl>
-  </div>
-</article>
-<article class="stl" id="stil-teni">
-  <header class="sh">
-    <p class="let">F</p>
-    <div><h3>Театр теней</h3><p class="short">Вырезная бумага</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/teni-geroj.jpg" target="_blank" rel="noopener"><img src="assets/teni-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Театр теней — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/teni-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/teni-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Театр теней — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/teni-samruk.jpg" target="_blank" rel="noopener"><img src="assets/teni-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Театр теней — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Слоёная вырезная бумага и свет сквозь неё, как в театре теней: силуэты героев на цветных фонах-закатах, ажурные края, глубина из слоёв. Сказочно, как рассказ у огня.</p>
-    <dl><dt>Сила</dt><dd>Очень сильная подача для легенды и фестивалей; рассказчик-сказитель в кадре.</dd><dt>Риск</dt><dd>Лица менее подробные — меньше «звёздных» крупных планов.</dd></dl>
-  </div>
-</article>
-<article class="stl" id="stil-komiks">
-  <header class="sh">
-    <p class="let">G</p>
-    <div><h3>Комикс-3D</h3><p class="short">3D с рисованным контуром</p></div>
-  </header>
-  <div class="grid"><figure class="big"><a href="assets/komiks-geroj.jpg" target="_blank" rel="noopener"><img src="assets/komiks-geroj.jpg" width="1920" height="1080" loading="lazy" alt="Комикс-3D — Герой и конь"></a><figcaption>Герой и конь</figcaption></figure><figure class="sm"><a href="assets/komiks-pogonya.jpg" target="_blank" rel="noopener"><img src="assets/komiks-pogonya.jpg" width="1920" height="1080" loading="lazy" alt="Комикс-3D — Погоня ведьмы"></a><figcaption>Погоня ведьмы</figcaption></figure><figure class="sm"><a href="assets/komiks-samruk.jpg" target="_blank" rel="noopener"><img src="assets/komiks-samruk.jpg" width="1920" height="1080" loading="lazy" alt="Комикс-3D — Подземный мир и Самрук"></a><figcaption>Подземный мир и Самрук</figcaption></figure></div>
-  <div class="about">
-    <p class="ref">Объём 3D, но с рисованной линией, растровой точкой и смелыми цветами, как ожившая книжка-комикс. Самый энергичный и современный — для подростков и погонь.</p>
-    <dl><dt>Сила</dt><dd>Динамика, юмор, экшен; заметен в соцсетях и трейлерах.</dd><dt>Риск</dt><dd>Может быть слишком громким для малышей 5–7 лет.</dd></dl>
-  </div>
-</article>
+<section><div class="wrap">
+  <p class="kick">Сказка и адаптация</p><h2>Что мы бережём и что меняем</h2>
+  <p class="src">Основа — запись Ә. А. Диваева 1870 года, изданная в своде «Бабалар сөзі», т. 75 «Батырлық ертегілер» (Астана: Фолиант, 2011, с. 11–39). Все изменения сказки в фильме — авторская адаптация, их список ведётся отдельно.</p>
+  <div style="overflow-x:auto"><table><thead><tr><th>В сказке</th><th>В фильме</th><th>Зачем</th></tr></thead><tbody><tr><td>Кенжекей — невеста, в финале ждёт героя</td><td>Ровесница и союзница со своей линией на поверхности</td><td>Свадьба не подходит детскому приключению; героине нужен собственный поступок</td></tr><tr><td>Конь всегда прав и знает будущее</td><td>Конь знает старые тропы, но не будущее</td><td>Решения героя должны чего-то стоить</td></tr><tr><td>Душу злодея уничтожают</td><td>Её освобождают из заточения</td><td>Добрая развязка для семейного зрителя без жестокости</td></tr><tr><td>Поиск братьев — середина сказки</td><td>Короткая предыстория; фильм — путь домой</td><td>Одна ясная цель на весь фильм</td></tr></tbody></table></div>
+  <p class="src">Собственная тема дома с кюйши и композитором: в начале звучит легко, под землёй остаётся её обрывок, в финале возвращается целиком. Источники музыкального и пластического языка — домбыра-күй и ортеке (наследие ЮНЕСКО).</p>
 </div></section>
 
-<section class="end"><div class="wrap">
-  <h2>Что дальше</h2>
-  <ol><li>Выбрать один-два стиля из семи (можно смешать: например, мир — войлок, свет — живопись).</li><li>Сделать листы героев в выбранном стиле: Төстік, Шалқұйрық, Кенжекей, ведьма, отряд силачей — в полный рост, с эмоциями и ракурсами.</li><li>Подключить художника для авторского облика героев поверх найденного стиля.</li><li>Найти первое печатное издание казахского текста (составитель, год) и написать сценарий с диалогами и юмором — на казахском и русском.</li><li>Собрать минутный тизер-аниматик ключевой сцены — погони ведьмы.</li></ol>
-  <div class="row">
-    <a class="btn" href="mailto:alex@neyra.ai?subject=%D0%95%D1%80%20%D0%A2%D3%A9%D1%81%D1%82%D1%96%D0%BA%20%E2%80%94%20%D1%81%D1%82%D0%B8%D0%BB%D1%8C">Выбрать стиль</a>
-    <a class="btn ghost" href="files/er-tostik-stili.pdf" download>Скачать PDF</a>
-    <a class="btn ghost" href="/skazki/">Все сказки</a>
-  </div>
+<section style="background:linear-gradient(180deg,var(--night),var(--teal-deep))"><div class="wrap">
+  <p class="kick">Следующий шаг</p><h2>75 секунд, которые проверят фильм</h2>
+  <p class="src">Одна законченная сцена в движении — с речью, общими и крупными планами одних и тех же героев. По ней проверяем историю на детях и родителях и считаем производство.</p>
+  <ol class="tl"><li><span>0–15 с</span>Төстік объясняет свой план</li><li><span>15–25 с</span>Конь отвечает одним взглядом</li><li><span>25–45 с</span>Ошибка — и опасность</li><li><span>45–65 с</span>Кенжекей и конь спасают положение</li><li><span>65–75 с</span>Под ногами открывается новый мир</li></ol>
 </div></section>
-<footer><span>Ер Төстік · варианты стиля · Neyra Vision Studio · визуализация — технология NEYRA, черновые образы</span><a href="/">neyra.vision</a></footer>
+
+<section class="fin"><div class="wrap">
+  <svg class="orn" viewBox="0 0 600 40" aria-hidden="true"><path d="M0 20h230c12 0 18-14 30-14s18 14 30 14 18-14 30-14 18 14 30 14h250M300 20c-10 0-14 10-24 10M300 20c10 0 14 10 24 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="300" cy="20" r="3.5" fill="currentColor"/></svg>
+  <h2>Сказке сто пятьдесят лет. Пора в кино.</h2>
+  <p>Ищем партнёров, соавторов и голоса — на казахском и русском.</p>
+  <div class="row"><a class="btn" href="mailto:alex@neyra.ai?subject=%D0%95%D1%80%20%D0%A2%D3%A9%D1%81%D1%82%D1%96%D0%BA">Обсудить участие</a><a class="btn ghost" href="stili/">Архив: семь стилей</a><a class="btn ghost" href="/skazki/">Все сказки степи</a></div>
+</div></section>
+
+<footer><span>Ер Төстік · Neyra Vision Studio · концепт-арт — технология NEYRA, не финальный дизайн</span><a href="/">neyra.vision</a></footer>
+
+<dialog class="lb" id="lb" aria-label="Кадры фильма">
+  <div class="fig"><img alt=""></div>
+  <button class="x" type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="pv" type="button" aria-label="Предыдущий кадр"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="nx" type="button" aria-label="Следующий кадр"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="bar"><span class="cap"></span><span class="cnt"></span></div>
+</dialog>
+<script>
+(()=>{
+const G=[{"s": "img/k-step-1920.jpg", "w": "img/k-step-1920.webp", "c": "Төстік объясняет план. Шалқұйрық сомневается"}, {"s": "img/k-pod-1920.jpg", "w": "img/k-pod-1920.webp", "c": "Прыжок в мир под степью"}, {"s": "img/k-samruk-1920.jpg", "w": "img/k-samruk-1920.webp", "c": "Самұрық у гнезда"}, {"s": "img/01-geroi-1920.jpg", "w": "img/01-geroi-1920.webp", "c": "Герои: Төстік, Шалқұйрық, Кенжекей"}, {"s": "img/02-emocii-1920.jpg", "w": "img/02-emocii-1920.webp", "c": "Төстік: пять состояний — хвастовство, страх, стыд, принять помощь, тихая радость"}, {"s": "img/03-sputniki-1920.jpg", "w": "img/03-sputniki-1920.webp", "c": "Отряд: Желаяқ, Саққұлақ, Таусоғар, Көлтауысар, Қырағы и ловкач"}, {"s": "img/04-zlodei-1920.jpg", "w": "img/04-zlodei-1920.webp", "c": "Злодеи: ведьма Жалмауыз и её сын Шойынқұлақ"}, {"s": "img/05-kolodec-1920.jpg", "w": "img/05-kolodec-1920.webp", "c": "Кенжекей у колодца Сорқұдық: решение на поверхности"}, {"s": "img/06-pogonya-1920.jpg", "w": "img/06-pogonya-1920.webp", "c": "Погоня ведьмы: рушатся горы"}, {"s": "img/07-dvorec-1920.jpg", "w": "img/07-dvorec-1920.webp", "c": "Железный дворец: команда работает вместе"}, {"s": "img/08-ptency-1920.jpg", "w": "img/08-ptency-1920.webp", "c": "Төстік защищает птенцов, пока путь домой закрывается"}, {"s": "img/09-polet-1920.jpg", "w": "img/09-polet-1920.webp", "c": "Самұрық выносит Төстіка к солнцу"}, {"s": "img/10-dom-1920.jpg", "w": "img/10-dom-1920.webp", "c": "Возвращение домой"}, {"s": "img/11-karta-1920.jpg", "w": "img/11-karta-1920.webp", "c": "Карта трёх миров"}];const dlg=document.getElementById('lb');const im=dlg.querySelector('img');const cap=dlg.querySelector('.cap');const cnt=dlg.querySelector('.cnt');
+let i=0,opener=null,ours=false;
+const show=n=>{i=(n+G.length)%G.length;im.src=G[i].s;im.alt=G[i].c;cap.textContent=G[i].c;cnt.textContent=(i+1)+' / '+G.length;
+ [i-1,i+1].forEach(k=>{const p=new Image();p.src=G[(k+G.length)%G.length].s});};
+const open=(n,from)=>{opener=from||null;show(n);dlg.showModal();document.documentElement.style.overflow='hidden';
+ history.pushState({lb:1},'','#kadr-'+(n+1));ours=true;dlg.querySelector('.x').focus();};
+const shut=()=>{if(!dlg.open)return;dlg.close();document.documentElement.style.overflow='';if(opener)opener.focus();};
+const closeUi=()=>{if(ours&&history.state&&history.state.lb){ours=false;history.back();}else shut();};
+window.addEventListener('popstate',()=>{ours=false;shut();});
+dlg.addEventListener('cancel',ev=>{ev.preventDefault();closeUi();});
+dlg.querySelector('.x').onclick=closeUi;dlg.querySelector('.pv').onclick=()=>show(i-1);dlg.querySelector('.nx').onclick=()=>show(i+1);
+dlg.addEventListener('click',ev=>{if(ev.target===dlg||ev.target.classList.contains('fig'))closeUi();});
+dlg.addEventListener('keydown',ev=>{if(ev.key==='ArrowLeft')show(i-1);if(ev.key==='ArrowRight')show(i+1);});
+let x0=null;const fig=dlg.querySelector('.fig');
+fig.addEventListener('pointerdown',ev=>{x0=ev.clientX});
+fig.addEventListener('pointerup',ev=>{if(x0===null)return;const d=ev.clientX-x0;x0=null;if(Math.abs(d)>40){d<0?show(i+1):show(i-1);}});
+document.querySelectorAll('[data-i]').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();open(+a.dataset.i,a);}));
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>open(+b.dataset.open,b)));
+if(location.hash.startsWith('#kadr-')){const n=parseInt(location.hash.slice(6))-1;history.replaceState(null,'',location.pathname);if(n>=0&&n<G.length)open(n);}
+// эмоции
+document.querySelectorAll('.emo-btn button').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.e;
+ document.querySelectorAll('.emo-btn button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+ document.querySelectorAll('.emo-pic picture').forEach(p=>p.classList.toggle('on',p.dataset.e===k));}));
+// горизонт
+const hz=document.querySelector('.hz');if(hz&&!matchMedia('(prefers-reduced-motion: reduce)').matches){let t=false;
+ const upd=()=>{t=false;const r=hz.getBoundingClientRect();const p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));hz.style.setProperty('--p',p.toFixed(4));hz.dataset.half=p>.5?'1':'0';};
+ addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(upd)}},{passive:true});upd();}
+})();
+</script>
 </body>
 </html>
