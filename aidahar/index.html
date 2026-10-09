@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIDAHAR — сага о воине · веб-сериал · Neyra Vision</title>
+<title>Айдахар — сага о воине · веб-сериал Ара Аруш</title>
 <meta name="description" content="Историческая экшн-комедия о казахском воине Айдахаре. Новая серия каждую неделю на YouTube.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0f0d0b">
-<meta property="og:title" content="AIDAHAR — сага о воине">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Айдахар — сага о воине">
 <meta property="og:description" content="Казахский воин, одна роковая ошибка и погоня через весь мир. Новая серия каждую неделю.">
-<meta property="og:image" content="https://neyra.vision/aidahar/assets/og.jpg">
-<meta property="og:url" content="https://neyra.vision/aidahar/">
-<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<meta property="og:image" content="https://aydahar.com/assets/og.jpg">
+<meta property="og:url" content="https://aydahar.com/">
+<link rel="icon" type="image/png" href="assets/favicon-64.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- шрифт заголовка временный: Александр пришлёт стилистику и шрифт названия -->
@@ -19,7 +19,7 @@
 <style>
 :root{
   /* степь на рассвете: земля, кость, пыль, сталь, кровь */
-  --earth:#0f0d0b; --earth-2:#18140f; --line:#332b22;
+  --earth:#000; --earth-2:#0d0d0d; --line:#262626;
   --bone:#ede4d3; --dust:#b3a48c; --steel:#9aa6ad;
   --blood:#b8432f; --blood-deep:#8a2c1e; --dawn:#d8a35a;
   --disp:"Forum",Georgia,serif;
@@ -40,20 +40,20 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-wrap:balance;margin:0}
 
 /* шапка */
 .top{position:absolute;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px var(--gut)}
-.brand{font:600 15px var(--body);letter-spacing:.06em;text-decoration:none;color:var(--bone)}
+.brand{font:600 15px var(--body);letter-spacing:.06em;text-decoration:none;color:var(--bone);text-shadow:0 1px 8px #000}
 .brand b{color:var(--steel);font-weight:600}
 .top a.go{font:500 14px var(--body);text-decoration:none;color:var(--bone);border:1px solid rgba(237,228,211,.35);padding:8px 16px;border-radius:999px;transition:border-color .2s,background-color .2s}
 .top a.go:hover{border-color:var(--blood);background:rgba(184,67,47,.18)}
 
 /* первый экран — сабли и название */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-start;overflow:hidden;background:#141821}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.55) 0%,rgba(15,13,11,0) 38%,rgba(15,13,11,0) 70%,var(--earth) 100%)}
+.hero{position:relative;background:#000;overflow:hidden}
+.hero img{width:100%;height:auto;aspect-ratio:1916/821;object-fit:cover}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:clamp(96px,14vh,150px);text-align:center}
 .hero h1{font-size:clamp(64px,13vw,190px);line-height:.9;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.45);animation:rise 1.1s var(--ease) both}
 .hero .sub{font:400 clamp(20px,2.6vw,34px)/1.2 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:var(--bone);margin:14px 0 0;opacity:.92;animation:rise 1.1s .15s var(--ease) both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.scroll{position:absolute;z-index:2;left:50%;bottom:26px;transform:translateX(-50%);font:500 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--dust);text-decoration:none}
+.scroll{position:absolute;z-index:2;left:50%;bottom:14px;transform:translateX(-50%);font:500 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--dust);text-decoration:none}
 
 section{padding-block:clamp(72px,11vw,150px)}
 .lede{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,96px);align-items:start}
@@ -120,7 +120,7 @@ footer small{color:var(--dust);font-size:13px}
 
 
 .player{position:relative}
-.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(15,13,11,.72);color:var(--bone);border:1px solid rgba(237,228,211,.4);border-radius:999px;padding:16px 28px 16px 20px;font:600 clamp(15px,1.6vw,19px) var(--body);cursor:pointer;transition:background-color .2s,border-color .2s}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(0,0,0,.72);color:var(--bone);border:1px solid rgba(237,228,211,.4);border-radius:999px;padding:16px 28px 16px 20px;font:600 clamp(15px,1.6vw,19px) var(--body);cursor:pointer;transition:background-color .2s,border-color .2s}
 .play:hover{background:var(--blood);border-color:var(--blood)}
 .play .tri{width:0;height:0;border-left:16px solid currentColor;border-top:10px solid transparent;border-bottom:10px solid transparent}
 .player.on .play{display:none}
@@ -139,11 +139,14 @@ footer small{color:var(--dust);font-size:13px}
 #room td,#room th{text-align:left;padding:12px 0;border-bottom:1px solid var(--line);color:var(--dust);font-weight:400}
 #room td:last-child,#room th:last-child{text-align:right;color:var(--bone)}
 #room .big{font:400 clamp(30px,4vw,48px)/1 var(--disp);color:var(--bone);margin:0 0 6px}
+.stills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,1vw,12px);margin-top:clamp(8px,1vw,12px)}
+.stills figure{margin:0}.stills img{width:100%;aspect-ratio:1600/690;object-fit:cover}
 @media (max-width:760px){
+  .stills{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cgrid,.frames{grid-template-columns:1fr}
   .lede,.syn,.vault .row{grid-template-columns:1fr}
   .frames figure:nth-child(n){grid-column:1/13}
-  .hero img{object-position:50% 70%}
+  .hero img{aspect-ratio:4/3;object-position:50% 50%}
   form.code .f{flex-direction:column}
   form.code button{padding:15px}
 }
@@ -153,17 +156,13 @@ footer small{color:var(--dust);font-size:13px}
 <body>
 
 <header class="top">
-  <a class="brand" href="/">Neyra <b>Vision</b></a>
+  <a class="brand" href="https://neyra.vision/">Neyra <b>Vision</b></a>
   <a class="go" href="#partners">Партнёрам</a>
 </header>
 
 <section class="hero" style="padding:0">
-  <img src="assets/hero-sabli.jpg" width="2560" height="1429" alt="Две скрещённые сабли на холме в степи на рассвете, вдали на горизонте всадники" fetchpriority="high">
-  <div class="wrap">
-    <p class="cap" style="color:var(--bone);opacity:.85">Веб-сериал · YouTube</p>
-    <h1>Aidahar</h1>
-    <p class="sub">Сага о&nbsp;воине</p>
-  </div>
+  <h1 class="vh">Айдахар — сага о воине. Фильм Ара Аруш</h1>
+  <img src="assets/poster.jpg" width="1916" height="821" alt="Айдахар. Фильм Ара Аруш. Два воина лицом к лицу, между ними щит" fetchpriority="high">
   <a class="scroll" href="#ep1">Смотреть ↓</a>
 </section>
 
@@ -179,6 +178,16 @@ footer small{color:var(--dust);font-size:13px}
       <source src="assets/ep1.mp4" type="video/mp4">
     </video>
     <button class="play" id="play" type="button"><span class="tri" aria-hidden="true"></span>Посмотреть первую серию</button>
+  </div>
+  <div class="wrap">
+    <div class="stills">
+      <figure><img src="assets/s1-kadr-1.jpg" width="1600" height="690" loading="lazy" alt="Айдахар в ярости, крупный план"></figure>
+      <figure><img src="assets/s1-kadr-2.jpg" width="1600" height="690" loading="lazy" alt="Айдахар и враг лицом к лицу, между ними щит"></figure>
+      <figure><img src="assets/s1-kadr-3.jpg" width="1600" height="690" loading="lazy" alt="Айдахар смотрит исподлобья"></figure>
+      <figure><img src="assets/s1-kadr-4.jpg" width="1600" height="690" loading="lazy" alt="Айдахар с саблей в юрте"></figure>
+      <figure><img src="assets/s1-kadr-5.jpg" width="1600" height="690" loading="lazy" alt="Противник с бородой и шрамом"></figure>
+      <figure><img src="assets/s1-kadr-6.jpg" width="1600" height="690" loading="lazy" alt="Глаза за клинком"></figure>
+    </div>
   </div>
 </section>
 
@@ -221,21 +230,6 @@ footer small{color:var(--dust);font-size:13px}
   </div>
 </section>
 
-<section class="concepts" id="concepts" style="padding-top:0">
-  <div class="wrap">
-    <div class="ep-head">
-      <div>
-        <p class="cap">Концепты</p>
-        <h2>Мир, который ещё не&nbsp;знает Айдахара</h2>
-      </div>
-    </div>
-    <div class="cgrid">
-      <figure><img src="assets/05-samurai.jpg" width="1600" height="894" loading="lazy" alt="Айдахар и жена скачут через бамбуковый лес и отстреливаются от конных самураев"><figcaption>Япония. Самураи</figcaption></figure>
-      <figure><img src="assets/06-rycari.jpg" width="1600" height="894" loading="lazy" alt="Айдахар и жена стреляют на скаку, рядом рыцари в латах у замка, один падает с коня"><figcaption>Европа. Рыцари</figcaption></figure>
-      <figure><img src="assets/07-piraty.jpg" width="1600" height="894" loading="lazy" alt="Айдахар и жена скачут по кромке прибоя, за ними бегут пираты с корабля"><figcaption>Море. Пираты</figcaption></figure>
-    </div>
-  </div>
-</section>
 
 <section class="team" id="team" style="padding-top:0">
   <div class="wrap">
@@ -294,7 +288,7 @@ footer small{color:var(--dust);font-size:13px}
     var html=await dec(code);
     var room=document.getElementById('room');
     room.innerHTML=html;room.classList.add('open');
-    try{localStorage.setItem('aidahar_code',code)}catch(e){}
+    try{localStorage.setItem('aydahar_code',code)}catch(e){}
     if(scroll)room.scrollIntoView({behavior:'smooth',block:'start'});
   }
   var v=document.getElementById('v'),pl=document.getElementById('player');
@@ -305,7 +299,7 @@ footer small{color:var(--dust);font-size:13px}
     err.textContent='';
     open(c,true).catch(function(){err.textContent='Код не подошёл. Проверьте написание или напишите продюсеру.'});
   });
-  try{var s=localStorage.getItem('aidahar_code');if(s)open(s,false).catch(function(){})}catch(e){}
+  try{var s=localStorage.getItem('aydahar_code');if(s)open(s,false).catch(function(){})}catch(e){}
 })();
 </script>
 </body>
