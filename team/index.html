@@ -119,13 +119,19 @@
 
   .feature{display:grid;grid-template-columns:1.35fr 1fr;gap:0;margin-top:40px;border:1px solid var(--line);background:var(--ink-3);text-decoration:none;color:inherit;transition:border-color .25s}
   .feature:hover{border-color:var(--cyan)}
-  .feature .img{aspect-ratio:21/9;overflow:hidden;background:#000}
+  .feature .img{aspect-ratio:16/9;overflow:hidden;background:#000}
   .feature img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
   .feature:hover img{transform:scale(1.03)}
   .feature .tx{padding:28px 30px;display:flex;flex-direction:column;justify-content:center}
   .feature .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
   .feature h3{font-family:var(--disp);font-weight:500;font-size:clamp(30px,4vw,48px);text-transform:uppercase;letter-spacing:.03em;margin:8px 0 12px;color:#f4f8fa}
   .feature p{font-size:15px;color:var(--soft);line-height:1.6}
+  .projs{display:grid;gap:22px;margin-top:22px}
+  .projs .feature{margin-top:0}
+  .feature.flip{grid-template-columns:1fr 1.35fr}
+  .feature.flip .img{order:2}
+  .feature .lk{margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+  @media (max-width:760px){.feature.flip{grid-template-columns:1fr}.feature.flip .img{order:0}}
   .feature .go{margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
   @media (max-width:760px){.feature{grid-template-columns:1fr}}
 
@@ -299,37 +305,58 @@
     </div>
 
     <div class="sub-h rv">В работе вместе с Neyra Vision</div>
-    <div class="films rv" style="margin-top:18px">
-      <div class="film dev">
-        <div class="yr">в работе</div>
-        <div class="t">Бөрі<small>Полный метр · реж. Куаныш Стаханов</small></div>
-        <div class="d">Казахский оборотень. Taurus Asia Production и Neyra Vision Studio; AI-превиз — Colibri Studio.</div>
-      </div>
-      <div class="film dev">
-        <div class="yr">в работе</div>
-        <div class="t">Орда<small>Полный метр · реж. Ара Аруш</small></div>
-        <div class="d">Анна и Анара ведут живые съёмки и работу с фондом, Neyra Vision — AI-производство.</div>
-      </div>
-      <div class="film dev">
-        <div class="yr">в работе</div>
-        <div class="t">Матка<small>Автор и режиссёр — Елена Лисасина</small></div>
-        <div class="d">Taurus Asia Production. Ключевая сцена собрана по технологии NEYRA.</div>
-      </div>
-      <div class="film dev">
-        <div class="yr">в работе</div>
-        <div class="t">Тоқылдақ<small>Хоррор</small></div>
-        <div class="d">Продюсеры — Анна и Анара.</div>
-      </div>
+    <div class="projs">
+      <a class="feature rv" href="https://colibristudio.ai/orda/" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-orda.jpg" alt="Орда — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx">
+          <div class="k">Полный метр · реж. Ара Аруш</div>
+          <h3>Орда</h3>
+          <p>Анна и Анара ведут живые съёмки и работу с фондом, Neyra Vision — AI-производство.</p>
+          <div class="go">Открыть проект →</div>
+          <div class="lk">Закрытая страница · код Taurus Digital</div>
+        </div>
+      </a>
+      <a class="feature rv flip" href="https://colibristudio.ai/bori/" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-bori.jpg" alt="Бөрі — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx">
+          <div class="k">Полный метр · реж. Куаныш Стаханов</div>
+          <h3>Бөрі</h3>
+          <p>Казахский оборотень. Taurus Asia Production и Neyra Vision Studio; AI-превиз — Colibri Studio.</p>
+          <div class="go">Открыть проект →</div>
+          <div class="lk">Закрытая страница · код Taurus Digital</div>
+        </div>
+      </a>
+      <a class="feature rv" href="https://colibristudio.ai/matka/" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-matka.jpg" alt="Матка — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx">
+          <div class="k">Автор и режиссёр — Елена Лисасина</div>
+          <h3>Матка</h3>
+          <p>Taurus Asia Production. Ключевая сцена собрана по технологии NEYRA.</p>
+          <div class="go">Открыть проект →</div>
+          <div class="lk">Закрытая страница · код Taurus Digital</div>
+        </div>
+      </a>
+      <a class="feature rv flip" href="https://colibristudio.ai/tokyldak/" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-tokyldak.jpg" alt="Тоқылдақ — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx">
+          <div class="k">Хоррор · Taurus Asia Production</div>
+          <h3>Тоқылдақ</h3>
+          <p>Продюсеры — Анна и Анара. Разбор материала и доработка эпизодов вместе с Neyra Vision.</p>
+          <div class="go">Открыть проект →</div>
+          <div class="lk">Закрытая страница · код Taurus Digital</div>
+        </div>
+      </a>
+      <a class="feature rv" href="/er-tostik/">
+        <div class="img"><img src="assets/proj-er-tostik.jpg" alt="Ер Төстік — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx">
+          <div class="k">Анимационный фильм · Neyra Vision</div>
+          <h3>Ер Төстік</h3>
+          <p>Юный батыр, говорящий конь и путь домой через мир, скрытый под степью. Казахская сказка в полном метре по технологии NEYRA.</p>
+          <div class="go">Открыть проект →</div>
+          <div class="lk">Закрытая страница · код Taurus Digital</div>
+        </div>
+      </a>
     </div>
-    <a class="feature rv" href="/er-tostik/">
-      <div class="img"><picture><source srcset="/er-tostik/img/01-geroi-960.avif" type="image/avif"><source srcset="/er-tostik/img/01-geroi-960.webp" type="image/webp"><img src="/er-tostik/img/01-geroi-960.jpg" alt="Ер Төстік — кадр" width="960" height="407" loading="lazy"></picture></div>
-      <div class="tx">
-        <div class="k">Анимационный фильм · Neyra Vision</div>
-        <h3>Ер Төстік</h3>
-        <p>Юный батыр, говорящий конь и путь домой через мир, скрытый под степью. Казахская сказка в полном метре по технологии NEYRA.</p>
-        <div class="go">Смотреть проект →</div>
-      </div>
-    </a>
     <p class="note rv">На Кинопоиске у Анары Жунусовой около тридцати проектов 2015–2026 годов как продюсера и сценариста, среди них «Семь цветков», «Чёрный двор», «Игрок», «1286». Список дополняется.</p>
   </div>
 </section>
