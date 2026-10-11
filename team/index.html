@@ -46,7 +46,7 @@
   /* ===== HERO ===== */
   .hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;isolation:isolate;overflow:hidden;padding-top:90px}
   .hero .mosaic{position:absolute;inset:0;z-index:-2;display:grid;grid-template-columns:repeat(5,1fr);opacity:.55}
-  .hero .mosaic img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+  .hero .mosaic img{width:100%;height:100%;object-fit:cover;object-position:50% 43%;filter:grayscale(1) contrast(1.05)}
   @media (max-width:700px){.hero .mosaic{grid-template-columns:repeat(3,1fr)}.hero .mosaic img:nth-child(n+4){display:none}}
   .hero .scrim{position:absolute;inset:0;z-index:-1;background:
       linear-gradient(180deg,rgba(5,8,11,.7) 0%,rgba(5,8,11,.35) 30%,rgba(5,8,11,.9) 72%,var(--ink) 100%)}
@@ -202,7 +202,7 @@
 
 <header class="hero" id="top">
   <div class="mosaic" aria-hidden="true">
-    <img src="assets/anara-zhunusova.jpg" alt=""><img src="assets/anna-chakirtova.jpg" alt=""><img src="assets/aleksandr-andreyanov.jpg" alt=""><img src="assets/ara-arush.jpg" alt=""><img src="assets/kuanysh-stakhanov.jpg" alt="">
+    <img src="assets/hero-anara-zhunusova.jpg" alt=""><img src="assets/hero-anna-chakirtova.jpg" alt=""><img src="assets/hero-aleksandr-andreyanov.jpg" alt=""><img src="assets/hero-ara-arush.jpg" alt=""><img src="assets/hero-kuanysh-stakhanov.jpg" alt="">
   </div>
   <div class="scrim"></div>
   <div class="inner">
