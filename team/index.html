@@ -126,7 +126,7 @@
   .film .d b{color:var(--paper);font-weight:500}
   @media (max-width:760px){.film{grid-template-columns:1fr}.film .yr{order:-1}}
   .sub-h{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin:44px 0 0}
-  .films+.sub-h{margin-top:72px}
+  .films+.sub-h,.projs+.sub-h{margin-top:72px}
   .film.dev .t{color:var(--soft)}
   .note{margin-top:22px;font-size:13.5px;color:var(--mute)}
 
@@ -141,20 +141,24 @@
   .feature p{font-size:16px;color:var(--soft);line-height:1.6}
   .projs{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
   .projs .feature{margin-top:0}
-  .projs .feature:first-child{grid-column:1/-1}
-  .projs .feature:not(:first-child){grid-template-columns:1fr;position:relative;isolation:isolate}
+  .projs:not(.nv) .feature:first-child{grid-column:1/-1}
+  .projs .feature:not(:first-child),.projs.nv .feature{grid-template-columns:1fr;position:relative;isolation:isolate}
   .projs .feature:not(:first-child) .img{aspect-ratio:16/9}
+  .projs.nv .feature .img{aspect-ratio:16/9}
   .projs .feature:not(:first-child) .tx{position:absolute;inset:auto 0 0 0;padding:120px 26px 26px;background:linear-gradient(180deg,rgba(5,8,11,0),rgba(5,8,11,.92) 55%)}
+  .projs.nv .feature .tx{position:absolute;inset:auto 0 0 0;padding:120px 26px 26px;background:linear-gradient(180deg,rgba(5,8,11,0),rgba(5,8,11,.92) 55%)}
   .projs .feature:not(:first-child) h3{font-size:clamp(26px,2.6vw,34px);margin:6px 0 8px}
+  .projs.nv .feature h3{font-size:clamp(26px,2.6vw,34px);margin:6px 0 8px}
   .projs .feature:not(:first-child) p{font-size:14.5px;max-width:46ch}
+  .projs.nv .feature p{font-size:14.5px;max-width:46ch}
   .projs .feature .go{opacity:0;transition:opacity .25s}
   .projs .feature:hover .go,.projs .feature:focus-visible .go{opacity:1}
   .projs .feature .lk{display:none}
   @media (max-width:860px){
     .projs{grid-template-columns:1fr}
     .projs .feature .go{opacity:1}
-    .projs .feature:not(:first-child) .tx{position:static;padding:22px 24px 26px;background:none}
-    .projs .feature:not(:first-child) p{max-width:none}
+    .projs .feature:not(:first-child) .tx,.projs.nv .feature .tx{position:static;padding:22px 24px 26px;background:none}
+    .projs .feature:not(:first-child) p,.projs.nv .feature p{max-width:none}
   }
   .feature .lk{margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
   .feature .go{margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
@@ -427,6 +431,25 @@
           <div class="go">Открыть проект →</div>
           <div class="lk">Материалы по запросу · доступ по коду</div>
         </div>
+      </a>
+    </div>
+    <div class="sub-h">В работе Neyra Vision · Джакарта, Алматы</div>
+    <div class="projs nv">
+      <a class="feature" href="/aidahar/">
+        <div class="img"><img src="assets/proj-aidahar.jpg" alt="Айдахар — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx"><div class="k">Веб-сериал · реж. Ара Аруш</div><h3>Айдахар</h3><p>Сага о воине степи. Короткие серии в мире «Орды» — собственная разработка Neyra Vision.</p><div class="go">Открыть проект →</div></div>
+      </a>
+      <a class="feature" href="https://colibristudio.ai/baby-sharp/" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-baby-sharp.jpg" alt="BABY SHARP — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx"><div class="k">Анимационный сериал · автор Ара Аруш</div><h3>BABY SHARP</h3><p>Детский сериал о маленькой акуле. Соавтор идеи — Роман Небо. Первый сезон и языковые версии.</p><div class="go">Открыть проект →</div></div>
+      </a>
+      <a class="feature" href="https://youtu.be/rHbhChbSf5w" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-drive369.jpg" alt="Drive369 — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx"><div class="k">Короткий метр · реж. Ара Аруш · 2025</div><h3>Drive369</h3><p>Мир под властью ИИ и сломанный робот, который возвращает людям свободу данных. Сплав генерации, 3D и живых съёмок.</p><div class="go">Смотреть на YouTube →</div></div>
+      </a>
+      <a class="feature" href="https://youtu.be/0VcsuVsog7k" target="_blank" rel="noopener">
+        <div class="img"><img src="assets/proj-bro.jpg" alt="BRO — кадр" width="1280" height="720" loading="lazy"></div>
+        <div class="tx"><div class="k">Полный метр · реж. Ара Аруш · Джакарта</div><h3>BRO</h3><p>Экшн в ночной Джакарте. Производство Neyra Vision Studio, креативная разработка Colibri Studio. Тизер — на YouTube.</p><div class="go">Смотреть тизер →</div></div>
       </a>
     </div>
     <p class="note">У Анары Жунусовой — около тридцати проектов 2015–2026 годов как продюсера и сценариста, среди них «Семь цветков», «Чёрный двор», «Игрок», «1286».</p>
