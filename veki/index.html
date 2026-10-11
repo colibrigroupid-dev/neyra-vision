@@ -224,6 +224,7 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--pink) 22%,transpar
 .soc em{font:700 .78rem/1 var(--mono);font-style:normal;letter-spacing:.02em}
 .soc-tt svg{background:#111;box-shadow:-3px 0 0 #25F4EE inset,3px 0 0 #FE2C55 inset,0 10px 20px -8px rgba(90,18,50,.45)}
 .soc-tg svg{background:#2AABEE}
+.soc-nails svg{background:#E8327A}
 .soc-vk svg{background:#0077FF}
 .soc-yt svg{background:#FF0033}
 .soc:nth-child(odd) svg{transform:rotate(-6deg)}
@@ -242,6 +243,16 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--pink) 22%,transpar
 .socials.mini svg{width:22px;height:22px;padding:11px;border-width:3px}
 .socials.mini em{display:none}
 @media (prefers-reduced-motion:reduce){.soc svg,.soc svg path{transition:none;animation:none!important}}
+
+
+/* Ногти */
+.nails{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.nails-text{display:grid;gap:18px;justify-items:start;position:sticky;top:24px}
+.nails-text .cta{display:flex;flex-wrap:wrap;gap:12px}
+.nails-posts{display:grid;gap:18px;min-width:0}
+.tgpost{min-width:0;border-radius:20px;overflow:hidden}
+.tgpost iframe{max-width:100%!important;min-width:0!important}
+@media (max-width:860px){.nails{grid-template-columns:1fr}.nails-text{position:static}}
 
 /* Медиакит */
 .kit{background:var(--night);color:var(--night-ink)}
@@ -296,7 +307,7 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
         <img class="stk" src="st/kotenok.webp" alt="" width="420" height="359" style="width:clamp(70px,16vw,120px);right:-30%;bottom:-24%;transform:rotate(10deg)">
       </div>
         <p class="lead">Макияж, стрелки и жизненное. Два ролика в&nbsp;день, и&nbsp;каждый пересматривают. На&nbsp;«зачем ты&nbsp;красишься?» тоже отвечаю здесь.</p>
-        <nav class="socials" aria-label="Мои соцсети"><a class="soc soc-tt" href="https://www.tiktok.com/@weqi.fetaaaaa" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6 0 .8.1V9.7a5.8 5.8 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg><em>TikTok</em></a><a class="soc soc-tg" href="https://t.me/weqikoketka" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.1zM9.6 14.4l-.4 3.6-1.5-4.6 10.4-6.6-8.5 7.6z"/></svg><em>Telegram</em></a><span class="soc soc-vk soon" role="button" tabindex="0" aria-label="VK: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.8 17.3c-5.5 0-8.6-3.8-8.7-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.3h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6a7.7 7.7 0 0 1-3.5 5.1 8 8 0 0 1 4.1 4.9h-2.9a5 5 0 0 0-4.1-3.6v3.6z"/></svg><em>VK</em><i>скоро</i></span><span class="soc soc-yt soon" role="button" tabindex="0" aria-label="YouTube: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.3-1.6.4-3.2.4-4.8s-.1-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg><em>YouTube</em><i>скоро</i></span></nav>
+        <nav class="socials" aria-label="Мои соцсети"><a class="soc soc-tt" href="https://www.tiktok.com/@weqi.fetaaaaa" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6 0 .8.1V9.7a5.8 5.8 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg><em>TikTok</em></a><a class="soc soc-tg" href="https://t.me/weqikoketka" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.1zM9.6 14.4l-.4 3.6-1.5-4.6 10.4-6.6-8.5 7.6z"/></svg><em>Telegram</em></a><a class="soc soc-nails" href="https://t.me/xiixilowo" target="_blank" rel="noopener" aria-label="Канал с ногтями"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.1zM9.6 14.4l-.4 3.6-1.5-4.6 10.4-6.6-8.5 7.6z"/></svg><em>Ногти</em></a><span class="soc soc-vk soon" role="button" tabindex="0" aria-label="VK: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.8 17.3c-5.5 0-8.6-3.8-8.7-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.3h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6a7.7 7.7 0 0 1-3.5 5.1 8 8 0 0 1 4.1 4.9h-2.9a5 5 0 0 0-4.1-3.6v3.6z"/></svg><em>VK</em><i>скоро</i></span><span class="soc soc-yt soon" role="button" tabindex="0" aria-label="YouTube: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.3-1.6.4-3.2.4-4.8s-.1-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg><em>YouTube</em><i>скоро</i></span></nav>
       </div>
       <div class="phone"><img class="stk" src="st/obodok.webp" alt="" width="392" height="420" style="width:clamp(78px,18vw,120px);left:-44px;top:-34px;transform:rotate(-16deg)"><img class="stk" src="st/serdce.webp" alt="" width="420" height="374" style="width:clamp(60px,13vw,90px);right:-30px;bottom:110px;transform:rotate(12deg)"><div class="screen"><iframe src="https://www.tiktok.com/player/v1/7583697564839546133?music_info=0&amp;description=0&amp;rel=0" allow="fullscreen; encrypted-media" allowfullscreen title="«Птичка дня»: ролик TikTok, 3,9 млн просмотров"></iframe></div><span class="sticker">3,9 млн ▷</span></div>
     </div>
@@ -417,6 +428,28 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
   </div>
 </section>
 
+<section id="nogti" style="padding-top:0">
+  <div class="wrap" style="position:relative">
+    <img class="stk" src="st/serdce.webp" alt="" width="420" height="374" style="width:clamp(56px,11vw,84px);right:4%;top:-60px;transform:rotate(12deg)">
+    <div class="nails">
+      <div class="nails-text">
+        <span class="sticker">поля nails 💅</span>
+        <h2>а ещё<br>я делаю ногти</h2>
+        <p>Маникюр и дизайн, которые хочется рассматривать. Работы и свободные окошки на месяц выкладываю в отдельном канале. Запись в Петербурге.</p>
+        <div class="cta">
+          <a class="btn main" href="https://t.me/lilipyyyyt" target="_blank" rel="noopener">Записаться</a>
+          <a class="btn ghost" href="https://t.me/xiixilowo" target="_blank" rel="noopener">Канал с работами</a>
+        </div>
+        <p class="ad">Окошки на октябрь уже открыты, следи за каналом.</p>
+      </div>
+      <div class="nails-posts">
+        <div class="tgpost"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="xiixilowo/3063" data-width="100%" data-userpic="false" data-color="E8327A"></script></div>
+        <div class="tgpost"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="xiixilowo/3051" data-width="100%" data-userpic="false" data-color="E8327A"></script></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="vkusnyashka" style="padding-top:0">
   <div class="wrap yum">
     <div class="yum-stage">
@@ -518,7 +551,7 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
 </section>
 
 <footer class="wrap">
-  <span style="display:grid;gap:14px"><nav class="socials mini" aria-label="Мои соцсети"><a class="soc soc-tt" href="https://www.tiktok.com/@weqi.fetaaaaa" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6 0 .8.1V9.7a5.8 5.8 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg><em>TikTok</em></a><a class="soc soc-tg" href="https://t.me/weqikoketka" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.1zM9.6 14.4l-.4 3.6-1.5-4.6 10.4-6.6-8.5 7.6z"/></svg><em>Telegram</em></a><span class="soc soc-vk soon" role="button" tabindex="0" aria-label="VK: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.8 17.3c-5.5 0-8.6-3.8-8.7-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.3h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6a7.7 7.7 0 0 1-3.5 5.1 8 8 0 0 1 4.1 4.9h-2.9a5 5 0 0 0-4.1-3.6v3.6z"/></svg><em>VK</em><i>скоро</i></span><span class="soc soc-yt soon" role="button" tabindex="0" aria-label="YouTube: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.3-1.6.4-3.2.4-4.8s-.1-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg><em>YouTube</em><i>скоро</i></span></nav><span>веки фета · @weqi.fetaaaaa</span></span>
+  <span style="display:grid;gap:14px"><nav class="socials mini" aria-label="Мои соцсети"><a class="soc soc-tt" href="https://www.tiktok.com/@weqi.fetaaaaa" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6 0 .8.1V9.7a5.8 5.8 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg><em>TikTok</em></a><a class="soc soc-tg" href="https://t.me/weqikoketka" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.1zM9.6 14.4l-.4 3.6-1.5-4.6 10.4-6.6-8.5 7.6z"/></svg><em>Telegram</em></a><a class="soc soc-nails" href="https://t.me/xiixilowo" target="_blank" rel="noopener" aria-label="Канал с ногтями"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.1zM9.6 14.4l-.4 3.6-1.5-4.6 10.4-6.6-8.5 7.6z"/></svg><em>Ногти</em></a><span class="soc soc-vk soon" role="button" tabindex="0" aria-label="VK: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.8 17.3c-5.5 0-8.6-3.8-8.7-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.3h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6a7.7 7.7 0 0 1-3.5 5.1 8 8 0 0 1 4.1 4.9h-2.9a5 5 0 0 0-4.1-3.6v3.6z"/></svg><em>VK</em><i>скоро</i></span><span class="soc soc-yt soon" role="button" tabindex="0" aria-label="YouTube: скоро"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12c0 1.6.1 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.3-1.6.4-3.2.4-4.8s-.1-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg><em>YouTube</em><i>скоро</i></span></nav><span>веки фета · @weqi.fetaaaaa</span></span>
   <span>черновик сайта · <a href="predlozhenie.html">письмо к нему</a></span>
 </footer>
 
