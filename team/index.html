@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Команда · Taurus Digital × Neyra Vision</title>
+<title>Taurus Digital × Neyra Vision</title>
 <meta name="description" content="Taurus Digital, Taurus Asia Production и Neyra Vision Studio — продюсеры, режиссёры и цех, которые делают кино и AI-продакшн в Алматы.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#05080b">
-<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<link rel="icon" type="image/png" href="assets/favicon-td-64.png">
+<link rel="icon" type="image/svg+xml" href="assets/td-znak.svg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root{
@@ -40,6 +41,7 @@
   .bar nav a{text-decoration:none;transition:color .2s}
   .bar nav a:hover{color:var(--paper)}
   @media (max-width:860px){.bar nav{display:none}}
+  @media (max-width:520px){.bar .brand{letter-spacing:.2em;font-size:12.5px}.bar .brand b{display:none}}
 
   /* ===== HERO ===== */
   .hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;isolation:isolate;overflow:hidden;padding-top:90px}
@@ -73,6 +75,26 @@
   .org p{font-size:15px;color:var(--soft);line-height:1.6}
   .org .top p{flex-basis:100%;max-width:80ch}
   @media (max-width:860px){.org{grid-template-columns:1fr}}
+
+  .marks{display:flex;align-items:center;gap:22px;margin-bottom:26px}
+  .marks img{height:clamp(64px,9vw,100px);width:auto}
+  .marks img.nv{height:clamp(84px,12vw,132px);margin:-14px}
+  .marks .x{font-family:var(--mono);font-size:22px;color:var(--mute)}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+  .duo .co{background:var(--ink-2);padding:34px 32px 36px}
+  .duo .co img{height:72px;width:auto;margin-bottom:18px}
+  .duo .co img.nv{height:96px;margin:-12px 0 6px -14px}
+  .duo .nm{font-family:var(--disp);font-size:clamp(28px,3vw,38px);letter-spacing:.04em;text-transform:uppercase;color:#f4f8fa}
+  .duo .tg{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:6px 0 14px}
+  .duo p{font-size:15.5px;color:var(--soft);line-height:1.65}
+  .duo p+p{margin-top:10px}
+  .duo b{color:var(--paper);font-weight:500}
+  @media (max-width:760px){.duo{grid-template-columns:1fr}}
+  .does{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px;margin-top:40px}
+  .does div{border-top:1px solid var(--line);padding-top:14px}
+  .does b{display:block;font-family:var(--disp);font-weight:500;font-size:20px;letter-spacing:.04em;text-transform:uppercase;color:#f4f8fa}
+  .does span{display:block;font-size:14.5px;color:var(--mute);margin-top:4px}
+  @media (max-width:600px){.does{grid-template-columns:1fr}}
 
   /* ===== FILMS ===== */
   #films{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -159,9 +181,9 @@
 <body class="no-js">
 
 <div class="bar">
-  <a class="brand" href="/"><img src="/assets/logo-neyra-vision.png" alt=""><span>NEYRA <b>VISION</b></span></a>
+  <a class="brand" href="#top"><img src="assets/td-znak.svg" alt=""><span>TAURUS DIGITAL <b>× NEYRA VISION</b></span></a>
   <nav>
-    <a href="#structure">Структура</a>
+    <a href="#structure">Компании</a>
     <a href="#films">Фильмы</a>
     <a href="#team">Люди</a>
     <a href="#contact">Контакт</a>
@@ -174,40 +196,41 @@
   </div>
   <div class="scrim"></div>
   <div class="inner">
-    <div class="kicker">Команда · Алматы · Джакарта · Сингапур</div>
+    <div class="marks"><img src="assets/td-znak.svg" alt="Taurus Digital" width="96" height="100"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="120" height="120" class="nv"></div>
+    <div class="kicker">AI-кинопроизводство · Алматы · Джакарта · Сингапур</div>
     <h1><span>Taurus Digital</span><span><span class="x">×</span> Neyra Vision</span></h1>
-    <p class="logline">Продюсеры казахстанского кино и AI-студия под одной крышей. Taurus Asia Production отвечает за живые съёмки, Neyra Vision — за AI-производство по технологии NEYRA.</p>
+    <p class="logline">Taurus Digital — AI-продакшн компания в Алматы. Neyra Vision — студия и технология NEYRA. Вместе делаем кино, сериалы и рекламу полного цикла: живые съёмки и AI-производство в одной команде — от сценария до готового фильма.</p>
   </div>
 </header>
 
 <section id="structure">
   <div class="wrap">
     <div class="rv">
-      <div class="eyebrow">Структура</div>
-      <h2>Кто во что входит</h2>
-      <p class="lead">Одна команда, три роли: компания, продакшн и технология.</p>
+      <div class="eyebrow">Две компании</div>
+      <h2>Одна команда</h2>
+      <p class="lead">Taurus Digital приносит кино, продюсеров, фонды и прокат. Neyra Vision — технологию, AI-цех и международный опыт.</p>
     </div>
-    <div class="org rv">
-      <div class="top">
+    <div class="duo rv">
+      <div class="co">
+        <img src="assets/td-znak.svg" alt="" width="72" height="75">
         <div class="nm">Taurus Digital</div>
-        <div class="tg">ТОО · Алматы · ИТ и AI-продакшн</div>
-        <p>Компания, через которую команда ведёт AI-производство кино и видео. Директор — Анна Чакиртова. Технологическая основа — платформа NEYRA по лицензии Neyra Labs.</p>
+        <div class="tg">ТОО · Алматы · AI-продакшн</div>
+        <p>AI-производство кино и видео в Казахстане. Директор — Анна Чакиртова. В связке — <b>Taurus Asia Production</b> Анары Жунусовой и Анны Чакиртовой: «Приговор», «Қара бекіре», «Шекер», живые съёмки, фонды и прокат.</p>
+        <p>Технологическая основа — платформа NEYRA по лицензии Neyra Labs.</p>
       </div>
-      <div>
-        <div class="nm">Taurus Asia Production</div>
-        <div class="tg">Продюсерская компания · Алматы</div>
-        <p>Основана Анарой Жунусовой и Анной Чакиртовой. Полнометражное кино, сериалы, документальные проекты. Ведёт живые съёмки, работу с фондами и прокат.</p>
+      <div class="co">
+        <img src="/assets/logo-neyra-vision.png" alt="" width="84" height="84" class="nv">
+        <div class="nm">Neyra Vision</div>
+        <div class="tg">AI-студия · Джакарта · Алматы</div>
+        <p>Генерация, превиз, анимация и постпродакшн полного цикла. «Nusantara: The Story of Gajah Mada» — Best Documentary и Спецприз жюри AI Film Awards Cannes 2025.</p>
+        <p>Технология — <b>Neyra Labs</b> (Сингапур, основатель Роман Небо): от сценария и раскадровки до шотов, персонажей и сборки фильма.</p>
       </div>
-      <div>
-        <div class="nm">Neyra Vision Studio</div>
-        <div class="tg">AI-продакшн · Алматы · Джакарта</div>
-        <p>Генерация, превиз, анимация и постпродакшн. Работы студии — «Nusantara: The Story of Gajah Mada», Best Documentary и Спецприз жюри AI Film Awards Cannes 2025.</p>
-      </div>
-      <div>
-        <div class="nm">Neyra Labs</div>
-        <div class="tg">Технология · Сингапур</div>
-        <p>Разработчик платформы NEYRA: от сценария и раскадровки до шотов, персонажей и сборки фильма. Основатель — Роман Небо.</p>
-      </div>
+    </div>
+    <div class="does rv">
+      <div><b>Полный метр и сериалы</b><span>живые съёмки Taurus + AI-блок Neyra Vision в одном графике и бюджете</span></div>
+      <div><b>Превиз и питч</b><span>раскадровки, образы, ключевые сцены и тизеры до запуска производства</span></div>
+      <div><b>Генерация и пост</b><span>AI-видео, композинг, VFX, цвет, звук и музыка</span></div>
+      <div><b>Выход на рынки</b><span>Казахстан, Россия, США, Индонезия, Таиланд, MENA — через партнёров команды</span></div>
     </div>
   </div>
 </section>
@@ -500,7 +523,7 @@
     <h2>Снимем вместе</h2>
     <p class="lead">Фильм, сериал, тизер или реклама — живые съёмки и AI-производство в одной команде.</p>
     <div class="partners">
-      <img src="/assets/logo-taurus.png" alt="Taurus Asia Production" width="64" height="64"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="64" height="64">
+      <img src="assets/td-znak.svg" alt="Taurus Digital" width="62" height="64"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="64" height="64">
     </div>
     <div class="btns">
       <a class="btn" href="https://t.me/mis_ter_bro" target="_blank" rel="noopener">Написать в Telegram</a>
@@ -511,7 +534,7 @@
 
 <footer>
   <div class="wrap">
-    <div>Taurus Digital · Taurus Asia Production · Neyra Vision Studio · Алматы</div>
+    <div>Taurus Digital × Neyra Vision · Алматы · Джакарта · Сингапур</div>
     <div><a href="https://neyra.ai" target="_blank" rel="noopener">neyra.ai</a> · <a href="https://colibristudio.ai" target="_blank" rel="noopener">colibristudio.ai</a></div>
   </div>
 </footer>
