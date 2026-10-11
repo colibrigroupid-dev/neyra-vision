@@ -80,6 +80,13 @@
   .marks img{height:clamp(64px,9vw,100px);width:auto}
   .marks img.nv{height:clamp(84px,12vw,132px);margin:-14px}
   .marks .x{font-family:var(--mono);font-size:22px;color:var(--mute)}
+  .hbot{display:flex;flex-direction:column-reverse}
+  @media (min-width:1000px){
+    .hbot{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:48px}
+    .hero .marks{margin:0 0 4px;gap:26px;flex-shrink:0}
+    .hero .marks img{height:104px}
+    .hero .marks img.nv{height:136px;margin:-16px -14px}
+  }
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
   .duo .co{background:var(--ink-2);padding:34px 32px 36px}
   .duo .co img{height:72px;width:auto;margin-bottom:18px}
@@ -199,10 +206,12 @@
   </div>
   <div class="scrim"></div>
   <div class="inner">
-    <div class="marks"><img src="assets/td-znak.svg" alt="Taurus Digital" width="96" height="100"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="120" height="120" class="nv"></div>
     <div class="kicker">AI-кинопроизводство · Алматы · Джакарта · Сингапур</div>
     <h1><span>Taurus Digital</span><span><span class="x">×</span> Neyra Vision</span></h1>
-    <p class="logline">Taurus Digital — AI-продакшн компания в Алматы. Neyra Vision — студия и технология NEYRA. Вместе делаем кино, сериалы и рекламу полного цикла: живые съёмки и AI-производство в одной команде — от сценария до готового фильма.</p>
+    <div class="hbot">
+      <p class="logline">Taurus Digital — AI-продакшн компания в Алматы. Neyra Vision — студия и технология NEYRA. Вместе делаем кино, сериалы и рекламу полного цикла: живые съёмки и AI-производство в одной команде — от сценария до готового фильма.</p>
+      <div class="marks"><img src="assets/td-znak.svg" alt="Taurus Digital" width="96" height="100"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="120" height="120" class="nv"></div>
+    </div>
   </div>
 </header>
 
