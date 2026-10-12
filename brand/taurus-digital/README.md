@@ -1,4 +1,4 @@
-# Taurus Digital — знак (12.10.2026)
+# Digital Taurus Asia — знак (12.10.2026)
 
 Выбран вариант **B · «Линия + play»**: знак Тельца ♉ (преемственность с Taurus Asia Production) + треугольник play в круге (кино/цифра), акцент — циан Neyra Vision.
 Цвета: золото #c9a25e, циан #5fd8e6; на светлом — #1a1712 + #2aa7b6. Шрифты надписи: Oswald 500 (TAURUS), IBM Plex Mono (DIGITAL).
