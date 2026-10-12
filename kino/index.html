@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Киностанция — Claude для кинокоманды</title>
+<meta name="description" content="Рабочее место сценариста, режиссёра и продюсера в Claude: установка, навыки, учебник, проект.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1B1D">
+<link rel="icon" type="image/png" href="../assets/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0E1B1D;--bg2:#13262a;--line:rgba(244,234,213,.14);--ink:#F4EAD5;--ink2:#cfc2a8;--gold:#E8A03A;--gold2:#F7D58A;--disp:"Forum",Georgia,serif;--body:"Golos Text",system-ui,sans-serif;--gut:clamp(16px,4vw,40px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 var(--gut)}
+header{padding:28px 0 0}
+.brand{font:600 13px var(--body);letter-spacing:.08em;text-decoration:none;color:var(--ink2);text-transform:uppercase}
+h1{font:400 clamp(2.4rem,7vw,4rem)/1.05 var(--disp);margin:36px 0 10px;text-wrap:balance}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--ink2);max-width:40em;margin:0 0 40px}
+.cards{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.card{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--bg2);display:flex;flex-direction:column;gap:10px}
+.card h2{font:400 1.7rem/1.1 var(--disp);margin:0}
+.card p{margin:0;color:var(--ink2);font-size:15px}
+.card .meta{font-size:13px;color:var(--ink2);letter-spacing:.04em}
+.btn{display:inline-block;margin-top:auto;align-self:flex-start;font:600 15px var(--body);padding:12px 20px;border-radius:999px;background:var(--gold);color:var(--bg);text-decoration:none}
+.btn:hover{background:var(--gold2)}
+.btn.o{background:transparent;color:var(--ink);border:1px solid rgba(244,234,213,.35)}
+section{padding:40px 0;border-top:1px solid var(--line);margin-top:40px}
+h3{font:400 1.5rem/1.15 var(--disp);margin:0 0 14px}
+ol{padding-left:1.2em;margin:0}
+li{margin:0 0 10px}
+code,pre{font:500 14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#0a1416;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;white-space:pre-wrap;color:var(--ink)}
+footer{padding:40px 0 48px;color:var(--ink2);font-size:14px;border-top:1px solid var(--line);margin-top:40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="brand" href="/">Neyra Vision</a></header>
+<h1>Киностанция</h1>
+<p class="lead">Claude как рабочий партнёр сценариста, режиссёра и продюсера: сценарий сначала, визуал, видео и звук потом. Два архива, инструкция внутри.</p>
+
+<div class="cards">
+ <div class="card">
+  <h2>1 · Киностанция</h2>
+  <p>Ставится один раз. Навыки, учебник сценарного мастерства, шаблоны документов, библиотека сценариев, скелет проекта. Терминал не нужен: работает во вкладке Code приложения Claude.</p>
+  <p class="meta">ZIP · 53 МБ · внутри УСТАНОВКА.md</p>
+  <a class="btn" href="files/KINO-STANCIYA.zip">Скачать станцию</a>
+ </div>
+ <div class="card">
+  <h2>2 · Проект «Ер Төстік»</h2>
+  <p>Папка проекта целиком: концепция, персонажи, синопсис-каркас, поэпизодник, три варианта второго акта, референсы, журнал решений. Кладётся в <code>KINO-STANCIYA/PROEKTY/</code>.</p>
+  <p class="meta">ZIP · 13 МБ · начать с ЧИТАТЬ-ПЕРВЫМ.md</p>
+  <a class="btn" href="files/ER-TOSTIK.zip">Скачать проект</a>
+ </div>
+</div>
+
+<section>
+<h3>Три шага</h3>
+<ol>
+ <li>Аккаунт на <a href="https://claude.ai">claude.ai</a>, тариф Pro. Приложение Claude с <a href="https://claude.com/download">claude.com/download</a>.</li>
+ <li>Папка <code>CODE</code> латиницей (Mac: Документы → CODE; Windows: <code>C:\CODE</code>). Распаковать туда станцию, внутрь неё в <code>PROEKTY/</code> — проект.</li>
+ <li>В приложении: Code → Local → Select folder → <code>KINO-STANCIYA</code>. Режим Accept edits. Первое сообщение:</li>
+</ol>
+<pre>Открой проект PROEKTY/er-tostik. Прочитай PROEKT.md, ZHURNAL.md и всё в 01-zamysel/.
+Я автор концепции. Доложи в пять строк, на каком мы этапе и что от меня ждут.
+Ничего не переписывай и не придумывай за меня — я строю структуру сама, ты проверяешь.</pre>
+</section>
+
+<footer>Обмен работой — папкой <code>er-tostik</code> архивом; журнал решений внутри. Подробная установка для Mac и Windows — файл УСТАНОВКА.md в станции.</footer>
+</div>
+</body>
+</html>
