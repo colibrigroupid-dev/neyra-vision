@@ -78,6 +78,10 @@
   .marks img.nv{height:clamp(84px,12vw,132px);margin:-14px}
   .marks .x{font-family:var(--mono);font-size:22px;color:var(--mute)}
   .hbot{display:flex;flex-direction:column-reverse}
+  .cos{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);flex-wrap:wrap}
+  .cos img{height:60px;width:60px;border-radius:8px;filter:grayscale(1) brightness(1.1)}
+  .cos a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+  .cos a:hover{border-color:var(--paper)}
   @media (min-width:1000px){
     .hbot{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:48px}
     .hero .marks{margin:0 0 4px;gap:26px;flex-shrink:0}
@@ -221,8 +225,9 @@
   .btn.ghost:hover{border-color:var(--paper)}
   .cities{margin-top:30px;font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
   footer{border-top:1px solid var(--line);padding:38px 0 52px;font-size:13px;color:var(--mute)}
-  footer .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 44px}
-  @media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+  footer .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 36px}
+  @media (max-width:900px){footer .wrap{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){footer .wrap{grid-template-columns:1fr}}
   .fcol b{display:block;font-family:var(--disp);font-weight:500;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--paper)}
   .fcol span{display:block;margin-top:4px}
   footer a{text-decoration:none}
@@ -256,7 +261,7 @@
 
 <header class="hero" id="top">
   <div class="mosaic" aria-hidden="true">
-    <img src="assets/hero-anna-chakirtova.jpg" alt=""><img src="assets/hero-anara-zhunusova.jpg" alt=""><img src="assets/hero-aleksandr-andreyanov.jpg" alt=""><img src="assets/hero-ara-arush.jpg" alt=""><img src="assets/hero-kuanysh-stakhanov.jpg" alt="">
+    <img src="assets/hero-anna-chakirtova.jpg?v=2" alt=""><img src="assets/hero-anara-zhunusova.jpg" alt=""><img src="assets/hero-aleksandr-andreyanov.jpg" alt=""><img src="assets/hero-ara-arush.jpg" alt=""><img src="assets/hero-kuanysh-stakhanov.jpg" alt="">
   </div>
   <div class="scrim"></div>
   <div class="inner">
@@ -266,6 +271,7 @@
       <p class="logline">Кино, сериалы и реклама, где живые съёмки и AI-производство идут в одном графике и одном бюджете. Алматы и Джакарта, технология NEYRA.</p>
       <div class="marks"><img src="assets/td-znak.svg" alt="Digital Taurus Asia" width="96" height="100"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="120" height="120" class="nv"></div>
     </div>
+    <div class="cos"><img src="/assets/logo-taurus.png" alt="Taurus Asia Production" width="60" height="60"><span>Живые съёмки — <a href="https://taurusproduction.net" target="_blank" rel="noopener">Taurus Asia Production</a> · продюсерская компания Анны Чакиртовой и Анары Жунусовой · Алматы</span></div>
   </div>
 </header>
 
@@ -287,7 +293,7 @@
         <ol class="steps">
           <li><i>01</i><b>Питч и референсы</b><span>Логлайн, сценарий или идея. Отвечаем, что можно сделать и за сколько.</span></li>
           <li><i>02</i><b>Превиз и смета</b><span>Образы героев, ключевые сцены, тизер. Ориентир — тринадцать рабочих дней на сцену под ключ.</span></li>
-          <li><i>03</i><b>Производство</b><span>Живые съёмки Taurus и AI-блок Neyra Vision в одном графике.</span></li>
+          <li><i>03</i><b>Производство</b><span>Живые съёмки Taurus Asia Production и AI-блок Neyra Vision в одном графике.</span></li>
           <li><i>04</i><b>Постпродакшн и сдача</b><span>Сведение, цвет, звук, музыка. Материалы — в форматах под прокат и платформы.</span></li>
         </ol>
         <p class="nda">Материалы проекта не передаём третьим лицам. NDA подписываем до того, как получим сценарий.</p>
@@ -295,7 +301,7 @@
     </div>
     <div class="sub-h" style="margin-top:72px">Что делаем</div>
 <div class="does" style="margin-top:22px">
-      <div><b>Полный метр и сериалы</b><span>живые съёмки Taurus + AI-блок Neyra Vision в одном графике и бюджете</span></div>
+      <div><b>Полный метр и сериалы</b><span>живые съёмки Taurus Asia Production + AI-блок Neyra Vision в одном графике и бюджете</span></div>
       <div><b>Превиз и питч</b><span>раскадровки, образы героев, ключевые сцены и тизер — ещё до запуска съёмок</span></div>
       <div><b>Генерация и пост</b><span>AI-видео, сведение кадров, визуальные эффекты, цвет, звук и музыка</span></div>
       <div><b>Выход на рынки</b><span>Казахстан, Россия, США, Индонезия, Таиланд, Ближний Восток — через партнёров команды</span></div>
@@ -308,7 +314,7 @@
     <div class="rv">
       <div class="eyebrow">Фильмография</div>
       <h2>Фильмография</h2>
-      <p class="lead">Картины и сериалы Анны Чакиртовой и Анары Жунусовой — и проекты, которые делаем вместе с Neyra Vision.</p>
+      <p class="lead">Картины и сериалы <a href="https://taurusproduction.net" target="_blank" rel="noopener">Taurus Asia Production</a> — продюсерской компании Анны Чакиртовой и Анары Жунусовой — и проекты, которые делаем вместе с Neyra Vision.</p>
     </div>
 
     <div class="sub-h">Вышли</div>
@@ -451,7 +457,7 @@
       <div class="grp-h"><h3>Руководство</h3><span>Digital Taurus Asia × Neyra Vision</span></div>
       <div class="people lead3">
         <div class="p">
-          <div class="ph"><img src="assets/lead-anna-chakirtova.jpg?v=3" alt="Анна Чакиртова" width="720" height="720" loading="lazy"></div>
+          <div class="ph"><img src="assets/lead-anna-chakirtova.jpg?v=4" alt="Анна Чакиртова" width="720" height="720" loading="lazy"></div>
           <div class="n">Анна Чакиртова</div>
           <div class="r">Сооснователь и продюсер Taurus Asia Production</div>
           <p>«Приговор», «Қара бекіре». Ранее — исполнительный продюсер «Томирис» и «Дороги к матери» Акана Сатаева. Член Национальной киноакадемии и Альянса креативных индустрий.</p>
@@ -647,6 +653,7 @@
 <footer>
   <div class="wrap">
     <div class="fcol"><b>Digital Taurus Asia</b><span>ТОО «Digital Taurus Asia» · Алматы · AI-производство кино и видео</span></div>
+    <div class="fcol"><b>Taurus Asia Production</b><span>Алматы · кино и сериалы, живые съёмки · <a href="https://taurusproduction.net" target="_blank" rel="noopener">taurusproduction.net</a></span></div>
     <div class="fcol"><b>Neyra Vision Studio</b><span>Джакарта · Алматы · технология NEYRA</span></div>
     <div class="fcol"><b>Ссылки</b><span><a href="/">neyra.vision</a> · <a href="https://neyra.ai" target="_blank" rel="noopener">neyra.ai</a> · <a href="https://colibristudio.ai" target="_blank" rel="noopener">colibristudio.ai</a></span></div>
   </div>
