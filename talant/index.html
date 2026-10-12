@@ -73,8 +73,9 @@ p{margin:0 0 1em}
 .logline p.q{font:400 clamp(22px,2.6vw,34px)/1.3 var(--disp);color:var(--cream);text-transform:none;letter-spacing:0;margin:0}
 .logline p.soft{color:var(--cream-2);margin-top:18px}
 .wide{margin:0}
-.wide img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.wide img{width:100%;aspect-ratio:21/9;object-fit:cover}
 .wide figcaption{padding-top:10px;font-size:14px;color:var(--cream-2)}
+.wide.gap{margin-top:clamp(8px,1.2vw,16px)}
 
 /* почему Алматы */
 .why{background:var(--black-2);border-block:1px solid var(--line)}
@@ -84,7 +85,7 @@ p{margin:0 0 1em}
 .why li b{display:block;font:500 20px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:6px}
 .why li p{margin:0;color:var(--cream-2)}
 .why .pics{display:grid;gap:clamp(8px,1.2vw,16px)}
-.why .pics img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.why .pics img{width:100%;aspect-ratio:21/9;object-fit:cover}
 .why .manifest{font:400 clamp(20px,2.2vw,26px)/1.45 var(--disp);color:var(--cream);max-width:46em;margin:clamp(32px,5vw,56px) 0 0}
 
 /* синопсис + кадры */
@@ -93,10 +94,10 @@ p{margin:0 0 1em}
 .story .syn p.lead{font:500 clamp(22px,2.4vw,30px)/1.3 var(--disp);text-transform:uppercase;letter-spacing:.02em;color:var(--cream);margin:0 0 12px}
 .story .syn p.soft{color:var(--cream-2)}
 .stills{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(6px,1vw,12px)}
-.stills figure{margin:0;grid-column:span 3}
+.stills figure{margin:0;grid-column:span 2}
 .stills figure.full{grid-column:span 6}
 .stills figure.third{grid-column:span 2}
-.stills img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.stills img{width:100%;aspect-ratio:21/9;object-fit:cover}
 .stills figcaption{padding:8px 0 6px;font-size:14px;color:var(--cream-2)}
 .lede-2{max-width:46em;margin:clamp(32px,5vw,56px) auto 0;text-align:center}
 .lede-2 p{font:400 clamp(20px,2.2vw,26px)/1.45 var(--disp);color:var(--cream)}
@@ -116,7 +117,7 @@ p{margin:0 0 1em}
 /* подкаст */
 .pod .row{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:center}
 .pod figure{margin:0}
-.pod img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pod img{width:100%;aspect-ratio:21/9;object-fit:cover}
 .pod .box{border-top:1px solid var(--line);padding-top:18px}
 .pod .box h3{font-size:clamp(24px,2.8vw,36px);color:var(--cream);margin:0 0 6px}
 .pod .box p{color:var(--cream-2);font-size:16px}
@@ -207,7 +208,7 @@ footer small{color:var(--cream-2);font-size:13px}
 
 <section id="teaser" class="teaser">
   <div class="player" id="player">
-    <img src="assets/teaser-cover.jpg" width="1280" height="720" alt="Обложка тизера: Алекс бьёт в камеру в клетке" loading="lazy">
+    <img src="assets/teaser-cover.jpg" width="1920" height="1280" alt="Талант. Фильм Ара Аруш" loading="lazy">
     <button class="play" id="play" type="button" data-yt="TdyGFqys9Gg"><span class="tri" aria-hidden="true"></span>Смотреть тизер</button>
   </div>
   <div class="wrap ep-cap">
@@ -228,7 +229,7 @@ footer small{color:var(--cream-2);font-size:13px}
       </div>
     </div>
     <figure class="wide">
-      <img src="assets/k-kletka-uchitel.jpg" width="1920" height="1080" loading="lazy" alt="Алекс с разбитыми кулаками в клетке, за его плечом — старый учитель с полотенцем">
+      <img src="assets/a01-krupno-violonchel.jpg" width="1920" height="822" loading="lazy" alt="Алекс с разбитым лицом смотрит поверх грифа виолончели, смычок в перебинтованной руке">
     </figure>
   </div>
 </section>
@@ -247,8 +248,8 @@ footer small{color:var(--cream-2);font-size:13px}
         </ul>
       </div>
       <div class="pics">
-        <img src="assets/01-almaty.jpg" width="1920" height="1080" loading="lazy" alt="Алекс с виолончелью за спиной идёт по осенней улице Алматы, в конце улицы — снежные горы">
-        <img src="assets/10-gorod.jpg" width="1920" height="1080" loading="lazy" alt="Алматы на закате: огни города, горы и телебашня на Кок-Тобе">
+        <img src="assets/a08-gorod-beg.jpg" width="1920" height="822" loading="lazy" alt="Алекс бежит по ночному городу в наушниках, на лице следы боя">
+        <img src="assets/a03-spina-zal.jpg" width="1920" height="822" loading="lazy" alt="Алекс со спины в костюме перед полным залом в свете прожекторов">
       </div>
     </div>
     <p class="manifest">Мы ломаем стереотип «чужого». Алекс&nbsp;— талант, интеллект и&nbsp;сила в&nbsp;одном человеке. Это не&nbsp;просто кино про бокс, а&nbsp;манифест нового поколения, снятый в&nbsp;Казахстане.</p>
@@ -271,16 +272,26 @@ footer small{color:var(--cream-2);font-size:13px}
       </div>
     </div>
     <div class="stills">
-      <figure><img src="assets/02-scena.jpg" width="1920" height="1080" loading="lazy" alt="Алекс играет на виолончели на сцене телешоу, струна лопается"><figcaption>Шоу «Талант». На последней ноте лопается струна.</figcaption></figure>
-      <figure><img src="assets/03-uchitel.jpg" width="1920" height="1080" loading="lazy" alt="Ян Борисович передаёт Алексу старинную виолончель в квартире, заставленной книгами"><figcaption>Ян Борисович передаёт Монтаньяну 1720&nbsp;года.</figcaption></figure>
-      <figure><img src="assets/04-lombard.jpg" width="1920" height="1080" loading="lazy" alt="Алекс прижимает разбитые кулаки к витрине ломбарда, за стеклом — его виолончель"><figcaption>Ломбард закрыт. За&nbsp;бронированным стеклом&nbsp;— новый ценник.</figcaption></figure>
-      <figure><img src="assets/05-garazh.jpg" width="1920" height="1080" loading="lazy" alt="Отец в старом спортивном костюме держит лапы, Алекс бьёт в перчатках; на полках кубки"><figcaption>Старый гараж. Отец снова становится тренером.</figcaption></figure>
-      <figure><img src="assets/06-kletka.jpg" width="1920" height="1080" loading="lazy" alt="Алекс поднимает кулак над нокаутированным соперником в клетке, толпа ревёт"><figcaption>Толпа скандирует его новое имя&nbsp;— «Талант».</figcaption></figure>
-      <figure><img src="assets/08-final.jpg" width="1920" height="1080" loading="lazy" alt="Алекс в смокинге с перебинтованными руками играет на виолончели в финале шоу"><figcaption>Финал. Смокинг на&nbsp;разбитое тело, смычок в&nbsp;перебинтованных пальцах.</figcaption></figure>
+      <figure><img src="assets/a02-uchitel-urok.jpg" width="1920" height="822" loading="lazy" alt="Алекс играет на виолончели, старый учитель слушает с улыбкой среди книг и нот"><figcaption>Ян Борисович и&nbsp;Монтаньяна 1720&nbsp;года.</figcaption></figure>
+      <figure><img src="assets/a07-anton-otec-mashina.jpg" width="1920" height="822" loading="lazy" alt="Антон и его отец на заднем сиденье автомобиля смотрят в разные стороны"><figcaption>Антон и&nbsp;отец. Лондон или армия.</figcaption></figure>
+      <figure><img src="assets/a14-lombard.jpg" width="1920" height="822" loading="lazy" alt="Скупщик с двумя охранниками за прилавком ломбарда, перед ним лежит виолончель"><figcaption>Ломбард. Новый ценник на&nbsp;виолончели.</figcaption></figure>
+      <figure><img src="assets/a09-garazh-otec.jpg" width="1920" height="822" loading="lazy" alt="Алекс бьёт по мешку в старом гараже, отец с секундомером рядом"><figcaption>Старый гараж. Отец снова тренер.</figcaption></figure>
+      <figure><img src="assets/a06-binty.jpg" width="1920" height="822" loading="lazy" alt="Алекс в раздевалке бинтует окровавленные руки"><figcaption>Двойная жизнь: бинты вместо канифоли.</figcaption></figure>
+      <figure><img src="assets/a05-poceluy-anna.jpg" width="1920" height="822" loading="lazy" alt="Алекс и Анна Праздник за мгновение до поцелуя"><figcaption>Анна Праздник. Единственное «да», которое важно.</figcaption></figure>
+      <figure><img src="assets/a10-byk.jpg" width="1920" height="822" loading="lazy" alt="Бык, огромный татуированный боец, кричит в клетке с окровавленными кулаками"><figcaption>Бык. Финал турнира.</figcaption></figure>
+      <figure><img src="assets/a11-uchitel-setka.jpg" width="1920" height="822" loading="lazy" alt="Ян Борисович держится за сетку клетки и смотрит на бой"><figcaption>Учитель у&nbsp;сетки. Ритм из&nbsp;школьной котельной.</figcaption></figure>
+      <figure><img src="assets/a17-bolnica.jpg" width="1920" height="822" loading="lazy" alt="Ян Борисович на больничной койке смотрит на Алекса"><figcaption>Больница. Учитель отворачивается.</figcaption></figure>
     </div>
+    <figure class="wide gap">
+      <img src="assets/a18-posle-boya-uchitel.jpg" width="1920" height="822" loading="lazy" alt="Алекс после боя идёт сквозь ревущую толпу, за ним Ян Борисович с полотенцем">
+    </figure>
     <div class="lede-2">
       <p>Контраст миров: утончённость классической музыки и&nbsp;телевизионный глянец сталкиваются с&nbsp;кровью подпольных арен. Два фронта в&nbsp;кросс-монтаже&nbsp;— сцена и&nbsp;клетка&nbsp;— сходятся в&nbsp;одном финале.</p>
     </div>
+    <figure class="wide gap" style="margin-top:clamp(32px,5vw,56px)">
+      <img src="assets/a04-vyhod-na-scenu.jpg" width="1920" height="822" loading="lazy" alt="Алекс в костюме выходит на сцену к виолончели и табурету перед полным залом">
+      <figcaption>Финал шоу «Талант». Выход к&nbsp;виолончели.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -310,7 +321,7 @@ footer small{color:var(--cream-2);font-size:13px}
 <section class="pod" id="podcast" style="padding-top:0">
   <div class="wrap">
     <div class="row">
-      <figure><img src="assets/09-podcast.jpg" width="1920" height="1080" loading="lazy" alt="Двое ведущих подкаста в тёмной студии за микрофонами обсуждают фильм"></figure>
+      <figure><img src="assets/podcast-studio.jpg" width="1920" height="822" loading="lazy" alt="Двое ведущих подкаста в тёмной студии за микрофонами обсуждают фильм"></figure>
       <div class="box">
         <p class="cap">Подкаст о&nbsp;фильме</p>
         <h3>Виолончелист в&nbsp;подпольных боях</h3>
@@ -377,7 +388,7 @@ footer small{color:var(--cream-2);font-size:13px}
   </div>
 </footer>
 
-<script id="payload" type="application/json">{"salt":"LMjfEenDOPI/7wBTovdqtg==","iv":"ps8GLw8e73EMaYHP","ct":"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","iter":310000}</script>
+<script id="payload" type="application/json">{"salt":"BFCh5tRrzI7bkt07ifa0yA==","iv":"eP9ttjaHRyqFR/RS","ct":"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","iter":310000}</script>
 <script>
 (function(){
   var P=JSON.parse(document.getElementById('payload').textContent);
