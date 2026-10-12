@@ -52,7 +52,8 @@ p{margin:0 0 1em}
 
 /* первый экран — постер */
 .hero{position:relative;padding:0;background:#000}
-.hero img{width:100%;aspect-ratio:2752/1536;object-fit:cover}
+.hero img.bg{width:100%;aspect-ratio:21/9;object-fit:cover}
+.hero img.logo{position:absolute;left:5.5%;top:50%;width:36%;transform:translateY(-50%);mix-blend-mode:screen;pointer-events:none}
 .scroll{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font:500 12px var(--disp);letter-spacing:.26em;text-transform:uppercase;color:var(--cream);text-decoration:none;text-shadow:0 1px 8px #000}
 .facts{display:flex;flex-wrap:wrap;gap:10px 36px;padding:22px 0;border-bottom:1px solid var(--line)}
 .facts span{font-size:15px;color:var(--cream)}
@@ -82,7 +83,8 @@ p{margin:0 0 1em}
 
 /* почему Алматы */
 .why{background:var(--black-2);border-block:1px solid var(--line)}
-.why .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:start}
+.why .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:stretch}
+.why .pics{align-content:space-between}
 .why ul{list-style:none;margin:28px 0 0;padding:0}
 .why li{padding:18px 0;border-top:1px solid var(--line)}
 .why li b{display:block;font:500 20px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:6px}
@@ -177,7 +179,8 @@ footer small{color:var(--cream-2);font-size:13px}
 
 @media (max-width:760px){
   .logline .lede,.story .syn,.vault .row,.why .grid,.pod .row,.cos{grid-template-columns:1fr}
-  .hero img{aspect-ratio:4/3;object-position:50% 30%}
+  .hero img.bg{aspect-ratio:4/3;object-position:62% 30%}
+  .hero img.logo{left:50%;top:auto;bottom:12%;width:78%;transform:translateX(-50%)}
   .stills figure,.stills figure.third{grid-column:span 6}
   form.code .f{flex-direction:column}
   form.code button{padding:15px}
@@ -193,13 +196,15 @@ footer small{color:var(--cream-2);font-size:13px}
   <nav class="dl" aria-label="Документы">
     <a class="go" href="assets/TALANT-sinopsis.pdf" download="Талант — синопсис.pdf">Синопсис <span>PDF</span></a>
     <a class="go" href="assets/TALANT-scenariy.pdf" download="Талант — сценарий.pdf">Сценарий <span>PDF</span></a>
+    <a class="go" href="assets/TALANT-prezentaciya.pdf" download="Талант — презентация.pdf">Презентация <span>PDF</span></a>
     <a class="go" href="#partners">Партнёрам</a>
   </nav>
 </header>
 
 <section class="hero">
   <h1 class="vh">Талант — за право звучать. Фильм Ара Аруш</h1>
-  <img src="assets/poster.jpg" width="2752" height="1536" alt="Талант. За право звучать. Слева — виолончелист в чёрном костюме перед залом, справа — он же с разбитыми кулаками в клетке" fetchpriority="high">
+  <img class="bg" src="assets/hero.jpg" width="2560" height="1096" alt="Алекс с окровавленными кулаками стоит в клетке, за его плечом — старый учитель с полотенцем" fetchpriority="high">
+  <img class="logo" src="assets/logo-talant.jpg" width="900" height="420" alt="Талант. Фильм Ара Аруш" fetchpriority="high">
   <a class="scroll" href="#teaser">Смотреть ↓</a>
 </section>
 
@@ -256,6 +261,10 @@ footer small{color:var(--cream-2);font-size:13px}
       </div>
       <div class="pics">
         <img src="assets/a08-gorod-beg.jpg" width="1920" height="822" loading="lazy" alt="Алекс бежит по ночному городу в наушниках, на лице следы боя">
+        <img src="assets/a19-lombard-otec.jpg" width="1920" height="822" loading="lazy" alt="Отец в старом спортивном костюме с чехлом виолончели идёт к дверям ломбарда">
+        <img src="assets/a20-almaty-prospekt.jpg" width="1920" height="822" loading="lazy" alt="Алекс с чехлом виолончели идёт по проспекту Алматы, в конце улицы — снежные горы">
+        <img src="assets/a21-almaty-koktobe.jpg" width="1920" height="822" loading="lazy" alt="Алекс сидит ночью на Кок-Тобе над огнями Алматы, рядом чехол виолончели">
+        <img src="assets/a22-almaty-rassvet.jpg" width="1920" height="822" loading="lazy" alt="Алекс бежит на рассвете по горной дороге над Алматы, за ним розовые вершины">
         <img src="assets/a03-spina-zal.jpg" width="1920" height="822" loading="lazy" alt="Алекс со спины в костюме перед полным залом в свете прожекторов">
       </div>
     </div>
@@ -395,7 +404,7 @@ footer small{color:var(--cream-2);font-size:13px}
   </div>
 </footer>
 
-<script id="payload" type="application/json">{"salt":"tSA07UXtYBjBtWF+kKvXzA==","iv":"GT0is0s/y1EMtqL/","ct":"6Um8Xfm10BchpbJU6yymvZZqXIf1C0y6xvUqUbtzo6msV+vUtta46l7UCpDDor2vRObUwtifzFPwZGYpJ4CcP4a1CsYVnbo4YiChvNU9CXpWPlUquDaNB1Kbv6D+BTgRASXObj7nGSpPrmd+3tAqEtS/6hrDB+/TvaDQofjjatfjQ2FCn5PgtMZ+zOmI/8pxhtbN2M9MnhEfVY7kIJgrGCpcEx42Cx2mCyLmURwGimE7E1gZ7xF6xv3fQ+OsgThGl3ttVgcJ80L/jxkSkBoBv7co8i3qbJrJ3ROBQN4hAXeA4q+XVijmScbpnS4pSb2YSjVvnx4guhcl9ecqqW58QLZOMB0MZuU8RVwmvELzqRNZLxjfxtRrGoKXg0I5xq7L90IKjIb2JNp8XM5HUTc52AQv3p2SyA6fE5oftsdpxV+YuIEzRyaMFzGceSc3AXG6kg2B8O2ouGAH9jGeQGWj0PnMZRQyPKtMOCV6idLZ9kaH3CEmOqiHXsPJ+yzkcrng5C/iAkEldWuvHrKOEdHP6cCdIremdouIeOHHQW+X+MlvvP4ocOVN1dpBUDJ4/SLwS40qZyHWqmVOesmr5/t5plBW2NWnM4Mjw3g6YFpI/2yAOpZu2igY+Ye27nBMXhMfrDHzLkdMJPGGPvz/ESo9DICt9uNI4AvrYhehXiR0iLw/QIZKPj2JwmpaG4/kJM8dfJ6vaB03y7ImbdAc0ZpJZlePIdkIUoft5huIVbQn/wtX6CjKmDkzYr08f8l5ZXa57mPedeo3/PabyGwGW/aSrD380CEI/c6CUK6VneFymtu1dRxBWn3qHvcaNSxcuDgs44/Ej5mOzyC6DHEEfUkd6fpMv5+Rg/ONsnihS6D0YgqferIXPsjH+qCiQEMt9pwq7zhsRpVrl12c+6+djPJNhmM7C93dHVYoAbiLkAbM2HUwQI/kQzge0/CSVgDVkBO5JBlfogAV4R8fTYqCCdBDFQTRUNMmiFxkXdUJkVEkbpzdjRDLwldTUjJoPUeyzgNTIKztsPlLVXXaFriVF0trrQsC9vvwRBIqC9McvBtam0oPR7O+pv4++VVyhMzh03JiTTlDnO8G/ZRms5SBhYrCjj+p0XdASOjQ0QrTi7q3Fs++Gm33vd02yWz6Dg1P0ST4vjbu9Udbd9xxGEyl775z/AtuHgDB0Qj7mzr/26Nrnt6FWG2bb95RJgPNyr/FkVmaSe+6xwzU/JaaqfLjJOmZh7W2bQfXlRKpqAJ4YtXPsz+l4ZyAAxao7DOC+F2zCMonHZer9ARQ8XAlVl/jH7nPGu3TEZbdeMhvPSVcKaxeMdsiCRGHRNR6DWQ/AZf0qxh9uuPx/Aum0GHgeCAL+Ej0Vt9uwek8e59V0FAvk624GOctRLZ2DEPJgfl2/KBSEKgwe1NYtOGqkRAdJtNM5OdLrDCG9mA1kx8QGXtajO3SMOVkI92yTTJQxdr6TdaMQKC8b9DgiJOn7jKuAuxXRHnFbxEJ3mkXPrC7ZuZYCxRsP89OC1EIcudYWSDZbQfSa55mwwumVMB4+FRVBW2Lvju7sHqz+Ov+fHJF73Uf8wxioIrcoMXkyBcL0ktGyRwwGTCcsMvvF88OWrKjffGYOcnvVZdfuuFkxfDKG+uBSGNf25dGCPscwXHI1xTHeq45lh4fvpvSMusTOgv2lPl8CSLtKOw5qKYYDvB2i/sloI9r9Vga+DzTEFXmozZejJ3HmUvgUg3gPaoETdbAKdXX72oUfHnlmTQDTiturRy8tcUB8/WkHl8UCoraw/ft2BemlU4F1DfVr5FkC79ZP1Ms4UCMC1Yo484EC0iUq0CbEFEz+L2AYdGDbAacoae3g6xwVIaS1vqe5E1HN2Q2uZ8305SB6/ytD1hJsCQcE0TY/CcvBxef9eIqBlDG7UjvwWdlDZwaKH6h4HZmdxz1Xp6vex+9m+kbwdJW3MVMI/ZD5vi9h4oyb/6fmHbDeuo7MsOvMsG26zf++f9zjbHIik/eMjGTeT3GDH/4uNXYOP4RkW76ox1/cgCaStwWZefybcBpr2qyj+wnywAYkqpRHMQ9PD6coJ9jtDjUsqFgXl3CeAHZa68DyiQOiweuPM/5n9BYeiOIwpOtmNefkjfj5MkUVannWBOUaPOIdbuQYubTYJ+QtAOcVzA5zpw7TnLHQ0j+ZcbOWGH6hPy7xoX29lAH5VG1mzEhh7MQSfc9EcJlzvus07ILks0fuY6jLkJf9idzfNK+EfANztIPBf5oNPNMxfcQcMTKbhwXqjK74AiQf8AHb3PUgtnBSdZpoMmeJhqrkYzXSqbN082hZJFskOeYjXXb6Pk0aZIIb0bLExWG+5tE75FeRU4r7WD2Onx54JBjXkGp+liugBhXP2f603nS3NsJD/aNZkmKDoYMotyxWxlZeQZTzG78R4hwwMSzoLua73bsu400PhiJTY8l/TuvP7wBjLbwVmb77RMfvNzJlL0C2GG7EpB3auxjxU2yptIbZVu24P2UvlqLqLtMqZpi53P0L48z3EOHhJk8ITyFDGjBlx3g0C+lYuCIa2i87LInsnzWNTBk0f685BdLqZIQgJHlkrJnKuTWOK5MidYm0nM6mYK6J44BWDoVhOg7yZ0Fx01lqEckhCK5bVfTMYx41bBL1dDY25yhvwR+npKAhC8W5C77XV8lrmDAB+gEzXSP+nnqU1/QIi/eipQgbc98WrvHuTZWxD/1JFq1hXCgwyQyDwi/G9IwTetO","iter":310000}</script>
+<script id="payload" type="application/json">{"salt":"WDbCNnbHRR8PUuTk/2Mq8w==","iv":"UwTn3giAYPy3emMf","ct":"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","iter":310000}</script>
 <script>
 (function(){
   var P=JSON.parse(document.getElementById('payload').textContent);
