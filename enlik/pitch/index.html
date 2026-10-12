@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Еңлік-Кебек — визуальная разработка и пилот · Taurus Digital</title>
+<meta name="description" content="Предложение к встрече 13 октября 2026: сохранить масштаб картины и проверить экономию на кадрах. Достройка среды, сезон, массовка, превиз, пилот на 3–5 планах.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#10110f">
+<meta property="og:title" content="Еңлік-Кебек — визуальная разработка и пилот">
+<meta property="og:description" content="Сохранить масштаб картины. Проверить экономию на кадрах. Taurus Digital × Neyra Vision.">
+<meta property="og:image" content="https://neyra.vision/enlik/pitch/assets/og.jpg">
+<meta property="og:url" content="https://neyra.vision/enlik/pitch/">
+<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#10110f; --ink-2:#181b18; --ink-3:#20241f; --line:#2b302a;
+  --paper:#ece4d2; --paper-2:#b3ab99;
+  --gold:#c9a86a; --gold-deep:#a8894f;
+  --disp:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Golos Text",system-ui,sans-serif;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 18px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.03em;text-wrap:balance;margin:0;color:var(--paper)}
+h2{font-size:clamp(30px,4.4vw,56px);line-height:1.02}
+h3{font-size:clamp(20px,2.2vw,26px);color:var(--gold)}
+.k{font:500 12px/1.4 var(--disp);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.sub{color:var(--paper-2);max-width:60ch;margin:14px 0 0}
+section{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
+section.first{border-top:0}
+p{margin:0 0 1em}
+figure{margin:0}
+figure img{width:100%;aspect-ratio:2.39/1;object-fit:cover;background:var(--ink-2)}
+figure.r169 img{aspect-ratio:16/9}
+figcaption{font:500 12px/1.4 var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--paper-2);padding-top:10px;display:flex;justify-content:space-between;gap:12px}
+figcaption b{color:var(--paper);font-weight:500}
+
+.top{position:absolute;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px var(--gut)}
+.brand{font:600 14px var(--body);letter-spacing:.06em;text-decoration:none;color:var(--paper);text-shadow:0 1px 8px #000}
+.brand span{color:var(--paper-2)}
+.top a.go{font:500 14px var(--body);text-decoration:none;color:var(--paper);background:rgba(0,0,0,.45);border:1px solid rgba(236,228,210,.35);padding:8px 16px;border-radius:999px}
+.top a.go:hover{border-color:var(--gold)}
+
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;background:#000}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(16,17,15,.97) 0%,rgba(16,17,15,.6) 40%,rgba(16,17,15,0) 72%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(48px,8vh,96px)}
+.hero h1{font-size:clamp(40px,7vw,104px);line-height:.95}
+.hero .lead{font:400 clamp(20px,2.4vw,30px)/1.3 var(--disp);max-width:30em;margin:18px 0 0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font:500 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--paper-2)}
+
+.lede{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.compare{position:relative;aspect-ratio:2.39/1;overflow:hidden;background:var(--ink-2);user-select:none;touch-action:none}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .top-img{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:1px;background:var(--paper);pointer-events:none}
+.compare .handle::before{content:"";position:absolute;top:50%;left:50%;width:46px;height:46px;border:1px solid var(--paper);border-radius:50%;transform:translate(-50%,-50%);background:rgba(16,17,15,.55)}
+.compare .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;letter-spacing:.1em;color:var(--paper)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.compare .tg{position:absolute;bottom:14px;font:500 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;background:rgba(16,17,15,.65);pointer-events:none}
+.compare .tg.l{left:14px}.compare .tg.r{right:14px}
+
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin-top:clamp(28px,4vw,48px)}
+.three div{border-top:1px solid var(--line);padding-top:16px}
+.three p{color:var(--paper-2);margin:6px 0 0}
+.note{color:var(--paper-2);font-size:15px;margin-top:22px}
+
+.formula{background:var(--ink-2);border:1px solid var(--line);padding:clamp(24px,4vw,44px);margin-top:clamp(28px,4vw,48px)}
+.formula .f{font:500 clamp(20px,2.6vw,32px)/1.25 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin:0 0 14px}
+.formula p{color:var(--paper-2);margin:0;max-width:70ch}
+
+.pilot{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
+.pilot div{background:var(--ink-2);border:1px solid var(--line);padding:22px 24px}
+.pilot b{display:block;font:500 20px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--gold);margin-bottom:8px}
+.pilot p{margin:0;color:var(--paper-2)}
+
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px)}
+.gallery .full{grid-column:1/-1}
+
+.list{list-style:none;padding:0;margin:0}
+.list li{padding:.9rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1rem}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list b{font-weight:500}
+.src{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);margin-top:clamp(28px,4vw,48px)}
+.src a{color:var(--gold);text-decoration:none;display:block;padding:6px 0;font-size:16px}
+.src a:hover{text-decoration:underline}
+
+.btn{display:inline-block;background:var(--gold);color:var(--ink);text-decoration:none;font:500 16px var(--disp);letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:999px}
+.btn.o{background:transparent;color:var(--paper);border:1px solid rgba(236,228,210,.35)}
+footer{padding:40px 0 calc(32px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;color:var(--paper-2);font-size:14px;align-items:center}
+footer .cta{display:flex;flex-wrap:wrap;gap:12px}
+
+@media (max-width:860px){
+  .lede,.three,.pilot,.gallery,.src,.list li{grid-template-columns:1fr}
+  .gallery .full{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="https://neyra.vision/">Taurus Digital <span>×</span> Neyra Vision</a>
+  <a class="go" href="../">Мир фильма</a>
+</header>
+
+<section class="hero first">
+  <img src="assets/p04-pobeg-1600.jpg" srcset="assets/p04-pobeg-800.jpg 800w, assets/p04-pobeg-1600.jpg 1600w" sizes="100vw" width="1600" height="686" alt="Побег через Чингистау: двое всадников на гребне над долиной с огнями аула" fetchpriority="high">
+  <div class="wrap">
+    <p class="k">К встрече с режиссёром и продюсерами · 13 октября 2026</p>
+    <h1>Еңлік-Кебек</h1>
+    <p class="lead">Сохранить масштаб картины. Проверить экономию на&nbsp;кадрах.</p>
+    <div class="meta"><span>Чингистау, конец XVIII века</span><span>10 концепт-кадров</span><span>4 сценария применения</span><span>пилот на 3–5 планах</span></div>
+  </div>
+</section>
+
+<section id="dostroyka">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">01 · Достройка среды</p>
+        <h2>Небольшой аул. Большой мир фильма.</h2>
+      </div>
+      <p class="sub">Одна композиция: настоящие юрты, актёры и&nbsp;предметы в&nbsp;переднем плане, развитие окружения в&nbsp;глубине. Потяните границу: слева снято две юрты, справа тот же кадр с&nbsp;достроенным аулом.</p>
+    </div>
+    <div class="compare" data-cmp style="--pos:50%">
+      <img src="assets/p02-aul-dostroyka-1600.jpg" srcset="assets/p02-aul-dostroyka-800.jpg 800w, assets/p02-aul-dostroyka-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="674" alt="Тот же кадр с восемью достроенными юртами в глубине" loading="lazy">
+      <img class="top-img" src="assets/p01-aul-baza-1600.jpg" srcset="assets/p01-aul-baza-800.jpg 800w, assets/p01-aul-baza-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="674" alt="Базовый кадр: две юрты у ручья" loading="lazy">
+      <div class="handle"></div>
+      <span class="tg l">Снято: две юрты</span><span class="tg r">Достроено: аул</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Сравнение базового кадра и достройки">
+    </div>
+    <div class="three">
+      <div><h3>На площадке</h3><p>Настоящие юрты, актёры, лошади и&nbsp;реквизит для переднего плана.</p></div>
+      <div><h3>Цифровая работа</h3><p>Дальние юрты и&nbsp;табуны. Концепты, затем подготовка фона и&nbsp;совмещение со&nbsp;съёмкой.</p></div>
+      <div><h3>Что сравнить</h3><p>Дополнительные декорации и&nbsp;перевозку со&nbsp;стоимостью фона, трекинга и&nbsp;доводки.</p></div>
+    </div>
+    <p class="note">Обе картинки сгенерированы. Это демонстрация идеи достройки, а&nbsp;не&nbsp;обработанный съёмочный исходник.</p>
+  </div>
+</section>
+
+<section id="sezon">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">02 · Сезон и атмосфера</p>
+        <h2>Лето и&nbsp;зима с&nbsp;одного ракурса</h2>
+      </div>
+      <p class="sub">Тот же ракурс и&nbsp;расположение юрт. Меняются снег, растительность, свет и&nbsp;атмосфера. Зимний блок виден до&nbsp;того, как выпал снег.</p>
+    </div>
+    <div class="compare" data-cmp style="--pos:50%">
+      <img src="assets/p03-aul-zima-1600.jpg" srcset="assets/p03-aul-zima-800.jpg 800w, assets/p03-aul-zima-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="674" alt="Зимний вариант того же кадра" loading="lazy">
+      <img class="top-img" src="assets/p01-aul-baza-1600.jpg" srcset="assets/p01-aul-baza-800.jpg 800w, assets/p01-aul-baza-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="674" alt="Летний концепт" loading="lazy">
+      <div class="handle"></div>
+      <span class="tg l">Лето</span><span class="tg r">Зима</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Сравнение лета и зимы">
+    </div>
+    <div class="three">
+      <div><h3>Возможная ценность</h3><p>Проверить сезонную смену общего плана без повторного ожидания нужной погоды.</p></div>
+      <div><h3>Работа со сценой</h3><p>Зимние детали переднего плана: костюмы, дыхание, следы и&nbsp;контакт со&nbsp;снегом.</p></div>
+      <div><h3>Что проверить</h3><p>Стабильность снега, теней и&nbsp;геометрии при движении камеры. Полную стоимость правок.</p></div>
+    </div>
+    <p class="note">Мелкие детали в&nbsp;концептах могут отличаться. Для фильма сохранение кадра проверяется на&nbsp;видео.</p>
+  </div>
+</section>
+
+<section id="massovka">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">03 · Массовка и табуны</p>
+        <h2>Два рода. Масштаб общего плана.</h2>
+      </div>
+      <p class="sub">Собрание перед конфликтом и&nbsp;следующий момент той же сцены: поединок на&nbsp;той же пластине, с&nbsp;той же камеры. Снять героев и&nbsp;ближайших участников, дополнить дальние группы и&nbsp;окружение.</p>
+    </div>
+    <div class="gallery">
+      <figure class="full">
+        <img src="assets/p05-sobranie-1600.jpg" srcset="assets/p05-sobranie-800.jpg 800w, assets/p05-sobranie-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="676" alt="Собрание двух родов: два всадника ждут друг друга посреди овала, вокруг дуги людей" loading="lazy">
+        <figcaption><span><b>Собрание</b> · два рода перед поединком</span><span>мастер-пластина</span></figcaption>
+      </figure>
+      <figure class="full">
+        <img src="assets/p09-poedinok-1600.jpg" srcset="assets/p09-poedinok-800.jpg 800w, assets/p09-poedinok-1600.jpg 1600w, assets/p09-poedinok-2400.jpg 2400w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="686" alt="Та же сцена: Кебек и Есен несутся друг на друга с копьями" loading="lazy">
+        <figcaption><span><b>Поединок</b> · следующий момент</span><span>из той же пластины</span></figcaption>
+      </figure>
+    </div>
+    <p class="note">Количество людей на&nbsp;горизонте, движение лошадей, тени и&nbsp;отсутствие повторяющихся фигур проверяются в&nbsp;коротком видеотесте. Управляемая цифровая анимация и&nbsp;ручная доводка входят в&nbsp;смету.</p>
+  </div>
+</section>
+
+<section id="previz">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">04 · Подготовка сцены</p>
+        <h2>Побег, суд, укрытие, приговор</h2>
+      </div>
+      <p class="sub">Концепты для обсуждения света, рельефа, пространства и&nbsp;направления движения. До&nbsp;съёмки: согласовать ракурс и&nbsp;собрать черновую сцену для выбора монтажа.</p>
+    </div>
+    <div class="gallery">
+      <figure class="full">
+        <img src="assets/p04-pobeg-1600.jpg" srcset="assets/p04-pobeg-800.jpg 800w, assets/p04-pobeg-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="686" alt="Ночной побег через гребень Чингистау" loading="lazy">
+        <figcaption><span><b>Побег через Чингистау</b></span><span>синий час, низкая луна</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/p07-sud-1600.jpg" srcset="assets/p07-sud-800.jpg 800w, assets/p07-sud-1600.jpg 1600w, assets/p07-sud-2400.jpg 2400w" sizes="(max-width:860px) 100vw, 50vw" width="1600" height="686" alt="Суд биев в юрте: старейшины на төре, Кебек у входа" loading="lazy">
+        <figcaption><span><b>Суд биев</b></span><span>свет из шаңырақа</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/p08-shalash-1600.jpg" srcset="assets/p08-shalash-800.jpg 800w, assets/p08-shalash-1600.jpg 1600w, assets/p08-shalash-2400.jpg 2400w" sizes="(max-width:860px) 100vw, 50vw" width="1600" height="686" alt="Шалаш, крытый арчой: Еңлік с младенцем у огня, Кебек с луком на скале" loading="lazy">
+        <figcaption><span><b>Укрытие</b> · шалаш с арчой, как у Шакарима</span><span>рассвет</span></figcaption>
+      </figure>
+      <figure class="full">
+        <img src="assets/p10-prigovor-1600.jpg" srcset="assets/p10-prigovor-800.jpg 800w, assets/p10-prigovor-1600.jpg 1600w, assets/p10-prigovor-2400.jpg 2400w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="686" alt="Приговор: пара в центре, кони с верёвками, два рода полукругом, бесік на переднем плане" loading="lazy">
+        <figcaption><span><b>Приговор</b> · без крови, вес в тишине</span><span>сумерки</span></figcaption>
+      </figure>
+    </div>
+    <p class="note">Красивый статичный кадр ещё не&nbsp;подтверждает качество сцены в&nbsp;движении. При оценке учитывать свет на&nbsp;актёрах, работу с&nbsp;лошадьми и&nbsp;съёмку переднего плана.</p>
+  </div>
+</section>
+
+<section id="geroi">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">05 · Герои и исторические ориентиры</p>
+        <h2>Еңлік и&nbsp;Кебек: вариант типажей</h2>
+      </div>
+      <p class="sub">Вымышленные лица и&nbsp;предложение палитры. Сходство с&nbsp;историческими людьми не&nbsp;установлено.</p>
+    </div>
+    <figure class="r169">
+      <img src="assets/p06-tipazhi-1600.jpg" srcset="assets/p06-tipazhi-800.jpg 800w, assets/p06-tipazhi-1600.jpg 1600w" sizes="(max-width:1300px) 100vw, 1240px" width="1600" height="900" alt="Еңлік и Кебек у входа в юрту на закате" loading="lazy">
+    </figure>
+    <div class="three">
+      <div><h3>Образ Кебека</h3><p>Широкие плечи, смуглый типаж, грубая шерсть. Термин «шекпен» точнее для выбранной шерстяной верхней одежды.</p></div>
+      <div><h3>Образ Еңлік</h3><p>Матовые ткани, сдержанный декор, две косы. Красный и&nbsp;зелёный — выбранные цвета, а&nbsp;не&nbsp;доказанные цвета одежды героини.</p></div>
+      <div><h3>Проверка эпохи</h3><p>Музейные предметы XIX века дают ориентиры. Точный костюм 1780 года требует проверки художником и&nbsp;историком.</p></div>
+    </div>
+    <p class="note">У Шәкәріма укрытие после побега — шалаш с&nbsp;арчой. Пещера на&nbsp;странице мира фильма — решение адаптации; здесь показаны оба варианта.</p>
+  </div>
+</section>
+
+<section id="pilot">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">06 · Следующий шаг</p>
+        <h2>Пилот на&nbsp;3–5 коротких планах</h2>
+      </div>
+      <p class="sub">Шоты по&nbsp;4–6 секунд, исходная съёмка и&nbsp;итог рядом, учёт времени и&nbsp;правок. Превиз оценивается как подготовка, остальное — на&nbsp;согласованном качестве изображения.</p>
+    </div>
+    <div class="pilot">
+      <div><b>1–2 · Аул</b><p>Статичный план с&nbsp;достройкой; тот же аул с&nbsp;медленным движением камеры.</p></div>
+      <div><b>3–4 · Среда</b><p>Расширение дальней массовки; превращение летнего общего плана в&nbsp;зимний.</p></div>
+      <div><b>5 · Превиз</b><p>Черновая сцена побега или суда: ракурсы и&nbsp;ритм монтажа. Оценивать как подготовку.</p></div>
+    </div>
+    <div class="formula">
+      <p class="k">Сравнение на одинаковых условиях</p>
+      <p class="f">Потенциальная экономия = обычное исполнение − полная стоимость гибридного исполнения</p>
+      <p>Одинаковые длительность, разрешение, движение камеры, сроки, требования к&nbsp;исторической достоверности и&nbsp;число правок. В&nbsp;гибридную смету входят тест, художник, генерации, трекинг, анимация, совмещение, историческая проверка, доводка и&nbsp;резерв. Проценты экономии без этих данных не&nbsp;обещаются.</p>
+    </div>
+    <div class="formula" style="margin-top:16px">
+      <p class="k">Критерий решения</p>
+      <p>Режиссёр принимает изображение в&nbsp;движении, а&nbsp;продюсер видит подтверждённую разницу полной стоимости выбранных кадров. Процент экономии всего фильма обсуждается после сценария и&nbsp;сметы.</p>
+    </div>
+  </div>
+</section>
+
+<section id="istochniki">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="k">07 · Проверка и источники</p>
+        <h2>Что уточнить перед съёмкой</h2>
+      </div>
+      <p class="sub">Три уточнения сделают исторические заявления точнее. Все кадры здесь — художественная реконструкция; лица вымышленные; для каждой крупной детали нужен датированный ориентир.</p>
+    </div>
+    <ul class="list">
+      <li><b>Источники костюмов</b><span>Фотографии 1870–1890-х и&nbsp;коллекции XIX века — поздние аналоги, а&nbsp;не&nbsp;прямое подтверждение облика 1780 года.</span></li>
+      <li><b>Текст и адаптация</b><span>Возраст героев, выбранные цвета и&nbsp;пещера относятся к&nbsp;визуальной версии проекта. У&nbsp;Шәкәріма часть деталей другая.</span></li>
+      <li><b>Среда</b><span>Чингистау — мелкосопочник восточной Сарыарки: низкие каменистые хребты, степь, широкий горизонт. Высокие горы на&nbsp;горизонте в&nbsp;кадре побега — поправить по&nbsp;фото локации.</span></li>
+      <li><b>Юрта</b><span>Казахская юрта: купол круглее, войлок глухой, решётка снаружи не&nbsp;видна. В&nbsp;концептах аула купола заострены — поправить по&nbsp;образцу художника.</span></li>
+    </ul>
+    <div class="src">
+      <div>
+        <p class="k">История и предметы</p>
+        <a href="https://mura.shakarim.kz/en/works/yenglik-kebek" target="_blank" rel="noopener">Шәкәрім: Еңлік-Кебек, 1912</a>
+        <a href="https://collection.ethnomuseum.ru/entity/ARTICLE/2231302" target="_blank" rel="noopener">Российский этнографический музей: мужской костюм</a>
+        <a href="https://e-museum.kz/ru/exhibit/68db58cc1ae14ff57-ru/" target="_blank" rel="noopener">Государственный музейный каталог: шолпы, XIX век</a>
+        <a href="https://aqtobe-museum.kz/images/izdaniya/34.pdf" target="_blank" rel="noopener">Актюбинский музей: исследования оружия, с. 52–59</a>
+        <a href="https://ich.unesco.org/en/RL/traditional-knowledge-and-skills-in-making-kyrgyz-kazakh-and-karakalpak-yurts-turkic-nomadic-dwellings-02284" target="_blank" rel="noopener">UNESCO: традиция изготовления юрт</a>
+      </div>
+      <div>
+        <p class="k">Производство и проект</p>
+        <a href="https://blogs.autodesk.com/media-and-entertainment/2026/03/20/robot-boxers-indie-dreams-ai-powered-storytelling-with-autodesk-flow-studio/" target="_blank" rel="noopener">Autodesk: кейс AI Training</a>
+        <a href="https://adsknews.autodesk.com/en/news/autodesk-flow-production-workflow-acceleration-2026/" target="_blank" rel="noopener">Autodesk: от идеи к финальному кадру</a>
+        <a href="../">Мир фильма «Еңлік-Кебек»: герои, сцены, раскадровка</a>
+        <p class="note" style="margin-top:14px">Кейс Autodesk показывает ИИ-подготовку сцены с&nbsp;последующей ручной доводкой. Результат чужого проекта нельзя переносить в&nbsp;смету этой картины.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div class="cta">
+      <a class="btn" href="assets/Enlik-Kebek-AI-pitch.pdf" download>Скачать PDF</a>
+      <a class="btn o" href="../">Мир фильма</a>
+    </div>
+    <span>© 2026 Taurus Digital × Neyra Vision · художественные ИИ-концепты, все кадры синтетические</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-cmp]').forEach(function(cmp){
+  var rng=cmp.querySelector('input');
+  function set(v){cmp.style.setProperty('--pos',v+'%')}
+  rng.addEventListener('input',function(){set(rng.value)});
+  cmp.addEventListener('pointermove',function(e){if(e.buttons||e.pointerType==='touch'){var r=cmp.getBoundingClientRect();var v=Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100));rng.value=v;set(v)}});
+});
+</script>
+</body>
+</html>
