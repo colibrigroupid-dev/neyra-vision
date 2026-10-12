@@ -62,7 +62,7 @@
   .hero h1 .x{color:var(--cyan);font-weight:400}
   .hero h1 > span{display:block;white-space:nowrap}
   .hero h1 .sp{display:inline}
-  @media (max-width:560px){.hero h1 > span{white-space:normal}.hero h1 .sp{display:block;height:0}}
+  @media (max-width:560px){.hero h1{font-size:clamp(28px,8.6vw,40px);letter-spacing:.02em}}
   .logline{max-width:40em;font-size:clamp(17px,2vw,21px);color:#d3dbe0}
 
   /* ===== STRUCTURE ===== */
@@ -195,9 +195,8 @@
   }
   @media (max-width:520px){.people.lead2 .p{grid-template-columns:1fr}}
   .ph{aspect-ratio:1/1;background:var(--ink-3);overflow:hidden;position:relative}
-  .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);transition:transform .8s var(--ease),filter .5s}
-  .p:hover .ph img{transform:scale(1.03);filter:none}
-  @media (hover:none){.ph img{filter:none}}
+  .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.02) brightness(.92);transition:transform .8s var(--ease),filter .5s}
+  @media (hover:hover){.p:hover .ph img{transform:scale(1.03);filter:none}}
   .ph.mono{display:grid;place-items:center;
     background:radial-gradient(80% 70% at 30% 25%,#2a3138 0%,#151b21 60%,#0c1115 100%)}
   .ph.mono b{font-family:var(--disp);font-weight:400;font-size:clamp(44px,6vw,76px);letter-spacing:.06em;color:rgba(233,238,241,.22)}
@@ -248,7 +247,6 @@
 <div class="bar">
   <a class="brand" href="#top"><img src="assets/td-znak.svg" alt=""><span>DIGITAL TAURUS ASIA <b>× NEYRA VISION</b></span></a>
   <nav>
-    <a href="#structure">Компании</a>
     <a href="#how">Как работаем</a>
     <a href="#films">Фильмы</a>
     <a href="#team">Люди</a>
@@ -265,43 +263,11 @@
     <div class="kicker">AI-кинопроизводство · Алматы · Джакарта · Сингапур</div>
     <h1><span>Digital<i class="sp"> </i>Taurus Asia</span><span><span class="x">×</span> Neyra Vision</span></h1>
     <div class="hbot">
-      <p class="logline">Кино, сериалы и реклама, где живые съёмки и AI-производство идут в одном графике и одном бюджете. Digital Taurus Asia (Алматы) — продюсерский блок и съёмки. Neyra Vision — превиз, генерация и постпродакшн по технологии NEYRA.</p>
+      <p class="logline">Кино, сериалы и реклама, где живые съёмки и AI-производство идут в одном графике и одном бюджете. Алматы и Джакарта, технология NEYRA.</p>
       <div class="marks"><img src="assets/td-znak.svg" alt="Digital Taurus Asia" width="96" height="100"><span class="x">×</span><img src="/assets/logo-neyra-vision.png" alt="Neyra Vision" width="120" height="120" class="nv"></div>
     </div>
   </div>
 </header>
-
-<section id="structure">
-  <div class="wrap">
-    <div class="rv">
-      <div class="eyebrow">Две компании</div>
-      <h2>Одна команда</h2>
-      <p class="lead">Digital Taurus Asia — продюсерский блок: полный метр и сериалы, фонды и прокат. Neyra Vision — технология, AI-цех и международный опыт.</p>
-    </div>
-    <div class="duo rv">
-      <div class="co">
-        <img src="assets/td-znak.svg" alt="" width="72" height="75">
-        <div class="nm">Digital Taurus Asia</div>
-        <div class="tg">ТОО · Алматы · AI-продакшн</div>
-        <p>AI-производство кино и видео в Казахстане. В связке — продюсерская компания <b>Taurus Asia Production</b>: «Приговор», «Қара бекіре», «Шекер», живые съёмки, фонды и прокат.</p>
-        <p>Технологическая основа — платформа NEYRA.</p>
-      </div>
-      <div class="co">
-        <img src="/assets/logo-neyra-vision.png" alt="" width="84" height="84" class="nv">
-        <div class="nm">Neyra Vision</div>
-        <div class="tg">AI-студия · Джакарта · Алматы</div>
-        <p>Генерация, превиз, анимация и постпродакшн полного цикла. «Nusantara: The Story of Gajah Mada» — Best Documentary и Спецприз жюри AI Film Awards Cannes 2025.</p>
-        <p>Технология <b>NEYRA</b>: от сценария и раскадровки до шотов, персонажей и сборки фильма.</p>
-      </div>
-    </div>
-    <div class="does">
-      <div><b>Полный метр и сериалы</b><span>живые съёмки Taurus + AI-блок Neyra Vision в одном графике и бюджете</span></div>
-      <div><b>Превиз и питч</b><span>раскадровки, образы героев, ключевые сцены и тизер — ещё до запуска съёмок</span></div>
-      <div><b>Генерация и пост</b><span>AI-видео, сведение кадров, визуальные эффекты, цвет, звук и музыка</span></div>
-      <div><b>Выход на рынки</b><span>Казахстан, Россия, США, Индонезия, Таиланд, Ближний Восток — через партнёров команды</span></div>
-    </div>
-  </div>
-</section>
 
 <section id="how">
   <div class="wrap">
@@ -326,6 +292,13 @@
         </ol>
         <p class="nda">Материалы проекта не передаём третьим лицам. NDA подписываем до того, как получим сценарий.</p>
       </div>
+    </div>
+    <div class="sub-h" style="margin-top:72px">Что делаем</div>
+<div class="does" style="margin-top:22px">
+      <div><b>Полный метр и сериалы</b><span>живые съёмки Taurus + AI-блок Neyra Vision в одном графике и бюджете</span></div>
+      <div><b>Превиз и питч</b><span>раскадровки, образы героев, ключевые сцены и тизер — ещё до запуска съёмок</span></div>
+      <div><b>Генерация и пост</b><span>AI-видео, сведение кадров, визуальные эффекты, цвет, звук и музыка</span></div>
+      <div><b>Выход на рынки</b><span>Казахстан, Россия, США, Индонезия, Таиланд, Ближний Восток — через партнёров команды</span></div>
     </div>
   </div>
 </section>
@@ -478,7 +451,7 @@
       <div class="grp-h"><h3>Руководство</h3><span>Digital Taurus Asia × Neyra Vision</span></div>
       <div class="people lead3">
         <div class="p">
-          <div class="ph"><img src="assets/lead-anna-chakirtova.jpg" alt="Анна Чакиртова" width="720" height="720" loading="lazy"></div>
+          <div class="ph"><img src="assets/lead-anna-chakirtova.jpg?v=3" alt="Анна Чакиртова" width="720" height="720" loading="lazy"></div>
           <div class="n">Анна Чакиртова</div>
           <div class="r">Сооснователь и продюсер Taurus Asia Production</div>
           <p>«Приговор», «Қара бекіре». Ранее — исполнительный продюсер «Томирис» и «Дороги к матери» Акана Сатаева. Член Национальной киноакадемии и Альянса креативных индустрий.</p>
