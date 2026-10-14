@@ -4,13 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Талант — фильм Ара Аруш · Алматы</title>
-<meta name="description" content="Спортивная драма о виолончелисте, который выходит в клетку подпольных боёв, чтобы выкупить свою виолончель. Производство в Казахстане, международный проект.">
+<meta name="description" content="Спортивная драма о домбристе, который выходит в клетку подпольных боёв, чтобы выкупить старинную домбру. Производство в Казахстане, международный проект.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="Талант — за право звучать">
-<meta property="og:description" content="Виолончелист-виртуоз выходит в клетку подпольных боёв, чтобы выкупить свою виолончель и сыграть в финале шоу. Полный метр, Алматы.">
+<meta property="og:description" content="Домбрист-виртуоз выходит в клетку подпольных боёв, чтобы выкупить старинную домбру и сыграть в финале шоу. Полный метр, Алматы.">
 <meta property="og:image" content="https://neyra.vision/talant/assets/og.jpg">
 <meta property="og:url" content="https://neyra.vision/talant/">
+<link rel="alternate" hreflang="ru" href="https://neyra.vision/talant/">
+<link rel="alternate" hreflang="kk" href="https://neyra.vision/talant/kz/">
+<link rel="alternate" hreflang="en" href="https://neyra.vision/talant/en/">
 <link rel="icon" type="image/png" href="assets/favicon-64.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +51,7 @@ p{margin:0 0 1em}
 .top a.go:hover{border-color:var(--red);background:rgba(215,38,44,.25)}
 .top .dl{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .top a.go span{color:var(--cream-2);font-size:11px;letter-spacing:.08em;margin-left:4px}
-@media (max-width:560px){.top{flex-direction:column;align-items:flex-start;gap:10px}.top a.go{padding:7px 12px;font-size:13px}}
+@media (max-width:560px){.top{position:relative;background:#000;flex-direction:column;align-items:flex-start;gap:10px}.top a.go{padding:7px 12px;font-size:13px}}
 
 /* первый экран — постер */
 .hero{position:relative;padding:0;background:#000}
@@ -177,6 +180,17 @@ footer a.mail{display:inline-block;color:var(--cream);text-decoration:none;font:
 footer a.mail:hover{border-color:var(--red)}
 footer small{color:var(--cream-2);font-size:13px}
 
+/* казахский акцент: кошкар-муйиз */
+.cap::before{content:"";display:block;width:76px;height:19px;margin:0 0 12px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20160%2040%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b8954a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M80%2036%20C80%2022%2070%2010%2056%2010%20C44%2010%2038%2020%2044%2027%20C49%2033%2058%2029%2056%2022%20C54%2017%2048%2019%2050%2023%22/%3E%3Cpath%20d%3D%22M80%2036%20C80%2022%2090%2010%20104%2010%20C116%2010%20122%2020%20116%2027%20C111%2033%20102%2029%20104%2022%20C106%2017%20112%2019%20110%2023%22/%3E%3Cpath%20d%3D%22M80%2036%20L80%204%22/%3E%3Cpath%20d%3D%22M2%2036%20H48%20M112%2036%20H158%22/%3E%3C/g%3E%3C/svg%3E") left center/contain no-repeat;opacity:.9}
+.ep-cap .cap::before,.lede-2 .cap::before{margin-inline:auto}
+.kz-band{height:24px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2224%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b8954a%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M20%2022%20C20%2013%2013%206%207%208%20C2%2010%203%2017%208%2017%20C11%2017%2011%2013%209%2013%22/%3E%3Cpath%20d%3D%22M20%2022%20C20%2013%2027%206%2033%208%20C38%2010%2037%2017%2032%2017%20C29%2017%2029%2013%2031%2013%22/%3E%3C/g%3E%3C/svg%3E") center/40px 24px repeat-x;opacity:.45}
+/* языки */
+.top .l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lang{display:flex;border:1px solid rgba(241,233,219,.35);border-radius:999px;overflow:hidden;background:rgba(0,0,0,.45)}
+.lang a{font:500 12px var(--disp);letter-spacing:.14em;text-decoration:none;color:var(--cream-2);padding:7px 11px}
+.lang a[aria-current]{background:var(--red);color:#fff}
+.lang a:not([aria-current]):hover{color:var(--cream)}
+
 @media (max-width:760px){
   .logline .lede,.story .syn,.vault .row,.why .grid,.pod .row,.cos{grid-template-columns:1fr}
   .hero img.bg{aspect-ratio:4/3;object-position:62% 30%}
@@ -192,18 +206,21 @@ footer small{color:var(--cream-2);font-size:13px}
 <body>
 
 <header class="top">
-  <a class="brand" href="https://neyra.vision/">Taurus Digital <span>×</span> Neyra Vision</a>
+  <div class="l">
+    <a class="brand" href="https://neyra.vision/">Taurus Digital <span>×</span> Neyra Vision</a>
+    <nav class="lang" aria-label="Язык"><a href="/talant/" hreflang="ru" aria-current="page">RU</a><a href="/talant/kz/" hreflang="kk">KZ</a><a href="/talant/en/" hreflang="en">EN</a></nav>
+  </div>
   <nav class="dl" aria-label="Документы">
-    <a class="go" href="assets/TALANT-sinopsis.pdf" download="Талант — синопсис.pdf">Синопсис <span>PDF</span></a>
+    <a class="go" href="assets/TALANT-tritment-RU.pdf" download="Талант — тритмент.pdf">Тритмент <span>PDF</span></a>
     <a class="go" href="assets/TALANT-scenariy.pdf" download="Талант — сценарий.pdf">Сценарий <span>PDF</span></a>
-    <a class="go" href="assets/TALANT-prezentaciya.pdf" download="Талант — презентация.pdf">Презентация <span>PDF</span></a>
+    <a class="go" href="assets/TALANT-prezentaciya-RU.pdf" download="Талант — презентация.pdf">Презентация <span>PDF</span></a>
     <a class="go" href="#partners">Партнёрам</a>
   </nav>
 </header>
 
 <section class="hero">
   <h1 class="vh">Талант — за право звучать. Фильм Ара Аруш</h1>
-  <img class="bg" src="assets/hero.jpg" width="2560" height="1096" alt="Алекс с окровавленными кулаками стоит в клетке, за его плечом — старый учитель с полотенцем" fetchpriority="high">
+  <img class="bg" src="assets/hero-4k.jpg" width="2560" height="1096" alt="Алекс с окровавленными кулаками стоит в клетке, за его плечом — старый учитель с полотенцем" fetchpriority="high">
   <img class="logo" src="assets/logo-talant.jpg" width="900" height="420" alt="Талант. Фильм Ара Аруш" fetchpriority="high">
   <a class="scroll" href="#teaser">Смотреть ↓</a>
 </section>
@@ -236,12 +253,12 @@ footer small{color:var(--cream-2);font-size:13px}
         <h2>Руки, которые звучат, и&nbsp;руки, которые бьют</h2>
       </div>
       <div>
-        <p class="q">Чтобы выкупить антикварную виолончель, заложенную в&nbsp;ломбард отцом-алкоголиком, и&nbsp;выступить в&nbsp;финале телевизионного музыкального конкурса «Талант», юный виолончелист-виртуоз вынужден выйти в&nbsp;клетку жестоких подпольных кулачных боёв.</p>
+        <p class="q">Чтобы выкупить старинную домбру, заложенную в&nbsp;ломбард отцом-алкоголиком, и&nbsp;выступить в&nbsp;финале телевизионного музыкального конкурса «Талант», юный домбрист-виртуоз вынужден выйти в&nbsp;клетку жестоких подпольных кулачных боёв.</p>
         <p class="soft">Драйв и&nbsp;нерв «Одержимости», жёсткость «Рейда», семейная драма «Воина». История об&nbsp;отцах и&nbsp;сыновьях, о&nbsp;цене таланта и&nbsp;о&nbsp;праве звучать.</p>
       </div>
     </div>
     <figure class="wide">
-      <img src="assets/a01-krupno-violonchel.jpg" width="1920" height="822" loading="lazy" alt="Алекс с разбитым лицом смотрит поверх грифа виолончели, смычок в перебинтованной руке">
+      <img src="assets/d01-krupno-dombra.jpg" width="1920" height="822" loading="lazy" alt="Алекс с разбитым лицом прижимает домбру к щеке, перебинтованные пальцы на струнах">
     </figure>
   </div>
 </section>
@@ -254,16 +271,16 @@ footer small{color:var(--cream-2);font-size:13px}
         <h2>Эта история происходит в&nbsp;Алматы</h2>
         <ul>
           <li><b>Сценарий не&nbsp;привязан к&nbsp;городу</b><p>Телестудия, ломбард, старый гараж, подпольный клуб, квартира учителя. В&nbsp;121&nbsp;странице нет ни&nbsp;одной московской улицы&nbsp;— только имена героев, и&nbsp;они меняются. Ничего переделывать не&nbsp;нужно.</p></li>
-          <li><b>Герой&nbsp;— наш</b><p>Алекс&nbsp;— метис, казах и&nbsp;русский. Парень из&nbsp;спального района, который играет Баха и&nbsp;бьёт как чемпион. Это лицо молодёжи Казахстана и&nbsp;всей Центральной Азии, для которой пока не&nbsp;снимают большое кино.</p></li>
+          <li><b>Герой&nbsp;— наш</b><p>Алекс&nbsp;— метис, казах и&nbsp;русский. Парень из&nbsp;спального района, который играет кюи Курмангазы на&nbsp;домбре и&nbsp;бьёт как чемпион. Это лицо молодёжи Казахстана и&nbsp;всей Центральной Азии, для которой пока не&nbsp;снимают большое кино.</p></li>
           <li><b>Международный проект</b><p>Универсальная история: отец и&nbsp;сын, музыка и&nbsp;бой. Экспортный уровень боевых сцен и&nbsp;звука, продажа на&nbsp;мировых рынках и&nbsp;фестивалях&nbsp;— фильм собирается как казахстанский проект с&nbsp;международной судьбой.</p></li>
           <li><b>Две компании, одна команда</b><p>Taurus Asia Production&nbsp;— живые съёмки, фонды и&nbsp;прокат в&nbsp;Казахстане. Neyra Vision&nbsp;— превиз, AI-блок и&nbsp;постпродакшн по&nbsp;технологии NEYRA. Творческая группа собрана, сценарий готов.</p></li>
         </ul>
       </div>
       <div class="pics">
-        <img src="assets/a08-gorod-beg.jpg" width="1920" height="822" loading="lazy" alt="Алекс бежит по ночному городу в наушниках, на лице следы боя">
-        <img src="assets/a19-lombard-otec.jpg" width="1920" height="822" loading="lazy" alt="Отец в старом спортивном костюме с чехлом виолончели идёт к дверям ломбарда">
-        <img src="assets/a20-almaty-prospekt.jpg" width="1920" height="822" loading="lazy" alt="Алекс с чехлом виолончели идёт по проспекту Алматы, в конце улицы — снежные горы">
-        <img src="assets/a21-almaty-koktobe.jpg" width="1920" height="822" loading="lazy" alt="Алекс сидит ночью на Кок-Тобе над огнями Алматы, рядом чехол виолончели">
+        <img src="assets/a08-gorod-beg-4k.jpg" width="1920" height="822" loading="lazy" alt="Алекс бежит по ночному городу в наушниках, на лице следы боя">
+        <img src="assets/d19-lombard-otec.jpg" width="1920" height="822" loading="lazy" alt="Отец в старом спортивном костюме несёт домбру к дверям ломбарда">
+        <img src="assets/d20-almaty-prospekt.jpg" width="1920" height="822" loading="lazy" alt="Алекс с домброй в чехле за спиной идёт по проспекту Алматы, в конце улицы — снежные горы">
+        <img src="assets/d21-almaty-koktobe.jpg" width="1920" height="822" loading="lazy" alt="Алекс сидит ночью на Кок-Тобе над огнями Алматы, рядом стоит домбра">
         <img src="assets/a22-almaty-rassvet.jpg" width="1920" height="822" loading="lazy" alt="Алекс бежит на рассвете по горной дороге над Алматы, за ним розовые вершины">
       </div>
     </div>
@@ -274,38 +291,38 @@ footer small{color:var(--cream-2);font-size:13px}
 <section class="story" id="story">
   <div class="wrap">
     <p class="cap">Синопсис</p>
-    <h2>Два дара. Одна виолончель.</h2>
+    <h2>Два дара. Одна домбра.</h2>
     <div class="syn">
       <div>
-        <p class="lead">Восемнадцатилетний Алекс обладает двумя дарами: он гениально играет на&nbsp;виолончели и&nbsp;способен отправить в&nbsp;нокаут любого соперника.</p>
-        <p class="soft">Пять лет назад он бросил спорт после предательства отца&nbsp;— бывшего тренера, который променял чемпионат мира сына на&nbsp;алкоголь. Спасение Алекс находит в&nbsp;классической музыке под крылом мудрого наставника Яна Борисовича, который дарит ему бесценную виолончель мастера Монтаньяны 1720&nbsp;года.</p>
+        <p class="lead">Восемнадцатилетний Алекс обладает двумя дарами: он гениально играет на&nbsp;домбре и&nbsp;способен отправить в&nbsp;нокаут любого соперника.</p>
+        <p class="soft">Пять лет назад он бросил спорт после предательства отца&nbsp;— бывшего тренера, который променял чемпионат мира сына на&nbsp;алкоголь. Спасение Алекс находит в&nbsp;музыке под крылом мудрого наставника Яна Борисовича, который дарит ему бесценную домбру великого мастера, сделанную в&nbsp;1720&nbsp;году и&nbsp;переходящую от&nbsp;учителя к&nbsp;ученику.</p>
       </div>
       <div>
         <p>Алекс блестяще проходит отборочные туры популярного телешоу «Талант», очаровывая публику и&nbsp;строгую судью, поп-звезду Анну Праздник. Его главный конкурент&nbsp;— техничный виртуоз Антон, сын медиамагната, который пытается доказать отцу своё право на&nbsp;музыку.</p>
-        <p>Мир Алекса рушится, когда спившийся отец закладывает Монтаньяну в&nbsp;ломбард. Чтобы выкупить инструмент и&nbsp;сыграть в&nbsp;финале шоу на&nbsp;виолончели учителя, Алекс принимает отчаянное решение.</p>
-        <p>При посредничестве циничного Антона, решившего заработать на&nbsp;конкуренте, Алекс под псевдонимом «Талант» заявляется в&nbsp;турнир жестоких подпольных кулачных боёв. Приз победителю&nbsp;— ровно столько, сколько стоит выкуп виолончели.</p>
+        <p>Мир Алекса рушится, когда спившийся отец закладывает домбру в&nbsp;ломбард. Чтобы выкупить инструмент и&nbsp;сыграть в&nbsp;финале шоу на&nbsp;домбре учителя, Алекс принимает отчаянное решение.</p>
+        <p>При посредничестве циничного Антона, решившего заработать на&nbsp;конкуренте, Алекс под псевдонимом «Талант» заявляется в&nbsp;турнир жестоких подпольных кулачных боёв. Приз победителю&nbsp;— ровно 60&nbsp;миллионов тенге&nbsp;— столько, сколько стоит выкуп домбры.</p>
       </div>
     </div>
     <div class="stills">
-      <figure><img src="assets/a02-uchitel-urok.jpg" width="1920" height="822" loading="lazy" alt="Алекс играет на виолончели, старый учитель слушает с улыбкой среди книг и нот"><figcaption>Ян Борисович и&nbsp;Монтаньяна 1720&nbsp;года.</figcaption></figure>
-      <figure><img src="assets/a07-anton-otec-mashina.jpg" width="1920" height="822" loading="lazy" alt="Антон и его отец на заднем сиденье автомобиля смотрят в разные стороны"><figcaption>Антон и&nbsp;отец. Лондон или армия.</figcaption></figure>
-      <figure><img src="assets/a14-lombard.jpg" width="1920" height="822" loading="lazy" alt="Скупщик с двумя охранниками за прилавком ломбарда, перед ним лежит виолончель"><figcaption>Ломбард. Новый ценник на&nbsp;виолончели.</figcaption></figure>
-      <figure><img src="assets/a09-garazh-otec.jpg" width="1920" height="822" loading="lazy" alt="Алекс бьёт по мешку в старом гараже, отец с секундомером рядом"><figcaption>Старый гараж. Отец снова тренер.</figcaption></figure>
-      <figure><img src="assets/a06-binty.jpg" width="1920" height="822" loading="lazy" alt="Алекс в раздевалке бинтует окровавленные руки"><figcaption>Двойная жизнь: бинты вместо канифоли.</figcaption></figure>
-      <figure><img src="assets/a05-poceluy-anna.jpg" width="1920" height="822" loading="lazy" alt="Алекс и Анна Праздник за мгновение до поцелуя"><figcaption>Анна Праздник. Единственное «да», которое важно.</figcaption></figure>
-      <figure><img src="assets/a10-byk.jpg" width="1920" height="822" loading="lazy" alt="Бык, огромный татуированный боец, кричит в клетке с окровавленными кулаками"><figcaption>Бык. Финал турнира.</figcaption></figure>
-      <figure><img src="assets/a11-uchitel-setka.jpg" width="1920" height="822" loading="lazy" alt="Ян Борисович держится за сетку клетки и смотрит на бой"><figcaption>Учитель у&nbsp;сетки. Ритм из&nbsp;школьной котельной.</figcaption></figure>
-      <figure><img src="assets/a17-bolnica.jpg" width="1920" height="822" loading="lazy" alt="Ян Борисович на больничной койке смотрит на Алекса"><figcaption>Больница. Учитель отворачивается.</figcaption></figure>
+      <figure><img src="assets/d02-uchitel-urok.jpg" width="1920" height="822" loading="lazy" alt="Алекс играет на домбре, старый учитель слушает с улыбкой среди книг и нот"><figcaption>Ян Борисович и&nbsp;домбра 1720&nbsp;года.</figcaption></figure>
+      <figure><img src="assets/a07-anton-otec-mashina-4k.jpg" width="1920" height="822" loading="lazy" alt="Антон и его отец на заднем сиденье автомобиля смотрят в разные стороны"><figcaption>Антон и&nbsp;отец. Лондон или армия.</figcaption></figure>
+      <figure><img src="assets/d14-lombard.jpg" width="1920" height="822" loading="lazy" alt="Скупщик с двумя охранниками за прилавком ломбарда, перед ним лежит домбра"><figcaption>Ломбард. Новый ценник на&nbsp;домбре.</figcaption></figure>
+      <figure><img src="assets/a09-garazh-otec-4k.jpg" width="1920" height="822" loading="lazy" alt="Алекс бьёт по мешку в старом гараже, отец с секундомером рядом"><figcaption>Старый гараж. Отец снова тренер.</figcaption></figure>
+      <figure><img src="assets/a06-binty-4k.jpg" width="1920" height="822" loading="lazy" alt="Алекс в раздевалке бинтует окровавленные руки"><figcaption>Двойная жизнь: бинты на&nbsp;пальцах музыканта.</figcaption></figure>
+      <figure><img src="assets/a05-poceluy-anna-4k.jpg" width="1920" height="822" loading="lazy" alt="Алекс и Анна Праздник за мгновение до поцелуя"><figcaption>Анна Праздник. Единственное «да», которое важно.</figcaption></figure>
+      <figure><img src="assets/a10-byk-4k.jpg" width="1920" height="822" loading="lazy" alt="Бык, огромный татуированный боец, кричит в клетке с окровавленными кулаками"><figcaption>Бык. Финал турнира.</figcaption></figure>
+      <figure><img src="assets/a11-uchitel-setka-4k.jpg" width="1920" height="822" loading="lazy" alt="Ян Борисович держится за сетку клетки и смотрит на бой"><figcaption>Учитель у&nbsp;сетки. Ритм из&nbsp;школьной котельной.</figcaption></figure>
+      <figure><img src="assets/a17-bolnica-4k.jpg" width="1920" height="822" loading="lazy" alt="Ян Борисович на больничной койке смотрит на Алекса"><figcaption>Больница. Учитель отворачивается.</figcaption></figure>
     </div>
     <figure class="wide gap">
-      <img src="assets/a18-posle-boya-uchitel.jpg" width="1920" height="822" loading="lazy" alt="Алекс после боя идёт сквозь ревущую толпу, за ним Ян Борисович с полотенцем">
+      <img src="assets/a18-posle-boya-uchitel-4k.jpg" width="1920" height="822" loading="lazy" alt="Алекс после боя идёт сквозь ревущую толпу, за ним Ян Борисович с полотенцем">
     </figure>
     <div class="lede-2">
-      <p>Контраст миров: утончённость классической музыки и&nbsp;телевизионный глянец сталкиваются с&nbsp;кровью подпольных арен. Два фронта в&nbsp;кросс-монтаже&nbsp;— сцена и&nbsp;клетка&nbsp;— сходятся в&nbsp;одном финале.</p>
+      <p>Контраст миров: утончённость музыки и&nbsp;телевизионный глянец сталкиваются с&nbsp;кровью подпольных арен. Два фронта в&nbsp;кросс-монтаже&nbsp;— сцена и&nbsp;клетка&nbsp;— сходятся в&nbsp;одном финале.</p>
     </div>
     <figure class="wide gap" style="margin-top:clamp(32px,5vw,56px)">
-      <img src="assets/a04-vyhod-na-scenu.jpg" width="1920" height="822" loading="lazy" alt="Алекс в костюме выходит на сцену к виолончели и табурету перед полным залом">
-      <figcaption>Финал шоу «Талант». Выход к&nbsp;виолончели.</figcaption>
+      <img src="assets/d04-vyhod-na-scenu.jpg" width="1920" height="822" loading="lazy" alt="Алекс в костюме выходит на сцену к домбре перед полным залом">
+      <figcaption>Финал шоу «Талант». Выход к&nbsp;домбре.</figcaption>
     </figure>
   </div>
 </section>
@@ -316,7 +333,7 @@ footer small{color:var(--cream-2);font-size:13px}
     <h2>Для кого и&nbsp;как это звучит</h2>
     <div class="cols">
       <div><b>Тон и&nbsp;стиль</b><p>Драйв и&nbsp;психологическое напряжение «Одержимости» (Whiplash), бескомпромиссная жёсткость «Рейда» (The Raid), семейная драма «Воина» (Warrior).</p></div>
-      <div><b>Целевая аудитория</b><p>Мужчины и&nbsp;женщины от&nbsp;16 до&nbsp;60&nbsp;лет. Сочетание, казалось&nbsp;бы, несовместимых миров&nbsp;— классической музыки и&nbsp;кулачных боёв&nbsp;— плюс спортивный экшен, романтическая линия и&nbsp;семейная драма объединяют несколько зрительских сегментов.</p></div>
+      <div><b>Целевая аудитория</b><p>Мужчины и&nbsp;женщины от&nbsp;16 до&nbsp;60&nbsp;лет. Сочетание, казалось&nbsp;бы, несовместимых миров&nbsp;— древней музыки домбры и&nbsp;кулачных боёв&nbsp;— плюс спортивный экшен, романтическая линия и&nbsp;семейная драма объединяют несколько зрительских сегментов.</p></div>
       <div><b>Мужчинам и&nbsp;женщинам</b><p>Мужскую аудиторию ведут зрелищные поединки, спортивный азарт и&nbsp;борьба героя за&nbsp;свою мечту. Женскую&nbsp;— романтическая линия, эмоциональная глубина, семейные отношения и&nbsp;драматическая судьба главного героя.</p></div>
       <div><b>Музыкальный код</b><p>Кавер-версии песен Виктора Цоя и&nbsp;группы «Кино»&nbsp;— «Кукушка», «Перемен», «Невесёлая песня»&nbsp;— в&nbsp;современной обработке с&nbsp;рэп-коллаборацией. Песни, которые в&nbsp;Казахстане знают наизусть.</p></div>
     </div>
@@ -339,7 +356,7 @@ footer small{color:var(--cream-2);font-size:13px}
       <figure><img src="assets/podcast-studio.jpg" width="1920" height="822" loading="lazy" alt="Двое ведущих подкаста в тёмной студии за микрофонами обсуждают фильм"></figure>
       <div class="box">
         <p class="cap">Подкаст о&nbsp;фильме</p>
-        <h3>Виолончелист в&nbsp;подпольных боях</h3>
+        <h3>Музыкант в&nbsp;подпольных боях</h3>
         <p>Двое ведущих разбирают сценарий «Таланта»: героев, конфликт отцов и&nbsp;сыновей, финал. 13&nbsp;минут&nbsp;— чтобы понять фильм до&nbsp;чтения сценария.</p>
         <audio controls preload="none" src="assets/podcast.mp3"></audio>
       </div>
@@ -390,6 +407,7 @@ footer small{color:var(--cream-2);font-size:13px}
   </div>
 </section>
 
+<div class="kz-band" aria-hidden="true"></div>
 <footer>
   <div class="wrap row">
     <div>
@@ -403,7 +421,7 @@ footer small{color:var(--cream-2);font-size:13px}
   </div>
 </footer>
 
-<script id="payload" type="application/json">{"salt":"RubYBN/8/epGYLXo5pBaEA==","iv":"hgUYBHgd8TAMdMnY","ct":"iDtjrDC8XZ8kW8dbpbyt6ADUWl/IcoJmwFwdG9e0OV5sEy+i9gJ9getdAXgjRUnNV0hX/0u25FtOgRI/9fZDv/gZvyM4DUnzuy8txZ3ncieOt/RpJEwGx5Hukk6I6QsWbG1A1yPWE/68FvWuJeGHAOTls8OdsGvB+BgIDubQtWk4rYs8ZTmiwzyIy6kCGOKEiNsL0FFFPp/kNPYEXRr7ojDOoRMAeZFQgpYBNf881sLAQmQ96bvMBMHMv0PTXb4G0G5Pu48niDPFpwZFC3blU84UxaCtga2vka73OatxPwAzn8TWa7zdrtyVijb/LVUSO+9/SdyX7sMf9AQzB/cXketiiuPBFT//+MYYQ2t/VMx80t7Y2fRODaEFXY0wZtHfzprI3KBLz51NLvHOmdHwRYca1MygXmSlEI8qMwFK+392q9BkH2wQLuxobSa9n6RHsPzO3QK3q6gcSXUnIys10Qyb/neCq7wdpJorXNl0jhMD9ZW/lxJoBngEJPekXS2ZsdyV9vhqfK7SrlHQYRpQBeqpLBxUr6B+R+gpcP0sTbuoOhu8FmuBTs30CHboCmANdV3+Et9s3jwfjWAiZ5efy2Wl1/Nub/GzqFRL+tSPKX0mUyCAadFipOn7QzI6iOlKWHujIkBapbU8zgG5a+8BdWMLb05HoRIOP0CLJ4AEOzubgiWS8Wwa/UcFTlOLXoHmhByqo4H0OgXyz0RY8HzA0udtLxsNsUnOpKlMm7N5TOietpHbMzrE0Rau07uLN3ek44E1yrLiJH7hvNPepr8B8loc4aV8m2qU7YRxoYRWez6BCXgjLMQO2pjgaJCaPS7hn3VOJMdoI/Q1T81ot3l6M/zu4r/7WI6aORw0U38Vov1P1xY1jwd0BmSzCySbkgKogn+OtE9XAnjDkkawVXVlXbcWBuThg/4MctaJdFYUmsj3ONIgW6hq5i7iDWP3MvL2iOCjbXnxdpXHH+0HpSyXnyzP2Re8JRpBo4Vtgd0x6dUnByk5FqBzle30ULDURA+ALyWeDmeBW1IwhhCNo8RvlFDVmKTsB9hDxFUWtLrvLD8um3Sf5iVxsdFJMba7mM4DOtZMR5csDEFoMlq+TltSe5f9yJGajn6j47tVN7OtfJlaAXzUL924NbFSuH9+nU6/VmV4FhNfxQTYer3TsdvhD8F+LYbqS/qdIxaZeaQD4LCiW9CB+tMWEnLnNDva0RzZP0SMIFiM514BoXQvK7VYAQxkpuDyVYgnygc62l14tGirOfwrYlAp3hFzluJIkH1/A1h52frWnhJbu/kKyYflxu8uQD7HpPl5sZ2MrRE7GNPZtzYWFwKVhn9fW5Ys3ny6/XO1GYDEKEmgsLhp+M9pEDr/48Rn526J2pDThPf4Q/UHivz0SPDzh3vJBQrW8Sdzv6cSxYKYR+Xnx77KdAiUiofQ8enLX121PYjLdkheBBXC9fRdkExqG7IRq3hVo2zMuMVJo6ib/6T9zGaUHBVKJO4pC4Fa42y9v3FySDXMTKhHOfhNE+lsbpYw74yQYh/dWmLTw++Vxi23adGwjMMa+DZ7zrNACe0D8vSfFO/POv/SHYstwp2rXQArpDFch1xqEkNoWRaT1MJqekg1OFJ9IyA/cZw3yKDnwU0GvZwDgFidtt1W+AedEORT0wDQA30x8dnWUqr6xJgEge+TC/rhtnN1p4aYpByw6f/V+h+II2brGubvxJUC12Ga6UZ7PiRtArOnNdHyzh8mWXUAP3AykRJ47Nqm2nn1BTtZX9izx+Dti44yNPQ3KcE71dthQAZLfdns1y6z5ukdhr/7cOs7EpRLjdV2ZQT9tcgFXmdixJWBN1UmvtBIYVaU3Thd8Jq2sfdhvzsMcbr5kFp7snrAc/IFdSUp0R1k1KSiOu2QaDAt0jBzZOB/TFxL2Lz+TVJpaqxLTVOaI9rl60pyeOlN16CBDnqVBOrWOR1cjL8qGlnol0aCG1aaa2LYsMx5Iji+xJ5n4u3j+/SNcaMf6xWAQ5c/f0f7NpTqIjvNi13gDfdEJpIFN1NXr/wliCwGiWsNTn6J7lWTny0kxrgj963MAfYwejAabE/AtbOTZrNz4UwFDpxTDnz9eBO79LTKdMPNg4yh1kmpyEsb9NyXk+yYqG0HvrXRzwFFiusSCWlJFizLd9tpnNfyDOvY0ljE94HjDLePdg+07WR+d3GPAVLB3Ch19Nv16smIpGwHSrHLqD41IQrWrM9v6eLdiIanKvm+VGZP/dTEy7XCPDl9Z3eRI9yC3tUDwzf7VsyTlXMENAG0EQHQyTXwAwQipmj1yZz7H+/f+VYpSOTAv2OzhZt/BQ7XT+6UUJW8kncvLHKpH6PIU4mPACwIvFBClj99vpAjFNyiPHhJlr+CQtsz5hF4conNt5Mr4zy8vzwTQlciwXzMpQmJfCNMKX8n6cCbauEqr7CWLSIn50k/XlkyCthnTp71639EZhOoJ00PBp2jhJLcu+LoMaW+uPd3hVQ1N7Fe7HoLiEGwjT196RJyu1DXRxLQV0Emq0Dm48vxlTQZ228KJgXqg/78Zrj5dkDgrK6rdHfZf+yVUadYMDhASbS7TO03mkiy0SrkTdQSSIeEpET0ufuZysP4BEpw1b9dBpZbenPL7vHROFBceT50qql16jrFgPUJv/96IFUOnEgsfl76AMXm2PsrMcYWtmEYLeeV/I4EX8SGqL8OjUJt2IZggpZ0LEtgwOcudEnB8V/EpLSZPCekRKgi","iter":310000}</script>
+<script id="payload" type="application/json">{"salt":"OKJP9zHZ4I6YsXTqjIcq9g==","iv":"nehvZJuwXuHBk4M8","ct":"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","iter":310000}</script>
 <script>
 (function(){
   var P=JSON.parse(document.getElementById('payload').textContent);

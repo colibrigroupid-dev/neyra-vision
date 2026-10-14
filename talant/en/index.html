@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TALENT — a film by Ara Arush · Almaty</title>
+<meta name="description" content="A sports drama about a dombra player who enters the cage of underground fights to buy back an antique dombra. Produced in Kazakhstan as an international project.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="TALENT — the right to be heard">
+<meta property="og:description" content="A dombra virtuoso enters the cage of underground fights to buy back his antique dombra and play in the final of a TV show. Feature film, Almaty.">
+<meta property="og:image" content="https://neyra.vision/talant/assets/og-en.jpg">
+<meta property="og:url" content="https://neyra.vision/talant/en/">
+<link rel="alternate" hreflang="ru" href="https://neyra.vision/talant/">
+<link rel="alternate" hreflang="kk" href="https://neyra.vision/talant/kz/">
+<link rel="alternate" hreflang="en" href="https://neyra.vision/talant/en/">
+<link rel="icon" type="image/png" href="../assets/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{
+  /* три цвета фильма: чёрный, кремовый, кровь */
+  --black:#000; --black-2:#0b0b0b; --line:#232323;
+  --cream:#f1e9db; --cream-2:#b9b2a6;
+  --red:#d7262c; --red-deep:#a3181d;
+  --disp:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Golos Text",system-ui,sans-serif;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--cream);font:400 18px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+h2,h3{font-family:var(--disp);font-weight:500;color:var(--red);text-transform:uppercase;letter-spacing:.03em;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.6vw,60px);line-height:1.02}
+.cap{font:500 13px/1.3 var(--disp);letter-spacing:.26em;text-transform:uppercase;color:var(--cream-2);margin:0 0 12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+section{padding-block:clamp(64px,9vw,128px)}
+p{margin:0 0 1em}
+
+/* шапка */
+.top{position:absolute;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px var(--gut)}
+.brand{font:600 14px var(--body);letter-spacing:.06em;text-decoration:none;color:var(--cream);text-shadow:0 1px 8px #000}
+.brand span{color:var(--cream-2)}
+.top a.go{font:500 14px var(--body);text-decoration:none;color:var(--cream);background:rgba(0,0,0,.45);border:1px solid rgba(241,233,219,.35);padding:8px 16px;border-radius:999px;transition:border-color .2s,background-color .2s}
+.top a.go:hover{border-color:var(--red);background:rgba(215,38,44,.25)}
+.top .dl{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.top a.go span{color:var(--cream-2);font-size:11px;letter-spacing:.08em;margin-left:4px}
+@media (max-width:560px){.top{position:relative;background:#000;flex-direction:column;align-items:flex-start;gap:10px}.top a.go{padding:7px 12px;font-size:13px}}
+
+/* первый экран — постер */
+.hero{position:relative;padding:0;background:#000}
+.hero img.bg{width:100%;aspect-ratio:21/9;object-fit:cover}
+.hero img.logo{position:absolute;left:5.5%;top:50%;width:36%;transform:translateY(-50%);mix-blend-mode:screen;pointer-events:none}
+.scroll{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font:500 12px var(--disp);letter-spacing:.26em;text-transform:uppercase;color:var(--cream);text-decoration:none;text-shadow:0 1px 8px #000}
+.facts{display:flex;flex-wrap:wrap;gap:10px 36px;padding:22px 0;border-bottom:1px solid var(--line)}
+.facts span{font-size:15px;color:var(--cream)}
+.facts b{display:block;font:500 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:2px}
+
+/* тизер */
+.teaser{padding-block:clamp(40px,6vw,72px) 0}
+.player{position:relative;background:#000;aspect-ratio:16/9;overflow:hidden}
+.player img{width:100%;height:100%;object-fit:cover}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:14px;background:rgba(0,0,0,.6);color:var(--cream);border:1px solid var(--red);border-radius:999px;padding:14px 26px 14px 18px;font:500 clamp(14px,1.5vw,18px) var(--disp);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background-color .2s,color .2s}
+.play:hover{background:var(--red);color:#fff}
+.play .tri{width:0;height:0;border-left:14px solid currentColor;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.player.on .play,.player.on img{display:none}
+.ep-cap{padding-top:clamp(16px,2vw,24px);text-align:center}
+.ep-cap h2 span{color:var(--cream)}
+
+/* логлайн */
+.logline{padding-top:clamp(48px,7vw,96px)}
+.logline .lede{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:start;margin-bottom:clamp(32px,5vw,56px)}
+.logline p.q{font:400 clamp(22px,2.6vw,34px)/1.3 var(--disp);color:var(--cream);text-transform:none;letter-spacing:0;margin:0}
+.logline p.soft{color:var(--cream-2);margin-top:18px}
+.wide{margin:0}
+.wide img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.wide figcaption{padding-top:10px;font-size:14px;color:var(--cream-2)}
+.wide.gap{margin-top:clamp(8px,1.2vw,16px)}
+
+/* почему Алматы */
+.why{background:var(--black-2);border-block:1px solid var(--line)}
+.why .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:stretch}
+.why .pics{align-content:space-between}
+.why ul{list-style:none;margin:28px 0 0;padding:0}
+.why li{padding:18px 0;border-top:1px solid var(--line)}
+.why li b{display:block;font:500 20px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:6px}
+.why li p{margin:0;color:var(--cream-2)}
+.why .pics{display:grid;gap:clamp(8px,1.2vw,16px)}
+.why .pics img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.why .manifest{font:400 clamp(20px,2.2vw,26px)/1.45 var(--disp);color:var(--cream);max-width:46em;margin:clamp(32px,5vw,56px) 0 0}
+
+/* синопсис + кадры */
+.story .syn{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);margin:24px 0 clamp(32px,5vw,56px)}
+.story .syn p{color:var(--cream)}
+.story .syn p.lead{font:500 clamp(22px,2.4vw,30px)/1.3 var(--disp);text-transform:uppercase;letter-spacing:.02em;color:var(--cream);margin:0 0 12px}
+.story .syn p.soft{color:var(--cream-2)}
+.stills{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(6px,1vw,12px)}
+.stills figure{margin:0;grid-column:span 2}
+.stills figure.full{grid-column:span 6}
+.stills figure.third{grid-column:span 2}
+.stills img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.stills figcaption{padding:8px 0 6px;font-size:14px;color:var(--cream-2)}
+.lede-2{max-width:46em;margin:clamp(32px,5vw,56px) auto 0;text-align:center}
+.lede-2 p{font:400 clamp(20px,2.2vw,26px)/1.45 var(--disp);color:var(--cream)}
+
+/* тон, аудитория, музыка */
+.tone .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(24px,4vw,56px);margin-top:28px}
+.tone .cols div{border-top:1px solid var(--line);padding-top:16px}
+.tone .cols b{display:block;font:500 20px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--red);margin-bottom:8px}
+.tone .cols p{color:var(--cream-2);margin:0}
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(16px,3vw,40px);margin-top:28px}
+.track{border:1px solid var(--line);padding:18px 20px;background:var(--black-2)}
+.track b{display:block;font:500 18px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.05em;color:var(--cream);margin-bottom:4px}
+.track span{display:block;font-size:14px;color:var(--cream-2);margin-bottom:12px}
+.track audio{width:100%;display:block;filter:invert(1) hue-rotate(180deg) brightness(1.1)}
+.track a.dl{font-size:14px;color:var(--cream-2)}
+
+/* подкаст */
+.pod .row{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:center}
+.pod figure{margin:0}
+.pod img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.pod .box{border-top:1px solid var(--line);padding-top:18px}
+.pod .box h3{font-size:clamp(24px,2.8vw,36px);color:var(--cream);margin:0 0 6px}
+.pod .box p{color:var(--cream-2);font-size:16px}
+.pod audio{width:100%;display:block;margin-top:14px;filter:invert(1) hue-rotate(180deg) brightness(1.1)}
+
+/* команда */
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:clamp(20px,3vw,40px);margin-top:28px;max-width:1000px}
+.people figure{margin:0}
+.people img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1)}
+.people figcaption{padding-top:12px;color:var(--cream-2);font-size:15px;line-height:1.4}
+.people figcaption b{display:block;color:var(--cream);font:500 21px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px}
+.crew{margin:clamp(32px,5vw,56px) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,3vw,40px)}
+.crew li{border-top:1px solid var(--line);padding-top:14px;color:var(--cream-2);font-size:16px}
+.crew li b{display:block;color:var(--cream);font:500 18px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.cos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px);margin-top:clamp(32px,5vw,56px)}
+.co{border:1px solid var(--line);padding:clamp(20px,3vw,32px);background:var(--black-2)}
+.co b{display:block;font:500 24px/1.1 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin-bottom:4px}
+.co i{display:block;font-style:normal;font:500 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.co p{color:var(--cream-2);font-size:16px;margin:0}
+
+/* партнёрам */
+.vault{background:var(--black-2);border-block:1px solid var(--line)}
+.vault .row{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,6vw,96px);align-items:center}
+.vault h2{margin-bottom:16px}
+.vault p{color:var(--cream-2);margin:0;max-width:32em}
+form.code{display:flex;flex-direction:column;gap:12px}
+form.code label{font:500 12px var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--cream-2)}
+form.code .f{display:flex;gap:10px}
+form.code input{flex:1;min-width:0;background:#000;border:1px solid #3a3a3a;color:var(--cream);font:500 18px var(--body);letter-spacing:.12em;padding:15px 18px;border-radius:4px;text-transform:uppercase}
+form.code input:focus{border-color:var(--red);outline:none;box-shadow:0 0 0 2px rgba(215,38,44,.35)}
+form.code button{background:var(--red);color:#fff;border:0;font:500 16px var(--disp);letter-spacing:.08em;text-transform:uppercase;padding:0 24px;border-radius:4px;cursor:pointer;transition:background-color .2s}
+form.code button:hover{background:var(--red-deep)}
+.err{min-height:1.4em;font-size:14px;color:#ff8a6a;margin:0}
+#room{display:none;margin-top:clamp(40px,6vw,72px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+#room.open{display:block}
+#room h3{font-size:clamp(26px,3.2vw,40px);margin:0 0 18px}
+#room p,#room li{color:var(--cream-2)}
+#room .big{font:500 clamp(34px,4.4vw,56px)/1 var(--disp);color:var(--cream);margin:0 0 10px}
+#room table{width:100%;border-collapse:collapse;margin:8px 0 24px;font-variant-numeric:tabular-nums}
+#room td,#room th{text-align:left;padding:12px 0;border-bottom:1px solid var(--line);color:var(--cream-2);font-weight:400}
+#room td:last-child,#room th:last-child{text-align:right;color:var(--cream)}
+#room .t{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px);margin:28px 0}
+#room .t div{border-top:1px solid var(--line);padding-top:14px;color:var(--cream-2)}
+#room .t b{display:block;font:500 20px/1.15 var(--disp);color:var(--red);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+
+footer{padding:clamp(48px,7vw,88px) 0 40px}
+footer .row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+footer .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+footer a.tg{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font:500 16px var(--disp);letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:999px;transition:background-color .2s}
+footer a.tg:hover{background:var(--cream);color:#000}
+footer a.mail{display:inline-block;color:var(--cream);text-decoration:none;font:500 16px var(--disp);letter-spacing:.08em;text-transform:uppercase;padding:13px 24px;border-radius:999px;border:1px solid rgba(241,233,219,.35)}
+footer a.mail:hover{border-color:var(--red)}
+footer small{color:var(--cream-2);font-size:13px}
+
+/* казахский акцент: кошкар-муйиз */
+.cap::before{content:"";display:block;width:76px;height:19px;margin:0 0 12px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20160%2040%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b8954a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M80%2036%20C80%2022%2070%2010%2056%2010%20C44%2010%2038%2020%2044%2027%20C49%2033%2058%2029%2056%2022%20C54%2017%2048%2019%2050%2023%22/%3E%3Cpath%20d%3D%22M80%2036%20C80%2022%2090%2010%20104%2010%20C116%2010%20122%2020%20116%2027%20C111%2033%20102%2029%20104%2022%20C106%2017%20112%2019%20110%2023%22/%3E%3Cpath%20d%3D%22M80%2036%20L80%204%22/%3E%3Cpath%20d%3D%22M2%2036%20H48%20M112%2036%20H158%22/%3E%3C/g%3E%3C/svg%3E") left center/contain no-repeat;opacity:.9}
+.ep-cap .cap::before,.lede-2 .cap::before{margin-inline:auto}
+.kz-band{height:24px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2224%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b8954a%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M20%2022%20C20%2013%2013%206%207%208%20C2%2010%203%2017%208%2017%20C11%2017%2011%2013%209%2013%22/%3E%3Cpath%20d%3D%22M20%2022%20C20%2013%2027%206%2033%208%20C38%2010%2037%2017%2032%2017%20C29%2017%2029%2013%2031%2013%22/%3E%3C/g%3E%3C/svg%3E") center/40px 24px repeat-x;opacity:.45}
+/* языки */
+.top .l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lang{display:flex;border:1px solid rgba(241,233,219,.35);border-radius:999px;overflow:hidden;background:rgba(0,0,0,.45)}
+.lang a{font:500 12px var(--disp);letter-spacing:.14em;text-decoration:none;color:var(--cream-2);padding:7px 11px}
+.lang a[aria-current]{background:var(--red);color:#fff}
+.lang a:not([aria-current]):hover{color:var(--cream)}
+
+@media (max-width:760px){
+  .logline .lede,.story .syn,.vault .row,.why .grid,.pod .row,.cos{grid-template-columns:1fr}
+  .hero img.bg{aspect-ratio:4/3;object-position:62% 30%}
+  .hero img.logo{left:50%;top:auto;bottom:12%;width:78%;transform:translateX(-50%)}
+  .stills figure,.stills figure.third{grid-column:span 6}
+  form.code .f{flex-direction:column}
+  form.code button{padding:15px}
+  .lede-2{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="l">
+    <a class="brand" href="https://neyra.vision/">Taurus Digital <span>×</span> Neyra Vision</a>
+    <nav class="lang" aria-label="Language"><a href="/talant/" hreflang="ru">RU</a><a href="/talant/kz/" hreflang="kk">KZ</a><a href="/talant/en/" hreflang="en" aria-current="page">EN</a></nav>
+  </div>
+  <nav class="dl" aria-label="Documents">
+    <a class="go" href="../assets/TALENT-treatment-EN.pdf" download="TALENT — treatment.pdf">Treatment <span>PDF</span></a>
+    <a class="go" href="../assets/TALANT-scenariy.pdf" download="TALENT — screenplay (Russian).pdf">Script (RU) <span>PDF</span></a>
+    <a class="go" href="../assets/TALENT-presentation-EN.pdf" download="TALENT — presentation.pdf">Deck <span>PDF</span></a>
+    <a class="go" href="#partners">Partners</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 class="vh">TALENT — the right to be heard. A film by Ara Arush</h1>
+  <img class="bg" src="../assets/hero-4k.jpg" width="2560" height="1096" alt="Alex stands in the cage with bloodied fists, his old teacher with a towel at his shoulder" fetchpriority="high">
+  <img class="logo" src="../assets/logo-talant-en.jpg" width="900" height="420" alt="TALENT. A film by Ara Arush" fetchpriority="high">
+  <a class="scroll" href="#teaser">Watch ↓</a>
+</section>
+
+<div class="wrap">
+  <div class="facts">
+    <span><b>Genre</b>sports drama · music</span>
+    <span><b>Format</b>feature film, 90 minutes</span>
+    <span><b>Shooting location</b>Almaty</span>
+    <span><b>Screenplay</b>ready, draft of 5 October</span>
+    <span><b>Writer and director</b>Ara Arush</span>
+  </div>
+</div>
+
+<section id="teaser" class="teaser">
+  <div class="player" id="player">
+    <img src="../assets/teaser-cover.jpg" width="1920" height="1280" alt="TALENT. A film by Ara Arush" loading="lazy">
+    <button class="play" id="play" type="button" data-yt="TdyGFqys9Gg"><span class="tri" aria-hidden="true"></span>Watch the teaser</button>
+  </div>
+  <div class="wrap ep-cap">
+    <h2>TALENT <span>· teaser</span></h2>
+  </div>
+</section>
+
+<section class="logline" id="logline">
+  <div class="wrap">
+    <div class="lede">
+      <div>
+        <p class="cap">Logline</p>
+        <h2>Hands that play, and hands that strike</h2>
+      </div>
+      <div>
+        <p class="q">To buy back an antique dombra pawned by his alcoholic father, and to perform in the final of the TV music competition Talent, a young dombra virtuoso is forced into the cage of brutal underground bare-knuckle fights.</p>
+        <p class="soft">The drive and nerve of Whiplash, the brutality of The Raid, the family drama of Warrior. A story about fathers and sons, about the price of talent and the right to be heard.</p>
+      </div>
+    </div>
+    <figure class="wide">
+      <img src="../assets/d01-krupno-dombra.jpg" width="1920" height="822" loading="lazy" alt="Alex with a battered face presses the dombra to his cheek, bandaged fingers on the strings">
+    </figure>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="cap">For producers</p>
+        <h2>This story is set in Almaty</h2>
+        <ul>
+          <li><b>The script is not tied to a city</b><p>A TV studio, a pawnshop, an old garage, an underground fight club, a teacher’s apartment. Across 121 pages there is not a single Moscow street. Only the character names would change, and nothing needs rewriting.</p></li>
+          <li><b>Our hero</b><p>Alex is of mixed Kazakh and Russian descent. A boy from a residential district who plays Kurmangazy’s kuis on the dombra and hits like a champion. He is the face of the young generation of Kazakhstan and all of Central Asia, a generation big cinema has yet to tell its story.</p></li>
+          <li><b>An international project</b><p>A universal story of father and son, music and fighting. Export-level fight scenes and sound, sales on world markets and at festivals. The film is being built as a Kazakhstani project with an international destiny.</p></li>
+          <li><b>Two companies, one team</b><p>Taurus Asia Production handles live shooting, funding and distribution in Kazakhstan. Neyra Vision handles previs, the AI block and post-production with NEYRA technology. The creative team is assembled and the screenplay is ready.</p></li>
+        </ul>
+      </div>
+      <div class="pics">
+        <img src="../assets/a08-gorod-beg-4k.jpg" width="1920" height="822" loading="lazy" alt="Alex runs through the night city, headphones on, bruises from the fight on his face">
+        <img src="../assets/d19-lombard-otec.jpg" width="1920" height="822" loading="lazy" alt="The father, in an old tracksuit, carries the dombra to the pawnshop door">
+        <img src="../assets/d20-almaty-prospekt.jpg" width="1920" height="822" loading="lazy" alt="Alex walks down an Almaty avenue with the dombra in a case on his back, snowy mountains at the end of the street">
+        <img src="../assets/d21-almaty-koktobe.jpg" width="1920" height="822" loading="lazy" alt="Alex sits at night on Kok-Tobe above the lights of Almaty, the dombra beside him">
+        <img src="../assets/a22-almaty-rassvet.jpg" width="1920" height="822" loading="lazy" alt="Alex runs at dawn along a mountain road above Almaty, pink peaks behind him">
+      </div>
+    </div>
+    <p class="manifest">We break the stereotype of the “other.” Alex is talent, intellect and strength in one person. This is not simply a boxing film but a manifesto of a new generation, shot in Kazakhstan.</p>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <p class="cap">Synopsis</p>
+    <h2>Two gifts. One dombra.</h2>
+    <div class="syn">
+      <div>
+        <p class="lead">Eighteen-year-old Alex has two gifts: he plays the dombra with genius, and he can knock out any opponent.</p>
+        <p class="soft">Five years ago he quit sport after his father, a former coach, traded his son’s world championship for alcohol. Alex finds salvation in music under the wing of his wise mentor, Yan Borisovich, who gives him a priceless dombra made by a great master in 1720 and passed from teacher to pupil.</p>
+      </div>
+      <div>
+        <p>Alex dazzles his way through the qualifying rounds of the hit TV show Talent, winning over the audience and the stern judge, pop star Anna Prazdnik. His main rival is Anton, a technically flawless virtuoso and the son of a media magnate who is trying to prove his right to music to his father.</p>
+        <p>Alex’s world collapses when his drunken father pawns the dombra. To buy back the instrument and play his teacher’s dombra in the final, Alex makes a desperate decision.</p>
+        <p>Through the cynical Anton, who sees a way to profit from his rival, Alex enters a brutal underground bare-knuckle tournament under the name “Talent.” The winner’s prize is exactly 60 million tenge, the same amount it costs to buy back the dombra.</p>
+      </div>
+    </div>
+    <div class="stills">
+      <figure><img src="../assets/d02-uchitel-urok.jpg" width="1920" height="822" loading="lazy" alt="Alex plays the dombra while the old teacher listens and smiles, surrounded by books and sheet music"><figcaption>Yan Borisovich and the 1720 dombra.</figcaption></figure>
+      <figure><img src="../assets/a07-anton-otec-mashina-4k.jpg" width="1920" height="822" loading="lazy" alt="Anton and his father in the back seat of a car, looking in opposite directions"><figcaption>Anton and his father. London or the army.</figcaption></figure>
+      <figure><img src="../assets/d14-lombard.jpg" width="1920" height="822" loading="lazy" alt="The pawnbroker and two guards behind the counter, the dombra lying in front of him"><figcaption>The pawnshop. A new price tag on the dombra.</figcaption></figure>
+      <figure><img src="../assets/a09-garazh-otec-4k.jpg" width="1920" height="822" loading="lazy" alt="Alex hits a punching bag in the old garage, his father beside him with a stopwatch"><figcaption>The old garage. Father is a coach again.</figcaption></figure>
+      <figure><img src="../assets/a06-binty-4k.jpg" width="1920" height="822" loading="lazy" alt="Alex wraps his bloodied hands in the locker room"><figcaption>A double life: bandages on a musician’s fingers.</figcaption></figure>
+      <figure><img src="../assets/a05-poceluy-anna-4k.jpg" width="1920" height="822" loading="lazy" alt="Alex and Anna Prazdnik a moment before a kiss"><figcaption>Anna Prazdnik. The only “yes” that matters.</figcaption></figure>
+      <figure><img src="../assets/a10-byk-4k.jpg" width="1920" height="822" loading="lazy" alt="The Bull, a huge tattooed fighter, roars in the cage with bloodied fists"><figcaption>The Bull. The tournament final.</figcaption></figure>
+      <figure><img src="../assets/a11-uchitel-setka-4k.jpg" width="1920" height="822" loading="lazy" alt="Yan Borisovich grips the cage mesh and watches the fight"><figcaption>The teacher at the cage. The rhythm of the school boiler room.</figcaption></figure>
+      <figure><img src="../assets/a17-bolnica-4k.jpg" width="1920" height="822" loading="lazy" alt="Yan Borisovich in a hospital bed looks at Alex"><figcaption>The hospital. The teacher turns away.</figcaption></figure>
+    </div>
+    <figure class="wide gap">
+      <img src="../assets/a18-posle-boya-uchitel-4k.jpg" width="1920" height="822" loading="lazy" alt="After the fight, Alex walks through the roaring crowd, Yan Borisovich behind him with a towel">
+    </figure>
+    <div class="lede-2">
+      <p>A clash of worlds: the refinement of music and television glamour collide with the blood of underground arenas. Two fronts, intercut, the stage and the cage, converge in a single finale.</p>
+    </div>
+    <figure class="wide gap" style="margin-top:clamp(32px,5vw,56px)">
+      <img src="../assets/d04-vyhod-na-scenu.jpg" width="1920" height="822" loading="lazy" alt="Alex in a suit walks onto the stage to the dombra before a packed hall">
+      <figcaption>The final of the Talent show. Walking out to the dombra.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="tone" id="tone" style="padding-top:0">
+  <div class="wrap">
+    <p class="cap">Tone, audience, music</p>
+    <h2>Who it’s for, and how it sounds</h2>
+    <div class="cols">
+      <div><b>Tone and style</b><p>The drive and psychological tension of Whiplash, the uncompromising brutality of The Raid, the family drama of Warrior.</p></div>
+      <div><b>Target audience</b><p>Men and women aged 16 to 60. Worlds that seem incompatible, ancient dombra music and bare-knuckle fighting, combined with sports action, a romantic storyline and family drama, unite several audience segments.</p></div>
+      <div><b>For men and women</b><p>Men are drawn in by spectacular bouts, sporting adrenaline and the hero’s fight for his dream. Women by the romance, emotional depth, family ties and the hero’s dramatic fate.</p></div>
+      <div><b>Musical code</b><p>Cover versions of songs by Viktor Tsoi and the band Kino, “Kukushka (The Cuckoo),” “Peremen (Change)” and “A Sad Song,” in modern arrangements with a rap collaboration. Songs that people in Kazakhstan know by heart.</p></div>
+    </div>
+    <div class="tracks">
+      <div class="track">
+        <b>Final song</b><span>Demo · 4:10</span>
+        <audio controls preload="none" src="../assets/talant-st.mp3"></audio>
+      </div>
+      <div class="track">
+        <b>Soundtrack</b><span>Demo · 4:51</span>
+        <audio controls preload="none" src="../assets/talant-ost.mp3"></audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pod" id="podcast" style="padding-top:0">
+  <div class="wrap">
+    <div class="row">
+      <figure><img src="../assets/podcast-studio.jpg" width="1920" height="822" loading="lazy" alt="Two podcast hosts discuss the film at microphones in a dark studio"></figure>
+      <div class="box">
+        <p class="cap">Podcast about the film</p>
+        <h3>A musician in underground fights</h3>
+        <p>Two hosts break down the TALENT screenplay: the characters, the conflict between fathers and sons, the ending. Thirteen minutes to understand the film before reading the script.</p>
+        <audio controls preload="none" src="../assets/podcast.mp3"></audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" style="padding-top:0">
+  <div class="wrap">
+    <p class="cap">Producers</p>
+    <h2>Who is making it</h2>
+    <div class="people">
+      <figure><img src="../assets/lead-anna-chakirtova.jpg" width="720" height="720" loading="lazy" alt="Anna Chakirtova"><figcaption><b>Anna Chakirtova</b>co-founder and producer, Taurus Asia Production</figcaption></figure>
+      <figure><img src="../assets/lead-anara-zhunusova.jpg" width="720" height="720" loading="lazy" alt="Anara Zhunusova"><figcaption><b>Anara Zhunusova</b>co-founder and producer, Taurus Asia Production</figcaption></figure>
+      <figure><img src="../assets/lead-aleksandr-andreyanov.jpg" width="720" height="720" loading="lazy" alt="Alexander Andreyanov"><figcaption><b>Alexander Andreyanov</b>founder of Neyra Vision Studio, producer</figcaption></figure>
+      <figure><img src="../assets/ara-arush.jpg" width="720" height="720" loading="lazy" alt="Ara Arush"><figcaption><b>Ara Arush</b>writer, director, producer · founder of Neyra and Neyra Vision</figcaption></figure>
+    </div>
+    <ul class="crew">
+      <li><b>Direction and visuals</b>A tandem of Ara Arush (writer) and Alexey Kupriyanov (director of photography).</li>
+      <li><b>Fight scenes</b>A Kazakhstani team of fight choreographers. Export-level fight choreography.</li>
+      <li><b>Sound and music</b>Andranik Berberyan, composer and conductor, Berberyan Production Studios. Composer of six films submitted by Armenia for the Oscars. Member of the Oscar jury.</li>
+    </ul>
+    <div class="cos">
+      <div class="co"><i>Kazakhstan · live-action production</i><b>Taurus Asia Production</b><p>A production company based in Almaty: The Verdict, Qara Bekire, Sheker. Feature films and series, funding and distribution. Its AI division is Taurus Digital.</p></div>
+      <div class="co"><i>AI production · previs and post</i><b>Neyra Vision</b><p>A full-cycle AI film production studio. Nusantara: The Story of Gajah Mada won Best Documentary and the Special Jury Prize at the AI Film Awards Cannes 2025. NEYRA technology.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="vault" id="partners">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <p class="cap">Investors and partners</p>
+        <h2>Terms by access code</h2>
+        <p>The investor share, project status and entry terms for Kazakhstani companies are unlocked by code. The producer issues the code.</p>
+      </div>
+      <form class="code" id="codeForm" autocomplete="off">
+        <label for="code">Producer code</label>
+        <div class="f">
+          <input id="code" name="code" type="text" spellcheck="false" autocapitalize="characters" placeholder="Enter code" required>
+          <button type="submit">Unlock</button>
+        </div>
+        <p class="err" id="err" role="alert"></p>
+      </form>
+    </div>
+    <div id="room" aria-live="polite"></div>
+  </div>
+</section>
+
+<div class="kz-band" aria-hidden="true"></div>
+<footer>
+  <div class="wrap row">
+    <div>
+      <h2>Request a code and discuss participation</h2>
+      <div class="cta">
+        <a class="tg" href="https://t.me/mis_ter_bro" target="_blank" rel="noopener">Message the producer</a>
+        <a class="mail" href="mailto:alex@neyra.ai">alex@neyra.ai</a>
+      </div>
+    </div>
+    <small>© 2026 Taurus Digital × Neyra Vision</small>
+  </div>
+</footer>
+
+<script id="payload" type="application/json">{"salt":"DoB3/y3adGgqOwhw2G23tA==","iv":"Q0uCAmjMyNNu5lKR","ct":"sSJrg9Zhf0oiUQqpHxuOknxn777hf+NHBRJAkNlkJ2UxWeDuWB6wd+Gr2LPOYGB1pPmQfRBruo0NbRTZcMlbRdON6IgPl83du5T7JWA9tg+phQPeMW7ZZ2yjzKiGY4rc18lyziS+Kb8zgGJtMOTsJcEWXBO9t6fpW4iormsUvfALe0w87shhC1NzDp0iRTrrGVCGgG6HhXHUstUIB1X5frgPde5E/kJBqSeBwwG6K1lBysDFZJLTuVLPOETznPgc3AfvoBnv1HZqAq7A+r81b9zxUfnfPZ0aozZuiSLGWURfyPUbJQSVqoEeE2JIKR8/1Gei4EFl1mAndP93X0jRC69ZVyERb7WRrAFva3MkwCapHHrBWnfrBMhffDRGOxplVBVJ+Aed4bIy0+pTXmFdEP0iMaSNVP3nAxvLNM0HyZ823JImlbWUvHHRiU9kRhILzu0IV2ehHZFyP38noTS49+7j6wi7AZKIOR84OpGerP+ItEaFklqZzO2uXIryUjkQOzTnuq293RB0XHV1ckOCV9mIHIw+6RiLoHEYeEga4ll14tF0RUpFNBnlUj7IYzizxGLbbf8Oh+0JSPT1EwLsx/NvlO+YaIL1vEfzBLe6GanrOQi5WmODdkf4jl+hNDhg3t7ERjHENRWI+4KZG09fgwcnbd5CMxCzZ4vt+t8iQTfcvHzZiNriZwDP7no+CCCpIufzbu4or3JyOb+NhBX/CCn/38GQMEmhJdMqdqkXQYSHj+dxdFAKb5qBD6dQyf1Bx0L8FWL3J7H3OUZHQZJDYmZHbDHDs+G0X1BmzhDbjV9H+LTGsSfUaTpFikU6XVo+mBhNw6nSMx7hyGH8rlxmqwMqnsX7SoL+VmDifxgijQsS/9qfiUvVGBysVRo6jPRV0UfdphLq1lHY0tlAJgIp0lXkg+ZbA2xda7UXApZRTiyEUOzUhX9fmPSSUCennSJb8KHEdil3f6P9za6yDN36QQnLrXsfyd9zYwz9bwTN+5DTzmBcz4GFV+/cqW4y14ge2SMOqaIN4cVUUfktb6f1H8jnx0AKl16Lr2U0Wkv8JdZ2EtUWuB1L0u8XAHFGI8bO7D6Gm8pqZgry6MfI7zw7Ch0+yCc00eZR3yIIkejS6fR174AhBQpAX3dRCUH9vpwSy4lXIiYnQESEum7HyafYH6KyWhsqL1oJ8KcJpVHnMKo4eeAWTgvvwYeuKNqdk4x/XrxnXwQYdIr6uwFBBnvAu5+kzs4tpoWHYiLryyn9zoixyohcRoOUNiq34M4KPKZwBYKTKXxYfQBMRsHDUArZ/dFkDsTf3yY1t03tur/Ih8AOqcpYUZMCCreaXsH7WD0K4MaTQeL2w7//XcjjsppN2TUbSO6mU+HttHz7s0eV4CJy9LlMetg8k0m3lSzESNAEtKCe7WnaEU0oW/6E5XHe8a69VV2+jbdes1N3VUO+PKqjDPGNj7l7ZLRb46W0ZO12kcZuNx+S0LozdpkTr9foq/kICeR/1JfB5OT5ioTAZhmCnT/lruiMQb799eeNBM26Wko4h/5LsSFzOuU9jLGv5ou4x7Pl2wH3X7+LFa+C5hiufBo9hnLGi3S+7l+MZEeudloVFCxD7F0xdjHROFfRf9phJsdkYvHcuPrzNQMl988fyOCLUOh25Z3MssYGXeLiOul3F684DPYL7E7Fb56aBTDmaFwJ+FFpPA4zOa1m4U11g5vMDypu7anh+mqiZtR36QEfND2/YyV4cKWAWruuZ/M=","iter":310000}</script>
+<script>
+(function(){
+  var P=JSON.parse(document.getElementById('payload').textContent);
+  var te=new TextEncoder();
+  function u8(b){return Uint8Array.from(atob(b),function(c){return c.charCodeAt(0)})}
+  async function dec(code){
+    var km=await crypto.subtle.importKey('raw',te.encode(code),'PBKDF2',false,['deriveKey']);
+    var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u8(P.salt),iterations:P.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+    return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u8(P.iv)},key,u8(P.ct)));
+  }
+  async function open(code,scroll){
+    var room=document.getElementById('room');
+    room.innerHTML=await dec(code);room.classList.add('open');
+    try{localStorage.setItem('talant_code',code)}catch(e){}
+    if(scroll)room.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  var pl=document.getElementById('player'),btn=document.getElementById('play');
+  btn.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+btn.dataset.yt+'?autoplay=1&rel=0';
+    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title='TALENT teaser';
+    pl.appendChild(f);pl.classList.add('on');
+  });
+  // один звук за раз
+  var auds=document.querySelectorAll('audio');
+  auds.forEach(function(a){a.addEventListener('play',function(){auds.forEach(function(b){if(b!==a)b.pause()})})});
+  document.getElementById('codeForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var c=document.getElementById('code').value.replace(/\s+/g,'').toUpperCase(),err=document.getElementById('err');
+    err.textContent='';
+    open(c,true).catch(function(){err.textContent='That code didn’t work. Check the spelling or message the producer.'});
+  });
+  try{var s=localStorage.getItem('talant_code');if(s)open(s,false).catch(function(){})}catch(e){}
+})();
+</script>
+</body>
+</html>
