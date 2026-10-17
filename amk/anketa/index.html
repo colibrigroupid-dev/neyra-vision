@@ -29,6 +29,8 @@ fieldset{border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0
 legend{font:600 1.3rem var(--disp);letter-spacing:-.02em;padding:0 8px}
 label{display:block;font-weight:500;margin:14px 0 6px}
 label small,.hint{font-weight:400;color:var(--muted);font-size:14px}
+.req::after{content:' *';color:var(--text)}
+.section-note{margin:0 0 10px;color:var(--muted);font-size:14px}
 input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--ink);color:var(--text);font:inherit}
 textarea{min-height:92px;resize:vertical}
 input:focus,textarea:focus,select:focus{outline:2px solid var(--text);outline-offset:1px}
@@ -50,30 +52,34 @@ footer{margin-top:40px;font-size:13px;color:var(--dim)}
 <div class="wrap">
 <header><span class="brand">Digital Taurus Asia</span><span class="tech">Продюсеры Анна Чакиртова и Анара Жунусова · на технологии NEYRA</span></header>
 <h1>Анкета проекта</h1>
-<p class="lead">Ответы нужны, чтобы оценить работу точно и подготовить договор. Заполнение займёт 10–15 минут. Если чего-то пока нет, оставьте поле пустым.</p>
+<p class="lead">Ответы нужны, чтобы выбрать сцену для платного теста, оценить производство и подготовить договор. Заполнение займёт 20–30 минут. Поля со звёздочкой обязательны; если точного ответа пока нет, так и напишите.</p>
 
 <form id="f">
 <fieldset>
  <legend>О проекте</legend>
- <label for="title">Название фильма</label><input type="text" id="title" name="Название фильма" required>
+ <label class="req" for="title">Название фильма</label><input type="text" id="title" name="Название фильма" required>
  <div class="row">
   <div><label for="author">Автор / режиссёр</label><input type="text" id="author" name="Автор, режиссёр"></div>
   <div><label for="studio">Студия, компания</label><input type="text" id="studio" name="Студия, компания"></div>
  </div>
+ <label for="logline">Логлайн <small>(о чём фильм в 1–2 предложениях)</small></label><textarea id="logline" name="Логлайн"></textarea>
+ <label for="synopsis">Краткий синопсис и чем должна закончиться история</label><textarea id="synopsis" name="Синопсис и финал"></textarea>
+ <label for="audience">Для кого фильм <small>(возраст, страна, семейная или детская аудитория)</small></label><input type="text" id="audience" name="Аудитория" placeholder="Например: семейная аудитория 6+, Казахстан и международный рынок">
  <div class="row">
-  <div><label for="contact">Контактное лицо</label><input type="text" id="contact" name="Контактное лицо" required></div>
+  <div><label class="req" for="contact">Контактное лицо</label><input type="text" id="contact" name="Контактное лицо" required></div>
   <div><label for="phone">Телефон, WhatsApp, Telegram</label><input type="tel" id="phone" name="Телефон"></div>
  </div>
- <label for="mail">Почта</label><input type="email" id="mail" name="Почта" required>
- <label for="rights">Кому принадлежат права на фильм и героев <small>(автору, студии, по госзаказу — с кем договор)</small></label><textarea id="rights" name="Права"></textarea>
+ <label class="req" for="mail">Почта</label><input type="email" id="mail" name="Почта" required>
+ <label class="req" for="rights">Кому принадлежат права на фильм и героев <small>(автору, студии, инвестору, по госзаказу — с кем договор)</small></label><textarea id="rights" name="Правообладатель" required></textarea>
 </fieldset>
 
 <fieldset>
- <legend>Хронометраж</legend>
+ <legend>Что осталось сделать</legend>
  <div class="row">
-  <div><label for="now">Готово сейчас, минут</label><input type="number" id="now" name="Готово, мин" min="0" placeholder="62"></div>
-  <div><label for="goal">Должно быть в итоге, минут</label><input type="number" id="goal" name="Итоговый хронометраж, мин" min="0"></div>
+  <div><label for="now">Готово сейчас, минут</label><input type="number" id="now" name="Готово сейчас, мин" min="0" step="0.1" placeholder="62.3"></div>
+  <div><label for="goal">Должно быть в итоге, минут</label><input type="number" id="goal" name="Итоговый хронометраж, мин" min="0" step="0.1" placeholder="92"></div>
  </div>
+ <label for="missing">Какие сцены или эпизоды осталось сделать <small>(с примерным хронометражем каждого)</small></label><textarea id="missing" name="Недостающие сцены" placeholder="Перечислите сцены по порядку и укажите, где заканчивается текущий монтаж"></textarea>
  <label>Что готово для недостающих минут</label>
  <div class="checks" data-name="Готово для новых минут">
   <label><input type="checkbox" value="сценарий">Сценарий</label>
@@ -83,12 +89,34 @@ footer{margin-top:40px;font-size:13px;color:var(--dim)}
   <label><input type="checkbox" value="эскизы новых героев и локаций">Эскизы новых героев и локаций</label>
   <label><input type="checkbox" value="ничего, только идея">Пока только идея</label>
  </div>
+ <label>Какой объём работы рассматриваете</label>
+ <div class="checks" id="scope" data-name="Нужный объём работ">
+  <label><input type="checkbox" value="доделать недостающие сцены в исходном стиле">Доделать недостающие сцены в исходном стиле</label>
+  <label><input type="checkbox" value="финальный проход по готовым сценам">Финальный проход по готовым сценам</label>
+  <label><input type="checkbox" value="новый визуальный стиль для всего фильма">Новый визуальный стиль для всего фильма</label>
+  <label><input type="checkbox" value="звук, музыка и сведение">Звук, музыка и сведение</label>
+  <label><input type="checkbox" value="дубляж и субтитры">Дубляж и субтитры</label>
+  <label><input type="checkbox" value="мастеринг, DCP, титры, трейлер">Мастеринг, DCP, титры, трейлер</label>
+ </div>
  <label for="fix">Что хотите улучшить или поправить в готовых минутах</label><textarea id="fix" name="Правки в готовом" placeholder="Например: цвет в сцене во дворце, плавность движения, отдельные кадры"></textarea>
+ <label for="test_scene">Какую сцену выбрать для тестовой минуты <small>(тайм-код или описание; желательно с движением, диалогом и крупным планом)</small></label><input type="text" id="test_scene" name="Сцена для теста">
+ <label for="test_acceptance">По каким признакам вы примете тест <small>(сходство героев, пластика, фон, липсинк, отсутствие артефактов)</small></label><textarea id="test_acceptance" name="Критерии приёмки теста"></textarea>
 </fieldset>
 
 <fieldset>
- <legend>Как рисовали</legend>
+ <legend>Персонажи и стиль</legend>
+ <label for="characters">Главные персонажи <small>(имя, роль в истории, возраст, важные приметы)</small></label><textarea id="characters" name="Главные персонажи" placeholder="Укажите настоящие имена героев — в рабочих картах сейчас стоят условные названия"></textarea>
+ <label for="style_lock">Что нельзя менять в рисунке и какие сцены считать эталоном</label><textarea id="style_lock" name="Нельзя менять и эталонные сцены" placeholder="Силуэт, пропорции, линия, палитра, орнаменты; тайм-коды лучших сцен"></textarea>
+ <label for="culture">Кто проверяет культурную и историческую точность</label><input type="text" id="culture" name="Консультант по культуре и истории">
+</fieldset>
+
+<fieldset>
+ <legend>Техника и исходники</legend>
  <label for="soft">В какой программе рисовали</label><input type="text" id="soft" name="Программа" placeholder="Toon Boom, TVPaint, Krita, Photoshop, After Effects…">
+ <div class="row">
+  <div><label for="source_specs">Параметры исходника</label><input type="text" id="source_specs" name="Исходник: разрешение, кадры, кодек" placeholder="1920×1080, 25 fps; анимация на 2–3 кадра"></div>
+  <div><label for="target_specs">Что нужно на выходе</label><input type="text" id="target_specs" name="Мастер: разрешение, кадры, формат" placeholder="4K DCP, 25 fps; ProRes-мастер"></div>
+ </div>
  <label>Что можете передать</label>
  <div class="checks" data-name="Можем передать">
   <label><input type="checkbox" value="мастер фильма без водяного знака">Мастер фильма без водяного знака</label>
@@ -105,36 +133,59 @@ footer{margin-top:40px;font-size:13px;color:var(--dim)}
 <fieldset>
  <legend>Звук и языки</legend>
  <label for="lang">Язык фильма и нужные версии</label><input type="text" id="lang" name="Языки" placeholder="Казахский; нужен русский дубляж">
+ <label for="sound_status">Что уже готово по звуку <small>(голоса, музыка, шумы, сведение; черновое или финальное)</small></label><textarea id="sound_status" name="Готовность звука"></textarea>
  <label for="music">Музыка: есть своя или нужна</label><input type="text" id="music" name="Музыка">
 </fieldset>
 
 <fieldset>
- <legend>Сроки и выход</legend>
+ <legend>Права и ограничения</legend>
+ <label for="rights_clearance">Какие права уже очищены <small>(сценарий, персонажи, музыка, голоса, архивы, шрифты)</small></label><textarea id="rights_clearance" name="Очищенные права"></textarea>
+ <label for="restrictions">Ограничения по договорам с инвестором, государством, студией или дистрибьютором</label><textarea id="restrictions" name="Договорные ограничения" placeholder="Территории, сроки, эксклюзивность, обязательные подрядчики, согласование ИИ"></textarea>
+ <label for="ai_limits">Есть ли ограничения на закрытую стилевую модель и обработку материалов вне Казахстана</label><textarea id="ai_limits" name="Ограничения по ИИ и месту обработки" placeholder="Модель только для этого фильма; срок хранения; удаление после проекта; требования NDA"></textarea>
+</fieldset>
+
+<fieldset>
+ <legend>Согласование, сроки и выход</legend>
+ <label for="decision_maker">Кто принимает творческие и финансовые решения</label><input type="text" id="decision_maker" name="Лицо, принимающее решения">
+ <label for="approval">Кто ещё согласует результат и сколько обычно занимает ответ</label><input type="text" id="approval" name="Согласующие и срок ответа" placeholder="Режиссёр, продюсер, инвестор; ответ в течение 2 рабочих дней">
  <label for="date">К какой дате нужен готовый фильм</label><input type="text" id="date" name="Срок" placeholder="Например: март 2027, к фестивалю">
  <label for="release">Где планируете показывать</label><input type="text" id="release" name="Показ" placeholder="Кинопрокат, ТВ, стриминг, фестивали">
- <label for="money">Финансирование</label><select id="money" name="Финансирование">
-  <option value="">—</option><option>Собственные средства</option><option>Господдержка</option><option>Инвестор</option><option>Ищем</option><option>Готовы к сопродюсированию</option>
+ <label for="territories">Какие территории и платформы уже обещаны или проданы</label><textarea id="territories" name="Проданные права и территории" placeholder="Если договоров ещё нет, напишите «нет»"></textarea>
+</fieldset>
+
+<fieldset>
+ <legend>Бюджет и модель сотрудничества</legend>
+ <label for="money">Статус финансирования</label><select id="money" name="Статус финансирования">
+  <option value="">—</option><option>Инвестор подтвердил финансирование</option><option>Идут переговоры с инвестором</option><option>Есть господдержка</option><option>Собственные средства</option><option>Финансирование ещё ищем</option>
  </select>
+ <label for="budget">Доступный бюджет на завершение фильма</label><select id="budget" name="Бюджетный коридор">
+  <option value="">—</option><option>До $50 000</option><option>$50 000–100 000</option><option>$100 000–150 000</option><option>Более $150 000</option><option>Нужно предложение для инвестора</option><option>Предпочитаем не указывать до встречи</option>
+ </select>
+ <label for="deal">Предпочтительная модель</label><select id="deal" name="Модель сотрудничества">
+  <option value="">—</option><option>Фиксированная цена за весь проект</option><option>Оплата по этапам после тестовой минуты</option><option>Часть оплаты + доля в доходах</option><option>Сопродюсирование и совместная дистрибуция</option><option>Нужно сравнить варианты</option>
+ </select>
+ <label for="tranches">Когда доступны деньги и есть ли график траншей</label><input type="text" id="tranches" name="Транши и сроки оплаты">
  <label for="more">Что ещё важно знать</label><textarea id="more" name="Дополнительно"></textarea>
 </fieldset>
 
 <div class="box">
  <h2>Партнёрство</h2>
- <p>Digital Taurus Asia — официальный представитель технологии NEYRA в Казахстане. Готовы рассмотреть партнёрство и продажу фильма в России и Индонезии.</p>
+ <p>Digital Taurus Asia — официальный представитель технологии NEYRA в Казахстане. После тестовой минуты предложим точную смету: фиксированную, поэтапную или гибридную с участием в дистрибуции. Права на фильм и героев не переходят без отдельного соглашения.</p>
 </div>
 
 <div class="box">
  <h2>Оригиналы</h2>
- <p>Чтобы обучить модель стиля именно вашему фильму, нужны исходные материалы в лучшем качестве. Пришлите ссылку на Google Диск, Яндекс Диск или WeTransfer на <a href="mailto:neyravision@gmail.com">neyravision@gmail.com</a>.</p>
- <p class="hint">Материалы обрабатываются только на наших станциях в студии, в облачные сервисы не загружаются, третьим лицам не передаются и в других проектах не используются. Права на фильм и героев остаются за вами. NDA подписываем до передачи, если нужно.</p>
+ <p>Чтобы подготовить тест и закрытую модель стиля именно для вашего фильма, нужны исходные материалы в лучшем качестве. После подписания NDA пришлите ссылку на Google Диск, Яндекс Диск или WeTransfer на <a href="mailto:neyravision@gmail.com">neyravision@gmail.com</a>.</p>
+ <p class="hint">Ссылка используется только для передачи: материалы скачиваются на закрытые рабочие станции и не отправляются в публичные облачные ИИ-сервисы. Третьим лицам и другим проектам их не передаём. Права на фильм и героев остаются за вами; место обработки, срок хранения и удаление фиксируем в договоре.</p>
 </div>
 
 <div class="actions">
- <button type="submit">Отправить анкету</button>
+ <button type="submit">Подготовить письмо</button>
  <button type="button" class="ghost" id="copy">Скопировать ответы</button>
+ <button type="button" class="ghost" id="download">Скачать ответы</button>
 </div>
-<p class="hint">Кнопка «Отправить» откроет почту с готовым письмом на neyravision@gmail.com. Если почта не открылась, скопируйте ответы и отправьте их на этот адрес.</p>
-<p id="ok"></p>
+<p class="hint">Кнопка «Подготовить письмо» откроет вашу почту. Если ответы не помещаются в письмо, страница автоматически скачает текстовый файл — приложите его к письму на neyravision@gmail.com. До подписания NDA не указывайте в анкете секреты и не прикладывайте исходники.</p>
+<p id="ok" role="status" aria-live="polite"></p>
 </form>
 <footer>Digital Taurus Asia · на технологии NEYRA</footer>
 </div>
@@ -153,15 +204,32 @@ function text(){
   });
   return out.join('\n');
 }
+function downloadText(){
+  const t=document.getElementById('title').value.trim()||'proekt';
+  const safe=t.replace(/[^a-zA-Zа-яА-ЯёЁ0-9_-]+/g,'-').replace(/^-|-$/g,'')||'proekt';
+  const blob=new Blob([text()+'\n'],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='anketa-'+safe+'.txt'; a.click();
+  URL.revokeObjectURL(url);
+}
 f.onsubmit=e=>{
   e.preventDefault();
   const t=document.getElementById('title').value.trim()||'проект';
-  location.href='mailto:'+TO+'?subject='+encodeURIComponent('Анкета: '+t)+'&body='+encodeURIComponent(text());
-  document.getElementById('ok').textContent='Письмо подготовлено в вашей почте — осталось нажать «Отправить».';
+  const subject=encodeURIComponent('Анкета: '+t);
+  const href='mailto:'+TO+'?subject='+subject+'&body='+encodeURIComponent(text());
+  if(href.length>1800){
+    downloadText();
+    location.href='mailto:'+TO+'?subject='+subject;
+    document.getElementById('ok').textContent='Ответы длинные: файл анкеты скачан. Приложите его к письму и нажмите «Отправить».';
+  }else{
+    location.href=href;
+    document.getElementById('ok').textContent='Письмо подготовлено в вашей почте — осталось нажать «Отправить».';
+  }
 };
 document.getElementById('copy').onclick=()=>{
-  navigator.clipboard.writeText(text()).then(()=>{document.getElementById('ok').textContent='Ответы скопированы. Отправьте их на '+TO+'.'});
+  navigator.clipboard.writeText(text()).then(()=>{document.getElementById('ok').textContent='Ответы скопированы. Отправьте их на '+TO+'.';}).catch(()=>{downloadText();document.getElementById('ok').textContent='Копирование недоступно — ответы скачаны файлом.';});
 };
+document.getElementById('download').onclick=()=>{downloadText();document.getElementById('ok').textContent='Ответы скачаны файлом.';};
 })();
 </script>
 </body>
