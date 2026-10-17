@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Анкета проекта — Neyra Vision Studio</title>
+<meta name="description" content="Анкета для авторов фильма: что есть и что нужно доделать.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1B1D">
+<link rel="icon" type="image/png" href="../../assets/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0E1B1D;--bg2:#13262a;--line:rgba(244,234,213,.14);--ink:#F4EAD5;--ink2:#cfc2a8;--gold:#E8A03A;--cyan:#5fd3d0;--disp:"Forum",Georgia,serif;--body:"Golos Text",system-ui,sans-serif;--gut:clamp(16px,4vw,40px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--gold)}
+.wrap{max-width:780px;margin:0 auto;padding:0 var(--gut) 60px}
+header{padding:28px 0 0}
+.brand{font:600 13px var(--body);letter-spacing:.08em;text-decoration:none;color:var(--ink2);text-transform:uppercase}
+h1{font:400 clamp(2.2rem,7vw,3.4rem)/1.05 var(--disp);margin:32px 0 10px;text-wrap:balance}
+.lead{font-size:clamp(17px,2.2vw,19px);color:var(--ink2);margin:0 0 28px}
+fieldset{border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 16px;background:var(--bg2)}
+legend{font:400 1.4rem var(--disp);padding:0 8px}
+label{display:block;font-weight:500;margin:14px 0 6px}
+label small,.hint{font-weight:400;color:var(--ink2);font-size:14px}
+input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#0a1416;color:var(--ink);font:inherit}
+textarea{min-height:92px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--cyan);outline-offset:1px}
+.row{display:grid;gap:0 14px;grid-template-columns:1fr}
+@media(min-width:620px){.row{grid-template-columns:1fr 1fr}}
+.checks{display:grid;gap:6px;grid-template-columns:1fr}
+@media(min-width:620px){.checks{grid-template-columns:1fr 1fr}}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:0}
+.checks input{margin-top:5px;accent-color:var(--gold);width:18px;height:18px;flex:none}
+.box{border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 16px}
+.box h2{font:400 1.4rem var(--disp);margin:0 0 8px}
+.box ul{margin:0;padding-left:1.2em}
+button{font:600 17px var(--body);padding:14px 22px;border-radius:12px;border:0;background:var(--gold);color:var(--bg);cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}
+#ok{color:var(--cyan);min-height:1.6em}
+footer{margin-top:40px;font-size:13px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span class="brand">Neyra Vision Studio</span></header>
+<h1>Анкета проекта</h1>
+<p class="lead">Ответы нужны, чтобы оценить работу точно и подготовить договор. Заполнение займёт 10–15 минут. Если чего-то пока нет, оставьте поле пустым.</p>
+
+<form id="f">
+<fieldset>
+ <legend>О проекте</legend>
+ <label for="title">Название фильма</label><input type="text" id="title" name="Название фильма" required>
+ <div class="row">
+  <div><label for="author">Автор / режиссёр</label><input type="text" id="author" name="Автор, режиссёр"></div>
+  <div><label for="studio">Студия, компания</label><input type="text" id="studio" name="Студия, компания"></div>
+ </div>
+ <div class="row">
+  <div><label for="contact">Контактное лицо</label><input type="text" id="contact" name="Контактное лицо" required></div>
+  <div><label for="phone">Телефон, WhatsApp, Telegram</label><input type="tel" id="phone" name="Телефон"></div>
+ </div>
+ <label for="mail">Почта</label><input type="email" id="mail" name="Почта" required>
+ <label for="rights">Кому принадлежат права на фильм и героев <small>(автору, студии, по госзаказу — с кем договор)</small></label><textarea id="rights" name="Права"></textarea>
+</fieldset>
+
+<fieldset>
+ <legend>Хронометраж</legend>
+ <div class="row">
+  <div><label for="now">Готово сейчас, минут</label><input type="number" id="now" name="Готово, мин" min="0" placeholder="62"></div>
+  <div><label for="goal">Должно быть в итоге, минут</label><input type="number" id="goal" name="Итоговый хронометраж, мин" min="0"></div>
+ </div>
+ <label>Что готово для недостающих минут</label>
+ <div class="checks" data-name="Готово для новых минут">
+  <label><input type="checkbox" value="сценарий">Сценарий</label>
+  <label><input type="checkbox" value="раскадровка">Раскадровка</label>
+  <label><input type="checkbox" value="аниматик">Аниматик</label>
+  <label><input type="checkbox" value="озвучка голосов">Озвучка голосов</label>
+  <label><input type="checkbox" value="эскизы новых героев и локаций">Эскизы новых героев и локаций</label>
+  <label><input type="checkbox" value="ничего, только идея">Пока только идея</label>
+ </div>
+ <label for="fix">Что хотите улучшить или поправить в готовых минутах</label><textarea id="fix" name="Правки в готовом" placeholder="Например: цвет в сцене во дворце, плавность движения, отдельные кадры"></textarea>
+</fieldset>
+
+<fieldset>
+ <legend>Как рисовали</legend>
+ <label for="soft">В какой программе рисовали</label><input type="text" id="soft" name="Программа" placeholder="Toon Boom, TVPaint, Krita, Photoshop, After Effects…">
+ <label>Что можете передать</label>
+ <div class="checks" data-name="Можем передать">
+  <label><input type="checkbox" value="мастер фильма без водяного знака">Мастер фильма без водяного знака</label>
+  <label><input type="checkbox" value="исходники сцен по слоям">Исходники сцен по слоям</label>
+  <label><input type="checkbox" value="листы персонажей">Листы персонажей (развороты, эмоции)</label>
+  <label><input type="checkbox" value="фоны отдельно">Фоны отдельно от героев</label>
+  <label><input type="checkbox" value="скетчи карандашом и в программе">Скетчи карандашом и в программе</label>
+  <label><input type="checkbox" value="сценарий и режиссёрский сценарий">Сценарий и режиссёрский сценарий</label>
+  <label><input type="checkbox" value="раскадровки">Раскадровки</label>
+  <label><input type="checkbox" value="звук по дорожкам">Звук по дорожкам (голоса, музыка, шумы)</label>
+ </div>
+</fieldset>
+
+<fieldset>
+ <legend>Звук и языки</legend>
+ <label for="lang">Язык фильма и нужные версии</label><input type="text" id="lang" name="Языки" placeholder="Казахский; нужен русский дубляж">
+ <label for="music">Музыка: есть своя или нужна</label><input type="text" id="music" name="Музыка">
+</fieldset>
+
+<fieldset>
+ <legend>Сроки и выход</legend>
+ <label for="date">К какой дате нужен готовый фильм</label><input type="text" id="date" name="Срок" placeholder="Например: март 2027, к фестивалю">
+ <label for="release">Где планируете показывать</label><input type="text" id="release" name="Показ" placeholder="Кинопрокат, ТВ, стриминг, фестивали">
+ <label for="money">Финансирование</label><select id="money" name="Финансирование">
+  <option value="">—</option><option>Собственные средства</option><option>Господдержка</option><option>Инвестор</option><option>Ищем</option><option>Готовы к сопродюсированию</option>
+ </select>
+ <label for="more">Что ещё важно знать</label><textarea id="more" name="Дополнительно"></textarea>
+</fieldset>
+
+<div class="box">
+ <h2>Оригиналы</h2>
+ <p>Чтобы обучить модель стиля именно вашему фильму, нужны исходные материалы в лучшем качестве. Пришлите ссылку на Google Диск, Яндекс Диск или WeTransfer на <a href="mailto:neyravision@gmail.com">neyravision@gmail.com</a>.</p>
+ <p class="hint">Материалы обрабатываются только на наших станциях в студии, в облачные сервисы не загружаются, третьим лицам не передаются и в других проектах не используются. Права на фильм и героев остаются за вами. NDA подписываем до передачи, если нужно.</p>
+</div>
+
+<div class="actions">
+ <button type="submit">Отправить анкету</button>
+ <button type="button" class="ghost" id="copy">Скопировать ответы</button>
+</div>
+<p class="hint">Кнопка «Отправить» откроет почту с готовым письмом на neyravision@gmail.com. Если почта не открылась, скопируйте ответы и отправьте их на этот адрес.</p>
+<p id="ok"></p>
+</form>
+<footer>Neyra Vision Studio</footer>
+</div>
+<script>
+(()=>{
+const TO='neyravision@gmail.com';
+const f=document.getElementById('f');
+function text(){
+  const out=[];
+  f.querySelectorAll('input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select').forEach(el=>{
+    const v=el.value.trim(); if(v) out.push(el.name+': '+v);
+  });
+  f.querySelectorAll('.checks').forEach(g=>{
+    const v=[...g.querySelectorAll('input:checked')].map(i=>i.value);
+    if(v.length) out.push(g.dataset.name+': '+v.join(', '));
+  });
+  return out.join('\n');
+}
+f.onsubmit=e=>{
+  e.preventDefault();
+  const t=document.getElementById('title').value.trim()||'проект';
+  location.href='mailto:'+TO+'?subject='+encodeURIComponent('Анкета: '+t)+'&body='+encodeURIComponent(text());
+  document.getElementById('ok').textContent='Письмо подготовлено в вашей почте — осталось нажать «Отправить».';
+};
+document.getElementById('copy').onclick=()=>{
+  navigator.clipboard.writeText(text()).then(()=>{document.getElementById('ok').textContent='Ответы скопированы. Отправьте их на '+TO+'.'});
+};
+})();
+</script>
+</body>
+</html>
