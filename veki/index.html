@@ -157,7 +157,11 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--pink) 22%,transpar
 .pack{position:relative;display:block;width:clamp(210px,30vw,340px);transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s cubic-bezier(.16,1,.3,1);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pack-in{position:relative;display:block;animation:bob 5.5s ease-in-out infinite;transform-style:preserve-3d}
 .pack img{display:block;width:100%;height:auto;filter:drop-shadow(0 30px 34px rgba(90,18,50,.38))}
-.pack .shine{position:absolute;inset:0;border-radius:14px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.45) 45%,transparent 60%);background-size:250% 100%;mix-blend-mode:soft-light;animation:shine 3.8s ease-in-out infinite;pointer-events:none;-webkit-mask:url(st/brownie.webp) center/contain no-repeat;mask:url(st/brownie.webp) center/contain no-repeat}
+.pack{--mask:url(st/brownie.webp)}
+.pack .shine{position:absolute;inset:0;border-radius:14px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.45) 45%,transparent 60%);background-size:250% 100%;mix-blend-mode:soft-light;animation:shine 3.8s ease-in-out infinite;pointer-events:none;-webkit-mask:var(--mask) center/contain no-repeat;mask:var(--mask) center/contain no-repeat}
+/* Баночка мёда: текст слева, банка справа, золотое свечение */
+.yum.rev .yum-stage{order:2}
+.yum.rev .yum-stage::before{background:radial-gradient(circle,color-mix(in srgb,var(--blond) 80%,transparent),transparent 68%)}
 @keyframes bob{0%,100%{transform:translateY(0) rotateY(-14deg) rotateZ(-2deg)}50%{transform:translateY(-16px) rotateY(14deg) rotateZ(2deg)}}
 @keyframes shine{0%{background-position:120% 0}60%,100%{background-position:-60% 0}}
 .yum-hint{position:absolute;bottom:2%;left:50%;transform:translateX(-50%) rotate(-4deg)}
@@ -167,7 +171,7 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--pink) 22%,transpar
 .ad{font-size:.78rem;color:var(--muted)}
 #boom{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:60;display:none}
 .pack.gone{opacity:0;transform:scale(1.25);transition:opacity .15s,transform .15s}
-@media (max-width:820px){.yum{grid-template-columns:1fr}.yum-stage{min-height:420px}}
+@media (max-width:820px){.yum{grid-template-columns:1fr}.yum-stage{min-height:420px}.yum.rev .yum-stage{order:-1}}
 @media (prefers-reduced-motion:reduce){.pack-in,.pack .shine{animation:none}}
 
 
@@ -453,7 +457,7 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
 <section id="vkusnyashka" style="padding-top:0">
   <div class="wrap yum">
     <div class="yum-stage">
-      <a class="pack" id="pack" href="https://www.wildberries.ru/catalog/697917080/detail.aspx" target="_top" aria-label="Magic Brownie «Дикая вишня» на Wildberries">
+      <a class="pack" id="pack" data-btn="packBtn" href="https://www.wildberries.ru/catalog/697917080/detail.aspx" target="_top" aria-label="Magic Brownie «Дикая вишня» на Wildberries">
         <span class="pack-in"><img src="st/brownie.webp" alt="Пачка Magic Brownie «Дикая вишня» от Well Wave" width="489" height="640"><span class="shine" aria-hidden="true"></span></span>
       </a>
       <span class="hand yum-hint" aria-hidden="true">жми ↑</span>
@@ -471,6 +475,30 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
     </div>
   </div>
   <canvas id="boom" aria-hidden="true"></canvas>
+</section>
+
+<!-- Мёд-суфле «Горная малина», Altay Honey / ИП «КХ Дары Природы» (Талгар). Ссылка сейчас на Flip.kz — живой магазин производителя, доставка по Казахстану.
+     Когда выйдет магазин «Полки» — заменить href банки и кнопки на страницу товара с её кодом (?r=veki). erid получить до запуска. -->
+<section id="med" style="padding-top:0">
+  <div class="wrap yum rev">
+    <div class="yum-text">
+      <span class="sticker">баночка к чаю</span>
+      <h2>мёд-суфле<br>с малиной</h2>
+      <p>Взбитый мёд со вкусом горной малины: розовый, густой, не течёт с ложки. На тост, в чай, к блинам. Выглядит как десерт, а это мёд с пасеки под Алматы.</p>
+      <ul class="chips">
+        <li>взбитый мёд</li><li>300&nbsp;г · стекло</li><li>ещё 9 вкусов</li><li>сделано в Казахстане</li>
+      </ul>
+      <a class="btn main" id="medBtn" href="https://www.flip.kz/catalog?prod=2817027" target="_top">Заказать баночку</a>
+      <p class="ad">Ещё вкусы: чёрная смородина, клюква, фисташка, венский кофе, вишня в шоколаде. Доставка по Казахстану; в Россию пока не везём — если ждёшь, напиши в тгк.<br>Реклама. ИП «КХ Дары Природы», Талгар</p>
+    </div>
+    <div class="yum-stage">
+      <a class="pack" id="med-pack" data-btn="medBtn" data-glow="243,196,90" style="--mask:url(st/sufle.webp)" href="https://www.flip.kz/catalog?prod=2817027" target="_top" aria-label="Мёд-суфле «Горная малина» 300 г на Flip.kz">
+        <span class="pack-in"><img src="st/sufle.webp" alt="Банка мёда-суфле Altay Honey «Горная малина», 300 г" width="586" height="810" loading="lazy"><span class="shine" aria-hidden="true"></span></span>
+      </a>
+      <span class="hand yum-hint" aria-hidden="true">жми ↑</span>
+      <img class="stk" src="st/samolet.webp" alt="" width="420" height="310" style="width:clamp(64px,12vw,96px);right:2%;top:6%;transform:rotate(10deg)">
+    </div>
+  </div>
 </section>
 
 <section id="rozygrysh" style="padding-top:0">
@@ -571,45 +599,46 @@ footer{padding-block:48px 96px;border-top:1px solid var(--line);display:flex;fle
 
 <script>
 (function(){
-  const pack=document.getElementById('pack'), btn=document.getElementById('packBtn'), cv=document.getElementById('boom');
-  if(!pack||!cv) return;
-  const url=pack.href, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // наклон за мышкой или пальцем
-  const stage=pack.parentElement;
-  function tilt(x,y){const r=stage.getBoundingClientRect();const dx=(x-r.left)/r.width-.5, dy=(y-r.top)/r.height-.5;
-    pack.style.setProperty('--ry',(dx*36).toFixed(1)+'deg');pack.style.setProperty('--rx',(-dy*28).toFixed(1)+'deg');}
-  stage.addEventListener('pointermove',e=>tilt(e.clientX,e.clientY));
-  stage.addEventListener('pointerleave',()=>{pack.style.setProperty('--ry','0deg');pack.style.setProperty('--rx','0deg')});
-  // взрыв на крошки и переход
+  const cv=document.getElementById('boom'); if(!cv) return;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, packs=[...document.querySelectorAll('.pack')];
   let busy=false;
-  function boom(e){
-    if(busy) return; e.preventDefault(); busy=true;
-    if(reduce){location.href=url;return;}
-    const img=pack.querySelector('img'), r=img.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1);
-    cv.width=innerWidth*dpr; cv.height=innerHeight*dpr; cv.style.display='block';
-    const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
-    const off=document.createElement('canvas'); off.width=Math.round(r.width); off.height=Math.round(r.height);
-    const o=off.getContext('2d'); o.drawImage(img,0,0,off.width,off.height);
-    let data; try{data=o.getImageData(0,0,off.width,off.height).data}catch(_){location.href=url;return;}
-    const step=Math.max(5,Math.round(r.width/46)), cx=r.left+r.width/2, cy=r.top+r.height/2, ps=[];
-    for(let y=0;y<off.height;y+=step)for(let x=0;x<off.width;x+=step){
-      const i=(y*off.width+x)*4; if(data[i+3]<120) continue;
-      const px=r.left+x, py=r.top+y, ang=Math.atan2(py-cy,px-cx), sp=4+Math.random()*11;
-      ps.push({x:px,y:py,vx:Math.cos(ang)*sp+(Math.random()-.5)*4,vy:Math.sin(ang)*sp-Math.random()*6,s:step*(.8+Math.random()*.7),a:Math.random()*6,va:(Math.random()-.5)*.4,c:`rgb(${data[i]},${data[i+1]},${data[i+2]})`});
+  packs.forEach(pack=>{
+    const url=pack.href, stage=pack.parentElement, btn=pack.dataset.btn?document.getElementById(pack.dataset.btn):null, glow=pack.dataset.glow||'255,94,158';
+    // наклон за мышкой или пальцем
+    function tilt(x,y){const r=stage.getBoundingClientRect();const dx=(x-r.left)/r.width-.5, dy=(y-r.top)/r.height-.5;
+      pack.style.setProperty('--ry',(dx*36).toFixed(1)+'deg');pack.style.setProperty('--rx',(-dy*28).toFixed(1)+'deg');}
+    stage.addEventListener('pointermove',e=>tilt(e.clientX,e.clientY));
+    stage.addEventListener('pointerleave',()=>{pack.style.setProperty('--ry','0deg');pack.style.setProperty('--rx','0deg')});
+    // взрыв на крошки и переход
+    function boom(e){
+      if(busy) return; e.preventDefault(); busy=true;
+      if(reduce){location.href=url;return;}
+      const img=pack.querySelector('img'), r=img.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1);
+      cv.width=innerWidth*dpr; cv.height=innerHeight*dpr; cv.style.display='block';
+      const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
+      const off=document.createElement('canvas'); off.width=Math.round(r.width); off.height=Math.round(r.height);
+      const o=off.getContext('2d'); o.drawImage(img,0,0,off.width,off.height);
+      let data; try{data=o.getImageData(0,0,off.width,off.height).data}catch(_){location.href=url;return;}
+      const step=Math.max(5,Math.round(r.width/46)), cx=r.left+r.width/2, cy=r.top+r.height/2, ps=[];
+      for(let y=0;y<off.height;y+=step)for(let x=0;x<off.width;x+=step){
+        const i=(y*off.width+x)*4; if(data[i+3]<120) continue;
+        const px=r.left+x, py=r.top+y, ang=Math.atan2(py-cy,px-cx), sp=4+Math.random()*11;
+        ps.push({x:px,y:py,vx:Math.cos(ang)*sp+(Math.random()-.5)*4,vy:Math.sin(ang)*sp-Math.random()*6,s:step*(.8+Math.random()*.7),a:Math.random()*6,va:(Math.random()-.5)*.4,c:`rgb(${data[i]},${data[i+1]},${data[i+2]})`});
+      }
+      pack.classList.add('gone'); if(navigator.vibrate) try{navigator.vibrate(30)}catch(_){}
+      const t0=performance.now();
+      (function frame(t){
+        const k=(t-t0)/900; ctx.clearRect(0,0,innerWidth,innerHeight);
+        ctx.fillStyle=`rgba(${glow},${Math.max(0,.35-k*.5)})`; ctx.beginPath(); ctx.arc(cx,cy,40+k*innerWidth,0,7); ctx.fill();
+        for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.vx*=.985;p.a+=p.va;
+          ctx.save();ctx.globalAlpha=Math.max(0,1-k);ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);ctx.restore();}
+        if(k<1) requestAnimationFrame(frame); else location.href=url;
+      })(t0);
     }
-    pack.classList.add('gone'); if(navigator.vibrate) try{navigator.vibrate(30)}catch(_){}
-    const t0=performance.now();
-    (function frame(t){
-      const k=(t-t0)/900; ctx.clearRect(0,0,innerWidth,innerHeight);
-      ctx.fillStyle=`rgba(255,94,158,${Math.max(0,.35-k*.5)})`; ctx.beginPath(); ctx.arc(cx,cy,40+k*innerWidth,0,7); ctx.fill();
-      for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.vx*=.985;p.a+=p.va;
-        ctx.save();ctx.globalAlpha=Math.max(0,1-k);ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);ctx.restore();}
-      if(k<1) requestAnimationFrame(frame); else location.href=url;
-    })(t0);
-  }
-  pack.addEventListener('click',boom); if(btn) btn.addEventListener('click',boom);
-  // вернулись назад со страницы магазина: пачка снова на месте
-  addEventListener('pageshow',()=>{busy=false;pack.classList.remove('gone');cv.style.display='none'});
+    pack.addEventListener('click',boom); if(btn) btn.addEventListener('click',boom);
+  });
+  // вернулись назад со страницы магазина: пачка и банка снова на месте
+  addEventListener('pageshow',()=>{busy=false;packs.forEach(p=>p.classList.remove('gone'));cv.style.display='none'});
 })();
 </script>
 
