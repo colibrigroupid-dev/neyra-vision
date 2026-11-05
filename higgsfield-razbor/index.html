@@ -1,0 +1,1075 @@
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Разбор Higgsfield</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@500;600&display=swap">
+<style>
+/* Макет: рабочая тетрадь съёмочной группы. Слева постоянное оглавление, справа текст; метки источника как на хлопушке. */
+:root{
+  --bg:#F1F4F2; --panel:#FFFFFF; --fg:#17211D; --muted:#56655E; --line:#CBD5CF;
+  --accent:#0C6B58; --accent-soft:#DCEDE7; --code:#E7ECE9;
+  --a:#8A3B12; --a-bg:#F7E6DA; --n:#1F4E9C; --n-bg:#E0E9F8; --o:#5B3A99; --o-bg:#ECE5F8; --p:#0C6B58; --p-bg:#DCEDE7; --v:#6A5A00; --v-bg:#F4EEC6;
+  --warn:#A3321F; --warn-bg:#FBE9E5;
+  --display:"Oswald","Arial Narrow",Arial,sans-serif; --body:"Commissioner","Segoe UI",Arial,sans-serif; --mono:"JetBrains Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121815; --panel:#1A221E; --fg:#E6ECE8; --muted:#9DAEA6; --line:#34423B;
+  --accent:#62C9AF; --accent-soft:#1F3A32; --code:#232D28;
+  --a:#F0B48F; --a-bg:#3D2618; --n:#A9C5F5; --n-bg:#1C2B47; --o:#CDB8F3; --o-bg:#2E2445; --p:#8ADBC5; --p-bg:#1C3A31; --v:#E5D77A; --v-bg:#3A3413;
+  --warn:#F4A796; --warn-bg:#42201A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --panel:#1A221E; --fg:#E6ECE8; --muted:#9DAEA6; --line:#34423B;
+  --accent:#62C9AF; --accent-soft:#1F3A32; --code:#232D28;
+  --a:#F0B48F; --a-bg:#3D2618; --n:#A9C5F5; --n-bg:#1C2B47; --o:#CDB8F3; --o-bg:#2E2445; --p:#8ADBC5; --p-bg:#1C3A31; --v:#E5D77A; --v-bg:#3A3413;
+  --warn:#F4A796; --warn-bg:#42201A; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--body);margin:0}
+.wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;max-width:1180px;margin:0 auto;padding-block:32px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav.toc{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));align-self:start;max-height:calc(100vh - 32px);overflow:auto;font-size:14px;line-height:1.4}
+nav.toc summary{font:600 15px var(--display);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+nav.toc ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px}
+nav.toc a{display:block;color:var(--fg);text-decoration:none;padding:5px 8px;border-left:2px solid var(--line)}
+nav.toc a:hover,nav.toc a:focus-visible{border-left-color:var(--accent);background:var(--accent-soft)}
+nav.toc ol ol{margin:0 0 4px 10px}
+nav.toc ol ol a{color:var(--muted);font-size:13px;padding-block:3px}
+main{min-width:0;max-width:760px}
+h1{font:600 clamp(36px,6vw,54px)/1.1 var(--display);letter-spacing:.01em;margin:0 0 12px;text-wrap:balance}
+h2{font:600 30px/1.2 var(--display);letter-spacing:.015em;margin:64px 0 14px;padding-top:18px;border-top:3px solid var(--fg);text-wrap:balance}
+h2 .no{color:var(--accent);margin-right:10px}
+h3{font:700 19px/1.3 var(--body);margin:32px 0 8px;text-wrap:balance}
+h4{font:700 15px/1.3 var(--body);margin:20px 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 12px}
+ul,ol.steps{margin:0 0 14px;padding-left:22px}
+li{margin-bottom:5px}
+li>ul,li>ol{margin-top:5px;margin-bottom:5px}
+code{font:400 .86em var(--mono);background:var(--code);padding:1px 4px;border-radius:3px;overflow-wrap:anywhere}
+.tmpl{position:relative;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);margin:12px 0 18px}
+pre{font:400 13px/1.55 var(--mono);margin:0;padding:12px 14px;overflow-x:auto;white-space:pre}
+.tmpl button{position:absolute;top:6px;right:6px;font:500 12px var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:3px 8px;cursor:pointer}
+.tmpl button:focus-visible{outline:2px solid var(--accent)}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.4;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{font-weight:700;background:var(--code)}
+td{font-variant-numeric:tabular-nums}
+.s{display:inline-block;font:500 11px/1.5 var(--mono);padding:0 6px;border-radius:3px;white-space:nowrap;vertical-align:1px}
+.s.a{color:var(--a);background:var(--a-bg)} .s.n{color:var(--n);background:var(--n-bg)} .s.o{color:var(--o);background:var(--o-bg)} .s.p{color:var(--p);background:var(--p-bg)} .s.v{color:var(--v);background:var(--v-bg)}
+.r{font:400 12px var(--mono);color:var(--muted);white-space:normal}
+.lead{font-size:18px;line-height:1.5}
+.note{background:var(--warn-bg);border-left:4px solid var(--warn);padding:10px 14px;margin:14px 0}
+.note p:last-child{margin:0}
+.legend{display:grid;gap:6px;margin:14px 0 8px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);font-size:14px}
+a{color:var(--accent)}
+@media (max-width:980px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:18px;padding-block:20px 60px}
+  nav.toc{position:static;max-height:none;background:var(--panel);border:1px solid var(--line);padding:6px 12px}
+  main{max-width:none}
+  h2{margin-top:48px}
+}
+.dl{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 18px;margin:20px 0 8px}
+.dl h2{margin:0 0 6px;padding:0;border:0;font-size:22px}
+.btn{display:inline-block;font:600 16px var(--body);color:var(--bg);background:var(--accent);padding:10px 18px;text-decoration:none;margin:6px 8px 8px 0}
+.btn:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+.btn.alt{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.tmpl pre{padding-top:34px}
+.sha{font:400 12px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Оглавление"><details id="tocbox" open><summary>Оглавление</summary>
+<ol>
+<li><a href="#map">1. Что изучено</a></li>
+<li><a href="#cloth">2. Одежда, ткань, кожа, волосы</a>
+  <ol>
+  <li><a href="#cl-route">Какой инструмент под задачу</a></li>
+  <li><a href="#cl-write">Как описать костюм</a></li>
+  <li><a href="#cl-deslop">Снять пластик с листа</a></li>
+  <li><a href="#cl-sheet">Лист вещи и замки</a></li>
+  <li><a href="#cl-swap">Смена наряда и маска</a></li>
+  <li><a href="#cl-video">Костюм в видео</a></li>
+  <li><a href="#cl-edit">Замена в готовом видео</a></li>
+  <li><a href="#cl-tryon">Виртуальная примерка</a></li>
+  <li><a href="#cl-move">Ткань в движении и порча</a></li>
+  <li><a href="#cl-skin">Кожа</a></li>
+  <li><a href="#cl-hair">Волосы</a></li>
+  <li><a href="#cl-err">Ошибки и пробелы</a></li>
+  </ol></li>
+<li><a href="#stages">3. Метод автора по этапам</a></li>
+<li><a href="#ui">4. Интерфейс и цены с экрана</a></li>
+<li><a href="#authorskills">5. Четыре скила автора</a></li>
+<li><a href="#seedance">6. Видеомодель: правила и поломки</a></li>
+<li><a href="#identity">7. Постоянство героя</a></li>
+<li><a href="#cinema">8. Cinema Studio</a></li>
+<li><a href="#set">9. Весь набор подскилов</a></li>
+<li><a href="#official">10. Официальные скилы</a></li>
+<li><a href="#models">11. Таблицы моделей</a></li>
+<li><a href="#disc">12. Экономия и дисциплина</a></li>
+<li><a href="#conflicts">13. Расхождения и открытые споры</a></li>
+<li><a href="#files">14. Где лежат источники</a></li>
+</ol></details></nav>
+
+<main>
+<h1>Разбор Higgsfield</h1>
+<p class="lead">Всё, что изучено по созданию фильма в Higgsfield: покадровый разбор ролика автора, его блог, четыре его скила, большой набор подскилов и официальные скилы платформы. Здесь нет внутренних материалов студии.</p>
+<div class="dl" id="skachat">
+<h2>Скачать и поставить в Claude</h2>
+<p>Один архив: этот разбор в виде скила, большой набор подскилов под лицензией MIT и скрипт установки. Всё работает без сети, скрипт ничего не скачивает.</p>
+<a class="btn" href="neyra-higgsfield-pack.zip" download>Скачать архив, 4,5 МБ</a><a class="btn alt" href="higgsfield-razbor.md" download>Только справочник, .md</a>
+<div class="tmpl"><pre>unzip neyra-higgsfield-pack.zip
+cd neyra-higgsfield-pack
+sh install.sh</pre></div>
+<p>Потом перезапустите Claude Code и вызовите <code>/higgsfield-film-workflow</code>. Для Claude desktop внутри архива есть zip для загрузки в настройках. Windows и приложение не проверялись, подробности в <code>README.md</code> архива. Чтобы запускать генерацию, нужен CLI платформы и вход: <code>brew install higgsfield-ai/tap/higgsfield</code>, затем <code>higgsfield auth login</code>.</p>
+<p class="sha">sha256: 670d25f12f30ddcf8a1effdb6ff53c71afa373acec8b7cf0b7d13d871fa0afcd</p>
+</div>
+<div class="legend">
+<div><span class="s a">автор</span> ролик и блог Adil (adilinthewildtempo), «How to Make a Cinematic AI Short Film»</div>
+<div><span class="s n">набор</span> сторонний набор O-Side Media v3.40.0, лицензия MIT, файлы подскилов</div>
+<div><span class="s o">офиц.</span> официальные скилы Higgsfield, версия файлов 0.13.0</div>
+<div><span class="s p">живьём</span> спецификация модели, запрошена у платформы 05.11.2026</div>
+<div><span class="s v">вывод</span> вывод из источников, в самих источниках прямо не написан</div>
+</div>
+<p>Промпты изложены как шаблоны своими словами. Ссылка «блог 175» значит строку 175 текста блога автора. Сам текст блога сюда не включён, номера нужны, чтобы сверить место с оригиналом. Время вида 04:36 указано по ролику. Цены указаны в кредитах с экрана автора: на вашем тарифе их нужно сверять.</p>
+
+<h2 id="map"><span class="no">1</span>Что изучено</h2>
+<div class="tbl"><table>
+<tr><th>Материал</th><th>Объём</th><th>Как прочитан</th></tr>
+<tr><td>Ролик автора</td><td>21 мин, 1 286 кадров, весь текст с экрана, вся речь</td><td>Полностью</td></tr>
+<tr><td>Блог автора</td><td>4 346 строк, все промпты</td><td>Полностью; сцены 3.2 и 3.3 сверены с 3.1 построчно</td></tr>
+<tr><td>Скилы автора: сцена, игра, анаморф</td><td>3 файла</td><td>Полностью</td></tr>
+<tr><td>Скил боя</td><td>56 файлов</td><td>Рабочие файлы полностью, источники выборочно</td></tr>
+<tr><td>Большой набор: корень и 35 подскилов</td><td>265 файлов, 13 МБ</td><td>Видеомодель, Soul, Cinema, GPT Image, Marketing Studio, Troubleshoot, Pipeline, Audio полностью. Остальные по основному файлу. Часть жанровых шаблонов и примеров не читалась: см. <a href="#files">главу 14</a></td></tr>
+<tr><td>Официальные скилы</td><td>8 скилов + content-factory</td><td>Основные файлы; справочники brandkit частично, websites только поиском</td></tr>
+</table></div>
+<p><strong>Коротко о методе автора.</strong> Человек описывает сцену своими словами. Claude со скилами превращает описание в подробный промпт. Генератор даёт несколько дублей на один промпт, а сцена собирается из лучших кусков разных дублей. Чат с Claude на весь фильм один, и ему приложены те же картинки, что и в генераторе.</p>
+
+<h2 id="cloth"><span class="no">2</span>Одежда, ткань, кожа, волосы</h2>
+<p>Отдельного навыка про одежду нет. Глава собрана из разных источников, у каждого приёма указано откуда он.</p>
+<div class="note"><p><strong>Что важно знать сразу.</strong> Автор нигде не показывает замену одежды на готовом кадре и смену гардероба между сценами. Он один раз описывает костюм в листе, улучшает фактуру отдельными фото и закрепляет результат видео-элементом. Рецепты замены взяты только из набора и официальных скилов.</p></div>
+
+<h3 id="cl-route">Какой инструмент под задачу</h3>
+<div class="tbl"><table>
+<tr><th>Задача</th><th>Что делать</th><th>Источник</th></tr>
+<tr><td>Ткань на листе плоская и выглядит как ИИ</td><td>Лист + настоящее фото ткани в Seedream 5.0 Pro</td><td><span class="s a">автор</span> блог 159–178</td></tr>
+<tr><td>Текстура и износ костюма на листе с нуля</td><td>Seedream 5.0 Pro</td><td><span class="s n">набор</span> soul, один туториал</td></tr>
+<tr><td>Одежда, смена нарядов, брендовые вещи</td><td>GPT Image 2. Спор открыт, см. ниже</td><td><span class="s n">набор</span> VFX-PIPELINE, image-models</td></tr>
+<tr><td>Мелкая правка готового листа</td><td>Nano Banana 2, одной строкой</td><td><span class="s n">набор</span> image-models</td></tr>
+<tr><td>Точечная правка по маске</td><td><code>nano_banana_2</code> с ролью <code>mask</code> и <code>is_inpaint</code></td><td><span class="s n">набор</span> image-models</td></tr>
+<tr><td>Правка в Seedream без отдельной маски</td><td>Seedream 5.0 Pro, <code>is_inpaint</code></td><td><span class="s n">набор</span> image-models</td></tr>
+<tr><td>Лист вещи со всех сторон</td><td>Nano Banana Pro или GPT Image 2 в 4K. Плоско в GPT: тот же промпт в Nano Banana Pro</td><td><span class="s n">набор</span> reference-sheet-workflow</td></tr>
+<tr><td>Перенести фактуру ткани в видео</td><td>Роль «перенос признака» на названную вещь</td><td><span class="s n">набор</span> seedance-2-5</td></tr>
+<tr><td>Заменить одежду в готовом видео</td><td><code>video_edit</code> или Genjutsu</td><td><span class="s n">набор</span> MODE-PLAYBOOKS, model-guide</td></tr>
+<tr><td>Показать вещь на человеке в рекламе</td><td>Marketing Studio или фото-режим примерки</td><td><span class="s n">набор</span> <span class="s o">офиц.</span></td></tr>
+<tr><td>Брендовый мерч на макете</td><td>Seedream; GPT Image 2 только ради читаемого текста</td><td><span class="s o">офиц.</span> brandkit, mockups</td></tr>
+<tr><td>Готовое решение одной кнопкой</td><td>Приложения AI Stylist, Outfit Swap, Outfit Shot</td><td><span class="s n">набор</span> higgsfield-apps</td></tr>
+</table></div>
+<p><strong>Спор о модели для одежды (P3-2) не решён.</strong> Одна постановка выбрала GPT Image 2 для одежды. Другая выбрала Seedream 5.0 Pro за текстуру и износ на листе с нуля. Вывод «правки на готовом через GPT, текстура с нуля через Seedream» помечен в наборе как домашнее предположение. Набор советует прогнать один лист через 2–3 модели и сравнить по самому трудному признаку героя. Данные собраны на GPT Image 2.0, а 2.5 по одежде не проверялась.</p>
+
+<h3 id="cl-write">Как описать костюм</h3>
+<p><span class="s a">автор</span> Весь костюм пишется одним абзацем сверху вниз. По каждой вещи идут материал, крой, цвет, деталь <span class="r">блог 93</span>. Качество задают не слова «качественный» и «реалистичный», а физические признаки материала:</p>
+<div class="tbl"><table>
+<tr><th>Вещь</th><th>Что описать</th><th>Как это сделано у автора</th></tr>
+<tr><td>Кожа</td><td>Блеск, зерно, как ложатся складки</td><td>Матовый блеск, лёгкое зерно, мягкие вертикальные складки; для брюк глянец, тяжёлый текучий напуск, глубокие складки, край лежит на сапоге</td></tr>
+<tr><td>Хлопок, трикотаж</td><td>Износ, цвет после стирок, край</td><td>Выцветший чёрный после стирок, чуть потрёпанный воротник</td></tr>
+<tr><td>Рубашка на теле</td><td>Складки там, где их создаёт тело</td><td>Естественные складки на животе <span class="r">блог 260</span></td></tr>
+<tr><td>Обувь</td><td>Форма носа, строчка, каблук</td><td>Острый нос, строчка в тон, низкий скошенный каблук</td></tr>
+<tr><td>Металл</td><td>Полировка, патина, фактура</td><td>Полировка с мягкой патиной в углублениях, одно кольцо с чеканкой <span class="r">блог 88</span></td></tr>
+<tr><td>Мелочи</td><td>Точное место, толщина, рука</td><td>Цепь толщиной в палец, какие кольца на каких пальцах, какой рукой что держит</td></tr>
+<tr><td>Руки</td><td>Чистые, естественные, число пальцев</td><td>Пять пальцев на каждой руке оговорено прямо <span class="r">блог 88</span></td></tr>
+</table></div>
+<p>Палитру автор задаёт долями: 70 % чёрная кожа и хлопок, 18 % серый фон, 12 % кожа, волосы, ремень, серебро <span class="r">блог 108</span>. В листе Рона цвета даны кодами HEX <span class="r">блог 192–271</span>.</p>
+<p><span class="s n">набор</span> Дополнительные правила описания:</p>
+<ul>
+<li>Не «повседневная одежда», а материал, цвет и детали вместе: оливковая хлопковая футболка, белые кожаные кроссовки с красными вставками <span class="r">soul</span>.</li>
+<li>Для вещи важного цвета закреплять код HEX. Размеры давать в сантиметрах. Считать детали: только одна полоса, а не три <span class="r">cross-surface-workflow</span>.</li>
+<li><strong>Тест рояля.</strong> Пуговицы, галстуки, украшения, шарфы, слои и принты отнимают ресурс у действия. Оставьте простой силуэт и один отличительный признак. Сложность допустима только у героя в крупном плане. Это эвристика без замеров <span class="r">cinema, reference-sheet-types</span>.</li>
+<li>Одежду держат в блоке внешности, а не в блоке движения <span class="r">soul</span>. Из профиля актёрской игры гардероб тоже исключают <span class="r">higgsfield-acting</span>.</li>
+<li>Осторожно с лексикой: фильтр реагирует на часть костюмных слов. Вместо <code>tight-fitting dress</code> пишите <code>fitted dress</code> <span class="r">FAILURE-MODES</span>.</li>
+</ul>
+<p>Если нужно описание реального облика, в наборе есть формула из семи частей: роль, кожа, лицо, глаза, волосы, одежда и её фактура, телосложение. Возраст не пишется, в первом слоте стоит роль <span class="r">seedance-2-5</span>.</p>
+
+<h3 id="cl-deslop">Снять пластик с листа: метод автора</h3>
+<p>Это главный рецепт качества в ролике, у автора он называется deslop. <span class="r">02:07–02:44, блог 159–178</span></p>
+<ol class="steps">
+<li><strong>Найти брак.</strong> Смотреть лист вблизи: пятна вместо пор, склеенные волосы, плоская ткань. На экране дефекты обведены кольцами: SPOTS &amp; PATCHES, DAMAGED HAIR, FLAT T-SHIRT TEXTURE <span class="r">01:48–01:56</span>.</li>
+<li><strong>Оживить лист для проверки.</strong> В движении виден брак, незаметный на картинке: PLASTIC, DEAD, GPT ARTIFACTS <span class="r">01:59–02:06</span>.</li>
+<li><strong>Найти настоящие фото фактур в сети.</strong> Волосы, кожа, ткань, фон. У каждого фото одна задача. Что именно снято на этих фото, автор не рассказывает.</li>
+<li><strong>Положить в панель по порядку.</strong> Лист, волосы, кожа, фон, ткань. Порядок в панели задаёт номер @Image.</li>
+<li><strong>Настройки на экране:</strong> Seedream 5.0 Pro, 16:9, 2K, 1 вариант, цена около 2,5 <span class="r">02:18</span>.</li>
+<li><strong>Сказать, что менять, откуда брать и что оставить.</strong> Тон кожи указывается отдельно, если он должен отличаться от референса.</li>
+<li><strong>Сравнить теми же тремя признаками.</strong> Поры вместо пятен, волосы двигаются как волосы, ткань с фактурой <span class="r">02:33–02:44</span>.</li>
+</ol>
+<div class="tmpl"><pre>RIGHT panel: [detailed half-body portrait, skin and hair clearly visible].
+Take only the hair texture from @Image 2, adapt it to the character in @Image 1.
+Take only the skin texture from @Image 3, adapt it to the character;
+  skin tone [paler than in @Image 1].
+Use @Image 4 only as the background texture.
+Use @Image 5 only as the fabric of [the black T-shirt].
+LEFT panel: full-length view of the character, unchanged.</pre></div>
+<div class="note"><p><strong>Номера в блоге сдвинуты.</strong> В списке вложений стоит порядок 1–5, а в промпте блога номера 3, 4, 6, 5 <span class="r">блог 165 и 175</span>. На экране верный порядок. Сверяйте номера с панелью перед запуском.</p></div>
+<p><strong>Проверка материалов видео-элементом.</strong> Готовый видео-элемент автора сделан в две панели: слева макро деталей (кольца, часы, сапог, ухо, перчатка), справа говорящее лицо <span class="r">04:06–04:15</span>. Макро сразу показывает, хорошо ли держится материал.</p>
+<p><strong>Слова против пластика в промптах автора</strong> <span class="r">блог 260–266, 2247</span>: не сглаживать кожу; настоящий костюм с естественной асимметрией; несовершенство ткани и кожи; никаких пластиковых поверхностей и вида рендера.</p>
+
+<h3 id="cl-sheet">Лист вещи и замки</h3>
+<p><span class="s n">набор</span> Когда вещь должна быть одинаковой во всех кадрах, для неё делают отдельный лист. Он не заменяет лист персонажа. Он фиксирует фактуру, цвет, посадку, застёжки и поведение в движении <span class="r">reference-sheet-types, reference-sheet-workflow</span>.</p>
+<h4>Порядок</h4>
+<ol class="steps">
+<li>Загрузить чистое фото вещи.</li>
+<li>Вставить блок замка <code>GLOBAL IDENTITY LOCK</code>: те же форма, пропорции, нитки, швы, молнии, цвет, следы носки, асимметрия. Отдельно замок бренда и надписей. Не придумывать бренд и скрытые детали.</li>
+<li>Заказать виды: перед, зад, бока, верх, низ, три четверти, макро материала, швов и логотипа. Виды планировать от раскадровки: если вещь будут переворачивать, нужен вид снизу.</li>
+<li>Фон <code>#DCDCDC</code>, ровный свет без теней и отражений, камера как при макросъёмке продукта, f/8.</li>
+</ol>
+<h4>Семь частей листа продукта</h4>
+<p>Блокировка вида, блокировка бренда, раскладка из 8 видов, фон, реализм, камера, ограничения (без редизайна, стилизации, новых элементов и ретуши).</p>
+<h4>Одежда на человеке: два входа</h4>
+<p>Первая картинка задаёт вещь, вторая логотип. В промпте идут блоки <code>GARMENT LOCK</code>, <code>LOGO LOCK</code>, <code>EMBROIDERY REALISM</code>, нейтральная стойка, фон <code>#DCDCDC</code>, портретная оптика, в конце запрет лишних логотипов, окружения, реквизита и ретуши. Слово GARMENT LOCK встречается один раз, это заголовок в примере, а не отдельная методика.</p>
+<ul>
+<li><strong>Замок вещи</strong> перечисляет тон ткани, форму воротника, глубину планки, окантовку, положение и шаг полос, длину и расклёшенность, швы, пропорции.</li>
+<li><strong>Замок логотипа</strong> перечисляет буквы, вес, цвет нити, место и масштаб. Логотип нельзя пересоздавать и подправлять.</li>
+</ul>
+<h4>Реальность материала: шесть осей</h4>
+<p>Это самый полезный список, если материал выглядит нарисованным <span class="r">reference-sheet-types</span>:</p>
+<ol class="steps">
+<li>Выступающая структура.</li>
+<li>Плотность.</li>
+<li>Видимое направление.</li>
+<li>Микротени.</li>
+<li>Сжатие по форме.</li>
+<li>Следование кривизне.</li>
+</ol>
+<p>Пример с вышивкой на кепке: нить выступает, стежки плотные, идут по штриху буквы, в канавках микротени, ткань стянута вокруг шва, рисунок следует изгибу панели. Для кожи, трикотажа, атласа, металла и замши меняются слова, а оси остаются.</p>
+<p>Для вещи без человека (витрина, бренд-бук) в наборе есть вид ghost-mannequin на однотонном фоне с блоками FABRIC &amp; TEXTURE, SILHOUETTE, BASE COLOR, PANEL CONSTRUCTION, FRONT GRAPHIC, BACK, COLORS, TECHNICAL <span class="r">cross-surface-workflow</span>.</p>
+
+<h3 id="cl-swap">Смена наряда и маска оригинала</h3>
+<p><span class="s n">набор</span> Сменить костюм, не потеряв лицо, можно тремя приёмами.</p>
+<h4>Панельный лист</h4>
+<p>Слева вещи на призрачном манекене, без тела и головы; одежда описана полностью. Справа большой портрет с совпадением лица 100 %. Серый фон, ровный мягкий свет, чёткая вертикальная граница. Регистрируется как один элемент и несёт сразу «что надето» и «кто это». Источник: демонстрация из туториала <span class="r">soul</span>. Есть второй вариант раскладки: портрет, манекен, вид сзади, три кадра <span class="r">ad-asset-prep</span>.</p>
+<h4>Подбор и смешивание образов</h4>
+<p>Попросить 10 идей нарядов готовыми промптами, сгенерировать, затем собрать в GPT Image 2: рубашка из одного образа в новом цвете, джинсы из другого; лицо, кожу и фон не менять <span class="r">ad-asset-prep</span>.</p>
+<h4>Маска оригинала</h4>
+<ol class="steps">
+<li>Сделать правку одежды в GPT Image 2, Nano Banana 2 или Pro, либо Seedream.</li>
+<li>В графическом редакторе положить оригинал сверху, результат правки снизу.</li>
+<li>На верхнем слое вырезать маской только старый наряд.</li>
+<li>Получить исходные лицо, кожу и фон и новый наряд.</li>
+</ol>
+<p>Зачем это нужно: повторный полный проход через модель сдвигает цвет и ухудшает фактуру. После двух проходов лицо становится симметричным и пластиковым <span class="r">HELL-GRIND, soul</span>. Набор пишет, что каждая правка в GPT Image размягчает кожу, но сам же признаёт, что заметный вред от одного прохода не измерен. Правку всего кадра (например, света) маской не отменить.</p>
+<p><strong>Правила состояний.</strong> Новое состояние костюма получает новое имя и отдельный лист, а не перезапись старого. Пять стадий изменения значит пять листов. Лист не меню: всё, что на нём нарисовано, модель постарается показать <span class="r">soul</span>. Грязь и пот строить отдельным листом заранее <span class="r">ad-asset-prep</span>.</p>
+<p><strong>Порядок.</strong> Правка одежды делается до анимации. После анимации уже нужен Recast <span class="r">pipeline</span>. Для 3D то же самое: сетка повторяет только то, что на картинке, поэтому сначала правят картинку <span class="r">higgsfield-3d</span>.</p>
+
+<h3 id="cl-video">Костюм в видео</h3>
+<p><span class="s a">автор</span> Закрепление делается строкой в ACTIVE REFERENCES: перечислить, что должно совпасть на 100 % (лицо, волосы, цепь, кольца, пальто, телосложение). Там же роль: референс отвечает за внешность и голос, а поза, реквизит и свет идут из промпта <span class="r">блог 416, 672, 802, 15:06</span>. Студийный фон и позы листа отменяются отдельной фразой <span class="r">блог 929, 1256</span>. Деталь вроде цепи упоминается по ходу сцены: бликует, смещается при посадке, бьётся о кожу <span class="r">блог 470, 520, 1218</span>.</p>
+<p><span class="s n">набор</span> Степени сохранения референса в промпте для модели 2.5 <span class="r">seedance-2-5</span>:</p>
+<div class="tbl"><table>
+<tr><th>Степень</th><th>Что значит</th><th>Пример</th></tr>
+<tr><td>Полное</td><td>Лицо, телосложение, гардероб как есть</td><td>Герой из листа без изменений</td></tr>
+<tr><td>Частичное</td><td>Названные части сохраняются, остальное свободно</td><td>Куртка и шрам сохранены, причёска может меняться</td></tr>
+<tr><td>Перенос признака</td><td>Названные черты идут на другую названную цель. Без цели перенос уходит не туда, и ошибки не видно</td><td>Плетение и блеск ткани только на пальто героини, без кроя, манекена и студийного фона</td></tr>
+<tr><td>Свободный ориентир</td><td>Только настроение, палитра, энергия</td><td>Образ для настроения</td></tr>
+</table></div>
+<p>Эта градация заимствована у другой модели и на этой не измерена, поэтому её стоит проверять пробой.</p>
+<div class="tmpl"><pre>@Image 1 defines [Mira]: appearance, hair and clothing only.
+  Ignore the sheet's grey background and panel layout.
+@Image 4 is an attribute transfer: the weave and sheen of this fabric
+  go only onto [Mira's coat]. Do not take its cut, the mannequin
+  or the studio background.</pre></div>
+<ul>
+<li><strong>Перекраска.</strong> Если референс и текст расходятся по цвету, снимите противоречие в тексте: это костюм с картинки, но для этого плана он перекрашен в синий <span class="r">higgsfield-seedance</span>.</li>
+<li><strong>Слоты для 2.0.</strong> <code>@Image1</code> личность, <code>@Image2</code> костюм, <code>@Image3</code> среда и свет <span class="r">higgsfield-seedance</span>.</li>
+<li><strong>Блок WARDROBE</strong> ставится в промпт только когда костюм важен для сцены.</li>
+<li><strong>Разрешение.</strong> Тонкая физика (волосы, песок, переплетение ткани) лучше на 1080p, быстрое хаотичное движение на 720p <span class="r">cinema</span>.</li>
+<li><strong>Продолжение клипа:</strong> перечислять каждый предмет одежды и аксессуар. Без дословного описания следующий кадр может дать другую куртку <span class="r">HELL-GRIND</span>.</li>
+<li><strong>Cinema Studio 3.0:</strong> шаблон «преображение наряда» с двумя @Image, в повседневном и парадном.</li>
+<li><strong>Причина брака:</strong> в списке отбраковки есть отдельная причина <code>wardrobe-contamination</code>, чужая одежда в кадре <span class="r">troubleshoot</span>.</li>
+</ul>
+
+<h3 id="cl-edit">Замена одежды в готовом видео</h3>
+<p><span class="s v">вывод</span> Готового рецепта «три пути» в файлах нет. Варианты собраны из таблиц маршрутов.</p>
+<div class="tbl"><table>
+<tr><th>Путь</th><th>Когда</th><th>Что написать</th><th>Минусы</th></tr>
+<tr><td><code>video_edit</code></td><td>Вещь описана словами, остальное должно остаться</td><td>Объект + изменение + время. Пример: джинсы заменить на чёрные брюки с 8-й секунды и до конца. Перечислить, что сохранить: личность, выражение, положение, движение, комнату, камеру, реплики</td><td>Формат и длина берутся из источника, оплата по длине источника, стабильно до 20 с. Без указания времени изменение может откатиться в середине</td></tr>
+<tr><td>Genjutsu <code>hf_mult_replace_object</code></td><td>Новая вещь есть на фото</td><td>Фото вещи + видео</td><td>Детали параметров в наборе не описаны</td></tr>
+<tr><td><code>omni_reference</code> с исходным клипом как видео-референсом</td><td>Нужно заменить героя в новом костюме и сохранить игру</td><td>Лист героя в новом костюме; унаследовать покадрово положение, позу, угол головы, выражение, моргание. Длина равна источнику, источник от 4 с</td><td>Это уже новая генерация, а не правка</td></tr>
+<tr><td><code>omni_reference</code>, сборка заново</td><td>Кадр надо строить с нуля</td><td>Старый клип только как подсказка движения</td><td>Всё остальное модель строит заново</td></tr>
+<tr><td>Ad Multiplier</td><td>Нужно много версий одного ролика</td><td>Разные люди, одежда, фон</td><td>Не для одной простой правки</td></tr>
+</table></div>
+<div class="tmpl"><pre>[Edit Goal] Replace [the courier's jeans] with [dark black trousers].
+[Source Video Role] The source video is the only master for timing,
+  framing, performance and dialogue.
+[Edit Scope] Only the trousers, from [8 s] until the end of the clip.
+[Timeline Inheritance] The new object inherits every appearance, movement
+  and occlusion of the old one, at the same time and speed.
+[Content to Preserve] Identity, face, hair, expression, position, motion,
+  room, camera, dialogue, background.</pre></div>
+<p>При замене объекта указывайте точное число новых объектов. Для смены фона одежда перечисляется среди того, что не меняется <span class="r">MODE-PLAYBOOKS</span>.</p>
+
+<h3 id="cl-tryon">Виртуальная примерка</h3>
+<div class="tbl"><table>
+<tr><th>Режим</th><th>Что это</th><th>Особенности</th></tr>
+<tr><td><code>ugc_virtual_try_on</code></td><td>Видео, непринуждённо, как снято на телефон</td><td>Подборки хуков и обстановки есть</td></tr>
+<tr><td><code>virtual_try_on</code> (Pro)</td><td>Видео, студийно</td><td>Подборок нет. Название <code>pro_virtual_try_on</code> встречается в другом файле, набор его отвергает</td></tr>
+<tr><td><code>virtual_model_tryout</code></td><td>Картинка: товар на сгенерированной модели</td><td>Официальный скил фотосъёмки; вопросы о типе модели, обстановке, кадре</td></tr>
+<tr><td>Шаблон Cinema Studio 3.0</td><td>Смена наряда с частицами ткани</td><td>Две картинки</td></tr>
+</table></div>
+<p>Для видео нужны фото вещи и ровно один аватар: без аватара лицо подменяется. Рабочие примеры в наборе: статичная камера с метками времени 0–3, 4–7, 8–10, 11–15 с; вещи висят в воздухе, а герой проезжает сквозь каждую и она оказывается на нём <span class="r">marketing-studio, раздел 10</span>. Длина клипа в Marketing Studio указана по-разному, см. <a href="#conflicts">главу 13</a>.</p>
+
+<h3 id="cl-move">Ткань в движении и порча</h3>
+<p><span class="s a">автор</span> Движение ткани задаётся физикой, а не референсом:</p>
+<ul>
+<li>Плащ реагирует на шаг: широкий взмах на быстрых шагах, оседает на медленных <span class="r">блог 953</span>; разлетается веером на развороте <span class="r">блог 2083</span>; хлещет назад на ветру <span class="r">блог 690</span>.</li>
+<li>Вес ткани называется прямо: висит прямо, движется как тяжёлая ткань, подол качается шагом и оседает <span class="r">блог 4228</span>.</li>
+<li>У лёгкой одежды запаздывание: одежда и волосы отстают на полдвижения и разлетаются на повороте <span class="r">блог 1486</span>.</li>
+<li>Материал на материале: пыль лежит матовой плёнкой и берёт свет иначе, чем чистая ткань <span class="r">блог 4228</span>.</li>
+<li>Вещь как приём монтажа: герой встряхивает пальто за лацканы <span class="r">блог 2329, 11:07</span>; пола пальто закрывает кадр как шторка между сценами <span class="r">19:01–19:04</span>.</li>
+</ul>
+<p>Порча идёт в блоках PHYSICS и DAMAGE STAYS:</p>
+<ul>
+<li>Порча идёт только в одну сторону: порванное остаётся порванным <span class="r">блог 3786</span>.</li>
+<li>Порча описывается по времени и месту: когти рвут пальто там, где проходят; к 20-й секунде оно распахнуто, рукава в лоскутах <span class="r">блог 3774</span>.</li>
+<li>Можно задать точное число следов: пять мелких серых потёртостей при целой ткани <span class="r">блог 3400</span>.</li>
+<li>Автор запрещает кровь: кожа чистая, урон передан отёком, дыханием, слюной, порванной тканью <span class="r">блог 1934, 3776</span>.</li>
+</ul>
+<p><span class="s n">набор</span> Что добавить:</p>
+<ul>
+<li>Слово <code>tearing</code> про ветер и пальто читается как разрыв или слёзы. Используйте <code>whipping</code> или <code>fluttering</code> <span class="r">higgsfield-seedance</span>.</li>
+<li>Падение с неподвижной одеждой выдаёт подделку: нужны ускорение и работающая одежда <span class="r">VFX-PIPELINE</span>.</li>
+<li>Если руки двигают вещь, но она не меняется, напишите цепочку: начальная структура, опора, сила, реакция материала, итоговое состояние <span class="r">FAILURE-MODES</span>.</li>
+<li>Рукава в групповых планах порождают бесхозные руки. Назначьте каждой руке владельца и сторону входа <span class="r">FAILURE-MODES</span>.</li>
+<li>Для слоу-мо ткани и шороха есть жанровый шаблон моды <span class="r">templates/04-fashion-editorial</span>.</li>
+</ul>
+<p>В скиле боя правил про ткань и порчу нет.</p>
+
+<h3 id="cl-skin">Кожа</h3>
+<p><span class="s a">автор</span> Кожа в листе описывается конкретно: тонкая естественная фактура, видимые поры, чуть грубее на щеках, бледные веснушки, лёгкий розовый румянец на щеках, носу и ушах <span class="r">блог 83</span>. В сцене лицо получает только свет локации <span class="r">блог 1023</span>.</p>
+<p><span class="s n">набор</span></p>
+<ul>
+<li>Главные признаки живой кожи: микропоры, полупрозрачность, капиллярный румянец <span class="r">seedance-2-5</span>.</li>
+<li>Лист для опоры: биологический реализм включён, а съёмочное поведение (свет, тени, боке, виньетка) выключено. Фон плоский <span class="r">soul</span>.</li>
+<li>Настоящая кожа с порами, без ретуши. Лист намеренно скучный, киноцвет живёт в локациях, иначе герой не реагирует на новый свет <span class="r">HELL-GRIND</span>.</li>
+<li>Матовость работает против пластика, а мелкая ровная фактура работает на привлекательность <span class="r">soul</span>.</li>
+<li>Лицо с общего плана плывёт: вырежьте лицо с более крупной панели и вставьте его <span class="r">soul</span>.</li>
+<li>GPT Image слаб на реалистичных лицах. Не пишите <code>photorealistic</code>, пишите язык плёночной фотографии <span class="r">gpt-image-2</span>.</li>
+<li>Для героя с живой кожей есть Kling 3.0 или Soul Cast плюс <code>natural skin texture, subtle imperfections</code> <span class="r">negative-constraints</span>. В приложениях есть Skin Enhancer.</li>
+<li>Излишнюю гладкость Nano Banana Pro предлагается лечить строкой про дымку, зерно и глубину теней. Другой файл называет такие общие слова причиной шума, поэтому проверяйте пробой <span class="r">image-models, negative-constraints</span>.</li>
+<li>При смене света допустима естественная реакция тона кожи <span class="r">MODE-PLAYBOOKS</span>.</li>
+<li>Зерно на листе: спор P2-4 открыт. Запечённое зерно переходит во все сцены, но совсем ровная картинка тоже выглядит как ИИ.</li>
+</ul>
+
+<h3 id="cl-hair">Волосы</h3>
+<ul>
+<li><span class="s a">автор</span> Цвет от корня до кончика, плюс запрет оттенков, если важно: полностью белые, без тёмных корней, серых и блонд-тонов <span class="r">блог 83</span>.</li>
+<li><span class="s a">автор</span> Причёска описывается через форму прядей и состояние: мокрый эффект от средства, плотные раздельные пряди, пара выбившихся <span class="r">блог 129</span>.</li>
+<li><span class="s a">автор</span> Когда меняется причёска, замок личности меняется вместе с ней. Если волосы другие, их убирают из списка «что узнавать» и пишут, что волосы с референса не должны появиться <span class="r">блог 73, 96, 01:33</span>.</li>
+<li><span class="s a">автор</span> Фактура берётся отдельным фото, см. <a href="#cl-deslop">снятие пластика</a>.</li>
+<li><span class="s n">набор</span> Кудрявые волосы с любого ракурса лучше всего удержал GPT Image 2; это один туториал без замеров <span class="r">soul</span>.</li>
+<li><span class="s n">набор</span> Быстрая замена цвета одной фразой в Nano Banana Pro <span class="r">pipeline</span>. Пресет <code>Hair Style</code> меняет причёску быстро <span class="r">motion</span>.</li>
+<li><span class="s n">набор</span> Если важны волосы, на виде со спины голову не стирают <span class="r">ad-asset-prep</span>.</li>
+<li><span class="s n">набор</span> При смене окружения в готовом клипе причёска входит в список неизменного <span class="r">seedance-vfx, MODE-PLAYBOOKS</span>.</li>
+</ul>
+
+<h3 id="cl-err">Частые ошибки и пробелы</h3>
+<ul>
+<li>Описывать одежду в блоке движения.</li>
+<li>Лечить внешность героя промптом анимации вместо правки картинки или Recast.</li>
+<li>Менять костюм в видео, не сделав новый лист состояния.</li>
+<li>Прогонять лист через модель целиком вместо точечной правки по маске.</li>
+<li>Делать сложный костюм героям заднего плана.</li>
+<li>Забывать вид снизу, если вещь будут вращать.</li>
+<li>Генерировать надпись на вещи вместо точного наложения текста <span class="r">brandkit</span>.</li>
+<li>Прикладывать ткань без названной цели: перенос уходит на случайную вещь.</li>
+<li>Писать волшебные слова: <code>high quality</code>, <code>4K look</code>, <code>beautiful</code>. Они не работают.</li>
+</ul>
+<p><strong>Чего в источниках нет.</strong> Нет сравнения инструментов правки одежды между собой. Нет замеров качества ткани. Нет правил для плетения, блеска и фактуры именно в видео. Автор не показывает отдельные референсы перчаток, колец и цепи. Параметры кроя и швов он на экране не обсуждает.</p>
+
+<h2 id="stages"><span class="no">3</span>Метод автора по этапам</h2>
+<h3>Подготовка <span class="r">01:04–01:20</span></h3>
+<ul>
+<li>Папки создаются до первой генерации: Assets → Characters (папка на героя), Locations, Props; рядом Scene 1…N. Генерация идёт прямо в открытую папку.</li>
+<li>Папки сцен и ассетов разного цвета, чтобы различать их глазами.</li>
+<li>Имена по схеме <code>тип_имя_вид_версия</code>: <code>char_adam_video_v1</code>, <code>loc_room_victor_sofa_v1</code>, <code>prop_adam_pistol</code>. Имя одно и то же у Claude и в генераторе.</li>
+<li>Порядок: листы → видео-элементы → пластины локаций → сцены. Лист лишь входной дизайн, повторно используется видео-элемент <span class="r">блог 65</span>.</li>
+</ul>
+<h3>Персонаж из своего фото <span class="r">01:21–01:47, блог 63–154</span></h3>
+<ol class="steps">
+<li>Приложить фото в Claude, описать 4–5 примет и попросить два промпта, различающихся одним признаком.</li>
+<li>Начать с замка личности: что сохранить (кости лица, глаза, нос, губы, пропорции) и что заменить (окраска, волосы, рост, тело).</li>
+<li>Модель с картинкой на входе: GPT Image 2.5 Sunburst, 3:2, Max, 4K, 4 варианта, около 60 на экране. Модель Soul картинку на вход не принимает.</li>
+<li>Выбрать вариант, затем снять пластик: <a href="#cl-deslop">глава 2</a>.</li>
+</ol>
+<div class="tmpl"><pre>Порядок абзацев листа
+1. Замок личности: что сохранить и что заменить
+2. Макет: две фотографии на одном сером фоне, один жёсткий ключ спереди-слева,
+   одинаковые лицо, волосы, украшения, гардероб
+3. Тело, кожа, волосы, лицо
+4. Украшения и мелочи
+5. Гардероб сверху вниз
+6. Левая панель: 50 мм, высота груди, полный рост, поза рук
+7. Правая панель: 85 мм, уровень глаз, малая глубина резкости, блик в глазах
+8. Палитра в процентах, запрет логотипов и надписей</pre></div>
+<h3>Персонаж без фото <span class="r">02:54–03:31</span></h3>
+<ul>
+<li><strong>AI Cast:</strong> жанр, бюджет, эпоха, архетип, пол, раса, возраст, телосложение, рост, глаза, причёска, фактура и цвет волос, растительность, одежда, плюс свободная строка. 2K, 8 вариантов, около 1 на экране.</li>
+<li><strong>Soul Cinema:</strong> самая дешёвая и самая творческая модель по словам автора. 16:9, 2K, 0,125 за картинку, около 12 листов на выбор. Лист в три панно: спереди, сзади, лицо; свет плоский; строгое лицо, рот закрыт.</li>
+<li>Лист Рона написан как словарь: STYLE, COMPOSITION, SCENE, CINEMATOGRAPHY_AND_LIGHTING, CAMERA_AND_LENS, PHYSICAL_ATTRIBUTES, HEX VALUES <span class="r">блог 192–271</span>.</li>
+</ul>
+<h3>Видео-элемент и голос <span class="r">03:32–04:41, 06:10</span></h3>
+<p>Смысл: картинка показывает, как герой выглядит, а видео ещё показывает, как двигается лицо и как звучит голос. Автор сравнивает одну реплику вслепую и показывает разницу в живости игры.</p>
+<ol class="steps">
+<li>Правый клик по листу → Create element → Video element.</li>
+<li>Source frames: сам лист. Add voice: Upload или Extract from video.</li>
+<li>Add prompt: режиссёрская добавка к стандартному ролику. Generate 160.</li>
+<li>После генерации правый клик по видео → Create element. Форма New element: Category, Name, Version, Element ID, Description, Performer, Status. ID становится тегом <code>@char_adam_video_v1</code>.</li>
+</ol>
+<div class="tbl"><table>
+<tr><th>Параметр</th><th>Как у автора</th></tr>
+<tr><td>Длина</td><td>10 с</td></tr>
+<tr><td>Кадр</td><td>Две панели: слева макро деталей, справа говорящее лицо</td></tr>
+<tr><td>Движение</td><td>Лицо в три четверти, небольшой естественный поворот головы, моргание, тихий вдох, сдержанное движение челюсти</td></tr>
+<tr><td>Игра</td><td>У двух героев короткий переход: сдержанная улыбка в раздражение, спокойствие в раздражение</td></tr>
+<tr><td>Камера и фон</td><td>Без облёта, нейтральный светло-серый фон, ровный свет, без смены одежды, музыки и текста</td></tr>
+<tr><td>Голос</td><td>Простые живые звуки и фразы; у героев записаны автором и друзьями, с согласия. Цель: живой актёрский образец</td></tr>
+<tr><td>Настройки</td><td>По экрану плеера Seedance 2.5, 1080p, High, 1920×1080</td></tr>
+</table></div>
+<p>Обязательного списка поворотов головы нет. В сцене голос закрепляется текстом: тембр, регистр, хрипота, крик тем же голосом <span class="r">блог 416, 474, 614</span>.</p>
+<p><span class="s n">набор</span> Лимиты для видео-референсов модели 2.5: стабильно 1–5 роликов по 5–10 с, верхняя граница 10 штук и суммарно до 30 с. Цифры 10 и 30 с взяты с другой платформы и на Higgsfield не проверены. Платформа жёстко проверяет только: картинки + первый + последний кадр до 30, всего материалов до 50. По умолчанию видео задаёт движение и темп, а не личность, поэтому роль надо писать явно. У версии 2.0: до 3 видео и суммарно до 15 с <span class="r">seedance-2-5, seedance-vfx</span>.</p>
+<h3>Изменённые состояния <span class="r">блог 3347–3622</span></h3>
+<ul>
+<li>Каждому состоянию отдельный референс: рана как отдельная картинка, изменённый облик как отдельный элемент.</li>
+<li>Роль раны: только место, размер и вид; не кадр, не поза, не выражение.</li>
+<li>Размеры задаются числом: 5–6 мм, не шире брови; пуля меньше раны. Предмет и след связаны по размеру.</li>
+<li>Границы по времени: голова человеческая до одной секунды, руки до другой. Меняется только названная часть.</li>
+<li>Превращение скрыто: камера уходит за спину другого героя, смена головы идёт за перекрытием, без промежуточного лица.</li>
+<li>Формула изменённого облика: того, чего нет на картинке, на герое не появляется.</li>
+</ul>
+<h3>Локации <span class="r">04:44–05:39, 12:00–12:42, блог 320–388, 2111–3036</span></h3>
+<p><strong>Принцип.</strong> Начинать с чистой пустой пластины. Референс даёт планировку, мебель, материалы и свет; промпт сцены даёт камеру и действие.</p>
+<div class="tmpl"><pre>Порядок частей пластины
+1. Тип кадра, ракурс, высота камеры
+2. Планировка, материалы, предметы
+3. Свет: источники, цвет, ничего полностью чёрного
+4. CAMERA: объектив, глубина резкости, боке и блики как предметы, лёгкая тряска
+5. STYLE: плёнка, композиция, физика среды (пар, пыль, капли)
+6. Чистая пластина без людей, текста и водяных знаков; формат 2.39:1</pre></div>
+<ul>
+<li>Настройки: 21:9, 2K, 4 варианта, Soul Cinema, Color transfer, Lens Auto. Выбор по двум проверяемым признакам: LIT BOOTH и BRIGHTER CORNERS, WARM LAMP LIGHT и SHADOW DETAIL.</li>
+<li>Объектив по задаче: 24 мм улица и общий, 35 мм интерьер, 85 мм лица. На лице 24 мм не использовать.</li>
+<li>Свет низкий, но читаемый: тени приподняты, ничего не проваливается в чёрное, недоэкспозиция на 2/3–1,5 стопа.</li>
+<li>Глубина тремя планами в метрах: передний в расфокусе, средний резкий, задний в расфокусе <span class="r">блог 2152–2167</span>.</li>
+<li>Намеренная неровность: швы плывут, рамы висят на разной высоте <span class="r">блог 2148</span>.</li>
+<li>Зал без события: жизнь добавляет видеопромпт. В пластине клуба нет людей и вечеринки, но горит дежурный свет <span class="r">блог 373–388</span>.</li>
+<li><strong>Только свет.</strong> Seedream 5.0 Pro. Сохранить кадр, камеру и мебель, менять только свет. Источники списком по рангу, с местом и температурой. Цветовые и экспозиционные условия отдельно <span class="r">блог 2842–2962</span>.</li>
+<li><strong>Вторая сторона комнаты.</strong> Обратный вид, стиль тождествен основной пластине. Будущее повреждение закладывается заранее: только вокруг ручки, размером с ладонь <span class="r">блог 2967–3036</span>.</li>
+<li><strong>Обзор и схема.</strong> Видео из 5 статичных видов пустой комнаты, 10 с. Кадр сверху, на него ставятся цветные точки героев; схема прикладывается и к Claude, и к генератору. Её задача одна: где герои стоят в нулевую секунду и куда смотрят. В блоге цветных точек нет, они только в ролике <span class="r">15:33–15:49, блог 3623–3756</span>.</li>
+<li>В сцене пластина не передаёт камеру и кадр: это пишется прямо.</li>
+<li>В диалоге за каждым героем названа своя сторона комнаты, чтобы модель знала, куда он смотрит.</li>
+</ul>
+<h3>Реквизит и массовка</h3>
+<ul>
+<li>Реквизит: роль только внешность. Прописаны состояние, размер, вес, где лежит до выхода, в какой руке. Пример: дубинка 55 см, выключена, загорается по нажатию, никогда не на плече <span class="r">блог 1661, 1907</span>.</li>
+<li>Мелкий предмет можно описать только словами: тугой чёрный мешок, 25 см, 5 кг, никогда не раскрывается <span class="r">блог 4086–4102</span>.</li>
+<li>Массовка одним листом: в ряд, весь рост, без подписей; роли по порядку слева направо, каждому характер <span class="r">11:10, блог 2254–2288</span>.</li>
+<li>Каждому статисту работа: именованные роли с одним действием на все планы, разное время движения <span class="r">блог 949, 1486</span>.</li>
+<li>Толпа не касается героя: он проходит сквозь промежутки, а не протискивается <span class="r">09:36–09:40</span>.</li>
+<li>Свет шоу по часам: вспышка меняет только свет и не меняет движение <span class="r">блог 943</span>. Герой в холодном, веселье в тёплом <span class="r">18:06</span>.</li>
+</ul>
+<h3>Запрос на сцену <span class="r">06:20</span></h3>
+<p>Автор пишет своими словами: вызов скила → модель и длина → формат с планами, таймингом, камерой и ACTING TASK → список <code>Refs:</code> → что уже идёт → первый кадр → реплики дословно и по порядку → как растёт эмоция → физические действия → реквизит → что в кадре и чего нет → общий закон камеры.</p>
+<p>Claude сам режет на планы и склейки, ставит замки и называет арку героя.</p>
+<h3>Блоки сценного промпта <span class="r">блог 410–650</span></h3>
+<div class="tbl"><table>
+<tr><th>Блок</th><th>Что в нём</th></tr>
+<tr><td>SCENE CONTEXT</td><td>Блок N из M, длина, формат, что происходит и чем кончается, жанр, время суток</td></tr>
+<tr><td>ACTIVE REFERENCES</td><td>Тег, что это, что контролирует, что не наследуется</td></tr>
+<tr><td>LOCATION MAP</td><td>План места в метрах: стены, предметы, откуда камера, куда движется герой</td></tr>
+<tr><td>FIRST FRAME AND SPATIAL BLOCKING</td><td>Крупность, ракурс, кто где стоит, куда смотрит</td></tr>
+<tr><td>FORMAT MODE</td><td>Несколько планов со склейками или один непрерывный дубль</td></tr>
+<tr><td>OPTICS</td><td>Угол по диагонали на каждую крупность; объектив не меняется внутри плана</td></tr>
+<tr><td>CAMERA</td><td>Правила камеры; для одного дубля фазы движения</td></tr>
+<tr><td>ACTION TIMING</td><td>По секундам и планам: действие, реквизит, реплика дословно</td></tr>
+<tr><td>ACTING TASK</td><td>На каждого, включая молчащих: <a href="#authorskills">глава 5</a></td></tr>
+<tr><td>PHYSICS</td><td>Вес, инерция, дым, ткань, брызги</td></tr>
+<tr><td>LIGHTING</td><td>Источники по именам; что читается и что уходит в тень</td></tr>
+<tr><td>AUDIO</td><td>Язык, реплики, каким голосом, шумы по местам, без музыки</td></tr>
+<tr><td>STYLE</td><td>Жанр, зерно, палитра, характер оптики</td></tr>
+<tr><td>QUALITY</td><td>Читаемые лица и руки, смаз на быстром, стабильная анатомия</td></tr>
+<tr><td>POSITIVE CONSTRAINTS</td><td>Что должно быть: сколько людей, что в какой руке</td></tr>
+</table></div>
+<p><strong>Дополнительные блоки в сложных сценах:</strong> <code>IDENTITY LOCK</code>, <code>LIGHT LOCK — ABSOLUTE</code>, <code>SHOW RHYTHM — LOCKED</code>, <code>THE CROWD</code>, <code>NO CONTACT — LOCKED</code>, <code>CAMERA LANGUAGE</code>, <code>PLAYABLE INTENTIONS</code>, <code>SPEED</code>, <code>FULL CONTACT</code>, <code>MONTAGE</code>, <code>FIGHT STYLE LOCK</code>, <code>DIALOGUE — VERBATIM AND COMPLETE</code>, <code>HEIGHT GEOMETRY — THE EYE-LINES</code>, <code>RULES</code>, <code>HOLD FOR THE FULL TIMELINE</code>.</p>
+<p><strong>Шапка плана:</strong> <code>SHOT N — t1–t2 s — НАЗВАНИЕ — объектив</code>, внутри First frame, Camera, Action, Acting. В бою добавлены PICK-UP (откуда начинаем) и END STATE или LEAVES (чем заканчиваем).</p>
+<p><strong>Числа вместо слов:</strong> 35 мм ≈ 63°, 50 мм ≈ 47°, 85 мм ≈ 29°, 24 мм ≈ 84°, 40 мм ≈ 56° по диагонали. Высота и дистанция в метрах, крен в градусах, положение в кадре в процентах. У лица отдельная точность: 45°, не строго анфас и не строго профиль <span class="r">блог 969, 1295, 3086</span>.</p>
+<p><strong>Линтер набора</strong> <span class="r">scripts/seedance_lint.py</span> хочет тайминг в виде <code>[0-5s]</code> и строку <code>Mode: omni_reference</code>, если есть референсы. Формат автора <code>0–5s —</code> он не разбирает и молча не проверяет. Без параметра <code>--model</code> результат PASS почти ничего не значит. Настоящий промпт автора линтер отклоняет за отдельные слова, хотя в студии он работал, поэтому такие срабатывания считайте риском фильтра.</p>
+<h3>Дубли и сборка <span class="r">07:12–07:56, 14:12, блог 406</span></h3>
+<ul>
+<li>Один промпт даёт четыре дубля, и полезны они разными кусками: первый кадр из одного, игра из другого, жест из третьего.</li>
+<li>Дубли подписываются номером и задачей. Удачная игра помечается ACTING LOCKED, удачная случайность называется: LOW CAMERA, DUTCH ANGLE.</li>
+<li>Диалог собран из 6 генераций в порядке 01→04→02→05→03→06.</li>
+<li>Большая сцена делится на блоки по 30 с: ENTRANCE, PARTY, FIGHT. Дальше идёт продолжение предыдущего промпта в том же чате.</li>
+<li>Черновики на 480p, 90 за клип; выбранные пересоздаются в 1080p, 480 за клип.</li>
+<li>В этапе поиска автор берёт 4 варианта, на точечные правки 1–2.</li>
+</ul>
+<h3>Правки <span class="r">09:05, 09:53, 14:00</span></h3>
+<ul>
+<li>Приказ плюс диагноз: изменить вот это, потому что подъём камеры слишком долгий и теряется эмоция.</li>
+<li>Дефект сначала называется коротко, потом пишется правка: GUARDS, ELECTRIC BATON.</li>
+<li>Замок планировки: дверь за одним героем, диван за другим.</li>
+<li>Лечение CGI: реалистичнее, без вида компьютерной графики. Лечение одновременности: у каждого своё действие и своя реакция.</li>
+<li>Реплики и паузы переносятся из версии в версию нетронутыми.</li>
+<li>Новый скил проверяется на коротком тесте: одна реплика без него и с ним.</li>
+</ul>
+<h3>Диалог <span class="r">12:42, блог 3064–3096</span></h3>
+<ul>
+<li>Реплики дословно, с кодом и условием полноты: реплика завершена, когда прозвучало последнее слово. Если тайминг плывёт, важнее слова.</li>
+<li>Жёсткая склейка режет только картинку, реплика её переживает. Молчащие держат губы неподвижными.</li>
+<li>Голос говорящего сохраняется, когда на экране слушающий. Реплика поверх слушающего сильнее <span class="r">20:59</span>.</li>
+<li>Камера правилами, а не списком кадров: ручная, голландские углы на общих, остальное крупно с разных сторон, держать ось, закончить общим.</li>
+<li>Два плана на одного героя должны читаться как две разные точки.</li>
+<li>Нахлёст: новый блок открывается повтором последней реплики, чтобы было где склеить <span class="r">14:34</span>.</li>
+<li>Чужой язык: реплики на языке в AUDIO с таймкодами или английские с указанием произношения. Язык проверяйте отдельно.</li>
+</ul>
+<h3>Бой <span class="r">10:12–10:44, 15:20–15:58, блог 3695–3800</span></h3>
+<ul>
+<li>Человек пишет список: кто, где, что делает герой, как падает. Камера одной строкой.</li>
+<li>Без терминов боевых искусств, а геометрией движения; в конце FIGHT STYLE LOCK.</li>
+<li>Один удар на план, 2 с на удар, 15 планов на 30 с, у автора это выбор для конкретного боя.</li>
+<li>Удар из частей: контакт, уход тела, четверть секунды ступора, возврат.</li>
+<li>Подход замедленно, контакт в реальной скорости, потом реакция. Показать удар дважды: средним и крупным.</li>
+<li>Сузить площадку, если большая комната путает модель: у автора 2 м от дивана, дверь за камерой, референс стены убран.</li>
+<li>Склейка на движении: хлыстовая панорама, смаз, тёмный предмет, пальто на объективе.</li>
+</ul>
+<h3>Эффекты и предметы <span class="r">14:44–15:19</span></h3>
+<p>Если предмет меняет форму или исчезает, добавьте два референса (настоящая пуля и рана нужного размера) и порядок событий: пуля целиком выходит и падает, это один и тот же предмет, рана видна, пока камера не закроет героя. Затем снова пропустите сцену через скил игры с сохранением реплик и пауз.</p>
+<h3>Покрытие: те же движения с новых точек <span class="r">16:11–16:31, блог 3951–4026</span></h3>
+<ol class="steps">
+<li>Загрузить готовый дубль в Claude и попросить видео-в-видео промпт: хореография и порядок те же, ракурсы необычные.</li>
+<li>В промпте ролик назначить образцом движения и игры. Его камера, кадр, склейки и скорость остаются в нём.</li>
+<li>Описать новые точки: сквозь стакан, снизу через стеклянный стол, мимо лампы, из угла потолка, из дверного проёма, с пола. Голландский угол 25–35°, склейки по таймкоду.</li>
+<li>Найти моменты, где движение совпадает с исходником, и резать там: MATCH THE MOVEMENT.</li>
+</ol>
+<p>В студии видео в тексте обозначается как <code>&lt;&lt;&lt;video_1&gt;&gt;&gt;</code>.</p>
+<h3>Продление <span class="r">16:35–17:04, блог 4034–4036</span></h3>
+<ol class="steps">
+<li>Открыть клип в редакторе → Extend → Sequel (вперёд) или Prequel (назад).</li>
+<li>Описать, что дальше, начиная от последнего кадра: те же позиции, хват, свет и одежда.</li>
+<li>Выставить длину ползунком: 12 с дают 84, через Advanced settings → Resolution → 1080p уже 192.</li>
+</ol>
+<p>Перед этим сверьте настоящий последний кадр: промпт от одного дубля к другому не подходит. API: <code>mode: video_extension</code>, <code>extension_mode: forward</code> или <code>backward</code>.</p>
+<h3>Монтаж <span class="r">18:00–21:05</span></h3>
+<p>Монтажная программа в кадре не показана. Музыка и микшер тоже. Правила видны по самому фильму:</p>
+<ul>
+<li>Движение держится 1–3 с, смысл 3–7 с.</li>
+<li>Вход героя: карта сверху, лицо сквозь толпу, профиль.</li>
+<li>Перед боем широкий кадр-карта. Контакт показывается только крупно.</li>
+<li>Нейтральный кадр со спины нужен, чтобы сменить стороны.</li>
+<li>Вставка детали поверх реплики, чтобы не держать лицо.</li>
+<li>Предмет у объектива работает как угроза. Вход героя вглубь статичного плана.</li>
+<li>Стык прячется: хлыст, тёмный пролёт, пальто, расфокус, смаз поворота головы.</li>
+<li>Между сценами три секунды чёрного.</li>
+<li>Фильм 21:9 с полосами внутри ролика 16:9.</li>
+</ul>
+
+<h2 id="ui"><span class="no">4</span>Интерфейс и цены с экрана</h2>
+<h3>Экраны</h3>
+<ul>
+<li><strong>Верхнее меню:</strong> Explore, Image, Video, Audio, MCP, API, Genjutsu, Katana, AI Influencer, Academy, ChatGPT Plugin, Ads Studio, Effects, Cinema Studio, Contests, Marketing Studio, Supercomputer, Edit. Автор работает в Cinema Studio.</li>
+<li><strong>Панель проекта:</strong> Project brief, Settings, Elements, Tools (Canvas, Chat, AI Director). Ни один пункт в ролике не открывается.</li>
+<li><strong>Папки:</strong> All assets, Add folder, поиск, Trash. Диалог New folder: Name, Description, цвет.</li>
+<li><strong>Панель генерации:</strong> «+» и «@», поле описания, режим Image или Video, модель, References, формат, разрешение, длина, число вариантов <code>n/4</code>, качество High, звук On, кнопка GENERATE с ценой.</li>
+<li><strong>Правый клик по картинке:</strong> Open, Select, Turn to video, Recreate, Reference, Create element (Image или Video), Assign to element, Send to Canvas, Like, Share, Download, Move to, Copy to, Copy image, Copy image URL, Report, Delete.</li>
+<li><strong>Просмотр видео:</strong> плеер, вкладки Edit, Extend, Trim; панель Info с промптом и полями Model, Quality, Bitrate, Size, Filed in, Status; кнопки Recreate, Reference, Download.</li>
+<li><strong>Soul Cinema:</strong> Color transfer, чипы CHARACTER и Camera, Lens: Auto.</li>
+<li><strong>Окно AI Cast:</strong> вкладки Genre, Budget, Era, Archetype, Identity, Physical Appearance, Details, Outfit; кнопка Randomize; выбранное видно чипами.</li>
+<li><strong>Редактор Extend:</strong> таймлайн отрезков клипа; Edit, Extend, Trim; панель Prequel и Sequel; поле; ползунок DURATION; Advanced settings → RESOLUTION 480p, 720p, 1080p.</li>
+</ul>
+<p>Что делают Assign to element, Send to Canvas, Turn to video и Reference, в ролике не показано. Плашки SELECTED TAKES, ACTING LOCKED, MATCH THE MOVEMENT, цветные точки и лаймовая подсветка в окне Claude относятся к монтажу ролика. В интерфейсе таких экранов нет.</p>
+<h3>Как автор работает с Claude</h3>
+<ul>
+<li>Один чат на фильм, модель в селекторе Fable 5.1.</li>
+<li>Прикладывает картинки и видео из генератора, файлов с диска нет.</li>
+<li>Скилы вызывает слэш-командой (<code>/higgsfield-fight-scene</code>) или по имени в тексте. Claude читает файл скила и потом отвечает.</li>
+<li>Копирует промпт в поле Video, теги <code>@…</code> превращаются в чипы. Сам текст правит редко.</li>
+<li>Запреты пишет как есть, а скил боя переводит их в утверждения.</li>
+</ul>
+<h3>Настройки и цены с экрана</h3>
+<div class="tbl"><table>
+<tr><th>Этап</th><th>Модель</th><th>Настройки</th><th>Цена</th></tr>
+<tr><td>Лист героя по фото</td><td>GPT Image 2.5 Sunburst</td><td>3:2, Max, 4K, 4 варианта</td><td>≈60, плохо читается</td></tr>
+<tr><td>Снятие пластика</td><td>Seedream 5.0 Pro</td><td>16:9, 2K, 1 вариант</td><td>≈2,5</td></tr>
+<tr><td>Типаж</td><td>AI Cast</td><td>2K, 8 вариантов</td><td>≈1, плохо читается</td></tr>
+<tr><td>Лист без фото</td><td>Soul Cinema</td><td>16:9, 2K</td><td>0,125</td></tr>
+<tr><td>Видео-элемент</td><td>Seedance 2.5 по экрану плеера</td><td>10 с, 1080p, High</td><td>160</td></tr>
+<tr><td>Пластина</td><td>Soul Cinema</td><td>21:9, 2K, 4 варианта</td><td>≈0,5, плохо читается</td></tr>
+<tr><td>Черновик сцены</td><td>Seedance 2.5 Draft</td><td>21:9, 480p, 30 с, High, On</td><td>90 за клип, 360 за четыре</td></tr>
+<tr><td>Чистовик сцены</td><td>Seedance 2.5</td><td>21:9, 1080p, 30 с, High, On</td><td>480 за клип, 1 920 за четыре</td></tr>
+<tr><td>Продление</td><td>не названа</td><td>12–13 с</td><td>91 за 13 с, 84 за 12 с, 192 в 1080p</td></tr>
+</table></div>
+<p><span class="s v">вывод</span> Это 3 кредита в секунду в черновике, 16 в секунду в 1080p и 7 в секунду при продлении по умолчанию. Блог цены не называет вообще, а на вопрос читателя о расходе не отвечает.</p>
+<p><span class="s p">живьём</span> <code>seedance_2_5</code>: режимы <code>t2v</code>, <code>omni_reference</code>, <code>video_edit</code>, <code>video_extension</code>; длина 4–30 с; 480p, 720p, 1080p; форматы auto, 21:9, 16:9, 4:3, 1:1, 3:4, 9:16; <code>generate_audio</code>; <code>bitrate_mode</code> standard или high; <code>extension_mode</code>; <code>draft</code> с доработкой до 1080p по <code>draft_job_id</code> в течение 7 дней, оплата за всю длину. Роли вложений: <code>start_image</code>, <code>end_image</code>, <code>image_references</code>, <code>video_references</code>, <code>audio_references</code>.</p>
+
+<h2 id="authorskills"><span class="no">5</span>Четыре скила автора</h2>
+<h3>higgsfield-prompt-engine: драматургия</h3>
+<p>Несмотря на название, он отвечает только за драматургию. Формата видеопромпта внутри нет. На экране ролика он называется <code>higgsfield-prompt-skill</code>. Определения свои, не учебные.</p>
+<div class="tbl"><table>
+<tr><th>Элемент</th><th>Определение в скиле</th><th>Тест</th></tr>
+<tr><td>Goal</td><td>Единая неизменная цель героя: исправить то, что уже установлено. Главная цель не меняется, герой может ошибаться только в тактике</td><td>Если сцену можно убрать и цепочка цела, сцена лишняя</td></tr>
+<tr><td>Obstacle</td><td>Сильное обстоятельство, которое угрожает этапу или всей цели. Может быть полем поиска или одной стеной</td><td>Назвать, что под угрозой и в каком масштабе</td></tr>
+<tr><td>Tactic</td><td>Ход, вынужденный угрозой; разумная догадка при неполном знании</td><td>Провал должен давать новую информацию</td></tr>
+<tr><td>Reversal</td><td>Поворот против ожидания: моё действие обернулось против меня, или вскрылась скрытая воля. Минимум один на последовательность</td><td>Последовательность без поворота проваливается</td></tr>
+<tr><td>Value Shift</td><td>Изменение оценки героя у зрителя, вызванное поворотом</td><td>Если нельзя назвать оценку до и после, поворот мёртв</td></tr>
+</table></div>
+<ul>
+<li><strong>Режимы:</strong> аудит, написание, совместная работа. При большом сценарии сначала разбить на последовательности: от момента, когда угроза открылась, до момента, когда она разрешилась.</li>
+<li><strong>Аудит в чате:</strong> проверка цепочки, самое слабое место, затем What if: минимальная правка, чистая версия, необязательная третья.</li>
+<li><strong>Формат:</strong> новые страницы в сценарной записи Final Draft.</li>
+<li><strong>Главный брак:</strong> поворот меняет сюжет, но не оценку зрителя.</li>
+</ul>
+<h3>higgsfield-acting-skill: игра</h3>
+<p>Главная мысль: актёрская задача значит, что герой вовлечён в свою тактику достижения цели. Внешнее описание («брови поднимаются», «смотрит грустно») даёт мёртвое лицо. Мёртвые глаза лечатся задачей для глаз, а не бликом.</p>
+<h4>Лестница, строго по порядку</h4>
+<ol class="steps">
+<li><strong>Прочитать весь диалог.</strong> Задача не строится из одной реплики.</li>
+<li><strong>Цель сцены:</strong> одно общее направление для всех, обычно негласный договор, как прожить это время. Это не функция сцены в фильме. Герои о замысле фильма не знают.</li>
+<li><strong>Концовка называет событие.</strong> Сцену читают с конца, ищут двойной смысл последней реплики.</li>
+<li><strong>Событие одно на всех,</strong> включая молчащих и бессознательных. Если кто-то вне события, оно названо неверно.</li>
+<li><strong>Физическое действие как канал:</strong> внешнее занятие остаётся, и каждый ведёт событие через своё видимое поведение.</li>
+<li><strong>Мотив:</strong> у каждого своё топливо при общем направлении. Обстоятельства ограничивают мотив.</li>
+<li><strong>Личная цель:</strong> за что он борется сам, обычно, по-человечески.</li>
+<li><strong>Препятствие:</strong> что давит на линию. Одна трещина, и общая цель рушится.</li>
+<li><strong>Тактика:</strong> что он делает партнёру, включая работу глаз: проверяет оба глаза, ловит, дошло ли, крадёт взгляд и уводит его обратно.</li>
+</ol>
+<div class="tmpl"><pre>ACTING TASK — [ИМЯ]
+SCENE DIRECTION: [общее негласное направление, одна строка]
+MOTIVE: [его топливо]
+GOAL: [его личная борьба]
+OBSTACLE: [что давит, чего стоит одна трещина]
+TACTIC: [что он делает партнёру, работа глаз как действие]
+Moment to moment:
+— "[слова реплики]" — [глагол к партнёру + что проверяют глаза]
+— [где реплика ломается, если ломается]
+(Safety: взгляд занят задачей, не стеклянный; естественное моргание)</pre></div>
+<ul>
+<li><strong>Правила:</strong> глаголы к партнёру; без наречий эмоций; без хореографии лица. Никто не играет эмоцию, все играют направление, зритель получает чувство через давление.</li>
+<li><strong>Слушающий</strong> тоже имеет задачу: решить, всерьёз ли это, дождаться развязки, сберечь настроение.</li>
+<li><strong>Контрастная пара:</strong> у каждого один плюс и один минус, зеркально к партнёру. Назвать главную ось, которую прочитает зритель. Кажущаяся черта часто рубец на противоположной.</li>
+<li><strong>В сложной сцене у автора:</strong> THE EVENT, CONTRAST PAIR, PHYSICAL CHANNELS, PLAYABLE INTENTIONS. Если герой только идёт, задача простая: идёт и больше ничего в этом блоке <span class="r">блог 1066, 3125</span>.</li>
+<li><strong>Глаза у автора:</strong> цвет и форма по референсу, а игра в том, куда и как долго они смотрят <span class="r">блог 1058, 1068</span>.</li>
+</ul>
+<h3>higgsfield-anamorphic-skill: оптика</h3>
+<p>Модель подчиняется не названию объектива, а видимым признакам. Модели, производители камер и плёнок в промпте не называются.</p>
+<div class="tbl"><table>
+<tr><th>Задача</th><th>Объектив</th><th>Угол</th></tr>
+<tr><td>Локация, общий</td><td>24 мм</td><td>~84°</td></tr>
+<tr><td>Локация с предметом</td><td>35 мм</td><td>~63°</td></tr>
+<tr><td>Тесный интерьер, машина</td><td>40 мм</td><td>~57°</td></tr>
+<tr><td>Средние планы</td><td>50 мм</td><td>~47°</td></tr>
+<tr><td>Портрет, вставка</td><td>85 мм</td><td>~29°</td></tr>
+</table></div>
+<ul>
+<li><strong>Сильное размытие</strong> держится на физике: один названный предмет в фокусе, камера в 1–3 м от него, диафрагма открыта, сказано, какие слои растворяются.</li>
+<li><strong>Боке и блик как предметы:</strong> вытянутые вертикальные овалы на названной поверхности и горизонтальная полоса от самого яркого источника. У тёплого источника блик тёплый. Без яркого источника блика нет.</li>
+<li><strong>Плёнка:</strong> ночь и интерьер: tungsten-balanced 500-speed. День: daylight-balanced 250-speed.</li>
+<li><strong>Камера:</strong> три четверти, одна сторона пространства, одна высота.</li>
+<li><strong>Сборка локации:</strong> кадр и настроение → камера → содержимое спереди назад → палитра 60/30/10 → свет → фокус → технический хвост (плёнка, физика среды, без CGI, чистая пластина, формат).</li>
+<li><strong>Лечение:</strong> всё резкое → назвать точку фокуса; круглое боке → вертикальные овалы; бочка → rectilinear и 35 мм; растянуто лицо → 85 или 50 мм; вид рендера → вернуть хвост; появился логотип → убрать название продукта.</li>
+<li><strong>Дождь</strong> читается, только если подсвечен сзади и виден полосами.</li>
+</ul>
+<h3>higgsfield-fight-scene: бой</h3>
+<p>Версия 2.4. Хореограф в стиле Jeet Kune Do, второй стиль Wing Chun. Движок промпта задаёт формат, скил даёт содержание боя.</p>
+<h4>Порядок работы</h4>
+<ol class="steps">
+<li>Разбор: бойцы, число, оружие, место, эмоция, длина, кто побеждает. Названные приёмы прогнать через каталог.</li>
+<li>Прочитать <code>jkd-core</code>, <code>choreography-patterns</code>, нужные дайджесты.</li>
+<li>Биты по 1–2 с: позиция → действие → реакция → новая позиция.</li>
+<li>Перевести на язык промпта. Проверить чек-листом.</li>
+</ol>
+<h4>Законы письма</h4>
+<ul>
+<li>Термины запрещены в теле промпта: модель рисует обычное кунг-фу.</li>
+<li>Запреты тоже: названное вызывается. Все замки утвердительные.</li>
+<li>Состояния вместо подготовки: описывается уже летящий удар, а не замах.</li>
+<li>У каждого удара есть реакция цели, иначе контакт промахивается.</li>
+<li>Стойка задаётся полной геометрией в первом кадре, потом теми же короткими словами.</li>
+<li>Нестандартный удар держится на трёх слоях: бытовой образ (теннисный бэкхенд, вбивание гвоздя), бьющая поверхность, реакция по вектору. Правило появилось, когда бэкфист читался как обычный кулак.</li>
+</ul>
+<h4>Каталог приёмов</h4>
+<div class="tbl"><table>
+<tr><th>Группа</th><th>Коды</th></tr>
+<tr><td>Стойки</td><td>S1 боевая, S2 скрытая, S3 полная неподвижность, S4 ранняя 70/30</td></tr>
+<tr><td>Ноги, перемещение</td><td>F1 push shuffle, F2 step &amp; slide, F3 pendulum, F4 burst, F5 sidestep, F6 hovering</td></tr>
+<tr><td>Руки</td><td>H1 прямой, H2 в глаза, H3 хук, H4–H6 три бэкфиста, H7 цепочка прямых, H8 one-inch, H9 в печень, H10 кросс, H11 hammer fist, H12 локоть</td></tr>
+<tr><td>Ноги</td><td>K1 боковой в колено, K2 боковой в корпус, K3 в голень, K4 низкий хук, K5 перехват, K6 подсечка, K7 колено, K8 задний</td></tr>
+<tr><td>Перехваты</td><td>T1 pak sao, T2 lop sao, T3 jao sao, T4 jut sao, T5 stop-hit, T6 parry + hit, T7 chi sao, T8 серия</td></tr>
+<tr><td>Захваты, оружие, тренировка</td><td>G1–G3, W1 нож, W2 палка, D1–D6</td></tr>
+<tr><td>Wing Chun</td><td>WC-S1, WC-S2, WC-F1, WC-F2, WC-H1–H3, WC-K1, WC-T9–T11, WC-E1, WC-G1, WC-D1</td></tr>
+</table></div>
+<h4>Шаблоны</h4>
+<p>P1 перехват 4–6 с; P2 вход ногой, потом кулаком 6–8 с; P3 трэп-комбо 6–8 с; P4 цепочка и финиш боковым в препятствие 4–6 с; P5 два противника 8–12 с, выстроить их в линию; P6 нож 6–10 с. Драматургия: неподвижность → провокация → перехват → всплеск 1–3 действий → неподвижность. На 8 с не больше 4–6 битов. Бой решается за 2–4 бита.</p>
+<h4>Реакции</h4>
+<div class="tbl"><table>
+<tr><th>Удар</th><th>Реакция</th></tr>
+<tr><td>Прямой в челюсть</td><td>Голова назад, 1–2 шага, оседание</td></tr>
+<tr><td>Бэкфист</td><td>Голова вбок</td></tr>
+<tr><td>Боковой в корпус</td><td>Тело летит на 2–3 м в препятствие</td></tr>
+<tr><td>В колено</td><td>Сустав складывается, падение вперёд</td></tr>
+<tr><td>В глаза</td><td>Отшатнулся, руки к лицу, слепая пауза 1–2 с</td></tr>
+<tr><td>Lop sao + удар</td><td>Дёрнут вперёд-вниз, падает мимо героя</td></tr>
+</table></div>
+<h4>FIGHT STYLE LOCK</h4>
+<p>Одинаковый замок в конце каждого промпта: удары ногами ниже пояса; удар рукой идёт по короткой прямой от места, где руки уже лежат, и первое видимое движение уже является ударом; между обменами полная неподвижность в узкой боковой стойке. У Wing Chun свой вариант: поршневые удары из центра груди, локти у рёбер, фронтальная узкая стойка, непрерывное давление.</p>
+<h4>Чек-лист</h4>
+<p>Стойка геометрией; минимум один перехват; ноги ниже пояса; удар без замаха утвердительно; неподвижность записана как состояние; 2–4 бита; у каждого удара конечность, траектория, цель, реакция; без терминов и запретов; в конце замок; звук ударов в списке AUDIO, иначе удары беззвучны.</p>
+<h4>Камера и прочее</h4>
+<ul>
+<li>Профиль или три четверти читают стойку лучше всего; низкие удары требуют кадра с ногами; перехваты в среднем плане.</li>
+<li>Многоплановую сцену резать на паузах ритма.</li>
+<li>Протокол INGEST: новый материал о бое превращается в дайджест <code>sources/NN</code>, запись в индексе и правку базы.</li>
+<li>Удалено автором скила: аниме-вставки и библиотека физики ударов. Раздутый пятифазный движок откатили, потому что он ухудшал генерации: раздутые промпты теряют важные факты.</li>
+</ul>
+<p>Правила «один удар на план» и «четыре части удара» взяты из блога автора. В самом скиле есть близкое: один бит значит одно движение, один обмен значит один план.</p>
+
+<h2 id="seedance"><span class="no">6</span>Видеомодель: правила и поломки</h2>
+<p><span class="s n">набор</span> Файлы <code>higgsfield-seedance</code> и <code>higgsfield-seedance-2-5</code>, прочитаны полностью.</p>
+<h3>11 жёстких правил движка</h3>
+<ol class="steps">
+<li>Возраст персонажей не описывать совсем. Описывать роль, одежду и действие.</li>
+<li>Действие записывать как намерение и название приёма, а не механику суставов.</li>
+<li>Описывать силу и направление, а не последовательность разрушений.</li>
+<li>После склейки положение и взгляд назначать заново.</li>
+<li>Через склейки отслеживается не больше трёх персонажей. На план называть действующую пару и вектор.</li>
+<li>Выход из кадра равен склейке: кто вышел, того в этом плане больше нет.</li>
+<li>То, что за кадром, не существует. Смена состояния сначала показывается на камеру.</li>
+<li>Отражения избегать: они ломают геометрию.</li>
+<li>Только видимое и слышимое.</li>
+<li>Микровыражение как физика: челюсть сжимается, ноздри раздуваются.</li>
+<li>Двойной контраст на каждой склейке: меняются и крупность, и характер камеры.</li>
+</ol>
+<p><strong>Рискованные кадры.</strong> Отражение снимайте отдельным планом. Двойники: отдельная именованная роль с якорями и лучше резать между ними. Толпа: среда, индивидуально не больше трёх. Текст в кадре нестабилен: выносите в оверлей или проверяйте на финальном разрешении.</p>
+<h3>15 поломок</h3>
+<div class="tbl"><table>
+<tr><th>Симптом</th><th>Лечение</th></tr>
+<tr><td>Дрожит, дубли кадров</td><td>Частота в теле промпта; проходной план чинить вручную, главный перегенерировать</td></tr>
+<tr><td>Один кадр портит монтаж</td><td>Смотреть каждый клип покадрово</td></tr>
+<tr><td>Дубль в браке</td><td>Спасти 1–3 годные секунды</td></tr>
+<tr><td>Безобидный промпт отклонён</td><td>Обобщить анатомию, нейтральные слова, линтер; тот же текст не повторять</td></tr>
+<tr><td>Модель выдумала элемент</td><td>Написать, что его нет на кадре и как он появится</td></tr>
+<tr><td>Соседний предмет едет вместе</td><td>Назвать, что остаётся на месте</td></tr>
+<tr><td>Действие кончилось и идёт назад</td><td>Цепочка 2–3 действий в одну сторону; у камеры конечная точка</td></tr>
+<tr><td>Бормотание вокруг короткой реплики</td><td>Около 8 слов на 4 с или короче план; тишину занять; один говорящий; состояние рта у остальных</td></tr>
+<tr><td>Действие обрезано</td><td>Записать конечное состояние; следующий план начать с результата</td></tr>
+<tr><td>Руки двигаются, предмет не меняется</td><td>Цепочка: структура, опора, сила, реакция материала, итог</td></tr>
+<tr><td>Лишние руки в группе</td><td>Число людей, порядок, у каждой руки владелец и вход</td></tr>
+<tr><td>Камера нестабильна</td><td>Одно движение на план; составное расписать фазами</td></tr>
+<tr><td>Ломается пространство</td><td>Блок раскладки до действия</td></tr>
+<tr><td>Плохая ходьба</td><td>Цикл как физика: пятка первой, чередование, одна нога на земле; скорость камеры одним числом в км/ч</td></tr>
+<tr><td>Драка рассыпается на клипы</td><td>Последний кадр становится первым посреди движения; связка одним дублем; реальная скорость</td></tr>
+</table></div>
+<h3>Формулы промпта</h3>
+<ul>
+<li><strong>MCSLA:</strong> Model, Camera, Subject, Look, Action. Субъект и действие в первых 20–30 словах.</li>
+<li><strong>Короткий кадр 2.0:</strong> камера + субъект + действие + место + стиль + свет, 50–80 слов.</li>
+<li><strong>Блочный режим:</strong> SCENE CONTEXT → ACTIVE REFERENCES → LOCATION MAP → FIRST FRAME → FORMAT MODE → OPTICS → CAMERA → ACTION → PERFORMANCE → PHYSICS → LIGHTING → COLOR GRADE → WARDROBE → AUDIO → STYLE → OUTPUT SETTINGS → POSITIVE LOCKS. В готовых проектах 218–2 059 слов, в Hell Grind 3 000–4 000.</li>
+<li><strong>2.5:</strong> субъект и действие в сцене, стиль, камера или реплики, звук. Параметры в текст не писать.</li>
+<li><strong>Поле зрения в блочном режиме:</strong> только из набора 180, 107, 84, 63, 47, 29, 18, 12, 8 градусов. Скорость в км/ч, цвет в кельвинах, рост в сравнении с человеком.</li>
+</ul>
+<h3>Что не писать</h3>
+<ul>
+<li>Пустые слова: beautiful, stunning, epic, cinematic без уточнения, high quality.</li>
+<li>Возраст: boy, girl, child, kid, young, teen, little.</li>
+<li>Реальные имена и бренды: заменять описанием. Насилие через последствия и физику.</li>
+<li>Омонимы: tearing, shoot, duck, bolt, draw, wave, charge, rock, drop, fire, strike, break, pound, snap.</li>
+<li>Слово fast: описывать физику.</li>
+<li>Запах, вкус, мысли.</li>
+<li>Формат в тексте: задаётся настройкой.</li>
+<li>Голые negative-списки у видеомодели: читаются как описание. Запрет заменяется утверждением. Короткий хвост допустим. Сам автор отрицаниями пользуется часто.</li>
+</ul>
+<h3>Режимы 2.5</h3>
+<div class="tbl"><table>
+<tr><th>Режим</th><th>Для чего</th><th>Особенности</th></tr>
+<tr><td><code>t2v</code></td><td>Только описание</td><td>Без медиа</td></tr>
+<tr><td><code>omni_reference</code></td><td>Клип из материалов</td><td>Первый и последний кадр, раскадровка и блокаут живут только здесь</td></tr>
+<tr><td><code>video_edit</code></td><td>Изменение внутри ролика</td><td>Ровно одно видео; длина и формат от источника; оплата по длине источника</td></tr>
+<tr><td><code>video_extension</code></td><td>Дополнение до или после</td><td>Обязателен <code>extension_mode</code>; формат от источника; потолок цепочки 60 с</td></tr>
+</table></div>
+<ul>
+<li><strong>Карта ролей:</strong> @Image задаёт внешность, одежду, структуру, материал; @Video движение, камеру, темп; @Audio голос, диалог, атмосферу. Надписи внутри картинки не считаются.</li>
+<li><strong>Мульти-референс в пять шагов:</strong> строка на предмет; группировка персонажи → реквизит → сцены → движение и звук; профиль героя; выбор ссылок по сцене; проверка владения реквизитом. Плохо работает «@Images 1 through 4» одной строкой.</li>
+<li><strong>Тег не ставится туда, где субъекта нет.</strong> В строках действия у 2.5 герой называется именем и приметой, у 2.0 первым идёт тег.</li>
+<li><strong>Длинное видео:</strong> шапка цели, затем стадии: начальное состояние, ровно одно событие, видимое конечное состояние. В конце блок постоянства. Тайм-коды это бюджет времени, а не покадровая точка. Физику и игру лучше разделить на два промпта и склеить. Идеальный 30-секундный рендер считается несуществующим.</li>
+<li><strong>Звук:</strong> <code>()</code> музыка, <code>&lt;&gt;</code> эффекты, <code>{}</code> реплика, <code>【】</code> субтитры. Подавление музыки не писать внутри <code>()</code>.</li>
+<li><strong>Продление:</strong> сначала выровнять граничный кадр. Назад: последний кадр продолжения приземляется на первый кадр источника. Границы сходятся естественно, не пиксельно.</li>
+<li><strong>Раскадровка:</strong> до 15 панелей, сетка задаёт порядок и примерную композицию. Монохромную доску оговаривать: не рендерить карандашом. Сопоставление панелей и времени помогает склейкам, замер на одной паре.</li>
+<li><strong>Блокаут:</strong> сначала решить, грубый он или чистый. Убрать линии путей и камеры. Перечислить, что наследуется, и кто есть кто.</li>
+<li><strong>Первый и последний кадр:</strong> формат ролика берётся с первого, а последний должен совпадать с ним по формату, иначе растянется.</li>
+</ul>
+<h3>Выбор 2.0 или 2.5</h3>
+<p>4K, жанр и режим <code>fast</code> только в 2.0. Больше 15 с, правка, продление и много референсов только в 2.5. Черновик 480p проверяет промпт, а не дубль: параметра seed нет, повтор в 1080p новая игра. Набор пишет именно так, а API при этом предлагает <code>draft_job_id</code> для доработки того же черновика: проверяйте на пробе.</p>
+<h3>Съёмка поверх готового видео: VFX-PIPELINE</h3>
+<ol class="steps">
+<li><strong>Ассеты по классу:</strong> лицо Nano Banana 2, существа Seedream 5.0, одежда GPT Image 2, локации Soul Cinema.</li>
+<li><strong>Масштаб:</strong> отдельный кадр с пропорциями в ростах человека, роль только пропорции. Если неясно, рисовать меньше.</li>
+<li><strong>Локации:</strong> партии дёшево, финалистов проверять коротким видео. Обратные ракурсы: список, что переносится и чего нет.</li>
+<li><strong>Трансформация:</strong> <code>omni_reference</code> с исходником, длина равна источнику, сохранение замками, блок интеграции по зерну, смазу, фокусу и цвету.</li>
+<li><strong>Если не вышло:</strong> одинаковый дефект в четырёх партиях значит вину промпта или исходника. Видео-в-видео не изобретёт действие без якоря.</li>
+</ol>
+<p><code>higgsfield-seedance-vfx</code> делает то же на 2.0 в 4K. Главный риск: подогнали цвет, но не направление света, отражения и контакт, и объект выглядит вклеенным.</p>
+<h3>Конвейер полнометражного фильма: HELL-GRIND</h3>
+<p>Открытый бриф про 95-минутный фильм. Основа: у модели нет памяти между генерациями.</p>
+<ul>
+<li>Ассет это текст плюс картинка. Описание героя вставляется слово в слово.</li>
+<li>Лист: крупное лицо, тело спереди без головы, тело сзади. Серый фон, плоский свет. Голова убрана, чтобы лицо не бралось с мелкой фигурки.</li>
+<li>Правки только маской.</li>
+<li>Голос: регистр, темп, акцент, манера на каждого.</li>
+<li>Игра: абзац поведения на героя, по движению, рукам, привычкам, глазам и давлению.</li>
+<li>Локация: три четверти, якорь, один источник.</li>
+<li><strong>GEO SPATIAL LAYOUT:</strong> карта места в нескольких строках, без людей, в метрах, стороны от камеры, одна на сцену. Статичному диалогу дать угол комнаты.</li>
+<li>Первая секунда общий план, без реплик и действия, чтобы закрепить расстановку.</li>
+<li>Шапка с числом героев и дублирование числа замками.</li>
+<li>Диалог: голос и эмоция → реплика → действие → реакция лица. Реплики живут только в аудио.</li>
+<li>Физика вместо прилагательных: видимое событие раз в 1–2 с, неподвижность как удержанное напряжение, реакция до конца чужой реплики, занятые руки.</li>
+<li>Итерации: меняется одна строка, журнал, потолок 10–15. Если не складывается, упростить сам кадр.</li>
+</ul>
+<h3>Приёмы из обучающего ролика: PRODUCTION-PATTERNS</h3>
+<p>Показаны, но не гарантированы: фразы ролей (100 % совпадение, только стиль, VARIETY для толпы); координаты в процентах и размер в доле кадра; непустой первый кадр; ровно одна склейка по времени и LENS LOCK в сегменте; красная стрелка на листе реквизита; видео на экране один к одному при длине, равной референсу; дымка 20 → 70 %; грейд 60:30:10; обратное время монтажом; трансформация за кадром.</p>
+
+<h2 id="identity"><span class="no">7</span>Постоянство героя</h2>
+<p><strong>Три разных механизма, которые нельзя путать.</strong></p>
+<div class="tbl"><table>
+<tr><th>Механизм</th><th>Как работает</th><th>Когда</th></tr>
+<tr><td>Soul ID</td><td>Обучение на фото: 5–20, лучше 8–12, разные ракурсы и свет, без очков, шляп и групповых, CLI <code>higgsfield soul-id create --soul-2</code> или <code>--soul-cinematic</code>, затем <code>--soul-id</code> при генерации. 30 минут это таймаут ожидания, а не длина обучения. Нужен платный тариф</td><td>Много картинок одного лица. Для одного кадра не нужен</td></tr>
+<tr><td>Лист-референс</td><td>Без обучения: минимум лицо и полное тело на сером</td><td>Видео по референсам</td></tr>
+<tr><td>Elements и Soul Cast</td><td>Элемент в библиотеке проекта, вызов через <code>@Имя</code>. Soul Cast: актёр без фото из категорий, 0,125 за картинку, до 3 в кадре; по файлу набора только тарифы Business и Team</td><td>Cinema Studio</td></tr>
+</table></div>
+<ul>
+<li><strong>Лист 3×2 одним промптом</strong> держит личность лучше сборки: фронт, три четверти, спина, портрет по пояс, кисти, лицо.</li>
+<li><strong>Лист лицевого замка:</strong> лишние лица стирают, чтобы лицо читалось с одного крупного плана. На виде сзади голову оставляют, если важны волосы.</li>
+<li><strong>Неприкосновенная база:</strong> крупный план лица больше не проходит через модель. Изменения идут маской.</li>
+<li><strong>Реальный человек:</strong> стереть головы на панелях и вставить настоящее фото в портретную панель. Нужно согласие человека.</li>
+<li><strong>Identity и Motion раздельно:</strong> смешение описаний частая причина поплывшего лица. В Cinema Studio личность в элементе, движение в промпте.</li>
+<li><strong>Якорь кадра:</strong> 10 атрибутов: личность, позиция, глубина, занятость кадра, ориентация, поза, взгляд, контакты, состояние, выражение.</li>
+<li><strong>Только отличия от базы.</strong> При сильной ссылке короткий промпт лучше держит лицо. Спор о тексте рядом с референсом открыт.</li>
+<li><strong>Толпа:</strong> один референс даёт армию клонов; нужен VARIETY-лист с разными людьми. Толпу как место можно запечь в локацию.</li>
+<li><strong>Два героя:</strong> рост в сантиметрах.</li>
+<li><strong>Студийный вид</strong> это полуфабрикат: копию можно прогнать через Soul Cinema с направленным светом.</li>
+</ul>
+
+<h2 id="cinema"><span class="no">8</span>Cinema Studio</h2>
+<p>Сначала надо понять версию: возможности разные. Для одного клипа Cinema Studio не нужна, она нужна для 2+ связанных кадров. Данные из файлов набора, живьём не проверялись.</p>
+<div class="tbl"><table>
+<tr><th></th><th>2.5</th><th>3.0</th><th>3.5</th><th>4.0</th></tr>
+<tr><td>Планы</td><td>Все</td><td>Business, Team</td><td>Не проверен</td><td>Не проверен</td></tr>
+<tr><td>Видео</td><td>До 1080p, 12 с</td><td>До 720p, 15 с (есть расхождение)</td><td>480–1080p, 4–15 с</td><td>Режимы как у модели 2.5, 480–1080p</td></tr>
+<tr><td>Камера</td><td>Корпус, объектив, фокус, диафрагма</td><td>Без оптики</td><td>4 оси; 9 манер камеры</td><td>Значения закрыты, идентификаторы</td></tr>
+<tr><td>Жанры</td><td>8</td><td>7</td><td>7</td><td><code>genre_id</code></td></tr>
+<tr><td>Speed Ramp</td><td>6 видов</td><td>7 видов</td><td>Не проверен</td><td>Нет</td></tr>
+<tr><td>Прочее</td><td>Грейд, 3D, сетка до 16 за кредит, Popcorn</td><td>Нативный звук, 21:9, @-ссылки до 12 файлов (9 картинок, 3 видео, 3 аудио)</td><td>8 палитр, 6 видов света, Manual Style до 2 000 знаков</td><td>Звук включён по умолчанию, промпт обязателен</td></tr>
+</table></div>
+<ul>
+<li><strong>Director Panel (2.5, 3.0):</strong> Static, Handheld, Zoom In и Out, Camera Follows, Pan, Tilt, Orbit Around, Dolly, Jib, Drone Shot, 360 Roll, Auto. Только эти названия.</li>
+<li><strong>9 манер камеры в 3.5:</strong> Classic Static, Silent Machine, One Take, Epic Scale, Intimate Observer, Impossible Camera, Documentary Snap, Raw Chaos, Dreamy Flow.</li>
+<li><strong>Элементы:</strong> персонаж, локация, реквизит. Меню @: Uploads, Image Generations, Video Generations, Elements, Liked. Брать только теги, которые назвал пользователь. В экшене два тега меняют героев местами: тег первым у героя или обычный текст.</li>
+<li><strong>Лист локации из пяти видов:</strong> прямо, слева, справа, обратная сторона, детали. Лучше из одной генерации, плюс 2–3 неподвижных якоря.</li>
+<li><strong>Hero Frame:</strong> около 1 кредита против полной цены видео. <strong>Popcorn:</strong> раскадровка. <strong>Сетка 2×2, 3×3, 4×4</strong> за один кредит.</li>
+<li><strong>Правило:</strong> всё, что выставлено в интерфейсе, в промпт не пишется. В 2.5 и 3.0 поле промпта ограничено 512 знаками. В 2.5 каждый чип элемента отнимает около 80–100 скрытых знаков, поэтому при двух тегах видимого текста остаётся около 250.</li>
+</ul>
+
+<h2 id="set"><span class="no">9</span>Весь набор подскилов</h2>
+<p>Набор только составляет промпты и ничего не запускает. Корневой файл направляет запрос в нужный подскил и перед ответом проверяет 8 пунктов.</p>
+<div class="tbl"><table>
+<tr><th>Подскил</th><th>Для чего</th></tr>
+<tr><td><code>higgsfield-prompt</code></td><td>Сборка по MCSLA; для I2V только то, что меняется; одно действие на клип; менять одну переменную</td></tr>
+<tr><td><code>higgsfield-camera</code></td><td>Именованные пресеты: Dolly, Crane, Orbit, Crash Zoom, FPV, Snorricam, Whip Pan, Through Object и другие. Максимум два совместимых движения; zoom не писать для физического движения</td></tr>
+<tr><td><code>higgsfield-motion</code></td><td>100+ пресетов эффектов. Сам файл признаёт, что в 13 разобранных проектах они не применялись</td></tr>
+<tr><td><code>higgsfield-style</code></td><td>Стили, грейд, материальный контракт CGI (основа, шероховатость, дефект, кромка), эпоха через материалы и свет</td></tr>
+<tr><td><code>higgsfield-image-shots</code></td><td>Кадр для картинок: крупность, ракурс, композиция</td></tr>
+<tr><td><code>higgsfield-gpt-image-2</code></td><td>JSON, плотная проза или мета-промпт; прозрачный фон; листы; статичная реклама</td></tr>
+<tr><td><code>higgsfield-moodboard</code></td><td>Мудборды и цвет Soul HEX</td></tr>
+<tr><td><code>higgsfield-mixed-media</code></td><td>Художественные оверлеи: Sketch, Canvas, Paper, Origami</td></tr>
+<tr><td><code>higgsfield-seedance</code>, <code>-2-5</code>, <code>-vfx</code></td><td><a href="#seedance">Глава 6</a></td></tr>
+<tr><td><code>higgsfield-shotlist-director</code></td><td>Из брифа один HTML: префикс стиля, глоссарий ассетов, промпты сцен до 15 с; сумма резов равна хронометражу</td></tr>
+<tr><td><code>higgsfield-acting</code></td><td>Игра как поведение под давлением, мастер-профиль 150–220 слов</td></tr>
+<tr><td><code>higgsfield-facs</code></td><td>Мышцы лица кодами FACS, 3–4 выражения на генерацию, без гарантии</td></tr>
+<tr><td><code>higgsfield-scene-engine</code></td><td>Текстовая проверка сцены до генерации, самый дешёвый шаг</td></tr>
+<tr><td><code>higgsfield-audio</code></td><td>Диалог, SFX, фон, музыка; липсинк 3–8 с, крупный план, один говорящий, камера стоит; смена и клонирование голоса</td></tr>
+<tr><td><code>higgsfield-cinema</code></td><td><a href="#cinema">Глава 8</a></td></tr>
+<tr><td><code>higgsfield-marketing-studio</code></td><td>Реклама: 9 пресетов, хук + обстановка, один аватар, Ad Multiplier, Genjutsu. Не умеет больше 15 с, липсинк не-людей, диалог нескольких героев. Около 9 $ за ролик</td></tr>
+<tr><td><code>higgsfield-content-factory</code></td><td>Кампания: исследование, план, генерация, публикация, отчёт; 5 форматов поровну</td></tr>
+<tr><td><code>higgsfield-canvas</code></td><td>Узловая доска: промпт → картинка → видео</td></tr>
+<tr><td><code>higgsfield-pipeline</code></td><td>10 шагов планирования; 8 стадий: Popcorn, Seedream или Soul, анимация, Recast, липсинк, Vibe Motion, апскейл, сборка; конвейеры A–E; правило 80 %: сохрани удавшееся, исправь ошибку</td></tr>
+<tr><td><code>higgsfield-workspaces</code></td><td>Что выбрать: Cinema Studio, Lipsync Studio, Draw-to-Video, Viral Hub, Click to Ad, Audio</td></tr>
+<tr><td><code>higgsfield-apps</code></td><td>Приложения одной кнопкой: AI Stylist, Outfit Swap, Skin Enhancer, Transitions, Shots, Packshot и другие</td></tr>
+<tr><td><code>higgsfield-recipes</code></td><td>Шаблоны по жанрам</td></tr>
+<tr><td><code>higgsfield-vibe-motion</code></td><td>Графика как код: текст чёткий, цвета точные</td></tr>
+<tr><td><code>higgsfield-motion-design</code></td><td>Анимированная реклама как ИИ-видео: бриф → раскадровка → видео</td></tr>
+<tr><td><code>higgsfield-3d</code></td><td>Сетки, риггинг с библиотекой из 678 действий, сцены Blender</td></tr>
+<tr><td><code>higgsfield-repurpose</code></td><td>Shorts Studio, Clipify, Virality Predictor, Video Analysis</td></tr>
+<tr><td><code>higgsfield-soul</code></td><td><a href="#identity">Глава 7</a></td></tr>
+<tr><td><code>higgsfield-character-design</code></td><td>Сначала мир, потом герой: посылка, лист мира из 6 измерений, герой по 9 вопросам, каркас 10–20 битов, лист стиля с Forbidden List, передача в промпт. Пробы: 3–6 вариантов, три реплики, три голосовых триггера</td></tr>
+<tr><td><code>higgsfield-models</code></td><td>Выбор модели: дерево решений, бюджетные уровни</td></tr>
+<tr><td><code>higgsfield-troubleshoot</code></td><td>Таблица проблем, дерево диагностики, пять вердиктов, лестница остановок</td></tr>
+<tr><td><code>higgsfield-recall</code></td><td>Перед промптом поднимает прошлые неудачи, ведёт журнал</td></tr>
+<tr><td><code>higgsfield-assist</code></td><td>Встроенный помощник и экономия кредитов</td></tr>
+<tr><td><code>higgsfield-stack</code></td><td>Как набор живёт с CLI, MCP и официальными скилами; предпроверка: схема модели, затем цена</td></tr>
+</table></div>
+<p><strong>Скрипты:</strong> <code>scripts/preflight.py</code> проверяет параметры любой модели, <code>seedance_lint.py --preflight --model …</code> проверяет промпт (фильтр, структура, память провалов), <code>higgsfield_memory.py</code> ведёт журнал. Проверка 2.0 считает риском длину больше 180 слов и частым отказом больше 220; к блочным промптам это относится по-другому.</p>
+<p><strong>Отказы:</strong> отказ быстрее 10 с значит фильтр, перезапуск без правки бесполезен. Больше 30 с значит инфраструктура или сложность.</p>
+<h3>Словарь: vocab.md</h3>
+<ul>
+<li><strong>Свет:</strong> golden hour, blue hour, practical only, motivated, Rembrandt, butterfly, split, chiaroscuro, high-key, low-key. Лучше физика: положение источника, отскок, тень, плотность дымки.</li>
+<li><strong>Цвет:</strong> 60/30/10; плёнки Portra 400, Velvia, Vision3 500T, HP5, Ektachrome; 3200, 4000, 5600, 8500 K.</li>
+<li><strong>Движение:</strong> четыре слоя (субъект, внутреннее, камера, среда) и контракт камеры.</li>
+<li><strong>Эмоции:</strong> восемь каналов: дыхание, глаза, челюсть, потеря фокуса, сканирование, запаздывание, попытка контроля, остаточное.</li>
+<li><strong>Ночь:</strong> источники в кадре и тёмное окружение. Строб как событие с темпом и вторым слабым светом.</li>
+</ul>
+
+<h2 id="official"><span class="no">10</span>Официальные скилы</h2>
+<p>Они выполняют работу через CLI <code>higgsfield</code>. Перед работой проверяют, установлен ли он и выполнен ли вход. Вход пользователь делает сам.</p>
+<div class="tbl"><table>
+<tr><th>Скил</th><th>Что делает</th><th>Важное</th></tr>
+<tr><td><code>higgsfield-generate</code></td><td>Картинки, видео, 3D, аудио, Marketing Studio, оценка вирусности</td><td>Умолчания: GPT Image 2.5, Seedance 2.5, Nano Banana 2 для мультгероев, Seed Audio 1.0. Флаги <code>--image</code>, <code>--start-image</code>, <code>--end-image</code>, <code>--video</code>, <code>--audio</code>. <code>generate create … --wait</code>. 4K только у Seedance 2.0</td></tr>
+<tr><td><code>higgsfield-soul-id</code></td><td>Обучение лица</td><td>См. <a href="#identity">главу 7</a></td></tr>
+<tr><td><code>higgsfield-product-photoshoot</code></td><td>Фото товара, модель <code>gpt_image_2</code>, промпт собирает сервер</td><td>10 режимов: <code>product_shot</code>, <code>lifestyle_scene</code>, <code>closeup_product_with_person</code>, <code>moodboard_pin</code>, <code>hero_banner</code>, <code>social_carousel</code>, <code>ad_creative_pack</code>, <code>virtual_model_tryout</code>, <code>conceptual_product</code>, <code>restyle</code>. Всегда 2K, <code>--count</code> 1–10</td></tr>
+<tr><td><code>higgsfield-marketplace-cards</code></td><td>Карточки маркетплейсов</td><td><code>--scope</code>: <code>main</code>, <code>product-images</code>, <code>aplus</code>, <code>full-set</code></td></tr>
+<tr><td><code>higgsfield-brandkit</code></td><td>Система бренда: палитра, логотипы SVG, шрифты, макеты, упаковка, вывески, бренд-бук PPTX и PDF</td><td>Палитра → 3 символа → типографика, после каждого шага выбор. Смена палитры сбрасывает логотип</td></tr>
+<tr><td><code>higgsfield-video-explainer</code></td><td>Объясняющий ролик блоками по 10 с</td><td>Один диктор, один стиль, строго нефотореалистично. Сначала вопрос о стиле, потом настройки</td></tr>
+<tr><td><code>higgsfield-websites</code></td><td>Сайты, приложения, игры</td><td>React 19, Cloudflare Worker. Каждый выкат сразу публичный. Генерация ИИ только в типе <code>app</code></td></tr>
+<tr><td><code>higgsfield-youtube-thumbnail</code></td><td>Превью YouTube и обложки</td><td>Nano Banana Pro 4K, затем правки в Seedream 5.0 Pro. До 3 человек, лимит 16 генераций, обещаний сверх ролика не писать</td></tr>
+<tr><td><code>higgsfield-content-factory</code></td><td>Рекламный конвейер</td><td>Два разных файла с одним именем: 14 КБ в наборе и 56 КБ в anthropic-skills. Во втором обязателен пресетный аватар</td></tr>
+</table></div>
+
+<h2 id="models"><span class="no">11</span>Таблицы моделей</h2>
+<div class="note"><p><strong>Данные на 26.09.2026.</strong> Это снимок каталога из набора, и сам набор считает снимок старше 30 дней устаревшим. Сверяйте командой <code>higgsfield model get &lt;модель&gt;</code>. Из этих таблиц живьём сегодня проверена только <code>seedance_2_5</code>.</p></div>
+<h3>Видео</h3>
+<div class="tbl"><table>
+<tr><th>Модель</th><th>Для чего</th><th>Длина</th><th>Разрешение</th><th>Заметки</th></tr>
+<tr><td>Seedance 2.5</td><td>Длинные кадры, много референсов, правка, продление</td><td>4–30 с</td><td>480–1080p</td><td>Без 4K</td></tr>
+<tr><td>Seedance 2.0</td><td>Универсал, сложное движение, подсказка жанра</td><td>4–15 с</td><td>480p–4K (4K только <code>std</code>)</td><td><code>fast</code> без 1080p и 4K</td></tr>
+<tr><td>Seedance 2.0 Mini</td><td>Бюджет</td><td>4–15 с</td><td>480, 720p</td><td></td></tr>
+<tr><td>Seedance 1.5 Pro</td><td>Многоязычный звук, драма</td><td>4, 8, 12 с</td><td>480–1080p</td><td></td></tr>
+<tr><td>Kling 3.0</td><td>Герой, диалог, звук, мультикадр</td><td>3–15 с</td><td>Через режим <code>std</code>, <code>pro</code>, <code>4k</code></td><td>Форматы 16:9, 9:16, 1:1</td></tr>
+<tr><td>Kling 3.0 Turbo</td><td>Быстро и дёшево</td><td>3–15 с</td><td>720, 1080p</td><td></td></tr>
+<tr><td>Kling 3.0 Omni Edit</td><td>Правка видео по инструкции</td><td>не указано</td><td>—</td><td>Видео + картинки</td></tr>
+<tr><td>Kling 3.0 Motion Control</td><td>Перенос движения с образца</td><td>3–30 с</td><td>720, 1080p</td><td>Картинка героя + видео</td></tr>
+<tr><td>Genjutsu</td><td>Замена объекта по фото, перенос движения</td><td>не указано</td><td>480–1080p</td><td></td></tr>
+<tr><td>Veo 3.1, Lite, 3</td><td>Реализм, природа, звук</td><td>4, 6, 8 с</td><td>не указано</td><td>До 3 ссылок у 3.1</td></tr>
+<tr><td>Wan 3.0, Prime</td><td>Длинные кадры, ссылки, звук</td><td>2–30 с</td><td>480–1080p</td><td>Кадры либо ссылки, не вместе</td></tr>
+<tr><td>Hailuo 2.3</td><td>VFX, физика, танец</td><td>6, 10 с</td><td>512–1080</td><td></td></tr>
+<tr><td>MiniMax H3, Max</td><td>Ключевые кадры + ссылки</td><td>4–15 с</td><td>2K; 480, 768p</td><td>До 4 дублей</td></tr>
+<tr><td>Gemini Omni Flash, 1.1</td><td>Быстрые ролики по ссылкам</td><td>3–10 с</td><td>720p; 360p–4K</td><td></td></tr>
+<tr><td>Grok Video, 1.5</td><td>Оживление, соцролики</td><td>1–15 с</td><td>480–1080p у 1.5</td><td></td></tr>
+<tr><td>FLUX 3 Video, Edit</td><td>Длинный клип, правка по тексту</td><td>5–20 с</td><td>720, 1080p</td><td></td></tr>
+<tr><td>Happy Horse</td><td>Текст в видео</td><td>3–15 с</td><td>720, 1080p</td><td></td></tr>
+<tr><td>Marketing Studio video</td><td>Реклама, UGC</td><td>см. главу 13</td><td>480–1080p</td><td>Аватар</td></tr>
+</table></div>
+<h3>Картинки</h3>
+<div class="tbl"><table>
+<tr><th>Модель</th><th>Для чего</th><th>Заметки</th></tr>
+<tr><td>Soul 2.0</td><td>Мода, портреты, 10 стилей, Color Transfer</td><td>Одна картинка-ссылка, <code>style_id</code> не вместе с ней</td></tr>
+<tr><td>Soul Cinema</td><td>Кинокадры, ключевые кадры</td><td>1,5K и 2K, +21:9, около 0,125</td></tr>
+<tr><td>Soul Cast, Soul Location</td><td>Актёр и локации</td><td>9 форматов у Location</td></tr>
+<tr><td>Nano Banana Pro</td><td>Максимальная чёткость</td><td>До 14 ссылок, до 4K</td></tr>
+<tr><td>Nano Banana 2, Lite</td><td>Быстро, текст, маска</td><td>1K–4K; Lite только 1K</td></tr>
+<tr><td>Seedream 5.0 Pro, Lite, Flash</td><td>Правка по ссылкам, плотный текст, существа</td><td>1K–2K, <code>is_inpaint</code>, <code>remove_bg</code> у Pro</td></tr>
+<tr><td>GPT Image 2, 2.5</td><td>Текст, макеты, одежда; 2.5 с прозрачным фоном</td><td>Варианты flare и sunburst, качество до max, до 4K</td></tr>
+<tr><td>OpenAI Hazel</td><td>Правка по ссылкам, лучший текст</td><td></td></tr>
+<tr><td>Recraft 4.1</td><td>Логотипы, вектор, палитры</td><td></td></tr>
+<tr><td>FLUX.2, Kontext, Pro Outpaint</td><td>Генерация, правка, расширение холста</td><td></td></tr>
+<tr><td>Marketing Studio Image</td><td>Реклама</td><td>Партия до 20, формат обязателен</td></tr>
+</table></div>
+<p><strong>Какой брать быстро.</strong> Корень набора: видео Kling 3.0 (герой) или Seedance 2.0 (масштаб); картинки Soul 2.0 (портрет) или Nano Banana 2. Официальный скил: Seedance 2.5 и GPT Image 2.5. Автор: GPT Image 2.5 для листа с фото, Seedream 5.0 Pro для фактур и света, Soul Cinema для поиска облика и локаций, Seedance 2.5 для сцен.</p>
+
+<h2 id="disc"><span class="no">12</span>Экономия и дисциплина</h2>
+<p><strong>Цифры:</strong> в полнометражном проекте принято около 1 % картинок и 1,5 % видео при 108 859 генерациях и 9,54 млн кредитов. На главного героя ушло около 600 генераций Soul Cinema и 200 GPT Image. Без своих данных набор советует закладывать 2–3 попытки на простой кадр и 4–6 на сложный, это его умолчание, а не замер.</p>
+<ol class="steps">
+<li>Спросить один раз тип, длину, формат, модель; в простом случае взять умолчания и назвать их.</li>
+<li>Сверить до запуска: <code>higgsfield model get</code> → <code>higgsfield generate cost</code> → <code>higgsfield account status</code>. Локально: <code>preflight.py</code> и линтер.</li>
+<li>Закрепить субъект, сцену, камеру, свет, покрытие и что остаётся неизменным.</li>
+<li>Сначала картинка: 5–10 дешёвых вариантов, правка, один раз оживить. Никогда не оживлять то, что «сойдёт».</li>
+<li>Черновик 480p проверяет структуру.</li>
+<li>Дорогие режимы только на главные кадры. Отключение звука снижает цену.</li>
+<li>Менять одну переменную. Ошибка всегда одна: править промпт. Разная: закрепить промпт и собирать пачкой.</li>
+<li>Отбор: сначала жёсткие условия (лицо, одежда, число планов, текст), потом лучший по спорной оси.</li>
+<li>Журнал: одна строка на дубль.</li>
+<li>Продление: цепочка не длиннее 2, максимум 3; дальше от исходных референсов.</li>
+</ol>
+<p><strong>Пять вердиктов по дублю:</strong> оставить, исправить в монтаже, править, повторить без изменений, переписать.</p>
+<p><strong>Лестница остановок:</strong> 2 одинаковых дефекта → переписать; 3 платные попытки без бюджета → назвать варианты; половина бюджета без прогресса → сменить стратегию; 4 партии видео-в-видео → виноват промпт или исходник; 10–15 точечных правок → упростить кадр. Срабатывает первый.</p>
+<p><strong>Тарифы в файлах:</strong> Free 25, Basic 150, Pro 700, Ultimate 1 500 кредитов (проверено набором 06.07.2026). В другом файле названы Plus, Ultra, Business, Team. Смотрите на сайте.</p>
+
+<h2 id="conflicts"><span class="no">13</span>Расхождения и открытые споры</h2>
+<h3>Внутри блога автора</h3>
+<ul>
+<li>Волосы героя: белые без блонда в листе, platinum-blond в сценах <span class="r">блог 83, 929</span>. Волосы Рона: тёмные в листе, серые в сценах <span class="r">блог 216, 313</span>.</li>
+<li>Одежда: плащ в листе, jacket в блоке 1.1, перчатки только в 1.2 <span class="r">блог 93, 418, 672</span>. Кольца на разных руках <span class="r">блог 88, 929</span>.</li>
+<li>Массовка: в листе пять, а в сцене взяты 1, 2, 4, 5 и 6-й <span class="r">блог 2262–2288</span>.</li>
+<li>Заживление раны и тайминги: 4B.1 и 4B.2 решают по-разному <span class="r">блог 3397, 3497</span>.</li>
+<li>Следы на костюме: 5 потёртостей или 7 отверстий <span class="r">блог 3400, 3758</span>.</li>
+<li>Конец 4E и начало сцены 5: пальто в лоскутах и чистое пальто <span class="r">блог 4041, 4098</span>.</li>
+<li>Формат: 21:9 и 2.39:1 <span class="r">блог 412, 965</span>. Запрос локации на экране расходится со вставленным текстом <span class="r">04:48–04:56</span>.</li>
+</ul>
+<p>Поэтому промпты блога стоит брать как образец формы, а не как истину.</p>
+<h3>Между файлами набора и официальными</h3>
+<ul>
+<li><strong>Soul ID:</strong> 20+ фото в старых файлах, 5–20 в официальном. Брать официальное.</li>
+<li><strong>Marketing Studio:</strong> длина 4–15 с в подскиле, 12–15 с в спецификации, «без потолка» и 480–720p в официальном справочнике. Названия режимов <code>ugc_how_to</code> и <code>product_showcase</code> одни файлы признают, другие нет.</li>
+<li><strong>Nano Banana:</strong> <code>nano_banana_2</code> в одном файле значит Nano Banana 2, в другом псевдоним Pro. Перед запуском проверять <code>higgsfield model get</code>.</li>
+<li><strong>Cinema 3.0:</strong> до 720p и «был 4K». Cinema 2.5: потолок 12 с и пример на 15 с. Панель: заголовок 18 движений, строк 19. Жанры Soul Cast: 14 и 7.</li>
+<li><strong>Предпроверка цены:</strong> набор требует, официальный скил не считает цену без запроса.</li>
+<li><strong>Умолчания моделей:</strong> см. <a href="#models">главу 11</a>.</li>
+<li><strong>Длина промпта:</strong> 50–80 слов, 218–2 059, 3 000–4 000. Это разные режимы работы.</li>
+<li><strong>Первый кадр:</strong> открываться действием или секундой общего плана. Зависит от назначения кадра (P2-9).</li>
+<li><strong>Имена режиссёров:</strong> допустимы в коротком режиме, запрещены в блочном.</li>
+<li><strong>Запреты:</strong> набор и скил боя против, а автор пишет их часто.</li>
+<li><strong>Угол крупного плана:</strong> у автора 47°, в наборе 18° и 29°. Выбирать по задаче.</li>
+<li><strong>Двойной контраст на склейке</strong> конфликтует с просьбой держать штатив на всех планах.</li>
+<li><strong>Черновик и чистовик:</strong> набор говорит, что повтор в 1080p новая игра; платформа предлагает доработку через <code>draft_job_id</code>.</li>
+<li><strong>Картинка на входе Soul:</strong> автор говорит, что Soul картинку на вход не принимает, поэтому берёт GPT Image 2.5. В таблице набора у Soul 2.0 одна картинка-ссылка есть. Возможно, речь о разном: перерисовка против ссылки.</li>
+</ul>
+<h3>Открытые споры набора</h3>
+<div class="tbl"><table>
+<tr><th>Код</th><th>Вопрос</th></tr>
+<tr><td>P1-1</td><td>Сколько текста о герое писать рядом с референсом</td></tr>
+<tr><td>P2-2</td><td>Сколько раз упоминать голос в 2.5</td></tr>
+<tr><td>P2-4</td><td>Зерно на листе</td></tr>
+<tr><td>P2-6</td><td>Слова об оптике при запечённой анаморфной локации</td></tr>
+<tr><td>P2-7</td><td><code>NO BGM</code> или <code>No music.</code></td></tr>
+<tr><td>P3-2</td><td>Модель для одежды</td></tr>
+</table></div>
+
+<h2 id="files"><span class="no">14</span>Откуда всё взято</h2>
+<div class="tbl"><table>
+<tr><th>Что</th><th>Где оригинал</th></tr>
+<tr><td>Ролик автора</td><td>YouTube, канал Higgsfield, <code>watch?v=wFbgrPmVXb0</code>, 21 мин, выложен 24.10.2026</td></tr>
+<tr><td>Блог автора</td><td>«How to Make a Cinematic AI Short Film», подпись adilinthewildtempo, запись от 24 октября. Ссылка в описании ролика</td></tr>
+<tr><td>Скилы автора (сцена, игра, оптика, бой)</td><td>В описании ролика и в блоге. Лицензия в их файлах не указана, поэтому в пакет они не включены</td></tr>
+<tr><td>Большой набор подскилов</td><td><code>github.com/OSideMedia/higgsfield-ai-prompt-skill</code>, v3.40.0, лицензия MIT, O-Side Media</td></tr>
+<tr><td>Официальные скилы</td><td><code>github.com/higgsfield-ai/skills</code>, установка <code>npx skills add higgsfield-ai/skills</code></td></tr>
+<tr><td>CLI платформы</td><td><code>github.com/higgsfield-ai/cli</code>, <code>brew install higgsfield-ai/tap/higgsfield</code>, вход <code>higgsfield auth login</code></td></tr>
+</table></div>
+<h3>Что прочитано не полностью</h3>
+<ul>
+<li>Жанровые шаблоны <code>templates/</code> и <code>prompt-examples.md</code>: отдельные файлы.</li>
+<li>Подскилы <code>style</code>, <code>apps</code>, <code>recipes</code>, <code>workspaces</code>, <code>3d</code>, <code>repurpose</code>, <code>models</code>, <code>acting</code>, <code>facs</code> и подобные: основной файл или оглавление и нужные разделы.</li>
+<li>Справочники <code>brandkit</code> частично, справочники <code>websites</code> только поиском по одежде и материалам.</li>
+<li>Скил боя: дайджесты книг и видео выборочно.</li>
+<li>Ничего не запускалось и не покупалось. Все приёмы описаны по материалам и на практике в этом документе не проверялись.</li>
+</ul>
+</main>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.tmpl').forEach(function(box,i){
+    var b=document.createElement('button');b.type='button';b.id='copy'+i;b.textContent='Копировать';
+    b.addEventListener('click',function(){
+      var t=box.querySelector('pre').textContent;
+      var done=function(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Копировать'},1500)};
+      var sel=function(){var r=document.createRange();r.selectNodeContents(box.querySelector('pre'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Выделено'};
+      try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+    });
+    box.appendChild(b);
+  });
+  var t=document.getElementById('tocbox');
+  if(t&&window.matchMedia('(max-width:980px)').matches){t.open=false}
+})();
+</script>
