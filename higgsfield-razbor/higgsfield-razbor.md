@@ -1024,7 +1024,7 @@ P1 перехват 4–6 с; P2 вход ногой, потом кулаком 
 |---|---|
 | Ролик автора | YouTube, канал Higgsfield, `watch?v=wFbgrPmVXb0`, 21 мин, выложен 24.10.2026 |
 | Блог автора | «How to Make a Cinematic AI Short Film», подпись adilinthewildtempo, запись от 24 октября. Ссылка в описании ролика |
-| Скилы автора (сцена, игра, оптика, бой) | В описании ролика и в блоге. Лицензия в их файлах не указана, поэтому в пакет они не включены |
+| Скилы автора (сцена, игра, оптика, бой) | В описании ролика и в блоге. Включены в пакет без изменений, с разрешения автора (подтверждено 06.11.2026). У скила оптики исправлено только имя: в оригинале `anamorphic-look`, в пакете `higgsfield-anamorphic-skill`, как в ролике |
 | Большой набор подскилов | `github.com/OSideMedia/higgsfield-ai-prompt-skill`, v3.40.0, лицензия MIT, O-Side Media |
 | Официальные скилы | `github.com/higgsfield-ai/skills`, установка `npx skills add higgsfield-ai/skills` |
 | CLI платформы | `github.com/higgsfield-ai/cli`, `brew install higgsfield-ai/tap/higgsfield`, вход `higgsfield auth login` |

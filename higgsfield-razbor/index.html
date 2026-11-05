@@ -137,13 +137,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.qu
 <p class="lead">Всё, что изучено по созданию фильма в Higgsfield: покадровый разбор ролика автора, его блог, четыре его скила, большой набор подскилов и официальные скилы платформы. Здесь нет внутренних материалов студии.</p>
 <div class="dl" id="skachat">
 <h2>Скачать и поставить в Claude</h2>
-<p>Один архив: этот разбор в виде скила, большой набор подскилов под лицензией MIT и скрипт установки. Всё работает без сети, скрипт ничего не скачивает.</p>
-<a class="btn" href="neyra-higgsfield-pack.zip" download>Скачать архив, 4,5 МБ</a><a class="btn alt" href="higgsfield-razbor.md" download>Только справочник, .md</a>
+<p>Один архив: этот разбор в виде скила, четыре скила автора ролика (сцена, игра, оптика, бой), большой набор подскилов под лицензией MIT и скрипт установки. Всё работает без сети, скрипт ничего не скачивает.</p>
+<a class="btn" href="neyra-higgsfield-pack.zip" download>Скачать архив, 4,8 МБ</a><a class="btn alt" href="higgsfield-razbor.md" download>Только справочник, .md</a>
 <div class="tmpl"><pre>unzip neyra-higgsfield-pack.zip
 cd neyra-higgsfield-pack
 sh install.sh</pre></div>
 <p>Потом перезапустите Claude Code и вызовите <code>/higgsfield-film-workflow</code>. Для Claude desktop внутри архива есть zip для загрузки в настройках. Windows и приложение не проверялись, подробности в <code>README.md</code> архива. Чтобы запускать генерацию, нужен CLI платформы и вход: <code>brew install higgsfield-ai/tap/higgsfield</code>, затем <code>higgsfield auth login</code>.</p>
-<p class="sha">sha256: 670d25f12f30ddcf8a1effdb6ff53c71afa373acec8b7cf0b7d13d871fa0afcd</p>
+<p class="sha">sha256: 94f90ca24ea4e13897696a9c75a00ca549374db35fcb10b2be1603d955a3fd49</p>
 </div>
 <div class="legend">
 <div><span class="s a">автор</span> ролик и блог Adil (adilinthewildtempo), «How to Make a Cinematic AI Short Film»</div>
@@ -1098,7 +1098,7 @@ Moment to moment:
 <tr><th>Что</th><th>Где оригинал</th></tr>
 <tr><td>Ролик автора</td><td>YouTube, канал Higgsfield, <code>watch?v=wFbgrPmVXb0</code>, 21 мин, выложен 24.10.2026</td></tr>
 <tr><td>Блог автора</td><td>«How to Make a Cinematic AI Short Film», подпись adilinthewildtempo, запись от 24 октября. Ссылка в описании ролика</td></tr>
-<tr><td>Скилы автора (сцена, игра, оптика, бой)</td><td>В описании ролика и в блоге. Лицензия в их файлах не указана, поэтому в пакет они не включены</td></tr>
+<tr><td>Скилы автора (сцена, игра, оптика, бой)</td><td>В описании ролика и в блоге. Включены в пакет без изменений, с разрешения автора (подтверждено 06.11.2026). У скила оптики исправлено только имя: в оригинале <code>anamorphic-look</code>, в пакете <code>higgsfield-anamorphic-skill</code>, как в ролике</td></tr>
 <tr><td>Большой набор подскилов</td><td><code>github.com/OSideMedia/higgsfield-ai-prompt-skill</code>, v3.40.0, лицензия MIT, O-Side Media</td></tr>
 <tr><td>Официальные скилы</td><td><code>github.com/higgsfield-ai/skills</code>, установка <code>npx skills add higgsfield-ai/skills</code></td></tr>
 <tr><td>CLI платформы</td><td><code>github.com/higgsfield-ai/cli</code>, <code>brew install higgsfield-ai/tap/higgsfield</code>, вход <code>higgsfield auth login</code></td></tr>
